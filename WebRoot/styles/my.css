@@ -1,0 +1,428 @@
+<style type="text/css">
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-weight: normal;
+	font-family: verdana, tahoma, helvetica, arial, sans-serif, "宋体";
+	font-style: normal;
+	list-style-type: none;
+	text-decoration: none;
+}
+h1{margin-top:3px;
+margin-bottom:0px;
+	font-size:8px;
+	 text-align:center;
+	color:#8f8f8f;
+	
+}
+
+/*login*/
+#loginbg {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 200;
+	height: 100%;
+	width: 100%;
+	filter: alpha(opacity = 50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	background-color: #000000;
+}
+
+#login {
+	position: fixed;
+	top: 20%;
+	left: 40%;
+	width: 200px;
+	z-index: 201;
+	background-image: url(images/denglu.png);
+	background-repeat: no-repeat;
+	height: 279px;
+	background-position: center top;
+}
+
+#login h2 input {
+	height: 18px;
+	width: 18px;
+	float: right;
+	border: none;
+	cursor: pointer;
+	margin: 2px 6px 0 0;
+}
+
+
+#username {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-bottom-color: #384B4A;
+	background-color: transparent;
+    margin-top:24px;
+	margin-left: 60px;
+}
+
+#password {
+
+	margin-top: 0px;
+	margin-left: 57px;
+}
+
+
+#login  div input#fnlogin {
+	width: 70px;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	width: 100px;
+	background-image: url(images/login2.png);
+	margin-top: 10px;
+	margin-left: 55px;
+}
+
+#reme {
+	margin-top: 55px;
+	margin-left:70px;
+}
+
+#registerbg {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 200;
+	height: 100%;
+	width: 100%;
+	filter: alpha(opacity = 50);
+	-moz-opacity: 0.5;
+	opacity: 0.5;
+	background-color: #333333;
+}
+
+#register {
+	position: fixed;
+	top: 20%;
+	left: 40%;
+	width: 200px;
+	z-index: 201;
+	background-image: url(images/zhuce.png);
+	background-repeat: no-repeat;
+	height: 279px;
+	background-position: center top;
+}
+
+#register h1 input {
+	height: 18px;
+	width: 18px;
+	float: right;
+	border: none;
+	cursor: pointer;
+	margin: 2px 6px 0 0;
+}
+
+#username1 {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-bottom-color: #384B4A;
+	background-color: transparent;
+	margin-top: 20px;
+	margin-left: 61px;
+}
+
+#password1 {
+	
+	margin-top: 16px;
+	margin-left: 57px;
+}
+
+#password2 {
+	
+	margin-top: 20px;
+	margin-left: 57px;
+}
+
+#register  div input#fnregister {
+	width: 70px;
+	height: 30px;
+	cursor: pointer;
+	border: none;
+	width: 100px;
+	background-image: url(images/login2.png);
+	margin-top: 30px;
+	margin-left: 55px;
+}
+
+
+
+.div-inline{ display:inline}
+
+.loginButtonBg {
+ background-image: url(images/login.png);
+ width:92px;
+ height:29px;
+}
+.regisgerButtonBg {
+ background-image: url(images/register.png);
+ width:92px;
+ height:29px;
+}
+
+#ctr {
+	font-size: 1em;
+	border-radius: 5px;
+	width: 100%;
+	position: relative;
+	clear: both;
+	padding-top:20px;
+	margin-top: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+
+}
+
+.box h3 {text-align:center;margin:0 auto;}
+#ctr ul li {list-style:none}
+#ctr ol li {list-style: none}
+.centered { margin: 0 auto; }
+
+.box {
+  margin: 8px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 100%;
+  line-height: 1.4em;
+  float: left;
+}
+
+.box h2 {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+.box img,
+#tumblelog img {
+  display: block;
+  width: 100%;
+}
+
+.rtl .box {
+  float: right;
+  text-align: right; 
+  direction: rtl;
+}
+
+.col1 { width: 80px; }
+.col2 { width: 180px; }
+.col3 { width: 267px; }
+.col4 { width: 380px; }
+.col5 { width: 480px; }
+
+.col1 img { max-width: 80px; }
+.col2 img { max-width: 180px; }
+.col3 img { max-width: 267px; }
+.col4 img { max-width: 380px; }
+.col5 img { max-width: 480px; }
+
+
+
+
+#pic{
+	margin-left: 3px;
+	position: relative;
+
+}
+#picbg{
+	position: relative;
+	background-image: url(../images/photobg.png);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+#t1{text-align:center;
+   clear:both;
+   margin:0 auto;
+	margin-left: 0px;
+	margin-top: 5px;
+	color: #FFF;
+	font-size: 20px;
+}
+#t2{	margin-left: 7px;
+color: #FFF;
+font-size: 16px;
+	margin-top: 15px;}
+
+
+#home a{
+	float: left;
+	width: 131px;
+	height: 35px;
+	margin-top: 10px;
+	display: block;
+   background-image: url(images/home.png);
+	background-repeat: no-repeat;
+}
+#home a:hover{
+	float: left;
+	margin-top: 10px;
+	width: 131px;
+	height: 35px;
+   background-image: url(images/home.jpg) ;
+	background-repeat: no-repeat;
+}
+#profile a{
+	float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+    display: block;
+	background-image: url(images/profile.png);
+	background-repeat: no-repeat;
+}
+#profile a:hover{float: left;
+	margin-top:3px;
+	width: 131px;
+	height:35px;
+	display: block;
+   background-image: url(images/profile.jpg);
+	background-repeat: no-repeat;
+}
+#friend a{
+	float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+    display: block;
+	background-image: url(images/friend.png);
+	background-repeat: no-repeat;
+}
+#friend a:hover{float: left;
+	margin-top:3px;
+	width: 131px;
+	height:35px;
+	display: block;
+   background-image: url(images/friend.jpg);
+	background-repeat: no-repeat;}
+#photo a{
+	float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+    display: block;
+	background-image: url(images/photo.png);
+	background-repeat: no-repeat;
+}
+#photo a:hover{float: left;
+	margin-top:3px;
+	width: 131px;
+	height:35px;
+	display: block;
+   background-image: url(images/photo.jpg);
+	background-repeat: no-repeat;
+}
+#message a {
+	float: left;
+	margin-top:3px;
+	width: 131px;
+	height:35px;
+	display: block;
+	background-image: url(images/message.png);
+	background-repeat: no-repeat;
+}
+#message a:hover{float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+	display: block;
+   background-image: url(images/message.jpg);
+	background-repeat: no-repeat;
+}
+#bbs a{
+	float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+	display: block;
+	background-image: url(images/bbs.png);
+	background-repeat: no-repeat;
+}
+#bbs a:hover{float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+	display: block;
+   background-image: url(images/bbs.jpg);
+	background-repeat: no-repeat;
+}
+#exit a{
+	float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+	display: block;
+	background-image: url(images/exit.png);
+	background-repeat: no-repeat;
+}
+#exit a:hover{
+	float: left;
+	margin-top:3px;
+	width: 131px;
+	height: 35px;
+	display: block;
+   background-image: url(images/exit.jpg);
+	background-repeat: no-repeat;
+}
+.search_keyword{
+	width:100px;
+    height:30px;
+	background-color: transparent;
+    border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+#Loginwarn{
+	font-size:13px;
+	color:#F03;
+margin-left:30px;
+margin-top:60px;
+	}
+#Signwarn{
+	font-size:13px;
+	color:#F03;
+margin-left:30px;
+margin-top:45px;
+	}
+	
+	
+	
+label{
+	height:20px;position:relative;margin-top:13px ;margin-left:5px;}
+span{position:absolute;float:left;line-height:20px;cursor:text;}
+.input_txt{
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	width: 120px;
+	height: 20px;
+	background-color: transparent;
+
+}
+
+</style>

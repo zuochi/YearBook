@@ -1,0 +1,19 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body{background-image:url(../images/background_main.png);background-repeat: repeat;}
+form{width:500px;height:800px;margin:10px auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:30px;}
+label{display:block;height:40px;position:relative;margin:20px;margin-left:50px; margin-top:25px;}
+span{position:absolute;float:left;line-height:40px;left:10px;color:#BCBCBC;cursor:text;}
+.input_txt{width:398px;border:solid 1px #ccc;box-shadow:0 1px 10px rgba(0,0,0,0.1) inset;height:38px;text-indent:10px;}
+.input_txt:focus{box-shadow:0 0 4px rgba(255,153,164,0.8);border:solid 1px #B00000;}
+.border_radius{border-radius:5px;color:#B00000;}
+h2{font-size:30px;text-shadow:1px 1px 3px #fff;  text-align:center;}
+h3{ margin-top:0px; font-size:16px;text-align:center;}
+h4{float:right; font-size:14px;}
+#option{margin-top:28px; margin-left:50px;}
+h5{ font-size:16px; margin-left:55px;
+	}
+#save{
+	margin-top: 70px;
+	margin-left: 220px;}

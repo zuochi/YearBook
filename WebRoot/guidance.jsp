@@ -1,0 +1,141 @@
+<%@ page import="bean.User"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<title>My JSP 'guidance_left.jsp' starting page</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+<link type="text/css" href="styles/style.css" rel="stylesheet" />
+<link type="text/css" href="styles/skitter.styles.css" media="all"
+	rel="stylesheet" />
+<jsp:include page="styles/my.css" />
+</head>
+<%
+
+%>
+<body>
+	<!--左侧导航-->
+	<div id="container">
+		<div id="logo">
+			<a href="index.jsp"><img src="images/logo1.png" alt="" width="80"
+				height="80" />
+			</a>
+		</div>
+		<!-- end #logo -->
+		<div id="logo1">
+			<s:if test="#session.headPhoto.urlL!=null">
+				<a href="javascript:void(0)" onclick="goUrl(1)" target="main"> 
+					<img src="<s:property value="#session.headPhoto.urlL"/>" alt="" width="65" height="65" title="修改头像"> 
+				</a>
+			</s:if>
+			<s:elseif test="#session.headPhoto.urlL==null">
+				<a href="javascript:void(0)" onclick="goUrl(1)" target="main"> 
+					<img src="images/bg.jpg" alt="" width="65" height="65" title="修改头像"> 
+				</a>
+			</s:elseif>
+			<s:else>
+				<img src="images/bg.jpg" alt="" width="65" height="65" title="修改头像">
+			</s:else>
+		</div>
+		<div id="t1">
+			<label> <s:if test="#session.user.name!=null">
+					<a class="name" href="javascript:void(0)" onclick="goUrl(2)" target="main"><s:property value="#session.user.name" /></a>
+				</s:if> <s:else>
+					tourist
+				</s:else> </label>
+		</div>
+		<%
+	    int i=1;
+		//if(user!=null){ 
+		if(i==1){ 
+		%>
+		<div id="footer">
+			<div id="home">
+				<a href="javascript:void(0)" onclick="goUrl(3)" target="main"></a>
+			</div>
+			<div id="profile">
+				<a href="javascript:void(0)" onclick="goUrl(2)" target="main"></a>
+			</div>
+			<div id="friend">
+				<a href="javascript:void(0)" onclick="goUrl(4)" target="main"></a>
+				<div id="photo">
+					<a href="javascript:void(0)" onclick="goUrl(5)" target="main"></a>
+				</div>
+				<div id="bbs">
+					<a href="javascript:void(0)" onclick="goUrl(6)" target="main"></a>
+				</div>
+				<div id="message">
+					<a href="javascript:void(0)" onclick="goUrl(7)" target="main"> </a>
+				</div>
+				<div id="exit">
+					<a href="javascript:void(0)" onclick="goUrl(8)" target="_parent"></a>
+				</div>
+			</div>
+			<div id="t2">
+				please. <a href="javascript:void(0)" onclick="goUrl(9)" target="main"> login</a><br>
+				 or<a href="javascript:void(0)" onclick="goUrl(10)" target="main">sign up</a>
+			</div>
+			<%}else{ %>
+			<div id="t2">
+				please. <a href="javascript:void(0)" onclick="goUrl(9)" target="main"> log in!</a><br>
+				 or<a href="javascript:void(0)" onclick="goUrl(10)" target="main">sign up</a>
+			</div>
+			<%} %>
+		</div>
+	</div>
+	<script type="text/javascript" src="<%=basePath %>js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="<%=basePath %>js/jquery.animate-colors-min.js"></script>
+	<script type="text/javascript" src="<%=basePath %>js/jquery.skitter.js"></script>
+	<script type="text/javascript" src="<%=basePath %>js/my.js"></script>
+	<script type="text/javascript">
+		function goUrl(type){
+			if(type==1){
+				window.parent.main.location.href="User_headPhotoUpload.jsp";
+			}
+			if(type==2){
+				window.parent.main.location.href="/YearBook/user/getProfiles_execute";
+			}
+			if(type==3){
+				window.parent.main.location.href="mainPage.jsp";
+			}
+			if(type==4){
+				window.parent.main.location.href="friend.jsp";
+			}
+			if(type==5){
+				window.parent.main.location.href="/YearBook/user/getMyPost_execute?userId=<s:property value='#session.user.id'/>";
+			}
+			if(type==6){
+				window.parent.main.location.href="bbs.jsp";
+			}
+			if(type==7){
+				window.parent.main.location.href="message.jsp";
+			}
+			if(type==8){
+				window.parent.location.href="/YearBook/user/logout_execute";
+			}
+			if(type==9){
+				window.parent.main.location.href="/YearBook/user/autoLogin_execute";
+			}
+			if(type==10){
+				window.parent.main.location.href="mainPage.jsp?type=signup";
+			}
+		};
+	</script>
+</body>
+</html>

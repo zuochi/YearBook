@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="true" />
+        <package name="home" namespace="/" extends="struts-default">
+		<default-action-ref name="index" />
+		<action name="index">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+	<package name="user" extends="json-default" namespace="/user">
+		<action name="*_*" class="{1}" method="{2}">
+			<result>/index.jsp</result>
+			<result name="autoLogin">/auto_loginRedict.jsp</result>
+			<result name="logout">/index.jsp</result>
+			<result name="profile">/profile.jsp</result>
+			<result name="mypost">/User_index.jsp</result>
+			<result name="social">/Social_index.jsp</result>
+			<result name="photo" type="redirect">/photo.jsp</result>
+			<result name="login" type="redirect">
+				<param name="location">/mainPage.jsp</param>
+				<param name="type">login</param>
+			</result>
+			<result name="ajax" type="json"></result>
+		</action>
+	</package>
+</struts>

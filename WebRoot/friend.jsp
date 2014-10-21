@@ -1,0 +1,170 @@
+<%@page import="bean.User"%>
+<%@ page contentType="text/html; charset=utf-8" language="java"
+	import="java.sql.*" errorPage=""%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="styles/friend.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="styles/sass-compiled.css" />
+<script src="js/modernizr.js" type="text/javascript"></script>
+	
+
+<title>Friend </title>
+
+</head>
+<body>
+
+   <header>
+		
+<div class="wrapper">
+<div class="follow">		
+<h1>Following/Followers</h1>
+	</div>			
+
+	</div>
+</header>
+<div class="frame">
+
+
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div>
+
+
+
+
+
+
+
+
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div><div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div>
+
+
+
+
+
+
+	
+   </div>
+
+</body>
+</html>
