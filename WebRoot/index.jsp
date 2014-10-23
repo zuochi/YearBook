@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
 </head>
-         <!-- 8.4% -->
+         <!-- 8.4% 113px -->
 <frameset cols="113px,*" border="0">
 	<frame name="left" src="guidance.jsp" scrolling="no">
    	<frame name="main" src="mainPage.jsp">
