@@ -5,14 +5,17 @@
 body, html { font-size: 100%; padding: 0; margin: 0;}
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
-.clearfix:before, .clearfix:after { content: " "; display: table; }
-.clearfix:after {  }
 
 body {background-image:url(../images/background_main.png);background-repeat: repeat;
     font-family: 'Lato', Calibri, Arial, sans-serif;
     color: #47a3da;
 }
+.clearfix{
+	float:left;
+	height:60px;
+	width:100%;
 
+}
 a {
 	color:#01b8f0;
 	text-decoration: none;
@@ -254,14 +257,17 @@ margin-top:8px;
 	height:45px;
 	background-color:#234;
 }
-.attfan{margin-top:70px;
-	height:100%;
+.attfan{
+	
+	position:relative;
+	margin-bottom:0px;
+	height:30px;
 	width:210px;
 	
 }
 .guanzhu{margin-top:0px;
 	float: left;
-	margin-left:1px;
+	margin-left:0px;
 	background-image:url(../images/000.jpg);
 	height:50px;
 	width:200px;
@@ -269,14 +275,14 @@ margin-top:8px;
 .guanzhu:hover{
 	margin-top:0px;
 	float: left;
-	margin-left:1px;
+	margin-left:0px;
 	background-image:url(../images/111.jpg);
 	height:50px;
 	width:200px;
 }
 .yiguanzhu{margin-top:0px;
 	float: left;
-	margin-left:1px;
+	margin-left:0px;
 	background-image:url(../images/222.jpg);
 	height:50px;
 	width:200px;
@@ -284,7 +290,7 @@ margin-top:8px;
 .yiguanzhu:hover{
 	margin-top:0px;
 	float: left;
-	margin-left:1px;
+	margin-left:0px;
 	background-image:url(../images/444.jpg);
 	height:50px;
 	width:200px;
@@ -304,7 +310,7 @@ margin-top:8px;
 	position: relative;
    opacity: 0.7;}
 .time{
-	margin-left:70px;
+	margin-left:55px;
 	position:absolute;
 	bottom:2%;
 	margin-top:3px;
