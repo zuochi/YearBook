@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
 	<input type="hidden" id="basePath" value="<%=basePath%>"/>
 	<div class="top"> 
-<input type="text"  style="font-size:14px">
+<input type="text"  style="font-size:14px;margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
 		<div class="container">
