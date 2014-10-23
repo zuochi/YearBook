@@ -3,6 +3,7 @@ package util;
 import java.util.Properties;
 
 import service.Service;
+import sun.print.resources.serviceui;
 
 import bean.User;
 
@@ -14,6 +15,7 @@ public class AnalyzeStringUtils {
 		
 		//重置reply
 		reply = "";
+		
 		User friend = null;
 		
 		for(int i=0 ; i<friendsList.length ; i++){
@@ -27,8 +29,7 @@ public class AnalyzeStringUtils {
 					if(j==(friendsListMiddle.length-1) && !"".equals(friendsListMiddle[j])){
 						friend = getUserByName(friendsListMiddle[j],service);
 						if(friend!=null){
-							reply += "<a href='YearBook/user/getSocial?userId="+friend.getId()+"'>"+"@"+friendsListMiddle[j]+"<a> ";
-							System.out.println(i + " " +friend.getUserName());
+							reply += "<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ";
 						}else{
 							reply += "@" + friendsListMiddle[j] + " " ;
 						}
@@ -42,6 +43,10 @@ public class AnalyzeStringUtils {
 			}
 		}
 		return reply;
+	}
+	
+	private boolean noifyFriend(Service service){
+		return false;
 	}
 	
 	private static User getUserByName(String name,Service service){
