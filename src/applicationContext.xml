@@ -51,6 +51,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 				hibernate.dialect=org.hibernate.dialect.MySQLDialect
 				hibernate.show_sql=true
 				current_session_context_class=thread
+				hibernate.hbm2ddl.auto=update
 			</value>
 		</property>
 	</bean> 

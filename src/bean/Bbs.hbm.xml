@@ -16,7 +16,7 @@
             </column>
         </many-to-one>
         <property name="context" type="java.lang.String">
-            <column name="context" length="200" not-null="true">
+            <column name="context" length="1500" not-null="true">
                 <comment>留言内容</comment>
             </column>
         </property>

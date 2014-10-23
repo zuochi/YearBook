@@ -89,7 +89,7 @@ public class PhotoUpload extends UserAction{
 				fis.close();
 			}
 		}
-		return "upload";
+		return "ajax";
 	}
 
 	public void createThumbnail() throws Exception{
