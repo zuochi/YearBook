@@ -119,6 +119,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 		});
 
+		
+		//去某用户的主页
+		function goSocialIndex(userId){
+			window.location.href='YearBook/user/getSocial?userId='+userId;
+		}
 </script>
 </head>
 <body>
