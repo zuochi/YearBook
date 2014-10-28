@@ -260,13 +260,15 @@ margin-top:8px;
 .attfan{
 	
 	position:relative;
-	margin-bottom:0px;
+	margin-top:20px;
 	height:30px;
-	width:210px;
+	width:200px;
 	
 }
-.guanzhu{margin-top:0px;
-	float: left;
+.guanzhu{
+	
+	margin-top:0px;
+	float: top;
 	margin-left:0px;
 	background-image:url(../images/000.jpg);
 	height:50px;
@@ -274,14 +276,14 @@ margin-top:8px;
 }
 .guanzhu:hover{
 	margin-top:0px;
-	float: left;
+	float: top;
 	margin-left:0px;
 	background-image:url(../images/111.jpg);
 	height:50px;
 	width:200px;
 }
 .yiguanzhu{margin-top:0px;
-	float: left;
+	float: top;
 	margin-left:0px;
 	background-image:url(../images/222.jpg);
 	height:50px;
@@ -289,7 +291,7 @@ margin-top:8px;
 }
 .yiguanzhu:hover{
 	margin-top:0px;
-	float: left;
+	float: top;
 	margin-left:0px;
 	background-image:url(../images/444.jpg);
 	height:50px;
@@ -310,10 +312,9 @@ margin-top:8px;
 	position: relative;
    opacity: 0.7;}
 .time{
-	margin-left:55px;
-	position:absolute;
-	bottom:2%;
-	margin-top:3px;
+	margin:0 auto;
+	position:relative;
+	bottom:-25px;
 	color:#8f8f8f;
 	font-size:9px;
 	text-align:center;
@@ -333,10 +334,10 @@ margin-top:8px;
 	line-height:20px;
 	font-size:17px;
     color:#234;
-	float: left;
+	float: top;
 	positon:relative;
 	width:200px;
-	height:525px;
+	
 	border: 10px solid #fff;
 	overflow: hidden;	
 	background: #fff;
@@ -348,7 +349,7 @@ h1 span {font-size:12px;color:#696A52;}
 .p2{font-size:11px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-style: normal;}
 
 /* comment style */
-.ds-post-main {position:relative;margin-bottom:30px; margin-top:10px;  width:85%;height:100%}
+.ds-post-main {position:relative;margin-bottom:30px; margin-top:10px;  width:90%;}
 .ds-avatar {z-index:2;position:absolute;top:10px;left:-20px;padding:0px;width:36px;height:36px; border-radius:50%; box-shadow:-1px 0 1px rgba(0,0,0,.15) inset; background:#E5E6D0 url(../images/background_main.png)} repeat 0 0;}
 .ds-avatar a {display:block; padding:1px; width:32px; height:32px; border:1px solid #B9BAA6; border-radius:50%; background-color:#fff; -moz-transition:color 0.15s linear; -webkit-transition:color 0.15s linear;transition:color 0.15s linear;}
 .ds-avatar img {display:block;width:40px; height:40px;border-radius:50%;box-shadow:0 1px 5px rgba(0, 0, 0, 0.22)}
