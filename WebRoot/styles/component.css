@@ -38,8 +38,15 @@
 .grid-wrap {
 	max-width:100%;
     margin:0 auto;
-	padding: 30px 0 0 15px;
+	padding: 0px 0 0 15px;
 }
+.grid-wrap2 {
+	margin-top:0px;
+	width:70%;
+    margin-left:220px;
+	padding: 0 0 0 15px;
+}
+
 
 .grid {
 	
@@ -66,46 +73,46 @@
 }
 
 .de{float:left;
-margin-top:240px;
+margin-top:217px;
 margin-left:0px;
 	z-index:200;
    position:relative;
    width:20px;
    height:20px;
    background:url(../images/delete_icon2.png) no-repeat;
-   padding:0px 15px 30px 15px;
+   padding:28px 15px 30px 15px;
 }
 .de:hover{
 float:left;
-margin-top:240px;
+margin-top:217px;
 margin-left:0px;
 z-index:200;
    position:relative;
    width:20px;
    height:20px;
    background:url(../images/delete_icon-hover.png) no-repeat;
-   padding:0px 15px 30px 15px;
+   padding:28px 15px 30px 15px;
 }
 
-.up{margin-top:240px;
+.up{margin-top:217px;
 margin-left:170px;
 	float:left;
 	z-index:200;
    position:relative;
    width:20px;
    height:20px;
-	padding:0px 0px 30px 15px;
+	padding:28px 0px 30px 15px;
 	 background:url(../images/up_icon.png) no-repeat;
 }
 
-.up:hover{margin-top:240px;
+.up:hover{margin-top:217px;
 margin-left:170px;
 	float:left;
 	z-index:200;
    position:relative;
    width:20px;
    height:20px;
-   padding:0px 0px 30px 15px;
+   padding:28px 0px 30px 15px;
 	 background:url(../images/up_icon-hover.png) no-repeat;
 }
 
@@ -120,7 +127,7 @@ margin-left:170px;
 
 .grid figure {
 	font-size:7px;
-	padding:15px 15px 15px 15px;
+	padding:20px 15px 15px 15px;
 	-webkit-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
