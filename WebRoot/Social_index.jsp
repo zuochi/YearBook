@@ -82,15 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</s:else>
 		</s:if>
 		</div>
-	</header>
-			<div id="grid-gallery" class="grid-gallery">
-				<section class="grid-wrap">
-					<ul id="photosUL" class="grid">
-				<li class="grid-sizer"></li>
-				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
-						<li>
-							<figure>
-							<div class="prooo">
+					<div class="prooo">
 							<div class="rad">
 								<s:if test="#request.socialHeadPhoto.urlL!=null">						
 									<img src="<%=basePath%><s:property value="#request.socialHeadPhoto.urlL"/>"> 
@@ -129,8 +121,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="atten">following<div class="f1"><s:property value="#request.socialFollowersCount"/></div></div>
 							</div>
 								</div>
-								</figure>
-						</li>
+	</header>
+			<div id="grid-gallery" class="grid-gallery">
+				<section class="grid-wrap2">
+					<ul id="photosUL" class="grid">
+				<li class="grid-sizer"></li>
+				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
+						
 					<s:if test="#request.socialPhotosCount==0">
 						<center style="color:#01b8f0;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
 					</s:if>
@@ -142,45 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <section class="slideshow">
 	<ul id="photosUL2">
 	<!--点击用户弹出资料 -->	
-		<li>
-			<figure>
-				<div class="slideshowhead">
-					<s:if test="#request.socialHeadPhoto.urlL!=null">						
-						<img src="<%=basePath%><s:property value="#request.socialHeadPhoto.urlL"/>"> 
-					</s:if>						
-					<s:else>
-						<img src="<%=basePath%>images/bg.jpg">
-					</s:else>
-				</div>
-			<figcaption>
-				<div class="p">Hi,I'm <s:property value="#request.socialUser.name"/><br>
-			  	 Sign:<s:property value="#request.socialUser.sign"/><br>
-                           <s:if test="#request.socialUser.sex==1">
-								<div class="male">Sex:male</div>
-							</s:if>
-							<s:else>
-								<div class="female">Sex:female</div>
-							</s:else>
-                           <s:if test="#request.socialUser.email!=null">
-								E-mail:<s:property value="#request.socialUser.email"/><br>
-							</s:if>
-                          <s:if test="#request.socialUser.weChat!=null">
-								Wechat:<s:property value="#request.socialUser.weChat"/><br>
-						  </s:if>
-                          <s:if test="#request.socialUser.qq!=null">
-								QQ:<s:property value="#request.socialUser.qq"/><br>
-						  </s:if>
-                           <s:if test="#request.socialProfession!=null">
-								Profession:<s:property value="#request.socialProfession.name"/><br>
-						  </s:if>
-                           <s:if test="#request.socialSchoolYear!=null">
-								Academic Year:<s:property value="#request.socialSchoolYear.year"/><br>
-						  </s:if>
-				</div>     
-			</figcaption>	
-		</figure>
-	</li>
-					
+		
 					
 <!--点击图片弹出大图加评论 -->
 					</ul>
