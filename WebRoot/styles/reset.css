@@ -1,0 +1,190 @@
+/*
+Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.net/yui/license.txt
+version: 2.6.0
+*/
+html{color:#000;background-repeat: repeat;
+	background-image:url(../images/background_main.png);}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}del,ins{text-decoration:none;}
+a {
+	color:black;
+	text-decoration: none;
+}
+
+body {
+	width:100%;
+	height:100%;
+}
+div, span, p {
+	-webkit-font-smoothing:antialiased;
+}
+
+
+/* links */
+a, a:visited {text-decoration:none; font-weight:normal; color:#dc6a4d }
+a:hover{
+	text-decoration: underline;
+	font-size: 15px;
+}
+
+.name:visited {text-decoration:none; font-weight:normal; color:white; }
+.name:hover{
+	text-decoration: underline;
+	font-size: 10px;
+}
+
+/*** CONTAINER ***/
+#outer-container{}
+#container{
+	width: 110px;
+	-webkit-box-shadow: 0px 0px 6px #757575;
+	-moz-box-shadow: 0px 0px 6px #757575;
+	box-shadow: 0px 0px 9px #757575;
+	-moz-border-radius: 2px; /* Firefox */
+	-webkit-border-radius: 2px; /* Safari, Chrome */
+	border-radius: 2px;
+	position: fixed;
+	-webkit-transition: all;
+	-moz-transition: all;
+	-ms-transition: all;
+	-o-transition: all;
+	transition: all;
+	height:100%;
+	background-color: #fff;
+	background-image: url(../images/dh3.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center top;
+	float: left;
+}
+
+/*** TOP ***/
+#top{
+}
+#logo{text-align:center;
+   clear:both;
+   margin:0 auto;
+	margin-top: 10px;
+	
+
+}
+#logo1{
+	text-align:center;
+   clear:both;
+   margin:0 auto;
+	margin-top: 38px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	
+}
+
+
+#logo3{
+	float: left;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 2px;
+	margin-top: 3px;
+}
+/* Frame Image */
+.frame{padding:4px; border:solid 1px #ececec; display:block}
+
+
+
+/* Button */
+input[type="text"],
+textarea{
+	border:solid 1px #ececec;
+	font-size:11px;
+	padding:8px 5px;
+	border-radius:4px;
+	-moz-border-radius:4px;		
+	-webkit-border-radius:4px;
+}
+
+select {
+	font-size:11px;
+	padding:4px 5px;
+}
+
+
+.button,
+.button:visited,
+input[type="submit"],
+input[type="reset"],
+button,
+
+
+input[type="submit"],
+input[type="reset"],
+button{
+	height:32px;
+}
+
+.button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover{text-decoration:none; color:#dc6a4d; cursor:pointer}
+
+.button.large{
+	font-size:18px;
+	text-transform:uppercase;
+	height:40px;
+	line-height:40px;
+	text-decoration:none;
+	background:url(../images/bg-buttonlarge.png) repeat-x left top;
+	
+}
+.button.large:hover{background-position:0 0;}
+
+
+
+/* login widget */
+#login{}
+#login label{width:70px; float:left; padding:5px 0 0 0}
+#login input[type="text"]{ width:180px}
+#login .lost{float:right; width:50%; text-align:right}
+
+
+/*** FOOTER ***/
+
+#kong1{
+	width:100%;
+	height:15px;
+}
+.xi{
+	width:100%;
+	height:90px;
+	overflow: hidden;	
+}
+	
+
+
+.f{ 
+    float: left;
+	position: relative;
+	width:11px;
+	height:90px;	
+	
+}
+.like_number{float:left;
+margin-left:42px;
+margin-top:17px;
+    font-size:7px;
+	hieght:7px;
+	width:30px;	
+}
+.likes_icon{
+margin:0 auto;
+height:40px;
+	width:40px;
+	background-image:url(../images/likes_icon.png);			
+}
+.likes_icon:hover{
+margin:0 auto;
+height:40px;
+	width:40px;
+	background-image:url(../images/likes_icon-hover.png);
+}
+
+
