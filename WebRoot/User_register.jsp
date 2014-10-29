@@ -44,7 +44,7 @@
 					</label>
 				</div>
 				<div id="password2">
-					<label><span>Confirm Password</span><input type="password"
+					<label><span style="font-size:5px;">Confirm Pass</span><input type="password"
 						class="input_txt" name="passwordConfirm" id="passwordConfirm"/>
 					</label>
 				</div>
@@ -58,7 +58,7 @@
 			<s:token></s:token>
 		</form>
 	</div>
-<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+ <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/my.js"></script>
 </body>
 </html>

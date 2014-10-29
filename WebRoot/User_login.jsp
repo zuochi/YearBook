@@ -54,7 +54,7 @@
 			</div>
 		</form>
 	</div>
-<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+ <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/.my.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {

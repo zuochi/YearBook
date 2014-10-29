@@ -21,9 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<link type="text/css" href="styles/style.css" rel="stylesheet" />
-<link type="text/css" href="styles/skitter.styles.css" media="all"
-	rel="stylesheet" />
+<link href="styles/reset.css" rel="stylesheet"  type="text/css">
+
 <jsp:include page="styles/my.css" />
 </head>
 <%
