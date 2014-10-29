@@ -66,7 +66,7 @@ createXMLHttpRequest();
 							$("#photosUL2").append(
 								"<li value='"+json[i].id+"'>"+
 								"<div id='comment"+json[i].id+"' class='text2'>"+
-								"<textarea rows='3' cols='50' id='reply"+json[i].id+"' onfocus='friendNameTipsInit("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea>"+"<br>"+
+								"<textarea rows='3' cols='50' id='reply"+json[i].id+"' onfocus='friendNameTipsInit("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea><br>"+
 								"<input type='button' value='Reply' onclick='comment("+document.getElementById("userId").value+","+json[i].id+")'/>"+
 									"<div class='ds-post-main'>"+
 											"<div class='ds-avatar'>"+
@@ -82,7 +82,7 @@ createXMLHttpRequest();
 									"<figure>"+
 										"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
 										"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</div></figcaption>"+	
-								"</figure>"+
+								    "</figure>"+
 								"</li>"
 							);
 						}

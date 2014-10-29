@@ -21,9 +21,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-	
-		
 		<script type="text/javascript">
 		//提示测试
 		var availableTags = new Array();
@@ -139,42 +136,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 		<div class="container">
 			<header class="clearfix">
-		<div class="prooo">
-							<div class="rad"><a href="<%=basePath%>User_headPhotoUpload.jsp" target="main"> <img src="<%=basePath%><s:property value="#session.headPhoto.urlL"/>" width="120" height="120" title="修改头像"/></a><div class="na"><s:property value="#session.user.name" /></div></div>
-							<s:if test="#session.user.sex==1">
-                            	<div class="male">&nbsp;&nbsp;&nbsp;&nbsp;male</div>
-                            </s:if>
-                            <s:else>
-                            	<div class="female">&nbsp;&nbsp;&nbsp;&nbsp;female</div>
-                            </s:else>
+				<div class="prooo">
+					<div class="rad"><a href="<%=basePath%>User_headPhotoUpload.jsp" target="main"> <img src="<%=basePath%><s:property value="#session.headPhoto.urlL"/>" width="120" height="120" title="修改头像"/></a><div class="na"><s:property value="#session.user.name" /></div></div>
+						<s:if test="#session.user.sex==1">
+                            <div class="male">&nbsp;&nbsp;&nbsp;&nbsp;male</div>
+                        </s:if>
+                        <s:else>
+                            <div class="female">&nbsp;&nbsp;&nbsp;&nbsp;female</div>
+                        </s:else>
 							<div class="sign"><div class="pen"></div>sign：<s:property value="#session.user.sign"/>.</div>
 							<a href="javascript:void(0)" onclick="myPostShow()" target="main"><div id="myPostSelectd" class="mypostSelect">Mypost</div></a>
 							<a href="javascript:void(0)" onclick="socialShow()" target="main"><div id="socialSelectd" class="social">Social</div></a>
 							<a href="javascript:void(0)" onclick="uploadPhoto()" target="main"><div class="upload">Upload</div></a>
 							
 
-							<div class="attfan">
-		<s:if test="#request.photosCount!=0">
-			<div class="posts">Posts<a href="javascript:void(0)" onclick="myPostShow()" target="main"><div id="picCountDiv" class="a1"><s:property value="#request.photosCount"/></div></a></div> <div class="l"></div>
-			<%-- <div class="posts">Posts<a href="/YearBook/user/getMyPost_execute?userId=<s:property value="#session.user.id"/>" target="main"><div class="a1"><s:property value="#request.photosCount"/></div></a></div> <div class="l"></div> --%>
-		</s:if>
-		<s:else>
-			<div class="posts">Posts<div class="a1">0</div></div> <div class="l"></div>
-		</s:else>
-			<div class="atten">Following<div class="f1"><s:property value="#request.followingCount"/></div></div><div class="l"></div>
-			<div class="fans">Followers<div class="a1"><s:property value="#request.followersCount"/></div></div> 
+					<div class="attfan">
+						<s:if test="#request.photosCount!=0">
+							<div class="posts">Posts<a href="javascript:void(0)" onclick="myPostShow()" target="main"><div id="picCountDiv" class="a1"><s:property value="#request.photosCount"/></div></a></div> <div class="l"></div>
+							<%-- <div class="posts">Posts<a href="/YearBook/user/getMyPost_execute?userId=<s:property value="#session.user.id"/>" target="main"><div class="a1"><s:property value="#request.photosCount"/></div></a></div> <div class="l"></div> --%>
+						</s:if>
+						<s:else>
+							<div class="posts">Posts<div class="a1">0</div></div> <div class="l"></div>
+						</s:else>
+						<div class="atten">Following<div class="f1"><s:property value="#request.followingCount"/></div></div><div class="l"></div>
+						<div class="fans">Followers<div class="a1"><s:property value="#request.followersCount"/></div></div> 
+					</div>
+				</div>
+			</header>
 			
-			 
-							</div>
-								</div>
-	</header>
-			
-				<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
 						
 				
 					<!-- 用户图片 -->
-					<div id="grid-gallery" class="grid-gallery">
+			<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">
 					<ul id="photosUL" class="grid">
 				<li class="grid-sizer"></li>
@@ -188,12 +183,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</ul>
 				</section> <!-- // grid-wrap -->
 
-<section class="slideshow">
-	
-<!--点击用户弹出资料 -->					
+				<section class="slideshow">
 					
-<!--点击图片弹出大图加评论 -->
-<ul id="photosUL2"></ul>
+				<!--点击用户弹出资料 -->					
+									
+				<!--点击图片弹出大图加评论 -->
+				<ul id="photosUL2"></ul>
 					<nav>
 						<span class="icon nav-prev" style="color:#234;width:80px"></span>
 						<span class="icon nav-next" style="color:#234;width:80px"></span>
@@ -202,6 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</section><!-- // slideshow -->
 			</div><!-- // grid-gallery -->
 		</div>
+		
 		<script type="text/javascript" src="<%=basePath %>js/User_index.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.min.js" ></script>
 		<script type="text/javascript" src="<%=basePath %>js/modernizr.custom.js"></script>

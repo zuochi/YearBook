@@ -12,7 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title><s:property value="#request.socialUser.name"/> - Year Book</title>
     <meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
+		
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script type="text/javascript">
 		
 			function follow(socialUserId){
@@ -47,7 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 });
 			};
 			
-			 var availableTags = new Array();
+			//提示测试
+			var availableTags = new Array();
 			$(function(){
 				availableTags = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL高","ColdFusion"];
 				//document.getElementById("tags").focus();
@@ -57,10 +61,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			
 			function friendNameTipsInit(photoId){
-				 /* $( "#reply"+photoId).autocomplete({
+				 $( "#reply"+photoId).autocomplete({
 					source: availableTags
-				}); */
-			}; 
+				});
+			} 
 		</script>
 	</head>
 	<body>
@@ -122,8 +126,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 								</div>
 	</header>
+	
 			<div id="grid-gallery" class="grid-gallery">
-				<section class="grid-wrap2">
+				<section class="grid-wrap">
 					<ul id="photosUL" class="grid">
 				<li class="grid-sizer"></li>
 				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
@@ -131,34 +136,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<s:if test="#request.socialPhotosCount==0">
 						<center style="color:#01b8f0;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
 					</s:if>
+					<s:if test="#request.socialPhotosCount==10">
+						<center style="color:#01b8f0;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
+					</s:if>
 					</ul>
 				</section><!-- // grid-wrap -->
-				
-				
-				
-<section class="slideshow">
-	<ul id="photosUL2">
-	<!--点击用户弹出资料 -->	
-		
-					
-<!--点击图片弹出大图加评论 -->
+
+				<section class="slideshow">
+					<ul id="photosUL2">
+					<!--点击用户弹出资料 -->	
+						
+									
+				<!--点击图片弹出大图加评论 -->
 					</ul>
-					<nav>
-						<span class="icon nav-prev" style="color:#234"></span>
-						<span class="icon nav-next" style="color:#234"></span>
-						<span class="icon nav-close" style="color:#fff"></span>
-					</nav>
-					
+						<nav>
+							<span class="icon nav-prev" style="color:#234"></span>
+							<span class="icon nav-next" style="color:#234"></span>
+							<span class="icon nav-close" style="color:#fff"></span>
+						</nav>
 				</section><!-- // slideshow -->
 			</div><!-- // grid-gallery -->
 		</div>
+
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/masonry.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/classie.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/cbpGridGallery.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/jquery-1.6.4.min.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
