@@ -64,16 +64,16 @@ margin-bottom:0px;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	border-bottom-color: #384B4A;
+	border-bottom-color: #000000;
 	background-color: transparent;
-    margin-top:24px;
-	margin-left: 60px;
+    margin-top:31px;
+	margin-left: 59px;
 }
 
 #password {
 
-	margin-top: 0px;
-	margin-left: 57px;
+	margin-top: 1px;
+	margin-left: 55px;
 }
 
 
@@ -139,19 +139,19 @@ margin-bottom:0px;
 	border-left-style: none;
 	border-bottom-color: #384B4A;
 	background-color: transparent;
-	margin-top: 20px;
+	margin-top: 25px;
 	margin-left: 61px;
 }
 
 #password1 {
 	
-	margin-top: 16px;
+	margin-top: 17px;
 	margin-left: 57px;
 }
 
 #password2 {
 	
-	margin-top: 20px;
+	margin-top: 16px;
 	margin-left: 57px;
 }
 
@@ -387,8 +387,8 @@ font-size: 16px;
 	background-repeat: no-repeat;
 }
 .search_keyword{
-	width:100px;
-    height:30px;
+	width:110px;
+    height:25px;
 	background-color: transparent;
     border-top-style: none;
 	border-right-style: none;
@@ -419,8 +419,8 @@ span{position:absolute;float:left;line-height:20px;cursor:text;}
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 120px;
-	height: 20px;
+	width: 108px;
+	height: 25px;
 	background-color: transparent;
 
 }
