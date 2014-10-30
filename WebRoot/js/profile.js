@@ -42,11 +42,22 @@ function isDuplicationOfName(value) {
 
 function updateCheck(){
 	var name = document.getElementById("user.name").value;
-	if(name==""){
-    	$("#warn").html("nickName couldn't be null");
+	if($.trim(name)==""){
+    	$("#warn").html("nickName couldn't be null.");
+    	document.getElementById("user.name").value="";
+    	document.getElementById("user.name").focus();
 		return;
-	}else if (name.length < 3 || name.length > 10) {
-		$("#warn").html("nickName at least 4-10 in length.");
+	}else if(/\s/.test(name)){
+		$("#warn").html("nickName can not have spaces.");
+		document.getElementById("user.name").focus();
+        return;
+    }else if(/@/.test(name)){
+		$("#warn").html("nickName can not have '@'.");
+		document.getElementById("user.name").focus();
+        return;
+    }else if (name.length < 3 || name.length > 10) {
+		$("#warn").html("nickName is 4-10 in length.");
+		document.getElementById("user.name").focus();
 		return;
 	} else{
 		$("#warn").html("");
@@ -55,20 +66,43 @@ function updateCheck(){
 	var passwordOrigin = document.getElementById("user.passwordOld").value;
 	var password1 = document.getElementById("user.password").value;
 	var password2 = document.getElementById("passwordConfirm").value;
-	if(passwordOld!="" || password1!="" || password2!=""){
+	if($.trim(passwordOld)!="" || $.trim(password1)!="" || $.trim(password2)!=""){
 		if(passwordOld!=passwordOrigin){
 			$("#warn").html("Old password incorrent.");
+			document.getElementById("passwordOld").focus();
 			return;
 		}
-		else if(password1=="" || password2==""){
+		else if($.trim(password1)=="" || $.trim(password2)==""){
 			$("#warn").html("passwords couldn't be null");
+			if($.trim(password1)==""){
+				document.getElementById("user.password").value="";
+				document.getElementById("user.password").focus();
+			}else{
+				document.getElementById("passwordConfirm").value="";
+				document.getElementById("passwordConfirm").focus();
+			}
 			return;
-		}
-		else if(password1.length < 6 || password2.length < 6){
+		}else if(/\s/.test(password1) || /\s/.test(password2)){
+			$("#warn").html("passwords can not have spaces.");
+			if(/\s/.test(password1)){
+				document.getElementById("user.password").value="";
+		    	document.getElementById("user.password").focus();
+			}else{
+				document.getElementById("passwordConfirm").value="";
+		    	document.getElementById("passwordConfirm").focus();
+			}
+	        return;
+	    }else if(password1.length < 6 || password2.length < 6){
 			$("#warn").html("passwords at least 6 in length.");
+			if(password1.length < 6){
+				document.getElementById("user.password").focus();
+			}else{
+				document.getElementById("passwordConfirm").focus();
+			}
 			return;
 		}else if(password1 != password2){
 			$("#warn").html("passwords not the same.");
+			document.getElementById("passwordConfirm").focus();
 			return;
 		}else{
 	   	 	$("#warn").html("");
@@ -76,13 +110,15 @@ function updateCheck(){
 	}
 	
 	var qq = document.getElementById("user.qq").value;
-	if(qq!=""){
+	if($.trim(qq)!=""){
 		if (!(/^\d*$/.test(qq))) {
 			//alert("你输入的手机的格式不对");
 			$("#warn").html("QQ number should be digital.");
+			document.getElementById("user.qq").focus();
 			return;
 		}else if(qq.length < 6 || qq.length > 16){
 			$("#warn").html("QQ number is 6-16 in length.");
+			document.getElementById("user.qq").focus();
 			return;
 		}else{
 			$("#warn").html("");
@@ -90,47 +126,51 @@ function updateCheck(){
 	}
 	
 	var weChat = document.getElementById("user.weChat").value;
-	if(weChat!=""){
+	if($.trim(weChat)!=""){
 		if(weChat.length > 18){
-				$("#warn").html("too long for weChat Id.");
-				return;
-			}else{
-				$("#warn").html("");
-			}
+			$("#warn").html("too long for weChat Id.");
+			document.getElementById("user.weChat").focus();
+			return;
+		}else{
+			$("#warn").html("");
+		}
 	}
 	var email = document.getElementById("user.email").value;
-	if(email==""){
+	if($.trim(email)==""){
 		$("#warn").html("email couldn't be null");
+		document.getElementById("user.email").value="";
+		document.getElementById("user.email").focus();
 		return;
-	}else if (!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
+	}else if (!(/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
 			.test(email))) {
 		//alert("电子邮箱不能为空 或者 格式不对！");
 		$("#warn").html("wrong email address.");
+		document.getElementById("user.email").focus();
 		return;
 	}else{
 		$("#warn").html("");
 	}
 	
 	var schoolYear = document.getElementById("select3").value;
-	if(schoolYear==""){
+	if($.trim(schoolYear)==""){
 		$("#warn").html("please select your school year.");
 		return;
 	}
 	
 	var profession = document.getElementById("select").value;
-	if(profession==""){
+	if($.trim(profession)==""){
 		$("#warn").html("please select your profession.");
 		return;
 	}
 	
 	var gender = document.getElementById("select2").value;
-	if(gender==""){
+	if($.trim(gender)==""){
 		$("#warn").html("please select your gender.");
 		return;
 	}
 	
 	if(canUpdate == 1){
-		 $.ajax({
+		/*$.ajax({
 	         url:'/YearBook/user/updateUser_execute',  
 	         data:$('#focus').serialize(),
 	         async:false,
@@ -143,7 +183,7 @@ function updateCheck(){
 	        		$("#warn").html("revised fali");
 	        	}
 	         }
-		 });
+		 });*/
 	}else{
 		 $("#warn").html("nickName had been used.");
 		 canUpdate=0;
