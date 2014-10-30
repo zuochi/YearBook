@@ -89,6 +89,7 @@ function isDuplicationOfName(value) {
          success:function (msg) {
         	 if(msg=="used"){
         		 $("#Signwarn").html("ID had been used.");
+        		 document.getElementById("userName").focus();
         		 canReg=0;
         	 }else{
         		 $("#Signwarn").html("&nbsp;");
@@ -100,26 +101,67 @@ function isDuplicationOfName(value) {
 
 function registerCheck() {
 	var userName = document.getElementById("user.userName").value;
-	if(userName==""){
-    	$("#Signwarn").html("ID couldn't be null");
+	if($.trim(userName)==""){
+    	$("#Signwarn").html("ID couldn't be null.");
+    	document.getElementById("user.userName").value="";
+    	document.getElementById("user.userName").focus();
 		return;
-	}else if (userName.length < 6 || userName.length > 28) {
-		$("#Signwarn").html("ID at least 6-28 in length.");
+	}else if(/[^0-9a-zA-Z]/g.test(userName)){
+		$("#Signwarn").html("only English or Digital.");
+    	document.getElementById("user.userName").value="";
+    	document.getElementById("user.userName").focus();
+        return;
+    }else if (userName.length < 6 || userName.length > 28) {
+		$("#Signwarn").html("ID 6-28 in length.");
+    	document.getElementById("user.userName").focus();
 		return;
-	} else{
+	}else{
 		$("#Signwarn").html("&nbsp;");
 	}
 	
 	var password1 = document.getElementById("user.password").value;
 	var password2 = document.getElementById("passwordConfirm").value;
-	if(password1=="" || password2==""){
-		$("#Signwarn").html("passwords couldn't be null");
+	if($.trim(password1)=="" || $.trim(password2)==""){
+		$("#Signwarn").html("pw couldn't be null.");
+		if($.trim(password1)==""){
+			document.getElementById("user.password").value="";
+	    	document.getElementById("user.password").focus();
+		}else{
+			document.getElementById("passwordConfirm").value="";
+	    	document.getElementById("passwordConfirm").focus();
+		}
 		return;
-	}else if(password1.length < 6 || password2.length < 6){
+	}/*else if(/[^0-9a-zA-Z]/g.test(password1) || /[^0-9a-zA-Z]/g.test(password2)){
+		$("#Signwarn").html("only English or Digital.");
+		if(/[^0-9a-zA-Z]/g.test(password1)){
+			document.getElementById("user.password").value="";
+	    	document.getElementById("user.password").focus();
+		}else{
+			document.getElementById("passwordConfirm").value="";
+	    	document.getElementById("passwordConfirm").focus();
+		}
+        return;
+    }*/else if(/\s/.test(password1) || /\s/.test(password2)){
+		$("#Signwarn").html("pw can not have spaces.");
+		if(/\s/.test(password1)){
+			document.getElementById("user.password").value="";
+	    	document.getElementById("user.password").focus();
+		}else{
+			document.getElementById("passwordConfirm").value="";
+	    	document.getElementById("passwordConfirm").focus();
+		}
+        return;
+    }else if(password1.length < 6 || password2.length < 6){
 		$("#Signwarn").html("pws at least 6 in length.");
+		if(password1.length < 6){
+	    	document.getElementById("user.password").focus();
+		}else{
+	    	document.getElementById("passwordConfirm").focus();
+		}
 		return;
 	}else if(password1 != password2){
 		$("#Signwarn").html("passwords not the same.");
+		document.getElementById("passwordConfirm").focus();
 		return;
 	}else{
    	 	$("#Signwarn").html("&nbsp;");
@@ -149,27 +191,44 @@ function registerCheck() {
 
 function loginCheck() {
 	var userName = document.getElementById("userName").value;
-	if(userName==""){
-    	$("#Loginwarn").html("ID couldn't be null");
+	
+	if($.trim(userName)==""){
+    	$("#Loginwarn").html("ID couldn't be null.");
+    	document.getElementById("userName").value="";
+    	document.getElementById("userName").focus();
 		return;
-	}else if (userName.length < 6 || userName.length > 28) {
-		$("#Loginwarn").html("ID at least 6-28 in length.");
+	}else if(/[^0-9a-zA-Z]/g.test(userName)){
+		$("#Loginwarn").html("only English or Digital.");
+    	document.getElementById("userName").value="";
+    	document.getElementById("userName").focus();
+        return;
+    }else if (userName.length < 6 || userName.length > 28) {
+		$("#Loginwarn").html("ID 6-28 in length.");
+		document.getElementById("userName").focus();
 		return;
 	} else{
 		$("#Loginwarn").html("&nbsp;");
 	}
 	
 	var password = document.getElementById("ps").value;
-	if(password==""){
-		$("#Loginwarn").html("password couldn't be null");
+	if($.trim(password)==""){
+		$("#Loginwarn").html("password couldn't be null.");
+		document.getElementById("ps").value="";
+		document.getElementById("ps").focus();
 		return;
-	}else if(password.length < 6){
+	}else if(/\s/.test(password)){
+		$("#Loginwarn").html("pw can not have spaces.");
+		document.getElementById("ps").value="";
+		document.getElementById("ps").focus();
+        return;
+    }else if(password.length < 6){
 		$("#Loginwarn").html("pw at least 6 in length.");
+		document.getElementById("ps").focus();
 		return;
 	}else{
    	 	$("#Loginwarn").html("&nbsp;");
 	}
-	 $.ajax({
+	$.ajax({
          url:'/YearBook/user/login_execute',  
          type:'post', 
          data:$('#logForm').serialize(),
