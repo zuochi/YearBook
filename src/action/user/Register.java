@@ -29,7 +29,7 @@ public class Register extends UserAction {
 					break;
 				}
 			}
-			user.setPassword(request.getParameter("user.password"));
+			//去除用户的空格
 			user.setLastLogintime(new Timestamp(System.currentTimeMillis()));
 			user.setSignupDate(new Timestamp(System.currentTimeMillis()));
 			user.setIsDelete(0);
