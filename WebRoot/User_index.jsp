@@ -201,7 +201,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath %>js/User_index.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.min.js" ></script>
 		<script type="text/javascript" src="<%=basePath %>js/modernizr.custom.js"></script>
-		<%-- <script type="text/javascript" src="<%=basePath %>js/jquery-1.6.4.min.js"></script> --%>
+		<%-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> --%>
 		<script type="text/javascript" src="<%=basePath %>js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/masonry.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/classie.js"></script>
