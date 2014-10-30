@@ -170,7 +170,7 @@ function updateCheck(){
 	}
 	
 	if(canUpdate == 1){
-		/*$.ajax({
+		$.ajax({
 	         url:'/YearBook/user/updateUser_execute',  
 	         data:$('#focus').serialize(),
 	         async:false,
@@ -183,7 +183,7 @@ function updateCheck(){
 	        		$("#warn").html("revised fali");
 	        	}
 	         }
-		 });*/
+		 });
 	}else{
 		 $("#warn").html("nickName had been used.");
 		 canUpdate=0;
