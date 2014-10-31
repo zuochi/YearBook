@@ -20,7 +20,7 @@ public class GetPhotosByPerPage extends UserAction{
 		pro.setProperty("user.id", request.getParameter("userId"));
 		//pro.setProperty("photoAlbum.id", request.getParameter("photoAlbumId"));
 		int photosCount = service.getTotalRowsByProperties(pro, new Photo(),true);
-		PageController pc = new PageController(photosCount, 1,10);
+		PageController pc = new PageController(photosCount, 1,20);
 		pc.setCurrentPage(toPage);
 		List<Photo> photos = service.getObjectsByPrepageAndProperties(pro, pc,new Photo(), true);
 		try {

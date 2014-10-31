@@ -136,9 +136,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<s:if test="#request.socialPhotosCount==0">
 						<center style="color:#01b8f0;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
 					</s:if>
-					<s:if test="#request.socialPhotosCount==10">
-						<center style="color:#01b8f0;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
-					</s:if>
 					</ul>
 				</section><!-- // grid-wrap -->
 

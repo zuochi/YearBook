@@ -210,6 +210,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
+		
 		<div id="hasPhotos"></div>
 		
 		<div id="socialDiv" style="display: none">

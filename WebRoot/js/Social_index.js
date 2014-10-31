@@ -42,7 +42,7 @@ createXMLHttpRequest();
 				dataType:'json', 
 				success:function (json) {
 					if(json.error==undefined){
-						if(json.length<10){
+						if(json.length==undefined){
 							hasPic=0;
 							$("#hasPhotos").html("<center style='color:#01b8f0;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br><br><br>");
 						}

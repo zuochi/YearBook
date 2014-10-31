@@ -74,7 +74,7 @@ createXMLHttpRequest();
 				dataType:'json', 
 				success:function (json) {
 					if(json.error==undefined){
-						if(json.length<10){
+						if(json.length==undefined){
 							hasPic=0;
 							$("#hasPhotos").html("<br><br><br><br><center style='color:#01b8f0;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br><br><br>");
 						}
@@ -176,7 +176,7 @@ createXMLHttpRequest();
 							$("#comment"+photoId).html("<center>&nbsp;</center>");
 							$("#commentPic"+photoId).html("<center><div id='bigPic"+photoId+"' ><img src='"+document.getElementById("basePath").value+"images/deletedBig.jpg"+"'/></center></div></center>");
 							$("#commentDesc"+photoId).html("<center>&nbsp;</center>");
-							alert("delete " + msg);
+							//alert("delete " + msg);
 						 }else{
 							alert("delete " + msg);
 						}
