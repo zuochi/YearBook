@@ -1,0 +1,5 @@
+.friendTip{
+	z-index:9999;
+	display: none;
+	position:absolute;
+}
