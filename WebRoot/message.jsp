@@ -6,7 +6,6 @@
 <meta http-equiv="content-type" content="text/html;charset=gb2312">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="styles/message.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 <script>
 function showtree(str)//展开|关闭子分支
 {
@@ -73,6 +72,6 @@ eval(eval2);
  
 </div>
 
-
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 </body>
 </html>

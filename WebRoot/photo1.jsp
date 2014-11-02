@@ -203,7 +203,7 @@
 </div></div>
 	<jsp:include page="Ablum_sceret.jsp" />
 	<jsp:include page="Ablum_comment.jsp" />
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="js/lightbox-2.6.min.js"></script>
 	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 	<script type="text/javascript" src="js/photo.js"></script>

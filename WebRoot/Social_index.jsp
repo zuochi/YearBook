@@ -14,9 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
-
-		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
-				<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		
 		<script type="text/javascript">
 		
@@ -155,8 +152,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</nav>
 				</section><!-- // slideshow -->
 			</div><!-- // grid-gallery -->
-	
-
+		<script type="text/javascript" src="<%=basePath %>js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>

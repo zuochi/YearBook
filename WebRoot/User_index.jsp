@@ -18,8 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery.cssemoticons.css" media="screen"/>
-	
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 		<script type="text/javascript">
 		//提示测试
@@ -264,6 +262,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				</div>
 		</div>
+		<script src="<%=basePath%>js/jquery-1.11.1.js"></script>
 	</body>
 </html>
    
