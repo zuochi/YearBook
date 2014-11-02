@@ -197,6 +197,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		</div>
 		
+		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/User_index.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.min.js" ></script>
 		<script type="text/javascript" src="<%=basePath %>js/modernizr.custom.js"></script>
@@ -205,7 +207,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath %>js/classie.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/cbpGridGallery.js"></script>
 		
-		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
@@ -262,7 +263,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				</div>
 		</div>
-		<script src="<%=basePath%>js/jquery-1.11.1.js"></script>
 	</body>
 </html>
    
