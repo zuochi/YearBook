@@ -13,9 +13,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
+
+		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
+				<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 		<script type="text/javascript">
 		
 			function follow(socialUserId){
@@ -85,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="javascript:void(0)" onclick="follow(<s:property value="#request.socialUser.id"/>)"><div id="followAttr" class="guanzhu"></div></a>
 			</s:else>
 		</s:if>
-		</div>
+		</div></header></div>
 					<div class="prooo">
 							<div class="rad">
 								<s:if test="#request.socialHeadPhoto.urlL!=null">						
@@ -125,7 +127,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="atten">following<div class="f1"><s:property value="#request.socialFollowersCount"/></div></div>
 							</div>
 								</div>
-	</header>
+	
 	
 			<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">
@@ -153,7 +155,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</nav>
 				</section><!-- // slideshow -->
 			</div><!-- // grid-gallery -->
-		</div>
+	
 
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
