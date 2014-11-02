@@ -16,15 +16,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="description" content="This is my page">
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo2.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component.css" />
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery.cssemoticons.css" media="screen"/>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
+	
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
 		<script type="text/javascript">
 		//提示测试
 		var availableTags = new Array();
 		$(function(){
+			
 			availableTags = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL高","ColdFusion"];
 			//document.getElementById("tags").focus();
 			$( "#tags").autocomplete({
@@ -201,12 +202,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath %>js/User_index.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.min.js" ></script>
 		<script type="text/javascript" src="<%=basePath %>js/modernizr.custom.js"></script>
-		<%-- <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script> --%>
 		<script type="text/javascript" src="<%=basePath %>js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/masonry.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/classie.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/cbpGridGallery.js"></script>
-	
+		
+		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
