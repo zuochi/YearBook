@@ -98,10 +98,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<%} %>
 		</div>
 	</div>
-	<script type="text/javascript" src="<%=basePath %>js/jquery.easing.1.3.js"></script>
-	<script type="text/javascript" src="<%=basePath %>js/jquery.animate-colors-min.js"></script>
-	<script type="text/javascript" src="<%=basePath %>js/jquery.skitter.js"></script>
-	<script type="text/javascript" src="<%=basePath %>js/my.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
+	<script type="text/javascript" src="js/my.js"></script>
 	<script type="text/javascript">
 		function goUrl(type){
 			if(type==1){

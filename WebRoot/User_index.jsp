@@ -18,24 +18,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery.cssemoticons.css" media="screen"/>
-
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
+		
+		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
 		<script type="text/javascript">
 		//提示测试
-		var availableTags = new Array();
-		$(function(){
-			
+		var availableTags = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL高","ColdFusion"];
+		/* $(function(){
 			availableTags = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL高","ColdFusion"];
 			//document.getElementById("tags").focus();
 			$( "#tags").autocomplete({
 				source: availableTags
 			});
-		});
+		}); */
 		
 		function friendNameTipsInit(photoId){
-			 $( "#reply"+photoId).autocomplete({
-				source: availableTags
-			});
-		} 
+			 /* $( "#reply"+photoId).autocomplete({
+				source: availableTags,
+				multiple: true,
+				multipleSeparator: ",",
+				max: 5
+			}); */
+		};
 		
 		//评论
 		function comment(userBid,photoBid){
@@ -70,9 +74,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(searchFriendNameStatus==1){
 				if(text==" "){
 					searchFriendNameStatus=0;
+					$("#friendTips"+photoId).html("");
+					$("#friendTips"+photoId).css("display","none");
 					return;
 				}else if(text!="@"){
-					atFriendName += text;
+					//退格
+					if(window.event.keyCode==8){
+						if(atFriendName.length>0){
+							atFriendName = atFriendName.substring(0,atFriendName.length-1);
+						}else{
+							searchFriendNameStatus=0;
+							$("#friendTips"+photoId).html("");
+							$("#friendTips"+photoId).css("display","none");
+							return;
+						}
+					}else{
+						atFriendName += text;
+					}
 					$.ajax({
 						url:'/YearBook/user/getSearchInfomation_execute',  
 						type:'post', 
@@ -80,23 +98,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				        async:false,
 						dataType:'json', 
 						success:function (json) {
-							/* if(json.error==undefined){
-								var availableTags = new Array();
+							if(json.error==undefined){
+								//availableTags = new Array();
+								$("#friendTips"+photoId).html("");
+								$("#friendTips"+photoId).css("display","block");
 								for(var i=0; i<json.length; i++){
-									availableTags[i] = json[i];
+									$("#friendTips"+photoId).append("<div onclick='autoComplete("+photoId+",\""+json[i]+"\")'>"+json[i]+"</div>");
+									//availableTags[i] = json[i];
 								}
-								$( "#reply"+photoId ).autocomplete({
-									json: availableTags
-								});
-							} */
+								/* $( "#reply"+photoId).autocomplete({
+										source: availableTags,
+										multiple: true,
+										max: 5
+								}); */
+								//$( "#reply"+photoId ).autocomplete({
+								//	json: availableTags
+								//}); 
+							}
 						}
 					});
 				}
 			}
 		};
 		
-
-	
+		function autoComplete(photoId,friendName){
+			var value = $("#reply"+photoId).val();
+			value = value.substring(0,(value.length-atFriendName.length));
+			value+=(friendName+" ");
+			$("#reply"+photoId).val(value);
+			//重置搜索状态
+			searchFriendNameStatus=0;
+			$("#friendTips"+photoId).html("");
+			$("#friendTips"+photoId).css("display","none");
+			focusLast(document.getElementById("reply"+photoId));
+			//document.getElementById("reply"+photoId).focus();
+			//alert(length.length)
+		};
+		
+		//光标置后
+		function focusLast(obj){
+			obj.focus();
+		    var len = obj.value.length;
+		    if (document.selection) {
+		        var sel = obj.createTextRange();
+		        sel.moveStart('character',len);
+		        sel.collapse();
+		        sel.select();
+		    } else if (typeof obj.selectionStart == 'number' && typeof obj.selectionEnd == 'number') {
+		        obj.selectionStart = obj.selectionEnd = len;
+		    }
+		};
+		
+		//表情
 		$(document).ready(function(){
 			$('.emoticonText').emoticonize({
 				//delay: 800,
@@ -123,7 +176,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body>
-<textarea rows="10" cols="40" id="tags"></textarea>
+<!-- <textarea rows="10" cols="40" id="tags"></textarea> -->
 <!-- <h1 class="emoticonText">It's a pirate ?-) ARGHHH!!!! :)</h1> -->
 <!--<a href='YearBook/user/getSocial?userId=2'>ssss</a>-->
 	<input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
@@ -197,10 +250,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		</div>
 		
-		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
+		
 		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/User_index.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.min.js" ></script>
+		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.js" ></script>
 		<script type="text/javascript" src="<%=basePath %>js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/masonry.pkgd.min.js"></script>

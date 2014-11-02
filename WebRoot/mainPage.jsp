@@ -153,33 +153,31 @@
 	<jsp:include page="User_login.jsp" />
 	<jsp:include page="User_register.jsp" />
 	
- <script src="js/jquery.min.js"></script>
-        <script src="js/jquery.skippr.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
-
-<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
-<script>
-    $(function(){
-    var $ctr = $('#ctr');
-    $ctr.imagesLoaded( function(){
-      $ctr.masonry({
-        itemSelector : '.box',
-		isFitWidth: true,
-		isAnimated: true
-      });
-    });
-  
-  });</script>
-      <script>
-            $(document).ready(function() {
-                $("#random").skippr();
-                $("#random2").skippr({
-                    navType: 'bubble',
-                    autoPlay: true,
-                    autoPlayDuration: 2000
-                });
-            });
-        </script>
+ 	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/jquery.skippr.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
+	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+	<script type="text/javascript">
+	    $(function(){
+	    var $ctr = $('#ctr');
+	    $ctr.imagesLoaded( function(){
+	      $ctr.masonry({
+	        itemSelector : '.box',
+			isFitWidth: true,
+			isAnimated: true
+	      });
+	    });
+	  
+	  });
+	  $(document).ready(function() {
+		$("#random").skippr();
+		$("#random2").skippr({
+		navType: 'bubble',
+		autoPlay: true,
+		autoPlayDuration: 2000
+		});
+	});
+	</script>
 </body>
 </html>
