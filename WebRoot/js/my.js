@@ -307,7 +307,7 @@ function log_in() {
 };
 
 // 图片滚动
-jQuery(document).ready(function() {
+/*jQuery(document).ready(function() {
 	jQuery(document).ready(function() {
 		jQuery(".box_skitter_large").skitter({
 			animation : "random",
@@ -336,7 +336,7 @@ $(function(){
       });
     });
   });
-
+*/
 
 
 
