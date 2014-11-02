@@ -11,9 +11,11 @@ body {background-image:url(../images/background_main.png);background-repeat: rep
     color: #47a3da;
 }
 .clearfix{
+
 	float:left;
-	height:60px;
+	height:50px;
 	width:100%;
+	padding:20px 0 0 30px;
 
 }
 a {
@@ -27,10 +29,10 @@ a:hover {
 }
 
 .container > header {
-	width: 90%;
-	max-width: 69em;
+	
+	width: 100%;
 	margin: 0 auto;
-	padding: 0em 1.875em 1.875em;
+	
 }
 
 .container > header h1 {
@@ -308,7 +310,7 @@ margin-top:8px;
 	box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
 	-moz-box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
 	-webkit-box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 	position: relative;
    opacity: 0.7;}
 .time{
@@ -334,10 +336,10 @@ margin-top:8px;
 	line-height:20px;
 	font-size:17px;
     color:#234;
-	float: top;
+	float:left;
 	positon:relative;
 	width:200px;
-	
+	margin:20px 0 0 30px;
 	border: 10px solid #fff;
 	overflow: hidden;	
 	background: #fff;
