@@ -133,7 +133,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
 						
 					<s:if test="#request.socialPhotosCount==0">
-						<center style="color:#01b8f0;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
+						<center style="color:#234;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
 					</s:if>
 					</ul>
 				</section><!-- // grid-wrap -->
@@ -166,4 +166,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="hasPhotos"></div>
 	</body>
 </html>
-   
