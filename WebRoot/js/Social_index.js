@@ -44,7 +44,7 @@ createXMLHttpRequest();
 					if(json.error==undefined){
 						if(json.length==undefined){
 							hasPic=0;
-							$("#hasPhotos").html("<br><br><center style='color:#01b8f0;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br>");
+							$("#hasPhotos").html("<br><br><center style='color:#8f8f8f;font-size:22px;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br>");
 						}
 						for(var i=0; i<json.length; i++){
 							$("#photosUL").append(
