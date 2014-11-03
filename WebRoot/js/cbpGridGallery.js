@@ -201,10 +201,11 @@
 		//edit by lzf
 		if(dir=='next'){
 			loadBigPic(this.nextItem.value);
-			document.getElementById("reply"+this.nextItem.value).focus();
+			//$("#reply"+this.nextItem.value).focus();
+			//document.getElementById("reply"+this.nextItem.value).focus();
 		}else{
 			loadBigPic(this.prevItem.value);
-			document.getElementById("reply"+this.prevItem.value).focus();
+			//document.getElementById("reply"+this.prevItem.value).focus();
 		}
 		
 		this.isAnimating = true;
