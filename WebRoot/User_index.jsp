@@ -53,8 +53,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(text=="@"){
 				searchFriendNameStatus = 1;
 				atFriendName = "";
-				//获取光标位置
-				//getCursorPosition(photoId);
 			}
 			if(searchFriendNameStatus==1){
 				if(text==" "){
@@ -65,8 +63,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}else if(text!="@"){
 					//上选择
 					if(window.event.keyCode==38){
+						//document.getElementById("friendTips"+photoId).focus();
 						$("#friendTips"+photoId).css("display","block");
-						if(selectIndex>1){
+						if(selectIndex>=1){
 							$("#ft"+photoId+selectIndex).css("color","white");
 							selectIndex -= 1;
 							$("#ft"+photoId+selectIndex).css("color","yellow");
@@ -79,8 +78,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 					//下选择
 					if(window.event.keyCode==40){
+						//document.getElementById("friendTips"+photoId).focus();
 						$("#friendTips"+photoId).css("display","block");
-						if(selectIndex<selectLength){
+						if(selectIndex<=selectLength){
 							$("#ft"+photoId+selectIndex).css("color","white");
 							selectIndex += 1;
 							$("#ft"+photoId+selectIndex).css("color","yellow");
@@ -89,15 +89,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							selectIndex = 0;
 							$("#ft"+photoId+selectIndex).css("color","yellow");
 						}
-						return;
-					}
-					//回车选择
-					if(window.event.keyCode==13){
-						focusLast(document.getElementById("reply"+photoId));
-						document.getElementById("ft"+photoId+selectIndex).click();
-						/* searchFriendNameStatus=0;
-						$("#friendTips"+photoId).html("");
-						$("#friendTips"+photoId).css("display","none"); */
 						return;
 					}
 					//退格
@@ -127,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								selectIndex = 0;
 								selectLength = json.length;
 								for(var i=0; i<json.length; i++){
-									$("#friendTips"+photoId).append("<a id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img src='"+document.getElementById("basePath").value+json[i].surl+"'/>"+json[i].fname+"</div></a>");
+									$("#friendTips"+photoId).append("<a id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32' src='"+document.getElementById("basePath").value+((json[i].surl==null || json[i].surl=='')?"images/bg.jpg":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
 								}
 								$("#ft"+photoId+selectIndex).css("color","yellow");
 							}
@@ -136,6 +127,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			}
 		};
+		
+		//回车选择
+		function enterDeal(photoId){
+			if(window.event.keyCode==13){
+				//focusLast(document.getElementById("reply"+photoId));
+				//document.getElementById("friendTips"+photoId).onfocus();
+				document.getElementById("ft"+photoId+selectIndex).click();
+				return;
+			}
+		}
 		
 		//自动填充
 		function autoComplete(photoId,friendName){
