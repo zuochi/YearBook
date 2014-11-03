@@ -22,25 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
 		<script type="text/javascript">
-		//提示测试
-		var availableTags = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL高","ColdFusion"];
-		/* $(function(){
-			availableTags = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL高","ColdFusion"];
-			//document.getElementById("tags").focus();
-			$( "#tags").autocomplete({
-				source: availableTags
-			});
-		}); */
-		
-		function friendNameTipsInit(photoId){
-			 /* $( "#reply"+photoId).autocomplete({
-				source: availableTags,
-				multiple: true,
-				multipleSeparator: ",",
-				max: 5
-			}); */
-		};
-		
 		//评论
 		function comment(userBid,photoBid){
 			var reply = $("#reply"+photoBid).val();
@@ -70,6 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(text=="@"){
 				searchFriendNameStatus = 1;
 				atFriendName = "";
+				//获取光标位置
+				//getCursorPosition(photoId);
 			}
 			if(searchFriendNameStatus==1){
 				if(text==" "){
@@ -99,21 +82,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						dataType:'json', 
 						success:function (json) {
 							if(json.error==undefined){
-								//availableTags = new Array();
 								$("#friendTips"+photoId).html("");
 								$("#friendTips"+photoId).css("display","block");
 								for(var i=0; i<json.length; i++){
-									$("#friendTips"+photoId).append("<div onclick='autoComplete("+photoId+",\""+json[i]+"\")'>"+json[i]+"</div>");
-									//availableTags[i] = json[i];
+									$("#friendTips"+photoId).append("<a href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img src='"+document.getElementById("basePath").value+json[i].surl+"'/>"+json[i].fname+"</div></a>");
 								}
-								/* $( "#reply"+photoId).autocomplete({
-										source: availableTags,
-										multiple: true,
-										max: 5
-								}); */
-								//$( "#reply"+photoId ).autocomplete({
-								//	json: availableTags
-								//}); 
 							}
 						}
 					});
@@ -121,6 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		};
 		
+		//自动填充
 		function autoComplete(photoId,friendName){
 			var value = $("#reply"+photoId).val();
 			value = value.substring(0,(value.length-atFriendName.length));
@@ -130,9 +104,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			searchFriendNameStatus=0;
 			$("#friendTips"+photoId).html("");
 			$("#friendTips"+photoId).css("display","none");
+			//光标置后,并获取焦点
 			focusLast(document.getElementById("reply"+photoId));
-			//document.getElementById("reply"+photoId).focus();
-			//alert(length.length)
 		};
 		
 		//光标置后
@@ -149,8 +122,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    }
 		};
 		
+		//获取光标位置
+		function getCursorPosition(photoId){
+            var replyText = document.getElementById("reply"+photoId);
+            var cursurPosition=-1;
+            if(replyText.selectionStart){//非IE浏览器
+                cursurPosition= replyText.selectionStart;
+            }else{//IE
+                var range = document.selection.createRange();
+                range.moveStart("character",-replyText.value.length);
+                cursurPosition=range.text.length;
+            }
+            alert(cursurPosition);
+        }
+		
 		//表情
-		$(document).ready(function(){
+		/* $(document).ready(function(){
 			$('.emoticonText').emoticonize({
 				//delay: 800,
 				//animate: false,
@@ -166,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					//animate: false
 				})
 			});
-		});
+		}); */
 
 		
 		//去某用户的主页
@@ -179,10 +166,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- <textarea rows="10" cols="40" id="tags"></textarea> -->
 <!-- <h1 class="emoticonText">It's a pirate ?-) ARGHHH!!!! :)</h1> -->
 <!--<a href='YearBook/user/getSocial?userId=2'>ssss</a>-->
-	<input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
-	<input type="hidden" id="photoCountHidden" value="<s:property value="#request.photosCount"/>"/>
-	<input type="hidden" id="basePath" value="<%=basePath%>"/>
-	<div class="top"> 
+<input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
+<input type="hidden" id="photoCountHidden" value="<s:property value="#request.photosCount"/>"/>
+<input type="hidden" id="basePath" value="<%=basePath%>"/>
+<div class="top"> 
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
