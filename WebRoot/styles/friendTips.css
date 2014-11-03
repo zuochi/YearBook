@@ -1,5 +1,21 @@
 .friendTip{
+	/* height:80px; */
+	color:white;
+	background-color: #3ab6ae;
 	z-index:9999;
 	display: none;
+	width: 200px;
+	margin: 52px 0px 0px 100px;
 	position:absolute;
+	/* padding: 10px 5px 15px 20px; */
+}
+
+.friendTip a{
+	color:white;
+	/*background-color:#3ab6ae;*/
+}
+
+.friendTip a:hover{
+	color:yellow;
+	/*background-color:#3ab6ae;*/
 }
