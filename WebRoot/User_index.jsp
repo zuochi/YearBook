@@ -45,6 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		//当用户输入@的时候 寻找用户好友列表里面的相关人员
 		var searchFriendNameStatus = 0;
 		var atFriendName;
+		var selectIndex = 0;
+		var selectLength = 0;
 		function getAtName(text,photoId){
 			//删除前后空格
 	        //text.replace(/(^\s*)|(\s*$)/g,"");
@@ -61,6 +63,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					$("#friendTips"+photoId).css("display","none");
 					return;
 				}else if(text!="@"){
+					//上选择
+					if(window.event.keyCode==38){
+						$("#friendTips"+photoId).css("display","block");
+						if(selectIndex>1){
+							$("#ft"+photoId+selectIndex).css("color","white");
+							selectIndex -= 1;
+							$("#ft"+photoId+selectIndex).css("color","yellow");
+						}else{
+							$("#ft"+photoId+selectIndex).css("color","white");
+							selectIndex = selectLength;
+							$("#ft"+photoId+selectIndex).css("color","yellow");
+						}
+						return;
+					}
+					//下选择
+					if(window.event.keyCode==40){
+						$("#friendTips"+photoId).css("display","block");
+						if(selectIndex<selectLength){
+							$("#ft"+photoId+selectIndex).css("color","white");
+							selectIndex += 1;
+							$("#ft"+photoId+selectIndex).css("color","yellow");
+						}else{
+							$("#ft"+photoId+selectIndex).css("color","white");
+							selectIndex = 0;
+							$("#ft"+photoId+selectIndex).css("color","yellow");
+						}
+						return;
+					}
+					//回车选择
+					if(window.event.keyCode==13){
+						focusLast(document.getElementById("reply"+photoId));
+						document.getElementById("ft"+photoId+selectIndex).click();
+						/* searchFriendNameStatus=0;
+						$("#friendTips"+photoId).html("");
+						$("#friendTips"+photoId).css("display","none"); */
+						return;
+					}
 					//退格
 					if(window.event.keyCode==8){
 						if(atFriendName.length>0){
@@ -84,9 +123,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							if(json.error==undefined){
 								$("#friendTips"+photoId).html("");
 								$("#friendTips"+photoId).css("display","block");
+								//重置选择INDEX
+								selectIndex = 0;
+								selectLength = json.length;
 								for(var i=0; i<json.length; i++){
-									$("#friendTips"+photoId).append("<a href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img src='"+document.getElementById("basePath").value+json[i].surl+"'/>"+json[i].fname+"</div></a>");
+									$("#friendTips"+photoId).append("<a id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img src='"+document.getElementById("basePath").value+json[i].surl+"'/>"+json[i].fname+"</div></a>");
 								}
+								$("#ft"+photoId+selectIndex).css("color","yellow");
 							}
 						}
 					});
