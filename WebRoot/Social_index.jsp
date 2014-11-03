@@ -96,7 +96,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<br></br>
 							<h7>Hi,I'm <s:property value="#request.socialUser.name"/></h7><br>
-							<h7>Sign:<s:property value="#request.socialUser.sign"/></h7><br>
+							<s:if test="#request.socialUser.sign!=null && #request.socialUser.sign!=''">
+								<h7>Sign:<s:property value="#request.socialUser.sign"/></h7><br>
+							</s:if>
 							<h7>Profile:</h7><br>
 							<s:if test="#request.socialUser.sex==1">
 								<div class="male">Sex:male</div>
@@ -104,10 +106,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<s:else>
 								<div class="female">Sex:female</div>
 							</s:else>
-							<s:if test="#request.socialUser.weChat!=null">
+							<s:if test="#request.socialUser.weChat!=null && #request.socialUser.weChat!=''">
 								<h7>Wechat:<s:property value="#request.socialUser.weChat"/></h7><br>
 							</s:if>
-							<s:if test="#request.socialUser.qq!=null">
+							<s:if test="#request.socialUser.qq!=null && #request.socialUser.qq!=''">
 								<h7>QQ:<s:property value="#request.socialUser.qq"/></h7><br>
 							</s:if>
 							<s:if test="#request.socialUser.email!=null">
