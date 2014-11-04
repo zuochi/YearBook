@@ -1,6 +1,6 @@
 .friendTip{
 	/* height:80px; */
-    border: 1px solid black;
+    border: 1px solid #8f8f8f;
 	color:white;
 	background-color: #3ab6ae;
 	z-index:9999;
@@ -14,13 +14,13 @@
 .friendTip a{
 	
 	color:white;
-	/*background-color:#3ab6ae;*/
+	/*background-color:#3ab6ae;
 }
 
-.friendTip a:hover{
+/*.friendTip a:hover{
 	margin:0 auto;
 	font-size:18px;
 	color:white;
-    /*background-color:#3ab6ae;*/
+    /*background-color:#3ab6ae;
 
-}
+}*/
