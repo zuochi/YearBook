@@ -29,8 +29,8 @@ html, body {
   position: relative; }
   .hero .container {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 42%;
+    top: 53%;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -42,11 +42,12 @@ html, body {
   .hero .tagline {
     font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
-    height:25%;
-    width: 63%;
+    height:30%;
+    width: 65%;
     padding: 0 0 0 0;
     float: left;
-    margin-top:420px;
+   margin-top:40%;
+   
     color: white; 
     background-repeat: repeat;
 	background-image:url(../images/opacity-slider-text.png);
