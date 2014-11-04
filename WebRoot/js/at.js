@@ -74,7 +74,7 @@
 								selectIndex = 0;
 								selectLength = json.length;
 								for(var i=0; i<json.length; i++){
-									$("#friendTips"+photoId).append("<a id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32' src='"+document.getElementById("basePath").value+((json[i].surl==null || json[i].surl=='')?"images/bg.jpg":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
+									$("#friendTips"+photoId).append("<a id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32' src='"+document.getElementById("basePath").value+((json[i].surl==null || json[i].surl=='')?"images/bg.png":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
 								}
 								$("#ft"+photoId+selectIndex).css("color","yellow");
 							}

@@ -45,11 +45,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</s:if>
 			<s:elseif test="#session.headPhoto.urlL==null">
 				<a href="javascript:void(0)" onclick="goUrl(1)" target="main"> 
-					<img src="images/bg.jpg" alt="" width="65" height="65" title="修改头像"> 
+					<img src="images/bg.png" alt="" width="65" height="65" title="修改头像"> 
 				</a>
 			</s:elseif>
 			<s:else>
-				<img src="images/bg.jpg" alt="" width="65" height="65" title="修改头像">
+				<img src="images/bg.png" alt="" width="65" height="65" title="修改头像">
 			</s:else>
 		</div>
 		<div id="t1">

@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<img src="<%=basePath%><s:property value="#request.socialHeadPhoto.urlL"/>"> 
 								</s:if>						
 								<s:else>
-									<img src="<%=basePath%>images/bg.jpg">
+									<img src="<%=basePath%>images/bg.png">
 								</s:else>
 							</div>
 							<br></br>
