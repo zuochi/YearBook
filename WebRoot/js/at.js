@@ -87,6 +87,9 @@
 		//回车选择
 		function enterDeal(photoId){
 			if(window.event.keyCode==13){
+				if(searchFriendNameStatus==0){
+					return;
+				}
 				document.getElementById("ft"+photoId+selectIndex).click();
 				setTimeout('removeEnter('+ photoId +')', 0);
 				return;
