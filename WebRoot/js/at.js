@@ -74,7 +74,7 @@
 								selectIndex = 0;
 								selectLength = json.length;
 								for(var i=0; i<json.length; i++){
-									$("#friendTips"+photoId).append("<a id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32;margin-top:3px;' src='"+document.getElementById("basePath").value+((json[i].surl==null || json[i].surl=='')?"images/bg.png":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
+									$("#friendTips"+photoId).append("<a onmouseover='mouserOver("+photoId+","+i+")' onmouseout='mouserOut("+photoId+","+i+")' id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32;margin-top:3px;' src='"+document.getElementById("basePath").value+((json[i].surl==null || json[i].surl=='')?"images/bg.png":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
 								}
 								$("#ft"+photoId+selectIndex).css("color","yellow");
 							}
@@ -82,6 +82,16 @@
 					});
 				}
 			}
+		};
+		
+		//鼠标进来
+		function mouserOver(photoId,index){
+			$("#ft"+photoId+index).css("color","yellow");
+		};
+		
+		//鼠标出去
+		function mouserOut(photoId,index){
+			$("#ft"+photoId+index).css("color","white");
 		};
 		
 		//回车选择
