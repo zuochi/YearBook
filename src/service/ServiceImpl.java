@@ -140,5 +140,11 @@ public class ServiceImpl<E> implements Service{
 		return getTotalRowsLike(pro,pc,object,DESC);
 	}
 
+	@Override
+	public boolean updateUserSign(User user) {
+		// TODO Auto-generated method stub
+		return dao.updateUserSign(user);
+	}
+
 	
 }

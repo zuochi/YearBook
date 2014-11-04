@@ -4,12 +4,14 @@
 		var selectIndex = 0;
 		var selectLength = 0;
 		function getAtName(text,photoId){
+			//统计剩余字数
+			wordsNumber(photoId);
 			//删除前后空格
 	        //text.replace(/(^\s*)|(\s*$)/g,"");
 			if(text=="@"){
 				searchFriendNameStatus = 1;
 				atFriendName = "";
-				$("#friendTips"+photoId).html("<center>who you want to at?</center>");
+				$("#friendTips"+photoId).html("<center>Who do you want to at?</center>");
 				$("#friendTips"+photoId).css("display","block");
 			}
 			if(searchFriendNameStatus==1){
@@ -68,7 +70,7 @@
 						dataType:'json', 
 						success:function (json) {
 							if(json.error==undefined && json.length>0){
-								$("#friendTips"+photoId).html("<center>Please choose the follow</center>");
+								$("#friendTips"+photoId).html("<center>Please choose your follow</center>");
 								$("#friendTips"+photoId).css("display","block");
 								//重置选择INDEX
 								selectIndex = 0;
@@ -104,12 +106,12 @@
 				setTimeout('removeEnter('+ photoId +')', 0);
 				return;
 			}
-		}
+		};
 		
 		//去除回车
 		function removeEnter(photoId){
 			$("#reply"+photoId).val($("#reply"+photoId).val().replace(/[\r\n]/g,""));
-		}
+		};
 		
 		//自动填充
 		function autoComplete(photoId,friendName){
@@ -123,6 +125,16 @@
 			$("#friendTips"+photoId).css("display","none");
 			//光标置后,并获取焦点
 			focusLast(document.getElementById("reply"+photoId));
+			//统计剩余字数
+			wordsNumber(photoId);
+		};
+		
+		//显示还能输入多少字
+		function wordsNumber(photoId){
+			if($("#reply"+photoId).val().length>80){
+				$("#reply"+photoId).val($("#reply"+photoId).val().substring(0,80));
+			}
+			$("#wordsNumber"+photoId).html((80-$("#reply"+photoId).val().length));
 		};
 		
 		//光标置后

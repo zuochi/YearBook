@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import bean.Profession;
 import bean.SchoolYear;
+import bean.User;
 
 @Controller
 @Scope("prototype")
@@ -53,6 +54,22 @@ public class UpdateUser extends UserAction {
 			out.flush();
 			out.close();
 		}
+		return "ajax";
+	}
+	
+	public String updateSign() throws Exception{
+		out = response.getWriter();
+		if(service.updateUserSign(user)){
+			String sign = user.getSign();
+			out.print("success");
+			user = (User) request.getSession().getAttribute("user");
+			user.setSign(sign);
+			session.put("user", user);
+		}else{
+			out.print("fail");
+		}
+		out.flush();
+		out.close();
 		return "ajax";
 	}
 }

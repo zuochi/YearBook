@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div id="t1">
 			<label> <s:if test="#session.user.name!=null">
-					<a class="name" href="javascript:void(0)" onclick="goUrl(2)" target="main"><s:property value="#session.user.name" /></a>
+					<a class="name" style="color:white" href="javascript:void(0)" onclick="goUrl(2)" target="main"><s:property value="#session.user.name" /></a>
 				</s:if> <s:else>
 					tourist
 				</s:else> </label>

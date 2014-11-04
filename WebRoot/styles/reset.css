@@ -27,9 +27,9 @@ a:hover{
 	font-size: 15px;
 }
 
-.name:visited {text-decoration:none; font-weight:normal; color:white; }
+.name:visited {text-decoration:none; font-weight:normal; /*color:white;*/ }
 .name:hover{
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 	font-size: 10px;
 }
 

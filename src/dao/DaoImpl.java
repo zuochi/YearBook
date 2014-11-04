@@ -86,7 +86,6 @@ public class DaoImpl<E> implements Dao {
 			session = sessionFactory.getCurrentSession();
 			// Query可以完成查询,删除,更新操作
 			Query query = session.createQuery(hql);
-			// List<Emp> allEmps = query.list();
 			List<Object> objects = query.list();
 			if (objects.size() != 0) {
 				objuectGetForSql = objects.get(0);
@@ -414,6 +413,25 @@ public class DaoImpl<E> implements Dao {
 					user.getEmail() == null ? null : user.getEmail());
 			query.setParameter(6, user.getSex());
 			query.setParameter(7, user.getId());
+			query.executeUpdate();
+			return true;
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		} finally {
+			sessionFactory.close();
+		}
+	}
+	
+	@Override
+	public boolean updateUserSign(User user) {
+		// TODO Auto-generated method stub
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query query = session.createQuery("update User u set u.sign=? where u.id=?");
+			query.setParameter(0, user.getSign());
+			query.setParameter(1, user.getId());
 			query.executeUpdate();
 			return true;
 		} catch (HibernateException e) {

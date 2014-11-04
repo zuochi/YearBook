@@ -3,6 +3,7 @@ package action.user;
 import java.util.Date;
 import java.util.Properties;
 
+import org.hibernate.Hibernate;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -39,34 +40,37 @@ public class DoReply extends UserAction{
 		return "ajax";
 	}
 	
+	//解析at到的用户
 	public String analyzeFriendUrl(String reply,User currentUser,Service service){
+		//去除前后空格
 		reply = reply.trim();
-		String s = reply;
+		//先按空格分割
 		String[] friendsList = reply.split("\\s+");
-		
+		//使用StringBuilder重组字符串
+		StringBuilder replyStringBuilder = new StringBuilder("");
+				
 		//重置reply
-		reply = "";
-		
+		//reply = "";
+				
 		User friend = null;
-		
+				
 		for(int i=0 ; i<friendsList.length ; i++){
 			try {
 				String[] friendsListMiddle = friendsList[i].split("@");
 				for(int j=0 ; j<friendsListMiddle.length ; j++){
 					if(j==0){
-						reply += friendsListMiddle[j];
+						replyStringBuilder.append(friendsListMiddle[j]);
 						continue;
 					}
 					if(j==(friendsListMiddle.length-1) && !"".equals(friendsListMiddle[j])){
 						friend = getUserByName(friendsListMiddle[j],service);
 						if(friend!=null){
-							reply += "<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ";
-							noifyFriend(currentUser,friend);
+							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ");
 						}else{
-							reply += "@" + friendsListMiddle[j] + " " ;
+							replyStringBuilder.append("@" + friendsListMiddle[j] + " ");
 						}
 					}else{
-						reply += ("@" + friendsListMiddle[j]);
+						replyStringBuilder.append(("@" + friendsListMiddle[j]));
 					}
 				}
 			}catch (Exception e) {
@@ -74,7 +78,7 @@ public class DoReply extends UserAction{
 				e.printStackTrace();
 			}
 		}
-		return reply;
+		return replyStringBuilder.toString();
 	}
 	
 	private boolean noifyFriend(User currentUser,User friend){

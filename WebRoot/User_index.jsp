@@ -37,6 +37,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				//dataType:'json', 
 				success:function () {
 					$("#reply"+photoBid).val("");
+					//统计剩余字数
+					wordsNumber(photoBid);
 					alert("success");
 				}
 			});
@@ -60,16 +62,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				})
 			});
 		}); */
-
+		
+		//改写签名
+		function updateSign(){
+			$("#signButton").show();
+			$("#signTextArea").hide()
+			$("#updateSignButton").hide()
+			
+			//若是重复 则不提交
+			if($("#signContext").html() != $("#signTextArea").val()){
+				//更新签名
+				$.ajax({
+					url:'/YearBook/user/updateUser_updateSign',  
+					type:'post', 
+			        data:"user.id="+$("#userId").val()+"&user.sign="+$("#signTextArea").val(),
+			        async:false,
+					dataType:'text', 
+					success:function (result) {
+						if(result=="success"){
+							$("#signContext").html($("#signTextArea").val());
+						}
+					}
+				});
+			}
+			$("#signContext").show();
+			$("#signContext").css("width","350px");
+		};
+		
+		//显示签名框 
+		function showSignEdit(){
+			$("#signButton").hide()
+			$("#signContext").hide();
+			$("#signTextArea").show();
+			$("#signTextArea").val($("#signContext").html());
+			$("#updateSignButton").show();
+			$("#signTextArea").css("width","350px");
+			
+			//聚焦
+			$("#signTextArea").focus();
+		};
 		
 		//去某用户的主页
 		function goSocialIndex(userId){
 			window.location.href='YearBook/user/getSocial?userId='+userId;
-		}
+		};
 </script>
 </head>
 <body>
-<!-- <textarea rows="10" cols="40" id="tags"></textarea> -->
+<!-- <textarea rows="10" cols="40" id="tags" ></textarea> -->
 <!-- <h1 class="emoticonText">It's a pirate ?-) ARGHHH!!!! :)</h1> -->
 <!--<a href='YearBook/user/getSocial?userId=2'>ssss</a>-->
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
@@ -89,7 +129,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <s:else>
                             <div class="female">&nbsp;&nbsp;&nbsp;&nbsp;female</div>
                         </s:else>
-							<div class="sign"><div class="pen"></div>sign：<s:property value="#session.user.sign"/>.</div>
+							<div class="sign">
+								<a href="javascript:void(0)" onclick="showSignEdit()"><div id="signButton" class="pen"></div></a>
+							sign：<input type="text" id="signTextArea" style="display:none" maxlength="47"/><input id="updateSignButton" style="display:none" type="button" value="Edit" onclick="updateSign()"/>
+								  <sign id="signContext"><s:property value="#session.user.sign"/></sign>
+							</div>
 							<a href="javascript:void(0)" onclick="myPostShow()" target="main"><div id="myPostSelectd" class="mypostSelect">Mypost</div></a>
 							<a href="javascript:void(0)" onclick="socialShow()" target="main"><div id="socialSelectd" class="social">Social</div></a>
 							<a href="javascript:void(0)" onclick="uploadPhoto()" target="main"><div class="upload">Upload</div></a>

@@ -13,6 +13,7 @@ public interface Dao<E> {
 	public abstract boolean delObject(Object object);
 	public abstract boolean updateObject(Object object);
 	public abstract boolean updateUser(User user);
+	public abstract boolean updateUserSign(User user);
 	public abstract boolean updateUserHeadPhoto(User user);
 	public abstract boolean updatePhotoAlbum(PhotoAlbum photoAlbum);
 	public abstract void updateUserLoginTime(User user);
