@@ -40,8 +40,8 @@
                 <comment>回复内容</comment>
             </column>
         </property>
-        <property name="signupDate" type="java.util.Date">
-            <column name="signup_date" length="10" not-null="true">
+        <property name="signupDate" type="java.sql.Timestamp">
+            <column name="signup_date" length="19" not-null="true">
                 <comment>回复日期</comment>
             </column>
         </property>

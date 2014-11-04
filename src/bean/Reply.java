@@ -1,5 +1,6 @@
 package bean;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ public class Reply implements java.io.Serializable {
 	private User userByUserBid;
 	private Photo photo;
 	private String context;
-	private Date signupDate;
+	private Timestamp signupDate;
 	private Integer status;
 	private Integer isDelete;
 
@@ -29,7 +30,7 @@ public class Reply implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Reply(User userByUserId, User userByUserBid, String context,
-			Date signupDate, Integer status) {
+			Timestamp signupDate, Integer status) {
 		this.userByUserId = userByUserId;
 		this.userByUserBid = userByUserBid;
 		this.context = context;
@@ -39,7 +40,7 @@ public class Reply implements java.io.Serializable {
 
 	/** full constructor */
 	public Reply(User userByUserId, Bbs bbs, PrivateLetter privateLetter,
-			User userByUserBid, Photo photo, String context, Date signupDate,
+			User userByUserBid, Photo photo, String context, Timestamp signupDate,
 			Integer status, Integer isDelete) {
 		this.userByUserId = userByUserId;
 		this.bbs = bbs;
@@ -114,7 +115,7 @@ public class Reply implements java.io.Serializable {
 		return this.signupDate;
 	}
 
-	public void setSignupDate(Date signupDate) {
+	public void setSignupDate(Timestamp signupDate) {
 		this.signupDate = signupDate;
 	}
 

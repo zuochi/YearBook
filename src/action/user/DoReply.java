@@ -1,5 +1,6 @@
 package action.user;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Properties;
 
@@ -25,7 +26,7 @@ public class DoReply extends UserAction{
 		reply.setUserByUserId(currentUser);
 		//先解评论好友，并为好友附上链接
 		reply.setContext(analyzeFriendUrl(reply.getContext(),currentUser,service));
-		reply.setSignupDate(new Date());
+		reply.setSignupDate(new Timestamp(System.currentTimeMillis()));
 		reply.setStatus(0);
 		reply.setIsDelete(0);
 		out = response.getWriter();
