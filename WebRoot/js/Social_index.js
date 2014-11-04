@@ -66,7 +66,8 @@ function getPhotosByPerPage(isNew){
 					$("#photosUL2").append(
 						"<li value='"+json[i].id+"'>"+
 						"<div id='comment"+json[i].id+"' class='text2'>"+
-						"<textarea rows='3' cols='50'  id='reply"+json[i].id+"' onfocus='friendNameTipsInit("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea><br>"+
+						"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+
+						"<textarea rows='3' cols='50'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea><br>"+
 						"<input type='button' value='Reply' onclick='comment("+document.getElementById("userId").value+","+json[i].id+")'/>"+
 							"<div class='ds-post-main'>"+
 									"<div class='ds-avatar'>"+
