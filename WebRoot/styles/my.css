@@ -394,6 +394,7 @@ font-size: 16px;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
+	outline:none;
 }
 
 #Loginwarn{
@@ -419,10 +420,10 @@ span{position:absolute;float:left;line-height:20px;cursor:text;}
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 108px;
+	width: 128px;
 	height: 25px;
 	background-color: transparent;
-
+    outline:none;
 }
 
 </style>

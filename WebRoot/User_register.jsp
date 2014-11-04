@@ -44,7 +44,7 @@
 					</label>
 				</div>
 				<div id="password2">
-					<label><span style="font-size:5px;">Confirm Pass</span><input type="password"
+					<label><span>Confirm Password</span><input type="password"
 						class="input_txt" name="passwordConfirm" id="passwordConfirm"/>
 					</label>
 				</div>
