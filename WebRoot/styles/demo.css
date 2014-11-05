@@ -272,7 +272,7 @@ margin-top:8px;
 	margin-top:0px;
 	float: top;
 	margin-left:0px;
-	background-image:url(../images/000.jpg);
+	background-image:url(../images/000.png);
 	height:50px;
 	width:200px;
 }
@@ -280,14 +280,14 @@ margin-top:8px;
 	margin-top:0px;
 	float: top;
 	margin-left:0px;
-	background-image:url(../images/111.jpg);
+	background-image:url(../images/111.png);
 	height:50px;
 	width:200px;
 }
 .yiguanzhu{margin-top:0px;
 	float: top;
 	margin-left:0px;
-	background-image:url(../images/222.jpg);
+	background-image:url(../images/222.png);
 	height:50px;
 	width:200px;
 }
@@ -295,7 +295,22 @@ margin-top:8px;
 	margin-top:0px;
 	float: top;
 	margin-left:0px;
-	background-image:url(../images/444.jpg);
+	background-image:url(../images/444.png);
+	height:50px;
+	width:200px;
+}
+.friend{margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/333.png);
+	height:50px;
+	width:200px;
+}
+.friend:hover{
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/444.png);
 	height:50px;
 	width:200px;
 }
