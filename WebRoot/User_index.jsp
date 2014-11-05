@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="description" content="This is my page">
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo2.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
+		<%-- <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" /> --%>
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery.cssemoticons.css" media="screen"/>
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 		
@@ -62,46 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				})
 			});
 		}); */
-		
-		//改写签名
-		function updateSign(){
-			$("#signButton").show();
-			$("#signTextArea").hide()
-			$("#updateSignButton").hide()
-			
-			//若是重复 则不提交
-			if($("#signContext").html() != $("#signTextArea").val()){
-				//更新签名
-				$.ajax({
-					url:'/YearBook/user/updateUser_updateSign',  
-					type:'post', 
-			        data:"user.id="+$("#userId").val()+"&user.sign="+$("#signTextArea").val(),
-			        async:false,
-					dataType:'text', 
-					success:function (result) {
-						if(result=="success"){
-							$("#signContext").html($("#signTextArea").val());
-						}
-					}
-				});
-			}
-			$("#signContext").show();
-			$("#signContext").css("width","350px");
-		};
-		
-		//显示签名框 
-		function showSignEdit(){
-			$("#signButton").hide()
-			$("#signContext").hide();
-			$("#signTextArea").show();
-			$("#signTextArea").val($("#signContext").html());
-			$("#updateSignButton").show();
-			$("#signTextArea").css("width","350px");
-			
-			//聚焦
-			$("#signTextArea").focus();
-		};
-		
+	
 		//去某用户的主页
 		function goSocialIndex(userId){
 			window.location.href='YearBook/user/getSocial?userId='+userId;
@@ -188,7 +149,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		
 		<script type="text/javascript" src="<%=basePath %>js/at.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
+		<%-- <script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script> --%>
 		<script type="text/javascript" src="<%=basePath %>js/User_index.js"></script>
 		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.js" ></script>
 		<script type="text/javascript" src="<%=basePath %>js/modernizr.custom.js"></script>

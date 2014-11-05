@@ -71,7 +71,7 @@ function getPhotosByPerPage(isNew){
 		type:'post', 
 		data:"userId="+document.getElementById("userId").value+"&toPage="+toPageP,
 		async:false,
-		dataType:'json', 
+		dataType:'json',
 		success:function (json) {
 			if(json.error==undefined){
 				if(json.length==undefined){
@@ -118,7 +118,11 @@ function getPhotosByPerPage(isNew){
 							"</div>"+
 							"<figure>"+
 								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
-								"<figcaption><div class='pen'></div><div class='p2' id='commentDesc"+json[i].id+"'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</div></figcaption>"+	
+								"<figcaption><a href='javascript:void(0)' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
+									"<input type='text' id='desTextArea"+json[i].id+"' style='display:none' maxlength='47'/>" +
+									"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
+									"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
+								"</figcaption>"+	
 							"</figure>"+
 						"</li>"
 					);
@@ -130,7 +134,85 @@ function getPhotosByPerPage(isNew){
 	});
 	}
 };
-		
+
+//改写图片描述
+function updateDes(photoId){
+	$("#desPenButton"+photoId).show();
+	$("#desTextArea"+photoId).hide();
+	$("#updateDesButton"+photoId).hide();
+	
+	//若是重复 则不提交
+	if($("#desContext"+photoId).html() != $("#desTextArea"+photoId).val()){
+		//更新图片描述
+		$.ajax({
+			url:'/YearBook/user/updatePhoto_updateDescription',  
+			type:'post', 
+	        data:"photo.id="+photoId+"&photo.name="+$("#desTextArea"+photoId).val(),
+	        async:false,
+			dataType:'text', 
+			success:function (result) {
+				if(result=="success"){
+					$("#desContext"+photoId).html($("#desTextArea"+photoId).val());
+				}
+			}
+		});
+	}
+	$("#desContext"+photoId).show();
+	$("#desContext"+photoId).css("width","350px");
+};
+
+//显示图片描述
+function showDesEdit(photoId){
+	$("#desPenButton"+photoId).hide();
+	$("#desContext"+photoId).hide();
+	$("#desTextArea"+photoId).show();
+	$("#desTextArea"+photoId).val($("#desContext"+photoId).html());
+	$("#updateDesButton"+photoId).show();
+	$("#desTextArea"+photoId).css("width","350px");
+	
+	//聚焦
+	$("#desTextArea"+photoId).focus();
+};
+
+//改写签名
+function updateSign(){
+	$("#signButton").show();
+	$("#signTextArea").hide();
+	$("#updateSignButton").hide();
+	
+	//若是重复 则不提交
+	if($("#signContext").html() != $("#signTextArea").val()){
+		//更新签名
+		$.ajax({
+			url:'/YearBook/user/updateUser_updateSign',  
+			type:'post', 
+	        data:"user.id="+$("#userId").val()+"&user.sign="+$("#signTextArea").val(),
+	        async:false,
+			dataType:'text', 
+			success:function (result) {
+				if(result=="success"){
+					$("#signContext").html($("#signTextArea").val());
+				}
+			}
+		});
+	}
+	$("#signContext").show();
+	$("#signContext").css("width","350px");
+};
+
+//显示签名框 
+function showSignEdit(){
+	$("#signButton").hide();
+	$("#signContext").hide();
+	$("#signTextArea").show();
+	$("#signTextArea").val($("#signContext").html());
+	$("#updateSignButton").show();
+	$("#signTextArea").css("width","350px");
+	
+	//聚焦
+	$("#signTextArea").focus();
+};
+
 //返回顶部
 function scrollToTop(){
 	document.body.scrollTop=0;
@@ -175,7 +257,7 @@ function deletePhoto(photoId){
 		});
 	} 
 };
-		
+
 //我要上首页
 function iWantTop(photoId,userId){
 	if(confirm("Are you sure to submit this photo to admin?")) { 

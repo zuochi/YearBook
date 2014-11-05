@@ -53,7 +53,7 @@ public class UserAction extends ActionSupport implements SessionAware {
 	protected HttpServletResponse response = ServletActionContext.getResponse();
 	protected PrintWriter out;
 	protected Map<String, Object> session;
-
+	
 	public void setService(Service service) {
 		this.service = service;
 	}
@@ -110,6 +110,13 @@ public class UserAction extends ActionSupport implements SessionAware {
 	@Override
 	public void setSession(Map<String, Object> session) {
 		// TODO Auto-generated method stub
+		response.setCharacterEncoding("utf-8");
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.session = session;
 	}
 
