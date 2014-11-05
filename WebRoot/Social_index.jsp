@@ -107,8 +107,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								Academic Year:<s:property value="#request.socialSchoolYear.year"/><br>
 						  </s:if>
 							<div class="attfan">
-							<div class="fans">followers<div class="a1"><s:property value="#request.socialFollowingCount"/></div></div> <div class="l"></div>
-							<div class="atten">following<div class="f1"><s:property value="#request.socialFollowersCount"/></div></div>
+							<div class="fans">following<div class="a1"><s:property value="#request.socialFollowingCount"/></div></div> <div class="l"></div>
+							<div class="atten">followers<div class="f1"><s:property value="#request.socialFollowersCount"/></div></div>
 							</div>
 								</div>
 	
