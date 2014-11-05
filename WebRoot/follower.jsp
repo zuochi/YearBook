@@ -10,7 +10,7 @@
 <script src="js/modernizr.js" type="text/javascript"></script>
 	
 
-<title>Friend </title>
+<title>Follower </title>
 
 </head>
 <body>
@@ -33,7 +33,7 @@
 	font-size:25px;
 	line-height:30px;
 	text-align:center;
-	background-color:#3ab6ae;">Friends </div>
+	background-color:#3ab6ae;">Followers </div>
 		
 
 
