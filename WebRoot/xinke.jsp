@@ -6,14 +6,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="styles/profession.css" />
 <link href="styles/csshake.css" rel="stylesheet" type="text/css"/>
+<script src="js/modernizr.js" type="text/javascript"></script>
 <link href="styles/reset.css" rel="stylesheet"  type="text/css">
 <link rel="stylesheet" href="styles/styles.css" type="text/css">
 <link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css">
         
 
 <jsp:include page="styles/my.css" />
-<title>Year Book </title>
+<title>IT </title>
 </head>
 <%if("login".equals(request.getParameter("type"))){
 	
@@ -53,7 +55,7 @@
                 <div class="container">
                 <div class="tagline">
                     <h3>Tips:</h3>
-                    <p>Show your Pic here <br> Click the top nearby your photos.</p>
+                    <div class="tips">Show your Pic here <br> Click the top nearby your photos.</div>
                 </div>
                 
             </div>
@@ -63,11 +65,7 @@
 
 
 <div id="kong1"></div>
-	<!-- end #slider-container -->
-
-	<!-- end #header -->
-
-<div class="xi">
+	<div class="xi">
 	<!--各系-->
 <div class="f"></div>
 <div class="shake"><a href="xinke.jsp" target="main"><img src="images/xinke.jpg" alt="" width="90" height="90" /> </a></div>&nbsp;&nbsp;
@@ -95,81 +93,85 @@
 
 
 
+<div class="frame">
+
+<div class="one">
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>11.13 welcome to my graduation</p>
+ </span>
+</div>
+<div class="name1">Kass</div> 
+</div>
+
+
+
+
+
+
+<div class="one">
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>中文签名就个字你试试个中文英文的话很容易就满了主要是中文中文占位置很多哈哈哈哈哈哈哈</p>
+ </span>
+</div>
+<div class="name1">Kass</div> 
+</div>
+<div class="one">
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div>
+<div class="name1">Kass</div> 
+</div>
+
+<div class="one">
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div>
+<div class="name1">Kass</div> 
+</div>
+<div class="one">
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div>
+<div class="name1">Kass</div> 
+</div>
+<div class="one">
+<div class="pic">
+ <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
+	<span class="pic-caption left-to-right">	      
+<p>HI,I Am Kass</p>
+ </span>
+</div>
+<div class="name1">Kass</div> 
+</div>
+
+
+
 	
-    
-    <!--流布局-->
-     <div id="pic">
-	<div id="ctr">
-		<div class="box photo col3">
-			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/2.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
+   </div>
 
-		<div class="box photo col3">
-			<img src="images/3.jpg" alt="Stanley" />
-		<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/4.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/5.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/6.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/7.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/8.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/9.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/10.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
 
-		<div class="box photo col3">
-			<img src="images/11.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div style="clear:both; height: 40px"></div>
-	</div></div>
-	<!-- END container -->
-
-	<jsp:include page="User_login.jsp" />
-	<jsp:include page="User_register.jsp" />
+	
 	
  	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="js/jquery.skippr.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
-	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+	
 	<script type="text/javascript">
-	    $(function(){
-	    var $ctr = $('#ctr');
-	    $ctr.imagesLoaded( function(){
-	      $ctr.masonry({
-	        itemSelector : '.box',
-			isFitWidth: true,
-			isAnimated: true
-	      });
-	    });
 	  
-	  });
 	  $(document).ready(function() {
 		$("#random").skippr();
 		$("#random2").skippr({
