@@ -19,7 +19,22 @@
 		
 
 		
-<h1>Following/Followers</h1>
+<div  style="float:right;
+
+    width:260px;
+    height:30px;
+    -webkit-box-shadow: 0px 0px 6px #757575;
+	-moz-box-shadow: 0px 0px 6px #757575;
+	box-shadow: 0px 0px 9px #757575;
+	-webkit-transition: all;
+	-moz-transition: all;
+	-ms-transition: all;
+	-o-transition: all;
+	transition: all;
+	font-size:25px;
+	line-height:30px;
+	text-align:center;
+	background-color:#3ab6ae;">Following/Followers</div>
 		
 
 
