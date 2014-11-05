@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </s:else>
 							<div class="sign">
 								<a href="javascript:void(0)" onclick="showSignEdit()"><div id="signButton" class="pen"></div></a>
-							sign：<input type="text" id="signTextArea" style="display:none" maxlength="47"/><input id="updateSignButton" style="display:none" type="button" value="Edit" onclick="updateSign()"/>
+							sign：<input type="text" id="signTextArea" style="display:none" maxlength="42"/><input id="updateSignButton" style="display:none" type="button" value="Edit" onclick="updateSign()"/>
 								  <sign id="signContext"><s:property value="#session.user.sign"/></sign>
 							</div>
 							<a href="javascript:void(0)" onclick="myPostShow()" target="main"><div id="myPostSelectd" class="mypostSelect">Mypost</div></a>
