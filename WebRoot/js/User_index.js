@@ -116,14 +116,14 @@ function getPhotosByPerPage(isNew){
 									"</div>"+
 								"</div>"+
 							"</div>"+
-							"<figure>"+
+							"<figure>"+	
+							"<figcaption><a href='javascript:void(0)' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
+							"<input type='text' id='desTextArea"+json[i].id+"' style='display:none' maxlength='47'/>" +
+							"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
+							"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
+						    "</figcaption>"+
 								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
-								"<figcaption><a href='javascript:void(0)' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
-									"<input type='text' id='desTextArea"+json[i].id+"' style='display:none' maxlength='47'/>" +
-									"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
-									"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
-								"</figcaption>"+	
-							"</figure>"+
+								"</figure>"+
 						"</li>"
 					);
 				}

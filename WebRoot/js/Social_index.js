@@ -80,9 +80,9 @@ function getPhotosByPerPage(isNew){
 									"</div>"+
 								"</div>"+
 							"</div>"+
-							"<figure>"+
+							"<figure>"+"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>"+json[i].name+"</div></figcaption>"+	
 								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
-								"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>"+json[i].name+"</div></figcaption>"+	
+								
 						    "</figure>"+
 						"</li>"
 					);
