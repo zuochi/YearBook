@@ -561,4 +561,11 @@ public class DaoImpl<E> implements Dao {
 		}
 	}
 
+	@Override
+	public List getObjectsBySql(String sql) {
+		// TODO Auto-generated method stub
+		session = sessionFactory.getCurrentSession();
+		return session.createQuery(sql).list();
+	}
+
 }

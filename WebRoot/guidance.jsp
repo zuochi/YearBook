@@ -114,6 +114,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				window.parent.main.location.href="mainPage.jsp";
 			}
 			if(type==4){
+				//window.parent.main.location.href="/YearBook/user/getSocial_getFriend?user.id=<s:property value='#session.user.id'/>";
 				window.parent.main.location.href="friend.jsp";
 			}
 			if(type==5){

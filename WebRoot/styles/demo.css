@@ -284,6 +284,24 @@ margin-top:8px;
 	height:50px;
 	width:200px;
 }
+
+.guanzhuFriend{
+	
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/000.png);
+	height:50px;
+	width:200px;
+}
+.guanzhuFriend:hover{
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/333.png);
+	height:50px;
+	width:200px;
+}
 .yiguanzhu{margin-top:0px;
 	float: top;
 	margin-left:0px;

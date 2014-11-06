@@ -26,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			         async:false,
 			         success:function (msg) {
 			        	 if(msg=="success"){
+			        		 $("#followersNumber").html(parseInt($("#followersNumber").html())+parseInt(1));
 			        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='cancleFollow(<s:property value='#request.socialUser.id'/>)'><div id='followAttr' class='yiguanzhu'></div></a>");
 			        	 }else{
 			        		 alert("操作失败");
@@ -42,7 +43,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			         async:false,
 			         success:function (msg) {
 			        	 if(msg=="success"){
+			        		 $("#followersNumber").html(parseInt($("#followersNumber").html())-parseInt(1));
 			        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='follow(<s:property value='#request.socialUser.id'/>)'><div id='followAttr' class='guanzhu'></div></a>");
+			        	 }else{
+			        		alert("操作失败");
+			        	 }
+			         }
+				 });
+			};
+			
+			function followFriend(socialUserId){
+				$.ajax({
+			         url:'/YearBook/user/follow_execute',  
+			         type:'post', 
+			         data:"userId="+socialUserId+"&type=follow",
+			         async:false,
+			         success:function (msg) {
+			        	 if(msg=="success"){
+			        		 $("#followersNumber").html(parseInt($("#followersNumber").html())+parseInt(1));
+			        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='cancleFollowFriend(<s:property value='#request.socialUser.id'/>)'><div id='followAttr' class='friend'></div></a>");
+			        	 }else{
+			        		 alert("操作失败");
+			        	 }
+			         }
+				 });
+			};
+			
+			function cancleFollowFriend(socialUserId){
+				$.ajax({
+			         url:'/YearBook/user/follow_execute',  
+			         type:'post', 
+			         data:"userId="+socialUserId+"&type=cancelFollow",
+			         async:false,
+			         success:function (msg) {
+			        	 if(msg=="success"){
+			        		 $("#followersNumber").html(parseInt($("#followersNumber").html())-parseInt(1));
+			        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='followFriend(<s:property value='#request.socialUser.id'/>)'><div id='followAttr' class='guanzhuFriend'></div></a>");
 			        	 }else{
 			        		alert("操作失败");
 			        	 }
@@ -62,9 +98,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<header class="clearfix">
 		<div id="followAttrDIV">
 		<s:if test="#session.user.id!=#request.socialUser.id">
-			<s:if test="#request.isfollow==true">
-				<a href="javascript:void(0)" onclick="cancleFollow(<s:property value="#request.socialUser.id"/>)"><div id="followAttr" class="yiguanzhu"></div></a>
+			<s:if test="#request.relationShip==2">
+				<a href="javascript:void(0)" onclick="cancleFollowFriend(<s:property value="#request.socialUser.id"/>)"><div id="followAttr" class="friend"></div></a>
 			</s:if>
+			<s:elseif test="#request.relationShip==3">
+				<a href="javascript:void(0)" onclick="followFriend(<s:property value="#request.socialUser.id"/>)"><div id="followAttr" class="guanzhuFriend"></div></a>
+			</s:elseif>
+			<s:elseif test="#request.relationShip==1">
+				<a href="javascript:void(0)" onclick="cancleFollow(<s:property value="#request.socialUser.id"/>)"><div id="followAttr" class="yiguanzhu"></div></a>
+			</s:elseif>
 			<s:else>
 				<a href="javascript:void(0)" onclick="follow(<s:property value="#request.socialUser.id"/>)"><div id="followAttr" class="guanzhu"></div></a>
 			</s:else>
@@ -108,7 +150,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						  </s:if>
 							<div class="attfan">
 							<div class="fans">following<div class="a1"><s:property value="#request.socialFollowingCount"/></div></div> <div class="l"></div>
-							<div class="atten">followers<div class="f1"><s:property value="#request.socialFollowersCount"/></div></div>
+							<div class="atten">followers<div id="followersNumber" class="f1"><s:property value="#request.socialFollowersCount"/></div></div>
 							</div>
 								</div>
 	

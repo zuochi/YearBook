@@ -18,6 +18,7 @@ public interface Service<E> {
 	public abstract void updateUserLoginTime( User user);
 	public abstract Object getObjectByProperties(Properties pro,Object object);
 	public abstract List<E> getAllObjects(Object object);
+	public abstract List<E> getObjectsBySql(String sql);
 	public abstract List<E> getObjectsByPrepage(PageController pc,Object object);
 	public abstract List<E> getObjectsByPrepage(Properties pro, PageController pc,Object object);
 	public abstract List<E> getObjectsByPrepageByUserId(PageController pc, Object object,int userId);

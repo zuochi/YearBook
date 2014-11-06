@@ -146,5 +146,11 @@ public class ServiceImpl<E> implements Service{
 		return dao.updateUserSign(user);
 	}
 
+	@Override
+	public List getObjectsBySql(String sql) {
+		// TODO Auto-generated method stub
+		return dao.getObjectsBySql(sql);
+	}
+
 	
 }
