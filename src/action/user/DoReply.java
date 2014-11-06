@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Properties;
 
+import org.apache.struts2.json.annotations.JSON;
 import org.hibernate.Hibernate;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -92,7 +93,8 @@ public class DoReply extends UserAction{
 		pro.setProperty("name", name);
 		return (User) service.getObjectByProperties(pro, new User());
 	}
-	
+
+	@JSON(serialize=false)
 	public Reply getReply() {
 		return reply;
 	}
