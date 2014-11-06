@@ -118,7 +118,7 @@ function getPhotosByPerPage(isNew){
 							"</div>"+
 							"<figure>"+	
 							"<figcaption><a href='javascript:void(0)' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
-							"<input type='text' id='desTextArea"+json[i].id+"' style='display:none' maxlength='47'/>" +
+							"<input type='text' id='desTextArea"+json[i].id+"' style='display:none;' maxlength='60'/>" +
 							"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
 							"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
 						    "</figcaption>"+
