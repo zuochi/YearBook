@@ -82,7 +82,7 @@ function getPhotosByPerPage(isNew){
 							"</div>"+
 							"<figure>"+
 								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
-								"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</div></figcaption>"+	
+								"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>"+json[i].name+"</div></figcaption>"+	
 						    "</figure>"+
 						"</li>"
 					);

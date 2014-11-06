@@ -114,6 +114,7 @@ table {
     font-size: 12px;
     position: absolute;
     width: 100%;
+
     text-align: center;
     bottom: 20px;
 }
@@ -171,6 +172,7 @@ table {
     top: 0;
     left: 0;
     width: 100%;
+    
     overflow: hidden;
     white-space: nowrap;
     text-overflow : ellipsis;

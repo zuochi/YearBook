@@ -9,12 +9,15 @@ import bean.User;
 
 public class AnalyzeStringUtils {
 	public static String analyzeFriendUrl(String reply,Service service){
+		//去除前后空格
 		reply = reply.trim();
-		String s = reply;
+		//先按空格分割
 		String[] friendsList = reply.split("\\s+");
+		//使用StringBuilder重组字符串
+		StringBuilder replyStringBuilder = new StringBuilder("");
 		
 		//重置reply
-		reply = "";
+		//reply = "";
 		
 		User friend = null;
 		
@@ -23,18 +26,18 @@ public class AnalyzeStringUtils {
 				String[] friendsListMiddle = friendsList[i].split("@");
 				for(int j=0 ; j<friendsListMiddle.length ; j++){
 					if(j==0){
-						reply += friendsListMiddle[j];
+						replyStringBuilder.append(friendsListMiddle[j]);
 						continue;
 					}
 					if(j==(friendsListMiddle.length-1) && !"".equals(friendsListMiddle[j])){
 						friend = getUserByName(friendsListMiddle[j],service);
 						if(friend!=null){
-							reply += "<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ";
+							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ");
 						}else{
-							reply += "@" + friendsListMiddle[j] + " " ;
+							replyStringBuilder.append("@" + friendsListMiddle[j] + " ");
 						}
 					}else{
-						reply += ("@" + friendsListMiddle[j]);
+						replyStringBuilder.append(("@" + friendsListMiddle[j]));
 					}
 				}
 			}catch (Exception e) {
@@ -42,7 +45,7 @@ public class AnalyzeStringUtils {
 				e.printStackTrace();
 			}
 		}
-		return reply;
+		return replyStringBuilder.toString();
 	}
 	
 	private boolean noifyFriend(Service service){

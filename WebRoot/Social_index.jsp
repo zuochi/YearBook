@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
+		<%-- <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" /> --%>
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 		<script type="text/javascript" src="<%=basePath %>js/jquery-1.11.1.js"></script>
 		<script type="text/javascript">
@@ -141,7 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		
 		<script type="text/javascript" src="<%=basePath %>js/at.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script>
+		<%-- <script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script> --%>
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>

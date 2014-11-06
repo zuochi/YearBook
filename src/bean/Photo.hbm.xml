@@ -10,12 +10,12 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="bean.User" fetch="select">
+        <many-to-one name="user" class="bean.User" fetch="select" update="false">
             <column name="user_id" not-null="true">
                 <comment>上传用户id</comment>
             </column>
         </many-to-one>
-        <many-to-one name="photoAlbum" class="bean.PhotoAlbum" fetch="select">
+        <many-to-one name="photoAlbum" class="bean.PhotoAlbum" fetch="select" update="false">
             <column name="album_id">
                 <comment>相册id</comment>
             </column>
@@ -25,17 +25,17 @@
                 <comment>照片名</comment>
             </column>
         </property>
-        <property name="url" type="java.lang.String">
+        <property name="url" type="java.lang.String" update="false">
             <column name="url" length="200" not-null="true">
                 <comment>照片路径</comment>
             </column>
         </property>
-        <property name="urlThumb" type="java.lang.String">
+        <property name="urlThumb" type="java.lang.String" update="false">
             <column name="url_thumb" length="200" not-null="true">
                 <comment>缩略图路径</comment>
             </column>
         </property>
-        <property name="uploadDate" type="java.sql.Timestamp">
+        <property name="uploadDate" type="java.sql.Timestamp" update="false">
             <column name="upload_date" length="19" not-null="true">
                 <comment>上传日期</comment>
             </column>

@@ -45,10 +45,10 @@ public class GetPhotosByPerPage extends UserAction{
 		}
 		out.flush();
 		out.close();
-		if(photos.size()!=0){
+		/*if(photos.size()!=0){
 			request.setAttribute("photos", photos);
 			request.setAttribute("photosPc", pc);
-		}
+		}*/
 		return "ajax";
 	}
 }
