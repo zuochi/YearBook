@@ -56,7 +56,7 @@ table {
 
 /* ------------ */
 #wrapper {
-    width: 980px;
+    width: 500px;
     margin: 0 auto;
 
     margin: 1em;
@@ -64,6 +64,7 @@ table {
 }
 
 #container {
+	
     border: 3px solid #fff;
     color: #838383;
     font-size: 12px;
@@ -82,11 +83,12 @@ table {
 }
 
 #uploader .placeholder {
+
     border: 3px dashed #fff;
     min-height: 238px;
-    padding-top: 158px;
+    padding-top: 240px;
     text-align: center;
-    background: url(../images/upload/image.png) center 93px no-repeat;
+    background: url(../images/upload/image.png) center 160px no-repeat;
     color: #cccccc;
     font-size: 18px;
     position: relative;
@@ -100,7 +102,7 @@ table {
     padding: 0 30px;
     color: #fff;
     display: inline-block;
-    margin: 20px auto;
+    margin: 30px auto;
     cursor: pointer;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
