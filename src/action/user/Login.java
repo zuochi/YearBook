@@ -20,9 +20,7 @@ public class Login extends UserAction{
 		// TODO Auto-generated method stub
 		try {
 			out = response.getWriter();
-			Properties pro = new Properties();
-			pro.setProperty("userName", userName);
-			user = (User) service.getObjectByProperties(pro, new User());
+			user = (User) service.getObjectByHql("from User where userName='"+userName+"'", "getHeadPhoto");
 			if (user != null) {
 				if (password.equals(user.getPassword())) {
 					if ("on".equals(auto_login)) {
@@ -30,14 +28,9 @@ public class Login extends UserAction{
 						Cookie cookie = (Cookie) cookieUtils.addCookie(user);
 						response.addCookie(cookie);
 					}
-					pro = new Properties();
-					if (user.getHeadPhoto().getId() != null) {
-						pro.setProperty("id", user.getHeadPhoto().getId().toString());
-					}
-					HeadPhoto headPhoto = (HeadPhoto) service.getObjectByProperties(pro, new HeadPhoto());
 					// 放置数据
 					session.put("user", user);
-					session.put("headPhoto", headPhoto);
+					session.put("headPhoto", user.getHeadPhoto());
 					// 更新登陆时间
 					service.updateUserLoginTime(user);
 					out.print("success");

@@ -69,7 +69,7 @@ function getPhotosByPerPage(isNew){
 	$.ajax({
 		url:'/YearBook/user/getPhotosByPerPage_execute',  
 		type:'post', 
-		data:"userId="+document.getElementById("userId").value+"&toPage="+toPageP,
+		data:"user.id="+document.getElementById("userId").value+"&toPage="+toPageP,
 		async:false,
 		dataType:'json',
 		success:function (json) {

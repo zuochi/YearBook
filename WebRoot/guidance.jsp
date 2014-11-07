@@ -114,11 +114,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				window.parent.main.location.href="mainPage.jsp";
 			}
 			if(type==4){
-				//window.parent.main.location.href="/YearBook/user/getSocial_getFriend?user.id=<s:property value='#session.user.id'/>";
-				window.parent.main.location.href="friend.jsp";
+				window.parent.main.location.href="/YearBook/user/getSocial_getFriendByPerPage?user.id=<s:property value='#session.user.id'/>";
+				//window.parent.main.location.href="friend.jsp";
 			}
 			if(type==5){
-				window.parent.main.location.href="/YearBook/user/getMyPost_execute?userId=<s:property value='#session.user.id'/>";
+				window.parent.main.location.href="/YearBook/user/getMyPost_execute?user.id=<s:property value='#session.user.id'/>";
 			}
 			if(type==6){
 				window.parent.main.location.href="bbs.jsp";

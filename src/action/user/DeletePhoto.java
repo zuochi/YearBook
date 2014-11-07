@@ -16,20 +16,15 @@ public class DeletePhoto extends UserAction {
 		// TODO Auto-generated method stub
 		try {
 			out = response.getWriter();
-			Properties pro = new Properties();
-			pro.setProperty("id", photo.getId().toString());
-			Properties pro2 = new Properties();
-			pro2.setProperty("photo.id", photo.getId().toString());
-			photo = (Photo) service.getObjectByProperties(pro, new Photo());
-			//IWantTop iWantTop = (IWantTop) service.getObjectByProperties(pro2, new IWantTop());
-			//if(iWantTop!=null){
-				//service.delObject(iWantTop);
-			//}
-			//if (service.delObject(photo)) {
-			photo.setIsDelete(1);
-			if (service.updateObject(photo)) {
-				out.print("success");
-			} else {
+			photo = (Photo) service.getObjectByHql("from Photo where isDelete=0 and id=" + photo.getId());
+			if(photo!=null){
+				photo.setIsDelete(1);
+				if (service.updateObject(photo)) {
+					out.print("success");
+				}else {
+					out.print("fail");
+				}
+			}else {
 				out.print("fail");
 			}
 		} catch (Exception e) {

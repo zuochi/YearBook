@@ -147,9 +147,27 @@ public class ServiceImpl<E> implements Service{
 	}
 
 	@Override
-	public List getObjectsBySql(String sql) {
+	public Object getObjectByHql(String hql, String... values) {
 		// TODO Auto-generated method stub
-		return dao.getObjectsBySql(sql);
+		return dao.getObjectByHql(hql, values);
+	}
+
+	@Override
+	public Object getObjectBySql(String sql, Object object, String... values) {
+		// TODO Auto-generated method stub
+		return dao.getObjectBySql(sql, object, values);
+	}
+
+	@Override
+	public List getObjectsByHql(String hql,PageController pc, String... values) {
+		// TODO Auto-generated method stub
+		return dao.getObjectsByHql(hql,pc, values);
+	}
+	
+	@Override
+	public List getObjectsBySql(String sql,PageController pc, Object object, String... values) {
+		// TODO Auto-generated method stub
+		return dao.getObjectsBySql(sql,pc, object, values);
 	}
 
 	

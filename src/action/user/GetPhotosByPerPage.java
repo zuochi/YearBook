@@ -16,13 +16,10 @@ public class GetPhotosByPerPage extends UserAction{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		Properties pro = new Properties();
-		pro.setProperty("user.id", request.getParameter("userId"));
-		//pro.setProperty("photoAlbum.id", request.getParameter("photoAlbumId"));
-		int photosCount = service.getTotalRowsByProperties(pro, new Photo(),true);
+		int photosCount = (Integer) service.getObjectByHql("select count(p) from Photo p where isDelete=0 and user.id="+user.getId(),"getInteger");
 		PageController pc = new PageController(photosCount, 1,20);
 		pc.setCurrentPage(toPage);
-		List<Photo> photos = service.getObjectsByPrepageAndProperties(pro, pc,new Photo(), true);
+		List<Photo> photos = service.getObjectsByHql("from Photo where isDelete=0 and user.id="+user.getId()+" order by uploadDate desc", pc);
 		try {
 			out = response.getWriter();
 			if(toPage>pc.getTotalPages()){
@@ -45,10 +42,6 @@ public class GetPhotosByPerPage extends UserAction{
 		}
 		out.flush();
 		out.close();
-		/*if(photos.size()!=0){
-			request.setAttribute("photos", photos);
-			request.setAttribute("photosPc", pc);
-		}*/
-		return "ajax";
+		return null;
 	}
 }

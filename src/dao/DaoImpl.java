@@ -1,10 +1,14 @@
 package dao;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.math.BigInteger;
 import java.sql.Timestamp;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
+import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -560,12 +564,180 @@ public class DaoImpl<E> implements Dao {
 			sessionFactory.close();
 		}
 	}
-
+	
 	@Override
-	public List getObjectsBySql(String sql) {
+	public List getObjectsBySql(String sql,PageController pc,Object object,String... values) {
 		// TODO Auto-generated method stub
-		session = sessionFactory.getCurrentSession();
-		return session.createQuery(sql).list();
+		List list = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			if(pc!=null){
+				list =  session.createSQLQuery(sql).addEntity(object.getClass()).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
+			}else{
+				list = session.createSQLQuery(sql).addEntity(object.getClass()).list();
+			}
+			for(Object o:list){
+				for(String methodName : values){
+					Method method = o.getClass().getMethod(methodName, new Class[0]);
+					Hibernate.initialize(method.invoke(o,new Object[0]));
+				}
+			}
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			sessionFactory.close();
+		}
+		return list;
+	}
+	
+	@Override
+	public Object getObjectBySql(String sql,Object object,String... values) {
+		// TODO Auto-generated method stub
+		List list = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			if(object instanceof Integer){
+				Object obj = session.createSQLQuery(sql).uniqueResult();
+				if (obj instanceof BigInteger) {
+					return ((BigInteger) obj).intValue();
+				}
+			}
+			list =  session.createSQLQuery(sql).addEntity(object.getClass()).list();
+			for(Object o:list){
+				for(String methodName : values){
+					Method method = o.getClass().getMethod(methodName, new Class[0]);
+					Hibernate.initialize(method.invoke(o,new Object[0]));
+				}
+			}
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			sessionFactory.close();
+		}
+		if(list.size()>0){
+			return list.get(0);
+		}
+		return null;
+	}
+	
+	/**
+	 * 强制加载某些属性
+	 * "String... values" 为方法的名字，去括号
+	 */
+	@Override
+	public List getObjectsByHql(String hql,PageController pc, String... values) {
+		// TODO Auto-generated method stub
+		List list = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			if(pc!=null){
+				Query query = session.createQuery(hql);
+				query.setFirstResult(pc.getPageStartRow());
+				query.setMaxResults(pc.getPageSize());
+				//list = session.createQuery(hql).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
+				list = query.list();
+			}else{
+				list = session.createQuery(hql).list();
+			}
+			for(Object o:list){
+				for(String methodName : values){
+					Method method = o.getClass().getMethod(methodName, new Class[0]);
+					Hibernate.initialize(method.invoke(o,new Object[0]));
+				}
+			}
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			sessionFactory.close();
+		}
+		return list;
 	}
 
+	@Override
+	public Object getObjectByHql(String hql, String... values) {
+		// TODO Auto-generated method stub
+		List list = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			if(values!=null && "getInteger".equals(values[0])){
+				Object obj = session.createQuery(hql).uniqueResult();
+				if (obj instanceof Long) {
+					return ((Long) obj).intValue();
+				}
+			}
+			list = session.createQuery(hql).list();
+			for(Object o:list){
+				for(String methodName : values){
+					Method method = o.getClass().getMethod(methodName, new Class[0]);
+					Hibernate.initialize(method.invoke(o,new Object[0]));
+				}
+			}
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			sessionFactory.close();
+		}
+		if(list.size()>0){
+			return list.get(0);
+		}
+		return null;
+	}
 }

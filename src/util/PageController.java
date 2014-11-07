@@ -2,60 +2,60 @@ package util;
 
 import java.util.Collection;
 
-/*ĞèÒªÖªµÀµÄÌõ¼ş£º
- 1)×Ü¼ÇÂ¼Êı	totalRows
- 2)Ã¿Ò»Ò³ÏÔÊ¾µÄ¼ÇÂ¼Êı	pageSize
- 3)µ±Ç°Ò³	currPage
+/*éœ€è¦çŸ¥é“çš„æ¡ä»¶ï¼š
+ 1)æ€»è®°å½•æ•°	totalRows
+ 2)æ¯ä¸€é¡µæ˜¾ç¤ºçš„è®°å½•æ•°	pageSize
+ 3)å½“å‰é¡µ	currPage
 
- ¼ÆËã³öÀ´µÄÊı¾İ£º
- ×ÜÒ³Êı totalPages£º
+ è®¡ç®—å‡ºæ¥çš„æ•°æ®ï¼š
+ æ€»é¡µæ•° totalPagesï¼š
  if(totalRows%pageSize==0){
  totalPages = totalRows/pageSize;
  }else{
  totalPages = totalRows/pageSize+1;
  }
- ¿ªÊ¼ĞĞstartRow£º
+ å¼€å§‹è¡ŒstartRowï¼š
  startRow = (currPage-1)*pageSize;
- ½áÊøĞĞendRow£º
+ ç»“æŸè¡ŒendRowï¼š
  endRow = currPage*pageSize;
- ÉÏÒ»Ò³prePage£º
+ ä¸Šä¸€é¡µprePageï¼š
  prePage = currPage-1;
- ÏÂÒ»Ò³nextPage£º
+ ä¸‹ä¸€é¡µnextPageï¼š
  nextPage = currPage+1;
- ÊÇ·ñÓĞÉÏÒ»Ò³£º
- ÊÇ·ñÓĞÏÂÒ»Ò³£º*/
+ æ˜¯å¦æœ‰ä¸Šä¸€é¡µï¼š
+ æ˜¯å¦æœ‰ä¸‹ä¸€é¡µï¼š*/
 public class PageController {
 
-	// ×ÜĞĞÊı
+	// æ€»è¡Œæ•°
 	int totalRowsAmount;
-	// Ã¿Ò³ĞĞÊı
+	// æ¯é¡µè¡Œæ•°
 	int pageSize = 10;
-	// ×ÜÒ³Êı
+	// æ€»é¡µæ•°
 	int totalPages;
-	// µ±Ç°Ò³Âë
+	// å½“å‰é¡µç 
 	int currentPage = 1;
-	// ÏÂÒ»Ò³
+	// ä¸‹ä¸€é¡µ
 	int nextPage;
-	// ÉÏÒ»Ò³
+	// ä¸Šä¸€é¡µ
 	int previousPage;
-	// ÊÇ·ñÓĞÏÂÒ»Ò³
+	// æ˜¯å¦æœ‰ä¸‹ä¸€é¡µ
 	boolean hasNext;
-	// ÊÇ·ñÓĞÉÏÒ»Ò³
+	// æ˜¯å¦æœ‰ä¸Šä¸€é¡µ
 	boolean hasPrevious;
 
-	// µ±Ç°Ò³¿ªÊ¼ĞĞ
+	// å½“å‰é¡µå¼€å§‹è¡Œ
 	int pageStartRow;
 
-	// µ±Ç°Ò³ÒªÏÔÊ¾µÄĞĞÊı
+	// å½“å‰é¡µè¦æ˜¾ç¤ºçš„è¡Œæ•°
 	int pageEndRow;
 
 	/**
-	 * ¹¹Ôìº¯Êı¡£
+	 * æ„é€ å‡½æ•°ã€‚
 	 * 
 	 * @param totalRows
-	 *            ×ÜĞĞÊı
+	 *            æ€»è¡Œæ•°
 	 * @param currentPage
-	 *            µ±Ç°Ò³Âë
+	 *            å½“å‰é¡µç 
 	 */
 
 	public PageController(int totalRows, int currentPage) {
@@ -66,21 +66,20 @@ public class PageController {
 		this.pageSize = pageSize;
 		this.setPageController(totalRows, currentPage);
 	}
-
+	
 	public void setPageController(int totalRows, int currentPage) {
-
 		setTotalRowsAmount(totalRows);
 		setCurrentPage(currentPage);
 	}
 
 	/**
-	 * ÉèÖÃ×ÜĞĞÊıºÍ×ÜÒ³Êı¡£
+	 * è®¾ç½®æ€»è¡Œæ•°å’Œæ€»é¡µæ•°ã€‚
 	 * 
 	 * @param i
-	 *            ×ÜĞĞÊı¡£
+	 *            æ€»è¡Œæ•°ã€‚
 	 */
 	private void setTotalRowsAmount(int rows) {
-
+		
 		if (rows < 0) {
 			totalRowsAmount = 0;
 		} else {
@@ -92,16 +91,17 @@ public class PageController {
 		} else {
 			totalPages = totalRowsAmount / pageSize + 1;
 		}
+		
 	}
-
+	
 	/**
-	 * ÉèÖÃµ±Ç°Ò³Êı¡£
+	 * è®¾ç½®å½“å‰é¡µæ•°ã€‚
 	 * 
 	 * @param i
 	 */
 	public void setCurrentPage(int curPage) {
 
-		// ¼ÆËãµ±Ç°Ò³Âë
+		// è®¡ç®—å½“å‰é¡µç 
 		if (curPage <= 0) {
 			currentPage = 1;
 		} else if (curPage > totalPages) {
@@ -110,7 +110,7 @@ public class PageController {
 			currentPage = curPage;
 		}
 
-		// ¼ÆËãÊÇ·ñÓĞÉÏÒ»Ò³,ÊÇ·ñÓĞÏÂÒ»Ò³
+		// è®¡ç®—æ˜¯å¦æœ‰ä¸Šä¸€é¡µ,æ˜¯å¦æœ‰ä¸‹ä¸€é¡µ
 		if (currentPage <= 1) {
 			hasPrevious = false;
 		} else {
@@ -123,18 +123,18 @@ public class PageController {
 			hasNext = true;
 		}
 
-		// ¼ÆËãÉÏÒ»Ò³ºÍÏÂÒ»Ò³
+		// è®¡ç®—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µ
 		nextPage = currentPage + 1;
 		previousPage = currentPage - 1;
 
-		// ¼ÆËã¿ªÊ¼ĞĞºÍ½áÊøĞĞ
+		// è®¡ç®—å¼€å§‹è¡Œå’Œç»“æŸè¡Œ
 		if (currentPage == totalPages) {
 			pageStartRow = (currentPage - 1) * pageSize;
-			// ¼ÇÂ¼Ë÷Òı´Ó0¿ªÊ¼
+			// è®°å½•ç´¢å¼•ä»0å¼€å§‹
 			pageEndRow = currentPage * pageSize;
 		} else {
 			pageStartRow = (currentPage - 1) * pageSize;
-			// ¼ÇÂ¼Ë÷Òı´Ó0¿ªÊ¼
+			// è®°å½•ç´¢å¼•ä»0å¼€å§‹
 			pageEndRow = totalRowsAmount - pageStartRow;
 		}
 	}
@@ -170,7 +170,7 @@ public class PageController {
 	public int getTotalRowsAmount() {
 		return totalRowsAmount;
 	}
-
+	
 	public int getPageStartRow() {
 		return pageStartRow;
 	}

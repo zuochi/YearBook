@@ -81,44 +81,27 @@ public class GetSocial extends UserAction{
 	public String getFriendByPerPage(){
 		List<FriendInfomation> friendInfomations = null;
 		
+		Integer friendAmmount = (Integer) service.getObjectBySql("select count(*) from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId(),new Integer(0));
+		
+		System.out.println(friendAmmount);
+		
+		//PageController pc = new PageController(1,1,true);
+		//pc.setCurrentPage(toPage);
+		
 		//获取当前用户的好友信息
-		//List<User> friendUserList = service.getObjectsBySql("from User user, where user.isDelete=0 and ());
-		Properties friendListPro = new Properties();
-		friendListPro.setProperty("userByUserId.id", user.getId().toString());
-		List<FriendList> userFriendList = service.getObjectsByProperties(friendListPro, new FriendList(), true);
-		for(FriendList friendlist : userFriendList){
-			//判断是否朋友关系
-			if(isFriend(friendlist.getUserByFriendId().getId(),user.getId())){
-				Properties friendPro = new Properties();
-				friendPro.setProperty("id", friendlist.getUserByFriendId().getId().toString());
-				User friend = (User) service.getObjectByProperties(friendPro, new User());
-				
-				Properties friendHeadPhotoPro = new Properties();
-				friendHeadPhotoPro.setProperty("id", friend.getHeadPhoto().getId().toString());
-				HeadPhoto friendHeadPhoto = (HeadPhoto) service.getObjectByProperties(friendHeadPhotoPro, new HeadPhoto());
-				
-				if(friendInfomations==null){
-					friendInfomations = new ArrayList<FriendInfomation>();
-				}
-				friendInfomations.add(new FriendInfomation(friend.getId(),"",friendHeadPhoto.getUrlL(),friend.getName(),friend.getName()));
-			}
-		}
+		//List<User> userFriendList = service.getObjectsBySql("select u.* from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId(),pc,user,"getHeadPhoto");
+		
+		//for(User friend : userFriendList){
+			//System.out.println(friend.getName());
+		//}
+		
 		return "ajax";
-	}
-	
-	//已关注判断是否朋友 或者 未关注判断是否被关注
-	private boolean isFriend(int userByUserId,int userByFriendId){
-		List<FriendList> isFriendList = service.getObjectsBySql("from FriendList where isDelete=0 and userByUserId.id="+ userByFriendId+" and userByFriendId.id=" + userByUserId);
-		if(isFriendList.size()>0){
-			return true;
-		}
-		return false;
 	}
 	
 	//判断是否关注
 	private boolean isFollowed(int userByUserId,int userByFriendId){
-		List<FriendList> isFriendList = service.getObjectsBySql("from FriendList where isDelete=0 and userByUserId.id="+userByUserId+" and userByFriendId.id=" + userByFriendId);
-		if(isFriendList.size()>0){
+		FriendList isFriendList = (FriendList) service.getObjectByHql("from FriendList where isDelete=0 and userByUserId.id="+userByUserId+" and userByFriendId.id=" + userByFriendId,null);
+		if(isFriendList!=null){
 			return true;
 		}
 		return false;
@@ -129,14 +112,14 @@ public class GetSocial extends UserAction{
 		//判断是否关注
 		if(isFollowed(userByUserId,userByFriendId)){
 			//判断是否朋友
-			if(isFriend(userByUserId,userByFriendId)){
+			if(isFollowed(userByFriendId,userByUserId)){
 				return 2;
 			}else{
 				return 1;
 			}
 		}else{
 			//判断是否被关注
-			if(isFriend(userByUserId,userByFriendId)){
+			if(isFollowed(userByFriendId,userByUserId)){
 				return 3;
 			}else{
 				return 0;

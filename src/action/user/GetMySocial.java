@@ -9,15 +9,14 @@ import org.springframework.stereotype.Controller;
 
 import util.PageController;
 import bean.FriendList;
-import bean.Photo;
-import bean.PhotoAlbum;
-import bean.User;
+
 
 @Controller
 @Scope("prototype")
 public class GetMySocial extends UserAction{
 	private int followingToPage;
 	private int followersToPage;
+	
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub

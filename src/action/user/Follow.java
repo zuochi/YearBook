@@ -15,22 +15,19 @@ public class Follow extends UserAction{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		user = (User) request.getSession().getAttribute("user");
-		
-		Properties followUserPro = new Properties();
-		followUserPro.setProperty("id", request.getParameter("userId"));
-		User followUser = (User) service.getObjectByProperties(followUserPro, new User());
+	
+		User followUser =new User();
+		followUser.setId(Integer.parseInt(request.getParameter("userId")));
 		
 		out = response.getWriter();
 		
 		if("follow".equals(request.getParameter("type"))){
 			//查找是否已经有删除过的记录
-			Properties friendListPro = new Properties();
-			friendListPro.setProperty("userByUserId.id", user.getId().toString());
-			friendListPro.setProperty("userByFriendId.id", followUser.getId().toString());
-			FriendList friendList = (FriendList) service.getDelObjectByProperties(friendListPro, new FriendList());
-			
+			FriendList friendList = getFriendList(user.getId(),followUser.getId(),true);
+
 			//没有的话就更新
 			if(friendList==null){
+				System.out.println("new");
 				if(service.saveObject(new FriendList(user,followUser,0))){
 					out.print("success");
 				}else{
@@ -46,11 +43,7 @@ public class Follow extends UserAction{
 				}
 			}
 		}else if("cancelFollow".equals(request.getParameter("type"))){
-			//查找是否已经有记录
-			Properties friendListPro = new Properties();
-			friendListPro.setProperty("userByUserId.id", user.getId().toString());
-			friendListPro.setProperty("userByFriendId.id", followUser.getId().toString());
-			FriendList friendList = (FriendList) service.getObjectByProperties(friendListPro, new FriendList());
+			FriendList friendList = getFriendList(user.getId(),followUser.getId(),false);
 			friendList.setIsDelete(1);
 			try {
 				if(service.updateObject(friendList)){
@@ -66,5 +59,9 @@ public class Follow extends UserAction{
 		out.flush();
 		out.close();
 		return "ajax";
+	}
+	
+	private FriendList getFriendList(int userId,int friendId,boolean isDelete){
+		return (FriendList) service.getObjectByHql("from FriendList where isDelete="+(isDelete?1:0)+" and userByUserId.id="+userId+" and userByFriendId.id="+friendId);
 	}
 }

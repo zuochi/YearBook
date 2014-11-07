@@ -7,24 +7,16 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-
-import javax.servlet.ServletContext;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import util.PageController;
-
 import bean.HeadPhoto;
 import bean.Photo;
-import bean.PhotoAlbum;
 import bean.User;
 
 import com.alibaba.fastjson.JSON;
-import com.opensymphony.xwork2.ActionContext;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
