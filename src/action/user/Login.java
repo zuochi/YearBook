@@ -20,7 +20,7 @@ public class Login extends UserAction{
 		// TODO Auto-generated method stub
 		try {
 			out = response.getWriter();
-			user = (User) service.getObjectByHql("from User where userName='"+userName+"'", "getHeadPhoto");
+			user = (User) service.getObjectByHql("from User where isDelete=0 and userName='"+userName+"'", "getHeadPhoto");
 			if (user != null) {
 				if (password.equals(user.getPassword())) {
 					if ("on".equals(auto_login)) {

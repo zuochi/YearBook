@@ -27,7 +27,7 @@ public class GetSearchInfomation extends UserAction{
 		if(type.equals("searchFriendName") && user!=null){
 			PageController pc = new PageController(5, 1,5);
 			
-			List<FriendList> friendLists = service.getObjectsByHql("from FriendList where userByUserId.id="+user.getId() + " and userByFriendId.name like '"+friendList.getUserByFriendId().getName()+"%'", pc);
+			List<FriendList> friendLists = service.getObjectsByHql("from FriendList where isDelete=0 and userByUserId.id="+user.getId() + " and userByFriendId.name like '"+friendList.getUserByFriendId().getName()+"%'", pc);
 			
 			List<FriendInfomation> friendNameList = new ArrayList<FriendInfomation>();
 			for(FriendList f : friendLists){
