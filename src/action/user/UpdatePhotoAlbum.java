@@ -31,6 +31,6 @@ public class UpdatePhotoAlbum extends UserAction{
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 }

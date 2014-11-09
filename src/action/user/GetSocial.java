@@ -2,9 +2,9 @@ package action.user;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
-import org.hibernate.Hibernate;
+import net.sf.json.JSONArray;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -13,10 +13,6 @@ import dto.FriendInfomation;
 import util.PageController;
 
 import bean.FriendList;
-import bean.HeadPhoto;
-import bean.Photo;
-import bean.Profession;
-import bean.SchoolYear;
 import bean.User;
 
 @Controller
@@ -25,77 +21,160 @@ public class GetSocial extends UserAction{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+
+		int socialPhotosCount = (Integer) service.getObjectByHql("select count(*) from Photo where isDelete=0 and user.id="+user.getId(), "getInteger");
 		
-		Properties pro = new Properties();
-		pro.setProperty("user.id", request.getParameter("userId"));
-		
-		int socialPhotosCount = service.getTotalRowsByProperties(pro, new Photo(),true);
-		
-		Properties userIdPro = new Properties();
-		userIdPro.setProperty("id", request.getParameter("userId"));
 		//获取社交用户
-		User socialUser = (User) service.getObjectByProperties(userIdPro, new User());
+		User socialUser = (User) service.getObjectByHql("from User where isDelete=0 and id="+user.getId(), "getHeadPhoto","getProfession","getSchoolYear");
+		
 		//获取当前user
 		user = (User) request.getSession().getAttribute("user");
 		//屏蔽相关属性
 		socialUser.setUserName("");
 		socialUser.setPassword("");
 		
-		Properties headPhotoIdPro = new Properties();
-		headPhotoIdPro.setProperty("id", socialUser.getHeadPhoto().getId().toString());
-		HeadPhoto socialHeadPhoto = (HeadPhoto) service.getObjectByProperties(headPhotoIdPro,new HeadPhoto());
-		
 		if(socialUser.getProfession()!=null){
-			Properties professionIdPro = new Properties();
-			professionIdPro.setProperty("id", socialUser.getProfession().getId().toString());
-			Profession socialProfession = (Profession) service.getObjectByProperties(professionIdPro,new Profession());
-			request.setAttribute("socialProfession", socialProfession);
+			request.setAttribute("socialProfession", socialUser.getProfession());
 		}
 		
 		if(socialUser.getSchoolYear()!=null){
-			Properties schoolYearIdPro = new Properties();
-			schoolYearIdPro.setProperty("id", socialUser.getSchoolYear().getId().toString());
-			SchoolYear socialSchoolYear = (SchoolYear) service.getObjectByProperties(schoolYearIdPro,new SchoolYear());
-			request.setAttribute("socialSchoolYear", socialSchoolYear);
+			request.setAttribute("socialSchoolYear", socialUser.getSchoolYear());
 		}
 		
 		//获取following数量
-		Properties followingPro = new Properties();
-		followingPro.setProperty("userByUserId.id", request.getParameter("userId"));
-		int socialFollowingCount = service.getTotalRowsByProperties(followingPro, new FriendList(),true);
-				
+		int socialFollowingCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByUserId.id="+user.getId(), "getInteger");
+		
 		//获取followers数量
-		Properties followersPro = new Properties();
-		followersPro.setProperty("userByFriendId.id", request.getParameter("userId"));
-		int socialFollowersCount = service.getTotalRowsByProperties(followersPro, new FriendList(),true);
+		int socialFollowersCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByFriendId.id="+user.getId(), "getInteger");
 		
 		request.setAttribute("socialPhotosCount", socialPhotosCount);
 		request.setAttribute("socialUser", socialUser);
-		request.setAttribute("socialHeadPhoto", socialHeadPhoto);
+		request.setAttribute("socialHeadPhoto", socialUser.getHeadPhoto());
 		request.setAttribute("socialFollowingCount", socialFollowingCount);
 		request.setAttribute("socialFollowersCount", socialFollowersCount);
 		request.setAttribute("relationShip", getRelationship(user.getId(),socialUser.getId()));
 		return "social";
 	}
 	
+	//获取好友列表
 	public String getFriendByPerPage(){
-		List<FriendInfomation> friendInfomations = null;
-		
-		Integer friendAmmount = (Integer) service.getObjectBySql("select count(*) from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId(),new Integer(0));
-		
-		System.out.println(friendAmmount);
-		
-		//PageController pc = new PageController(1,1,true);
-		//pc.setCurrentPage(toPage);
-		
-		//获取当前用户的好友信息
-		//List<User> userFriendList = service.getObjectsBySql("select u.* from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId(),pc,user,"getHeadPhoto");
-		
-		//for(User friend : userFriendList){
-			//System.out.println(friend.getName());
-		//}
-		
-		return "ajax";
+		try {
+			List<FriendInfomation> friendInfomationList = null;
+			out = response.getWriter();
+			
+			//获取好友数量
+			Integer friendAmmount = (Integer) service.getObjectBySql("select count(*) from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId(),new Integer(0));
+			
+			PageController pc = new PageController(friendAmmount,1,20);
+			pc.setCurrentPage(toPage);
+			
+			//获取当前用户的好友信息
+			List<User> userFriendList = service.getObjectsBySql("select u.* from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId(),pc,user,"getHeadPhoto");
+			
+			if(userFriendList.size()>0){
+				friendInfomationList = new ArrayList<FriendInfomation>();
+				//transform
+				for(User friend : userFriendList){
+					friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign()));
+				}
+				JSONArray json = JSONArray.fromObject(friendInfomationList);
+				out.print(json);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			out.flush();
+			out.close();
+		}
+		return null;
+	}
+	
+	//获取关注列表
+	public String getFollowingByPerPage(){
+		try {
+			List<FriendInfomation> friendInfomationList = null;
+			out = response.getWriter();
+			
+			//获取关注数量
+			int followingCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByUserId.id="+user.getId(), "getInteger");
+			
+			PageController pc = new PageController(followingCount,1,20);
+			pc.setCurrentPage(toPage);
+			
+			//获取当前用户的关注信息
+			if(toPage>pc.getTotalPages()){
+				out.print("false");
+			}else{
+				List<User> userFriendList = service.getObjectsBySql("select u.* from user u left join friend_list f on u.is_delete=0 and f.is_delete=0 and f.user_id = u.id where u.id in (select f.friend_id from friend_list f where f.is_delete=0 and f.user_id = "+user.getId()+")",pc,user,"getHeadPhoto");
+	
+				if(userFriendList.size()>0){
+					friendInfomationList = new ArrayList<FriendInfomation>();
+					//transform
+					for(User friend : userFriendList){
+						//判断是否互相关注
+						if(isFollowed(friend.getId(), user.getId())){
+							friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),true));
+						}else{
+							friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),false));
+						}
+					}
+					JSONArray json = JSONArray.fromObject(friendInfomationList);
+					out.print(json);
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			out.flush();
+			out.close();
+		}
+		return null;
+	}
+	
+	//获取粉丝列表
+	public String getFollowersByPerPage(){
+		try {
+			List<FriendInfomation> friendInfomationList = null;
+			out = response.getWriter();
+			
+			//获取粉丝数量
+			int followersCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByFriendId.id="+user.getId(), "getInteger");
+			
+			PageController pc = new PageController(followersCount,1,20);
+			pc.setCurrentPage(toPage);
+			
+			//获取当前用户的粉丝信息
+			if(toPage>pc.getTotalPages()){
+				out.print("false");
+			}else{
+				List<User> userFriendList = service.getObjectsBySql("select u.* from user u left join friend_list f on u.is_delete=0 and f.friend_id = u.id where u.id in (select f.user_id from friend_list f where f.is_delete=0 and f.friend_id = "+user.getId()+") and f.user_id="+user.getId(),pc,user,"getHeadPhoto");
+				
+				if(userFriendList.size()>0){
+					friendInfomationList = new ArrayList<FriendInfomation>();
+					//transform
+					for(User follow : userFriendList){
+						//判断是否互相关注
+						if(isFollowed(user.getId(),follow.getId())){
+							friendInfomationList.add(new FriendInfomation(follow.getId(),follow.getHeadPhoto().getUrlL(),follow.getName(),follow.getSign(),true));
+						}else{
+							friendInfomationList.add(new FriendInfomation(follow.getId(),follow.getHeadPhoto().getUrlL(),follow.getName(),follow.getSign(),false));
+						}
+					}
+					JSONArray json = JSONArray.fromObject(friendInfomationList);
+					out = response.getWriter();
+					out.print(json);
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			out.flush();
+			out.close();
+		}
+		return null;
 	}
 	
 	//判断是否关注

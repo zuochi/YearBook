@@ -2,7 +2,6 @@ package action.user;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

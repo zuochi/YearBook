@@ -19,6 +19,7 @@
 			<result name="logout">/index.jsp</result>
 			<result name="profile">/profile.jsp</result>
 			<result name="mypost">/User_index.jsp</result>
+<!-- 			<result name="getFriend">/friend.jsp</result> -->
 			<result name="social">/Social_index.jsp</result>
 			<result name="photo" type="redirect">/photo.jsp</result>
 			<result name="login" type="redirect">

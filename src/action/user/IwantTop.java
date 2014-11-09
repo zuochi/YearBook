@@ -38,6 +38,6 @@ public class IwantTop extends UserAction {
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 }

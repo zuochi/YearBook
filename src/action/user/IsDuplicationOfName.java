@@ -31,6 +31,6 @@ public class IsDuplicationOfName extends UserAction{
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 }

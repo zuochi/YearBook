@@ -26,6 +26,6 @@ public class DeletePhotoAlbum extends UserAction {
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 }

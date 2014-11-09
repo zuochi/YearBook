@@ -23,6 +23,6 @@ public class UpdatePhoto extends UserAction{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "ajax";
+		return null;
 	}
 }

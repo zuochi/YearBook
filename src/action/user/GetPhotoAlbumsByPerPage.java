@@ -44,7 +44,7 @@ public class GetPhotoAlbumsByPerPage extends UserAction{
 			out.print(json);
 			out.flush();
 			out.close();
-			return "ajax";
+			return null;
 		}*/
 		return "photo";
 	}

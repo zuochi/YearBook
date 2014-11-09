@@ -65,7 +65,7 @@ public class Register extends UserAction {
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 	
 }

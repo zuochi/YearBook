@@ -6,6 +6,7 @@ public class FriendInfomation{
 	private String lurl;
 	private String fname;
 	private String sign;
+	private boolean isFriend;
 
 	public FriendInfomation() {
 	}
@@ -16,14 +17,23 @@ public class FriendInfomation{
 		this.fname = fname;
 	}
 
-	public FriendInfomation(int userId, String surl, String lurl, String fname,
+	public FriendInfomation(int userId, String lurl, String fname,
 			String sign) {
 		super();
 		this.userId = userId;
-		this.surl = surl;
 		this.lurl = lurl;
 		this.fname = fname;
 		this.sign = sign;
+	}
+
+	public FriendInfomation(int userId, String lurl, String fname,
+			String sign, boolean isFriend) {
+		super();
+		this.userId = userId;
+		this.lurl = lurl;
+		this.fname = fname;
+		this.sign = sign;
+		this.isFriend = isFriend;
 	}
 
 	public String getSurl() {
@@ -64,6 +74,14 @@ public class FriendInfomation{
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public boolean getIsFriend() {
+		return isFriend;
+	}
+
+	public void setIsFriend(boolean isFriend) {
+		this.isFriend = isFriend;
 	}
 
 }

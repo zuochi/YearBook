@@ -48,6 +48,6 @@ public class Login extends UserAction{
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 }

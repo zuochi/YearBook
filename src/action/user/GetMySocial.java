@@ -46,7 +46,7 @@ public class GetMySocial extends UserAction{
 		request.setAttribute("followersList", followersList);
 		request.setAttribute("followingCount", followingCount);
 		request.setAttribute("followersCount", followersCount);
-		return "ajax";
+		return null;
 	}
 
 	public void setFollowingToPage(int followingToPage) {

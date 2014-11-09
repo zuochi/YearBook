@@ -34,6 +34,6 @@ public class DeletePhoto extends UserAction {
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 }

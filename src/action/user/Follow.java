@@ -58,7 +58,7 @@ public class Follow extends UserAction{
 		}
 		out.flush();
 		out.close();
-		return "ajax";
+		return null;
 	}
 	
 	private FriendList getFriendList(int userId,int friendId,boolean isDelete){

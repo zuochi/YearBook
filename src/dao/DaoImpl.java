@@ -11,6 +11,7 @@ import java.util.Properties;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
@@ -577,9 +578,11 @@ public class DaoImpl<E> implements Dao {
 				list = session.createSQLQuery(sql).addEntity(object.getClass()).list();
 			}
 			for(Object o:list){
-				for(String methodName : values){
-					Method method = o.getClass().getMethod(methodName, new Class[0]);
-					Hibernate.initialize(method.invoke(o,new Object[0]));
+				if(values!=null && values.length>0){
+					for(String methodName : values){
+						Method method = o.getClass().getMethod(methodName, new Class[0]);
+						Hibernate.initialize(method.invoke(o,new Object[0]));
+					}
 				}
 			}
 		} catch (HibernateException e) {
@@ -620,9 +623,11 @@ public class DaoImpl<E> implements Dao {
 			}
 			list =  session.createSQLQuery(sql).addEntity(object.getClass()).list();
 			for(Object o:list){
-				for(String methodName : values){
-					Method method = o.getClass().getMethod(methodName, new Class[0]);
-					Hibernate.initialize(method.invoke(o,new Object[0]));
+				if(values!=null && values.length>0){
+					for(String methodName : values){
+						Method method = o.getClass().getMethod(methodName, new Class[0]);
+						Hibernate.initialize(method.invoke(o,new Object[0]));
+					}
 				}
 			}
 		} catch (HibernateException e) {
@@ -672,9 +677,11 @@ public class DaoImpl<E> implements Dao {
 				list = session.createQuery(hql).list();
 			}
 			for(Object o:list){
-				for(String methodName : values){
-					Method method = o.getClass().getMethod(methodName, new Class[0]);
-					Hibernate.initialize(method.invoke(o,new Object[0]));
+				if(values!=null && values.length>0){
+					for(String methodName : values){
+						Method method = o.getClass().getMethod(methodName, new Class[0]);
+						Hibernate.initialize(method.invoke(o,new Object[0]));
+					}
 				}
 			}
 		} catch (SecurityException e) {
@@ -704,7 +711,7 @@ public class DaoImpl<E> implements Dao {
 		List list = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			if(values!=null && "getInteger".equals(values[0])){
+			if(values!=null && values.length>0 && "getInteger".equals(values[0])){
 				Object obj = session.createQuery(hql).uniqueResult();
 				if (obj instanceof Long) {
 					return ((Long) obj).intValue();
@@ -712,9 +719,11 @@ public class DaoImpl<E> implements Dao {
 			}
 			list = session.createQuery(hql).list();
 			for(Object o:list){
-				for(String methodName : values){
-					Method method = o.getClass().getMethod(methodName, new Class[0]);
-					Hibernate.initialize(method.invoke(o,new Object[0]));
+				if(values!=null && values.length>0){
+					for(String methodName : values){
+						Method method = o.getClass().getMethod(methodName, new Class[0]);
+						Hibernate.initialize(method.invoke(o,new Object[0]));
+					}
 				}
 			}
 		} catch (SecurityException e) {

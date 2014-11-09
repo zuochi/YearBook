@@ -24,7 +24,7 @@ public class GetMessage extends UserAction{
 			
 		}
 		
-		return "ajax";
+		return null;
 	}
 
 	private boolean getPhotoComment(){

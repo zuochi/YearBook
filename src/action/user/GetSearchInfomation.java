@@ -47,7 +47,7 @@ public class GetSearchInfomation extends UserAction{
 		}
 		out.close();
 		out.flush();
-		return "ajax";
+		return null;
 	}
 
 	public FriendList getFriendList() {

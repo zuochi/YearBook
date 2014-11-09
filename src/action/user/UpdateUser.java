@@ -35,7 +35,7 @@ public class UpdateUser extends UserAction {
 			out.flush();
 			out.close();
 		}
-		return "ajax";
+		return null;
 	}
 	
 	public String updateSign() throws Exception{
@@ -51,6 +51,6 @@ public class UpdateUser extends UserAction {
 		}
 		out.flush();
 		out.close();
-		return "ajax";
+		return null;
 	}
 }

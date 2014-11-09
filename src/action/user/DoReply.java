@@ -39,7 +39,7 @@ public class DoReply extends UserAction{
 		}
 		out.flush();
 		out.close();
-		return "ajax";
+		return null;
 	}
 	
 	//解析at到的用户
