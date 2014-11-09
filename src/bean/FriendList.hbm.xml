@@ -20,6 +20,11 @@
                 <comment>好友id</comment>
             </column>
         </many-to-one>
+        <property name="updateDate" type="java.sql.Timestamp">
+            <column name="update_date" length="19" not-null="true">
+                <comment>更新日期</comment>
+            </column>
+        </property>
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete">
                 <comment>0:未删除 1:已删除</comment>

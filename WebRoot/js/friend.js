@@ -29,7 +29,7 @@ function getFollowingByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend>":"")+json[i].fname+"</div></a>"+
+								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 					}
@@ -69,7 +69,7 @@ function getFollowersByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend>":"")+json[i].fname+"</div></a>"+
+								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 					}

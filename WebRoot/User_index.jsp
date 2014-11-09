@@ -87,25 +87,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="female">&nbsp;&nbsp;&nbsp;&nbsp;female</div>
                         </s:else>
 							<div class="sign">
-								<a href="javascript:void(0)" onclick="showSignEdit()"><div id="signButton" class="pen"></div></a>
+								<a href="javascript:void(0)" title='edit my sign.' onclick="showSignEdit()"><div id="signButton" class="pen"></div></a>
 							sign：<input type="text" id="signTextArea" style="display:none" maxlength="42"/><input id="updateSignButton" style="display:none" type="button" value="Edit" onclick="updateSign()"/>
 								  <sign id="signContext"><s:property value="#session.user.sign"/></sign>
 							</div>
-							<a href="javascript:void(0)" onclick="myPostShow()" target="main"><div id="myPostSelectd" class="mypostSelect">Mypost</div></a>
-							<a href="javascript:void(0)" onclick="socialShow()" target="main"><div id="socialSelectd" class="social">Social</div></a>
-							<a href="javascript:void(0)" onclick="uploadPhoto()" target="main"><div class="upload">Upload</div></a>
+							<a href="javascript:void(0)" title="click to show my Post." onclick="myPostShow()" target="main"><div id="myPostSelectd" class="mypostSelect">Mypost</div></a>
+							<a href="javascript:void(0)" title="click to show latest social's infomation." onclick="socialShow()" target="main"><div id="socialSelectd" class="social">Social</div></a>
+							<a href="javascript:void(0)" title="click to upload." onclick="uploadPhoto()" target="main"><div class="upload">Upload</div></a>
 							
 
 					<div class="attfan">
 						<s:if test="#request.photosCount!=0">
-							<div class="posts">Posts<a href="javascript:void(0)" onclick="myPostShow()" target="main"><div id="picCountDiv" class="a1"><s:property value="#request.photosCount"/></div></a></div> <div class="l"></div>
+							<a href="javascript:void(0)" title="click to show my Post." onclick="myPostShow()" target="main"><div class="posts">Posts<div id="picCountDiv" class="a1"><s:property value="#request.photosCount"/></div></div></a><div class="l"></div>
 							<%-- <div class="posts">Posts<a href="/YearBook/user/getMyPost_execute?userId=<s:property value="#session.user.id"/>" target="main"><div class="a1"><s:property value="#request.photosCount"/></div></a></div> <div class="l"></div> --%>
 						</s:if>
 						<s:else>
-							<div class="posts">Posts<div class="a1">0</div></div> <div class="l"></div>
+							<div title="no Post here,plz click upload." class="posts">Posts<div class="a1">0</div></div> <div class="l"></div>
 						</s:else>
-						<a href="javascript:goUrl(4)"><div class="atten">Following<div class="f1"><s:property value="#request.followingCount"/></div></div><div class="l"></div></a>
-						<a href="javascript:goUrl(11)"><div class="fans">Followers<div class="a1"><s:property value="#request.followersCount"/></div></div></a>
+						<a href="javascript:goUrl(4)" title="click to show my Following."><div class="atten">Following<div class="f1"><s:property value="#request.followingCount"/></div></div><div class="l"></div></a>
+						<a href="javascript:goUrl(11)" title="click to show my Followers."><div class="fans">Followers<div class="a1"><s:property value="#request.followersCount"/></div></div></a>
 					</div>
 				</div>
 			</header>

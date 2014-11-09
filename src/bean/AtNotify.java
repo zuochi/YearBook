@@ -1,60 +1,58 @@
 package bean;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
- * Reply entity. @author MyEclipse Persistence Tools
+ * AtNotify entity. @author MyEclipse Persistence Tools
  */
 
-public class Reply implements java.io.Serializable {
+public class AtNotify implements java.io.Serializable {
 
 	// Fields
 
 	private Integer id;
 	private User userByUserId;
 	private Bbs bbs;
-	private PrivateLetter privateLetter;
+	private Reply reply;
 	private User userByUserBid;
-	private Photo photo;
-	private String context;
-	private Timestamp signupDate;
+	private Photo photoByPhotoBid;
+	private Photo photoByPhotoDescBid;
+	private Timestamp atDate;
 	private Integer status;
 	private Integer isDelete;
 
 	// Constructors
 
 	/** default constructor */
-	public Reply() {
+	public AtNotify() {
 	}
 
 	/** minimal constructor */
-	public Reply(User userByUserId, User userByUserBid, String context,
-			Timestamp signupDate, Integer status) {
+	public AtNotify(User userByUserId, User userByUserBid, Timestamp atDate) {
 		this.userByUserId = userByUserId;
 		this.userByUserBid = userByUserBid;
-		this.context = context;
-		this.signupDate = signupDate;
-		this.status = status;
+		this.atDate = atDate;
 	}
 
 	/** full constructor */
-	public Reply(User userByUserId, Bbs bbs, PrivateLetter privateLetter,
-			User userByUserBid, Photo photo, String context, Timestamp signupDate,
-			Integer status, Integer isDelete) {
+	public AtNotify(Integer id, User userByUserId, Bbs bbs, Reply reply,
+			User userByUserBid, Photo photoByPhotoBid,
+			Photo photoByPhotoDescBid, Timestamp atDate, Integer status,
+			Integer isDelete) {
+		super();
+		this.id = id;
 		this.userByUserId = userByUserId;
 		this.bbs = bbs;
-		this.privateLetter = privateLetter;
+		this.reply = reply;
 		this.userByUserBid = userByUserBid;
-		this.photo = photo;
-		this.context = context;
-		this.signupDate = signupDate;
+		this.photoByPhotoBid = photoByPhotoBid;
+		this.photoByPhotoDescBid = photoByPhotoDescBid;
+		this.atDate = atDate;
 		this.status = status;
 		this.isDelete = isDelete;
 	}
-
+	
 	// Property accessors
-
 	public Integer getId() {
 		return this.id;
 	}
@@ -79,12 +77,12 @@ public class Reply implements java.io.Serializable {
 		this.bbs = bbs;
 	}
 
-	public PrivateLetter getPrivateLetter() {
-		return this.privateLetter;
+	public Reply getReply() {
+		return this.reply;
 	}
 
-	public void setPrivateLetter(PrivateLetter privateLetter) {
-		this.privateLetter = privateLetter;
+	public void setReply(Reply reply) {
+		this.reply = reply;
 	}
 
 	public User getUserByUserBid() {
@@ -95,32 +93,32 @@ public class Reply implements java.io.Serializable {
 		this.userByUserBid = userByUserBid;
 	}
 
-	public Photo getPhoto() {
-		return this.photo;
+	public Photo getPhotoByPhotoBid() {
+		return this.photoByPhotoBid;
 	}
 
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
+	public void setPhotoByPhotoBid(Photo photoByPhotoBid) {
+		this.photoByPhotoBid = photoByPhotoBid;
 	}
 
-	public String getContext() {
-		return this.context;
+	public Photo getPhotoByPhotoDescBid() {
+		return this.photoByPhotoDescBid;
 	}
 
-	public void setContext(String context) {
-		this.context = context;
+	public void setPhotoByPhotoDescBid(Photo photoByPhotoDescBid) {
+		this.photoByPhotoDescBid = photoByPhotoDescBid;
 	}
 
-	public Timestamp getSignupDate() {
-		return this.signupDate;
+	public Timestamp getAtDate() {
+		return this.atDate;
 	}
 
-	public void setSignupDate(Timestamp signupDate) {
-		this.signupDate = signupDate;
+	public void setAtDate(Timestamp atDate) {
+		this.atDate = atDate;
 	}
-
+	
 	public Integer getStatus() {
-		return this.status;
+		return status;
 	}
 
 	public void setStatus(Integer status) {

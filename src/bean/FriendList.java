@@ -1,5 +1,7 @@
 package bean;
 
+import java.sql.Timestamp;
+
 /**
  * FriendList entity. @author MyEclipse Persistence Tools
  */
@@ -12,6 +14,7 @@ public class FriendList implements java.io.Serializable {
 	private User userByUserId;
 	private User userByFriendId;
 	private Integer isDelete;
+	private Timestamp updateDate;
 
 	// Constructors
 
@@ -20,16 +23,22 @@ public class FriendList implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public FriendList(User userByUserId, User userByFriendId) {
-		this.userByUserId = userByUserId;
-		this.userByFriendId = userByFriendId;
-	}
-
-	/** full constructor */
-	public FriendList(User userByUserId, User userByFriendId, Integer isDelete) {
+	public FriendList(User userByUserId, User userByFriendId,Integer isDelete, Timestamp updateDate) {
 		this.userByUserId = userByUserId;
 		this.userByFriendId = userByFriendId;
 		this.isDelete = isDelete;
+		this.updateDate = updateDate;
+	}
+
+	/** full constructor */
+	public FriendList(Integer id, User userByUserId, User userByFriendId,
+			Integer isDelete, Timestamp updateDate) {
+		super();
+		this.id = id;
+		this.userByUserId = userByUserId;
+		this.userByFriendId = userByFriendId;
+		this.isDelete = isDelete;
+		this.updateDate = updateDate;
 	}
 
 	// Property accessors
@@ -66,4 +75,12 @@ public class FriendList implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
+	public Timestamp getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Timestamp updateDate) {
+		this.updateDate = updateDate;
+	}
+	
 }

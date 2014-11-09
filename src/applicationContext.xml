@@ -32,6 +32,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 		<property name="mappingResources">
 			<list>
 				<value>bean/Advice.hbm.xml</value>
+				<value>bean/AtNotify.hbm.xml</value>
 				<value>bean/Bbs.hbm.xml</value>
 				<value>bean/FriendList.hbm.xml</value>
 				<value>bean/HeadPhoto.hbm.xml</value>

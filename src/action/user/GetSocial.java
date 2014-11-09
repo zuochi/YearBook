@@ -69,7 +69,7 @@ public class GetSocial extends UserAction{
 			pc.setCurrentPage(toPage);
 			
 			//获取当前用户的好友信息
-			List<User> userFriendList = service.getObjectsBySql("select u.* from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId(),pc,user,"getHeadPhoto");
+			List<User> userFriendList = service.getObjectsBySql("select u.* from friend_list f left join user u on f.user_id = u.id where f.user_id  in (select f.friend_id from friend_list f where f.user_id = "+user.getId()+") and f.friend_id = "+user.getId()+" order by update_date desc",pc,user,"getHeadPhoto");
 			
 			if(userFriendList.size()>0){
 				friendInfomationList = new ArrayList<FriendInfomation>();
@@ -106,7 +106,7 @@ public class GetSocial extends UserAction{
 			if(toPage>pc.getTotalPages()){
 				out.print("false");
 			}else{
-				List<User> userFriendList = service.getObjectsBySql("select u.* from user u left join friend_list f on u.is_delete=0 and f.is_delete=0 and f.user_id = u.id where u.id in (select f.friend_id from friend_list f where f.is_delete=0 and f.user_id = "+user.getId()+")",pc,user,"getHeadPhoto");
+				List<User> userFriendList = service.getObjectsBySql("select u.* from user u left join friend_list f on u.is_delete=0 and f.is_delete=0 and f.user_id = u.id where u.id in (select f.friend_id from friend_list f where f.is_delete=0 and f.user_id = "+user.getId()+")"+" order by update_date desc",pc,user,"getHeadPhoto");
 	
 				if(userFriendList.size()>0){
 					friendInfomationList = new ArrayList<FriendInfomation>();
@@ -149,7 +149,7 @@ public class GetSocial extends UserAction{
 			if(toPage>pc.getTotalPages()){
 				out.print("false");
 			}else{
-				List<User> userFriendList = service.getObjectsBySql("select u.* from user u left join friend_list f on u.is_delete=0 and f.friend_id = u.id where u.id in (select f.user_id from friend_list f where f.is_delete=0 and f.friend_id = "+user.getId()+") and f.user_id="+user.getId(),pc,user,"getHeadPhoto");
+				List<User> userFriendList = service.getObjectsBySql("select u.* from user u left join friend_list f on u.is_delete=0 and f.friend_id = u.id where u.id in (select f.user_id from friend_list f where f.is_delete=0 and f.friend_id = "+user.getId()+") and f.user_id="+user.getId()+" order by update_date desc",pc,user,"getHeadPhoto");
 				
 				if(userFriendList.size()>0){
 					friendInfomationList = new ArrayList<FriendInfomation>();

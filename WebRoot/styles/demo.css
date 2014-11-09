@@ -383,7 +383,7 @@ h7{font-size:20px;word-break:break-all;font-weight:normal;line-height:25px;color
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
 h1 span {font-size:12px;color:#696A52;}
 .p1{ font-size:6px; margin:5px 0px 0px 185px; color:#8f8f8f; }
-.p2{font-size:11px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-style: normal;}
+.p2{font-size:15px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-style: normal;}
 
 /* comment style */
 .ds-post-main {position:relative;margin-bottom:30px; margin-top:10px;  width:90%;}

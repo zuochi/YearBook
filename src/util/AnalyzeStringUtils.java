@@ -53,9 +53,7 @@ public class AnalyzeStringUtils {
 	}
 	
 	private static User getUserByName(String name,Service service){
-		Properties pro = new Properties();
-		pro.setProperty("name", name);
-		return (User) service.getObjectByProperties(pro, new User());
+		return (User) service.getObjectByHql("from User where isDelete=0 and name="+name);
 	}
 	
 }

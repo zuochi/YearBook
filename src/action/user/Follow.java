@@ -1,5 +1,6 @@
 package action.user;
 
+import java.sql.Timestamp;
 import java.util.Properties;
 
 import org.springframework.context.annotation.Scope;
@@ -28,7 +29,7 @@ public class Follow extends UserAction{
 			//没有的话就更新
 			if(friendList==null){
 				System.out.println("new");
-				if(service.saveObject(new FriendList(user,followUser,0))){
+				if(service.saveObject(new FriendList(user,followUser,0,new Timestamp(System.currentTimeMillis())))){
 					out.print("success");
 				}else{
 					out.print("fail");
@@ -36,6 +37,7 @@ public class Follow extends UserAction{
 			//有的话就更新isDelete为1
 			}else{
 				friendList.setIsDelete(0);
+				friendList.setUpdateDate(new Timestamp(System.currentTimeMillis()));
 				if(service.updateObject(friendList)){
 					out.print("success");
 				}else{
@@ -45,6 +47,7 @@ public class Follow extends UserAction{
 		}else if("cancelFollow".equals(request.getParameter("type"))){
 			FriendList friendList = getFriendList(user.getId(),followUser.getId(),false);
 			friendList.setIsDelete(1);
+			friendList.setUpdateDate(new Timestamp(System.currentTimeMillis()));
 			try {
 				if(service.updateObject(friendList)){
 					out.print("success");

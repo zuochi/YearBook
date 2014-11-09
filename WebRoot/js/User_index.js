@@ -91,8 +91,8 @@ function getPhotosByPerPage(isNew){
 							"<input id='bigPicUrl"+json[i].id+"' type='hidden' value='"+json[i].url+"'/>"+
 						"</li>"+
 						"<div id='photoOPE"+json[i].id+"'>"+
-							"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='我要上首页'></div>" +
-							"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='删除'></div>"+
+							"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='apply to post on Home Page.'></div>" +
+							"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='delete this Post.'></div>"+
 						"</div>"
 					);
 							
@@ -114,7 +114,7 @@ function getPhotosByPerPage(isNew){
 								"</div>"+
 							"</div>"+
 							"<figure>"+	
-							"<figcaption><a href='javascript:void(0)' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
+							"<figcaption><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
 							"<input type='text' id='desTextArea"+json[i].id+"' style='display:none;' maxlength='60'/>" +
 							"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
 							"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
