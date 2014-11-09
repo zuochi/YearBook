@@ -19,101 +19,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 
 <link rel="stylesheet" href="styles/sass-compiled.css" />
-<script src="js/modernizr.js" type="text/javascript"></script>
-	
 </head>
 <body>
 
+<a id="followersTitleA" href="javascript:void(0)" title="click to show followers."><div>Followers </div></a>
+<a id="followingTitleA" href="javascript:void(0)" title="click to show following."><div>Following </div></a>
 
-		
+<input id="type" type="hidden" value="<%=request.getParameter("type") %>"/>
+<input id="userId" type="hidden" value="<s:property value='#session.user.id'/>"/>
+<div class="frame" id="context">
 
-<div  style="float:right;
-    margin-bottom:10px;
-    width:200px;
-    height:30px;
-    -webkit-box-shadow: 0px 0px 6px #757575;
-	-moz-box-shadow: 0px 0px 6px #757575;
-	box-shadow: 0px 0px 9px #757575;
-	-webkit-transition: all;
-	-moz-transition: all;
-	-ms-transition: all;
-	-o-transition: all;
-	transition: all;
-	font-size:25px;
-	line-height:30px;
-	text-align:center;
-	background-color:#3ab6ae;">Friends </div>
-		
-
-
-<div class="frame">
-
-<div class="one">
-<div class="pic">
- <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
-	<span class="pic-caption left-to-right">	      
-<p>11.13 welcome to my graduation</p>
- </span>
-</div>
-<div class="name">Kass</div> 
-</div>
-
-
-
-
-
-
-<div class="one">
-<div class="pic">
- <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
-	<span class="pic-caption left-to-right">	      
-<p>中文签名就个字你试试个中文英文的话很容易就满了主要是中文中文占位置很多哈哈哈哈哈哈哈</p>
- </span>
-</div>
-<div class="name">Kass</div> 
-</div>
-<div class="one">
-<div class="pic">
- <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
-	<span class="pic-caption left-to-right">	      
-<p>HI,I Am Kass</p>
- </span>
-</div>
-<div class="name">Kass</div> 
-</div>
-
-<div class="one">
-<div class="pic">
- <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
-	<span class="pic-caption left-to-right">	      
-<p>HI,I Am Kass</p>
- </span>
-</div>
-<div class="name">Kass</div> 
-</div>
-<div class="one">
-<div class="pic">
- <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
-	<span class="pic-caption left-to-right">	      
-<p>HI,I Am Kass</p>
- </span>
-</div>
-<div class="name">Kass</div> 
-</div>
-<div class="one">
-<div class="pic">
- <img src="images/alex.jpg" class="pic-image" alt="Pic"/>
-	<span class="pic-caption left-to-right">	      
-<p>HI,I Am Kass</p>
- </span>
-</div>
-<div class="name">Kass</div> 
-</div>
-
-
-
+	<div id="followingContext"></div>
+	<div id="hasFollowing"></div>
+	<div id="followersContext"></div>
+	<div id="hasFollowers"></div>
 	
    </div>
-
+<script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="js/modernizr.js" type="text/javascript"></script>
+<script src="js/friend.js" type="text/javascript"></script>
 </body>
 </html>

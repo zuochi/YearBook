@@ -71,8 +71,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="profile">
 				<a href="javascript:void(0)" onclick="goUrl(2)" target="main"></a>
 			</div>
-			<div id="friend">
+			<!-- <div id="friend">
 				<a href="javascript:void(0)" onclick="goUrl(4)" target="main"></a>
+			</div> -->
 				<div id="photo">
 					<a href="javascript:void(0)" onclick="goUrl(5)" target="main"></a>
 				</div>
@@ -85,7 +86,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div id="exit">
 					<a href="javascript:void(0)" onclick="goUrl(8)" target="_parent"></a>
 				</div>
-			</div>
+			
 			<div id="t2">
 				please. <a href="javascript:void(0)" onclick="goUrl(9)" target="main"> login</a><br>
 				 or<a href="javascript:void(0)" onclick="goUrl(10)" target="main">sign up</a>
@@ -113,10 +114,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(type==3){
 				window.parent.main.location.href="mainPage.jsp";
 			}
-			if(type==4){
-				window.parent.main.location.href="/YearBook/user/getSocial_getFriendByPerPage?user.id=<s:property value='#session.user.id'/>";
-				//window.parent.main.location.href="friend.jsp";
-			}
+			/* if(type==4){
+				//window.parent.main.location.href="/YearBook/user/getSocial_getFriendByPerPage?user.id=<s:property value='#session.user.id'/>";
+				window.parent.main.location.href="friend.jsp";
+			} */
 			if(type==5){
 				window.parent.main.location.href="/YearBook/user/getMyPost_execute?user.id=<s:property value='#session.user.id'/>";
 			}

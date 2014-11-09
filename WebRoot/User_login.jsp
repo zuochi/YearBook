@@ -34,9 +34,8 @@
 			<!--ID文本框提示-->
 			<div id="username">
 				<input
-					onkeyup="keyup(event)"
 					onfocus="this.style.color='#666';if(this.value=='ID') this.value='';"
-					value="ID" maxLength="35" size="12" class="search_keyword" name="userName" id="userName">
+					value="ID" maxLength="35" size="12" class="search_keyword" name="userName" id="userName"/>
 			</div>
 			<!--Password文本框提示-->
 			<div id="focus">

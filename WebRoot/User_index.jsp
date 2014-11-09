@@ -8,6 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<base href="<%=basePath%>">
     <title>PicKass</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -62,17 +63,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				})
 			});
 		}); */
-	
-		//去某用户的主页
-		function goSocialIndex(userId){
-			window.location.href='YearBook/user/getSocial?userId='+userId;
-		};
 </script>
 </head>
 <body>
 <!-- <textarea rows="10" cols="40" id="tags" ></textarea> -->
 <!-- <h1 class="emoticonText">It's a pirate ?-) ARGHHH!!!! :)</h1> -->
-<!--<a href='YearBook/user/getSocial?userId=2'>ssss</a>-->
+<!-- <a href='user/getSocial?user.id=1'>ssss</a> -->
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="photoCountHidden" value="<s:property value="#request.photosCount"/>"/>
 <input type="hidden" id="basePath" value="<%=basePath%>"/>
@@ -108,8 +104,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<s:else>
 							<div class="posts">Posts<div class="a1">0</div></div> <div class="l"></div>
 						</s:else>
-						<div class="atten">Following<div class="f1"><s:property value="#request.followingCount"/></div></div><div class="l"></div>
-						<div class="fans">Followers<div class="a1"><s:property value="#request.followersCount"/></div></div> 
+						<a href="javascript:goUrl(4)"><div class="atten">Following<div class="f1"><s:property value="#request.followingCount"/></div></div><div class="l"></div></a>
+						<a href="javascript:goUrl(11)"><div class="fans">Followers<div class="a1"><s:property value="#request.followersCount"/></div></div></a>
 					</div>
 				</div>
 			</header>

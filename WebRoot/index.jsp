@@ -1,5 +1,5 @@
 <%@page import="bean.User"%>
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -14,11 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
 </head>
          <!-- 8.4% 113px -->
 <frameset cols="113px,*" border="0">
