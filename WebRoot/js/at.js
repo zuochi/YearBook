@@ -150,3 +150,8 @@
 		        obj.selectionStart = obj.selectionEnd = len;
 		    }
 		};
+		
+		//去某用户的主页
+		function goSocialIndex(userId){
+			window.location.href='user/getSocial?user.id='+userId;
+		};

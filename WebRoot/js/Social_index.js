@@ -44,7 +44,7 @@ function getPhotosByPerPage(isNew){
 			if(json.error==undefined){
 				if(json.length==undefined){
 					hasPic=0;
-					$("#hasPhotos").html("<br><br><center style='color:#8f8f8f;font-size:22px;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br>");
+					$("#hasPhotos").html("<br><br><center style='color:#8f8f8f;font-size:22px;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top </a>OR <a href='javascript:history.go(-1);'>click to Go Back.</a></center><br><br>");
 				}
 				for(var i=0; i<json.length; i++){
 					$("#photosUL").append(
@@ -82,7 +82,6 @@ function getPhotosByPerPage(isNew){
 							"</div>"+
 							"<figure>"+"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>"+json[i].name+"</div></figcaption>"+	
 								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
-								
 						    "</figure>"+
 						"</li>"
 					);
@@ -98,4 +97,72 @@ function getPhotosByPerPage(isNew){
 //返回顶部
 function scrollToTop(){
 	document.body.scrollTop=0;
+};
+
+function follow(socialUserId){
+	$.ajax({
+         url:'/YearBook/user/follow_execute',  
+         type:'post', 
+         data:"userId="+socialUserId+"&type=follow",
+         async:false,
+         success:function (msg) {
+        	 if(msg=="success"){
+        		 $("#followersNumber").html(parseInt($("#followersNumber").html())+parseInt(1));
+        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='cancleFollow("+socialUserId+")'><div id='followAttr' class='yiguanzhu'></div></a>");
+        	 }else{
+        		 alert("操作失败");
+        	 }
+         }
+	 });
+};
+
+function cancleFollow(socialUserId){
+	$.ajax({
+         url:'/YearBook/user/follow_execute',  
+         type:'post', 
+         data:"userId="+socialUserId+"&type=cancelFollow",
+         async:false,
+         success:function (msg) {
+        	 if(msg=="success"){
+        		 $("#followersNumber").html(parseInt($("#followersNumber").html())-parseInt(1));
+        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='follow("+socialUserId+")'><div id='followAttr' class='guanzhu'></div></a>");
+        	 }else{
+        		alert("操作失败");
+        	 }
+         }
+	 });
+};
+
+function followFriend(socialUserId){
+	$.ajax({
+         url:'/YearBook/user/follow_execute',  
+         type:'post', 
+         data:"userId="+socialUserId+"&type=follow",
+         async:false,
+         success:function (msg) {
+        	 if(msg=="success"){
+        		 $("#followersNumber").html(parseInt($("#followersNumber").html())+parseInt(1));
+        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='cancleFollowFriend("+socialUserId+")'><div id='followAttr' class='friend'></div></a>");
+        	 }else{
+        		 alert("操作失败");
+        	 }
+         }
+	 });
+};
+
+function cancleFollowFriend(socialUserId){
+	$.ajax({
+         url:'/YearBook/user/follow_execute',  
+         type:'post', 
+         data:"userId="+socialUserId+"&type=cancelFollow",
+         async:false,
+         success:function (msg) {
+        	 if(msg=="success"){
+        		 $("#followersNumber").html(parseInt($("#followersNumber").html())-parseInt(1));
+        		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='followFriend("+socialUserId+")'><div id='followAttr' class='guanzhuFriend'></div></a>");
+        	 }else{
+        		alert("操作失败");
+        	 }
+         }
+	 });
 };

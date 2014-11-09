@@ -249,7 +249,7 @@ function loginCheck() {
 function open_login() {
 	document.getElementById('loginbg').style.display = 'block';
 	document.getElementById('login').style.display = 'block';
-	showloginbg();
+	show_loginbg();
 };
 function close_login() {
 	document.getElementById('loginbg').style.display = 'none';
@@ -275,7 +275,7 @@ function show_loginbg() {
 function open_register() {
 	document.getElementById('registerbg').style.display = 'block';
 	document.getElementById('register').style.display = 'block';
-	showregisterbg();
+	show_registerbg();
 };
 function close_register() {
 	document.getElementById('registerbg').style.display = 'none';

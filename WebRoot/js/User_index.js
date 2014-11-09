@@ -37,10 +37,10 @@ var socialDisplay=0;
 function myPostShow(){
 	myPostDisplay=1;
 	socialDisplay=0;
-	$("#socialDiv").css("display","none");
-	$("#photosUL").css("display","block");
-	$("#photosUL2").css("display","block");
-	$("#hasPhotos").css("display","block");
+	$("#socialDiv").hide();
+	$("#photosUL").show();
+	$("#photosUL2").show();
+	$("#hasPhotos").show();
 	$("#myPostSelectd").removeClass().addClass("mypostSelect"); 
 	$("#socialSelectd").removeClass().addClass("social"); 
 };
@@ -48,19 +48,16 @@ function myPostShow(){
 function socialShow(){
 	myPostDisplay=0;
 	socialDisplay=1;
-	$("#socialDiv").css("display","block");
-	$("#photosUL").css("display","none");
-	$("#photosUL2").css("display","none");
-	$("#hasPhotos").css("display","none");
+	$("#socialDiv").show();
+	$("#photosUL").hide();
+	$("#photosUL2").hide();
+	$("#hasPhotos").hide();
 	$("#myPostSelectd").removeClass().addClass("mypost"); 
 	$("#socialSelectd").removeClass().addClass("socialSelect"); 
 };
 		
 function getPhotosByPerPage(isNew){
 	if("true"==isNew){
-		/*$("#photosUL").html("");
-		$("#photosUL2").html("");
-		$("#hasPhotos").html("");*/
 		toPageP=0;
 	}
 	if(hasPic==1){
@@ -275,5 +272,14 @@ function iWantTop(photoId,userId){
 				}
 			}
 		});
+	}
+};
+
+//跳去关注或者粉丝列表
+function goUrl(type){
+	if(type==4){
+		window.parent.main.location.href="friend.jsp?type=following";
+	}else if(type==11){
+		window.parent.main.location.href="friend.jsp?type=followers";
 	}
 };
