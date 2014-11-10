@@ -42,10 +42,10 @@ public class GetSocial extends UserAction{
 		}
 		
 		//获取following数量
-		int socialFollowingCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByUserId.id="+user.getId(), "getInteger");
+		int socialFollowingCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByUserId.id="+socialUser.getId(), "getInteger");
 		
 		//获取followers数量
-		int socialFollowersCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByFriendId.id="+user.getId(), "getInteger");
+		int socialFollowersCount = (Integer) service.getObjectByHql("select count(*) from FriendList where isDelete=0 and userByFriendId.id="+socialUser.getId(), "getInteger");
 		
 		request.setAttribute("socialPhotosCount", socialPhotosCount);
 		request.setAttribute("socialUser", socialUser);
