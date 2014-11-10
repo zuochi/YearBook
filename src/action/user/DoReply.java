@@ -23,8 +23,9 @@ import bean.User;
 @Scope("prototype")
 public class DoReply extends UserAction{
 	private Reply reply;
-	private TreeSet<User> friendSet = null;
-
+	private TreeSet<User> followSet = null;
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
@@ -47,12 +48,12 @@ public class DoReply extends UserAction{
 			reply = getCurrentReply(currentUser,reply.getSignupDate());
 			
 			//那么我们就艾特这些用户吧
-			if(friendSet!=null){
-				Iterator<User> it = friendSet.iterator();
+			if(followSet!=null){
+				Iterator<User> it = followSet.iterator();
 				while(it.hasNext()){
 					if(atNoifyFriend(currentUser,it.next())){
-						System.out.println(new Date("HH:mm:SS") + " : at friend success");
-					}
+						System.out.println(new Timestamp(System.currentTimeMillis()) + " : at friend success.");
+					};
 				}
 			}
 			out.print("success");
@@ -90,12 +91,12 @@ public class DoReply extends UserAction{
 						if(friend!=null){
 							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ");
 							//那么我们就艾特这个用户吧，先把该用户添加进Set里面，保证每个用户一条评论只@一次
-							if(friendSet==null){
-								friendSet = new TreeSet<User>(new CompareUser());
+							if(followSet==null){
+								followSet = new TreeSet<User>(new UserComparetor());
 							}
 							//@自己是没有提示的
 							if(!friend.getName().equals(currentUser.getName())){
-								friendSet.add(friend);
+								followSet.add(friend);
 							}
 						}else{
 							replyStringBuilder.append("@" + friendsListMiddle[j] + " ");
@@ -134,13 +135,19 @@ public class DoReply extends UserAction{
 	public Reply getReply() {
 		return reply;
 	}
+	
+	@JSON(serialize=false)
+	public TreeSet<User> getFollowSet() {
+		return followSet;
+	}
+
 	public void setReply(Reply reply) {
 		this.reply = reply;
 	}
 	
 }
 
-class CompareUser implements Comparator<User>{
+class UserComparetor implements Comparator<User>{
 	@Override
 	public int compare(User user1, User user2) {
 		// TODO Auto-generated method stub
