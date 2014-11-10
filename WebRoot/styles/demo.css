@@ -187,20 +187,20 @@ a:hover {
 }
 
 .fans{float:left;
-margin-top:7px;
-	height:60px;
-	width:85px;
+margin-top:3px;
+	height:20px;
+	width:200px;
 	color:#234;
 	font-size:18px;
-	 text-align:center;
+
 }
 .fans:hover{float:left;
-margin-top:7px;
-	height:60px;
-	width:85px;
+margin-top:3px;
+	height:20px;
+	width:200px;
 	color:#000;
 	font-size:18px;
-	 text-align:center;
+
 }
 .f1{float:left;
 margin-top:7px;
@@ -219,21 +219,38 @@ margin-top:7px;
 	 text-align:center;
 }
 .atten{float:left;
-margin-top:7px;
-	height:60px;
-	width:85px;
+margin-top:3px;
+	height:20px;
+	width:200px;
 	color:#234;
 	font-size:18px;
-	 text-align:center;
+	
 
 }
 .atten:hover{float:left;
-margin-top:7px;
-	height:60px;
-	width:85px;
+    margin-top:3px;
+	height:20px;
+	width:200px;
 	color:#000;
 	font-size:18px;
- text-align:center;
+ 
+}
+.po{float:left;
+margin-top:3px;
+	height:20px;
+	width:200px;
+	color:#234;
+	font-size:18px;
+	
+
+}
+.po:hover{float:left;
+    margin-top:3px;
+	height:20px;
+	width:200px;
+	color:#000;
+	font-size:18px;
+ 
 }
 .a1{float:left;
 margin-top:7px;
@@ -263,8 +280,8 @@ margin-top:8px;
 .attfan{
 	
 	position:relative;
-	margin-top:20px;
-	height:30px;
+	margin-top:10px;
+
 	width:200px;
 	
 }
@@ -378,7 +395,7 @@ margin-top:8px;
 	overflow: hidden;	
 	background: #fff;
 }
-h7{font-size:20px;word-break:break-all;font-weight:normal;line-height:25px;color:#234;}
+h7{font-size:17px;word-break:break-all;font-weight:normal;line-height:25px;color:#234;}
 .user-name { font-size:14px; font-weight:bold;color:#DE4C1C }
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
 h1 span {font-size:12px;color:#696A52;}

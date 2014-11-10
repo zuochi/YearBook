@@ -55,6 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<h7>Hi,I'm <s:property value="#request.socialUser.name"/></h7><br>
 							<s:if test="#request.socialUser.sign!=null && #request.socialUser.sign!=''">
 								<h7>Sign:<s:property value="#request.socialUser.sign"/></h7><br>
+							</s:if>	
+							<s:if test="#request.socialUser.email!=null">
+								<h7>E-mail:<s:property value="#request.socialUser.email"/></h7><br>
 							</s:if>
 							<h7>Profile:</h7><br>
 							<s:if test="#request.socialUser.sex==1">
@@ -69,18 +72,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<s:if test="#request.socialUser.qq!=null && #request.socialUser.qq!=''">
 								<h7>QQ:<s:property value="#request.socialUser.qq"/></h7><br>
 							</s:if>
-							<s:if test="#request.socialUser.email!=null">
-								<h7>E-mail:<s:property value="#request.socialUser.email"/></h7><br>
-							</s:if>
+						
 							 <s:if test="#request.socialProfession!=null">
-								Profession:<s:property value="#request.socialProfession.name"/><br>
+								<h7>Profession:<s:property value="#request.socialProfession.name"/></h7><br>
 						  </s:if>
                            <s:if test="#request.socialSchoolYear!=null">
-								Academic Year:<s:property value="#request.socialSchoolYear.year"/><br>
+								<h7>Academic Year:<s:property value="#request.socialSchoolYear.year"/></h7><br>
 						  </s:if>
 							<div class="attfan">
-							<div class="fans">following<div class="a1"><s:property value="#request.socialFollowingCount"/></div></div> <div class="l"></div>
-							<div class="atten">followers<div id="followersNumber" class="f1"><s:property value="#request.socialFollowersCount"/></div></div>
+							<div class="po">Post :</div>
+							<div class="fans">Following : <s:property value="#request.socialFollowingCount"/></div>
+							<div class="atten">Followers : <div id="followersNumber" ><s:property value="#request.socialFollowersCount"/></div></div>
 							</div>
 								</div>
 	

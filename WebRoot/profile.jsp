@@ -59,8 +59,8 @@
 		<div id="option">
 				
 				<select style="font-size:16px;" name="user.schoolYear.id" id="select3">
-				<option value="">School year
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option value="">School year&nbsp;
+				</option>
 				<s:iterator value="#session.schoolYears" id="o">
 					<option
 						<s:if test="#session.user.schoolYear.id==#o.id">
@@ -75,7 +75,7 @@
 			<select style="font-size:16px;" name="user.profession.id" id="select"
 				tabindex="2">
 				<option value="">Profession
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+</option>
 				<s:iterator value="#session.professions" id="o">
 					<option
 						<s:if test="#session.user.profession.id==#o.id">
@@ -89,7 +89,7 @@
 			
 			<select style="font-size:16px;" name="user.sex" id="select2">
 				<option value="">Gender
-					&nbsp;&nbsp;&nbsp;&nbsp;</option>
+					&nbsp;</option>
 				<option
 					<s:if test="#session.user.sex==1">
 								selected="selected"
