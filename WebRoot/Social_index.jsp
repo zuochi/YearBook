@@ -244,8 +244,8 @@ $(document).ready(function(){
 			</section><!-- // slideshow -->
 		</div>
 			
-		<div id="followingContext">socialFollowing</div>
-		<div id="followersContext">socialFollowers</div>
+		<div id="followingContext"></div>
+		<div id="followersContext"></div>
 		
 		<div id="hasPhotos"></div>
 		<div id="hasFollowing"></div>
