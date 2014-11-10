@@ -15,7 +15,8 @@ public class GetProfiles extends UserAction{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		List<Profession> professions = service.getAllObjects(new Profession());
-		List<SchoolYear> schoolYears = service.getAllObjects(new SchoolYear());
+		//List<SchoolYear> schoolYears = service.getAllObjects(new SchoolYear());
+		List<SchoolYear> schoolYears = service.getObjectsByHql("from SchoolYear order by year desc",null);
 		session.put("professions", professions);
 		session.put("schoolYears", schoolYears);
 		return "profile";
