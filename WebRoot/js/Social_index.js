@@ -27,9 +27,6 @@ var hasPic=1;
 var myPostDisplay=1;
 function getPhotosByPerPage(isNew){
 	if("true"==isNew){
-		/*$("#photosUL").html("");
-		$("#photosUL2").html("");
-		$("#hasPhotos").html("");*/
 		toPageP=0;
 	}
 	if(hasPic==1){
