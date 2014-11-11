@@ -9,18 +9,155 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 
 <head>
-    <title><s:property value="#request.socialUser.name"/> - Year Book</title>
-    <meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
-		<%-- <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" /> --%>
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
-		<script type="text/javascript" src="<%=basePath %>js/jquery-1.11.1.js"></script>
-	</head>
-	<body>
-	<input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
-	<input type="hidden" id="basePath" value="<%=basePath%>"/>
-	<div class="top"> 
+<base href="<%=basePath%>">
+<title><s:property value="#request.socialUser.name"/> - Year Book</title>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
+<!--<link rel="stylesheet" href="styles/sass-compiled.css" /> 这个是新加的布局与其他布局冲突了 -->
+<%-- <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" /> --%>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
+<script type="text/javascript" src="<%=basePath %>js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+
+//following
+var followingIsNew=true;
+var hasFollowing=1;
+var toPageFollowing=0;
+function getFollowingByPerPage(){
+	//自动返向下一页
+	toPageFollowing+=1;
+	if(hasFollowing==1){
+		$.ajax({
+			url:'/YearBook/user/getSocial_getFollowingByPerPage',  
+			type:'post', 
+			data:"user.id="+$("#userId").val()+"&toPage="+toPageFollowing,
+			async:false,
+			dataType:"json",
+			success:function (json) {
+				if(json.error==undefined){
+					if(json.length==undefined){
+						hasFollowing=0;
+						$("#hasFollowing").html("<br><br><br><br><div><center class='noMoreInfo'>oops:(,there are no more following,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top </a>OR <a href='javascript:history.go(-1);'>click to Go Back.</a></center><br><br><br><br>");
+					}
+					for(var i=0; i<json.length; i++){
+						$("#followingContext").append(
+							"<div class='one'>"+
+								"<div class='pic'>"+
+									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
+									"<span class='pic-caption left-to-right'>"+      
+									"<p>"+(json[i].sign!=null&&json[i].sign!=''?json[i].sign:"no sign yet.")+"</p>"+
+									"</span>"+
+								"</div>"+
+								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
+								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+							"</div>"
+						);
+					}
+				}
+			}
+		});
+	}
+};
+
+//followers
+var followersIsNew=true;
+var hasFollowers=1;
+var toPageFollowers=0;
+function getFollowersByPerPage(){
+	//自动返向下一页
+	toPageFollowers+=1;
+	if(hasFollowers==1){
+		$.ajax({
+			url:'/YearBook/user/getSocial_getFollowersByPerPage',  
+			type:'post', 
+			data:"user.id="+$("#userId").val()+"&toPage="+toPageFollowers,
+			async:false,
+			dataType:"json",
+			success:function (json) {
+				if(json.error==undefined){
+					if(json.length==undefined){
+						hasFollowers=0;
+						$("#hasFollowers").html("<br><br><br><br><center class='noMoreInfo'>oops:(,there are no more followers,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top </a>OR <a href='javascript:history.go(-1);'>click to Go Back.</a></center><br><br><br><br>");
+					}
+					for(var i=0; i<json.length; i++){
+						$("#followersContext").append(
+							"<div class='one'>"+
+								"<div class='pic'>"+
+									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
+									"<span class='pic-caption left-to-right'>"+      
+									"<p>"+(json[i].sign!=null&&json[i].sign!=''?json[i].sign:"no sign yet.")+"</p>"+
+									"</span>"+
+								"</div>"+
+								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
+								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+							"</div>"
+						);
+					}
+				}
+			}
+		});
+	}
+};
+
+function showPost(){
+	$("#grid-gallery").show();
+	$("#followingContext").hide();
+	$("#followersContext").hide();
+	$("#hasPhotos").show();
+	$("#hasFollowing").hide();
+	$("#hasFollowers").hide();
+	myPostDisplay=1;
+	display=3;
+};
+	
+function showFollowing(){
+	if(followingIsNew==true){
+		followingIsNew=false;
+		getFollowingByPerPage();
+	}
+	$("#grid-gallery").hide();
+	$("#followingContext").show();
+	$("#followersContext").hide();
+	$("#hasPhotos").hide();
+	$("#hasFollowing").show();
+	$("#hasFollowers").hide();
+	myPostDisplay=0;
+	display=0;
+};
+	
+function showFollowers(){
+	if(followersIsNew==true){
+		followersIsNew=false;
+		getFollowersByPerPage();
+	}
+	$("#grid-gallery").hide();
+	$("#followingContext").hide();
+	$("#followersContext").show();
+	$("#hasPhotos").hide();
+	$("#hasFollowing").hide();
+	$("#hasFollowers").show();
+	myPostDisplay=0;
+	display=1;
+};
+	
+//为窗口添加动作
+$(document).ready(function(){
+	window.addEventListener( 'scroll', function() {
+		if(document.body.scrollTop+document.body.clientHeight>=(document.body.scrollHeight)){
+			if(display==0){
+				getFollowingByPerPage();
+			}else if(display==1){
+				getFollowersByPerPage();
+			}
+	    }
+	});
+});
+</script>
+</head>
+<body>
+<input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
+<input type="hidden" id="basePath" value="<%=basePath%>"/>
+<div class="top"> 
 <input type="text"  style="font-size:14px;margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
@@ -80,40 +217,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<h7>Academic Year:<s:property value="#request.socialSchoolYear.year"/></h7><br>
 						  </s:if>
 							<div class="attfan">
-							<div class="po">Post :</div>
-							<div class="fans">Following : <s:property value="#request.socialFollowingCount"/></div>
-							<div class="atten">Followers : <div id="followersNumber" ><s:property value="#request.socialFollowersCount"/></div></div>
+							<a href="javascript:void(0)" onclick="showPost()"><div class="po">Post : <s:property value="#request.socialPhotosCount"/></div></a>
+							<a href="javascript:void(0)" onclick="showFollowing()"><div class="fans">Following : <s:property value="#request.socialFollowingCount"/></div></a>
+							<a href="javascript:void(0)" onclick="showFollowers()"><div class="atten">Followers : <span id="followersNumber" ><s:property value="#request.socialFollowersCount"/></span></div></a>
 							</div>
 								</div>
 	
-	
-			<div id="grid-gallery" class="grid-gallery">
-				<section class="grid-wrap">
-					<ul id="photosUL" class="grid">
-				<li class="grid-sizer"></li>
-				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
-						
-					<s:if test="#request.socialPhotosCount==0">
-						<center style="color:#8f8f8f;font-size:22px;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
-					</s:if>
-					</ul>
-				</section><!-- // grid-wrap -->
-
-				<section class="slideshow">
-					<ul id="photosUL2">
-					<!--点击用户弹出资料 -->	
-						
-									
-				<!--点击图片弹出大图加评论 -->
-					</ul>
-						<nav>
-							<span class="icon nav-prev" style="color:#234"></span>
-							<span class="icon nav-next" style="color:#234"></span>
-							<span class="icon nav-close" style="color:#fff"></span>
-						</nav>
-				</section><!-- // slideshow -->
-			</div><!-- // grid-gallery -->
+		<!-- // grid-gallery -->
+		<div id="grid-gallery" class="grid-gallery">
+			<section class="grid-wrap">
+				<ul id="photosUL" class="grid">
+			<li class="grid-sizer"></li>
+				<s:if test="#request.socialPhotosCount==0">
+					<center style="color:#8f8f8f;font-size:22px;">oops,this crappy hasn't upload any photos yet,<a href="javascript:history.go(-1);">click to Go Back.</a></center>
+				</s:if>
+				</ul>
+			</section><!-- // grid-wrap -->
+			
+			<section class="slideshow">
+				<ul id="photosUL2"></ul>
+					<nav>
+						<span class="icon nav-prev" style="color:#234"></span>
+						<span class="icon nav-next" style="color:#234"></span>
+						<span class="icon nav-close" style="color:#fff"></span>
+					</nav>
+			</section><!-- // slideshow -->
+		</div>
+			
+		<div id="followingContext"></div>
+		<div id="followersContext"></div>
 		
+		<div id="hasPhotos"></div>
+		<div id="hasFollowing"></div>
+		<div id="hasFollowers"></div>
 		<script type="text/javascript" src="<%=basePath %>js/at.js"></script>
 		<%-- <script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script> --%>
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
@@ -125,6 +261,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
-		<div id="hasPhotos"></div>
 	</body>
 </html>
