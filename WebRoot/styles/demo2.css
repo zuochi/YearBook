@@ -10,7 +10,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 
 body {
 	background-image:url(../images/background_main.png);background-repeat: repeat;
-    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-family: 'Lato', Calibri,  sans-serif;
     color: #234;
     height:110%;
 }
@@ -560,4 +560,5 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 }
 
 
+.noMoreInfo{color:#8f8f8f;font-size:22px;}
 
