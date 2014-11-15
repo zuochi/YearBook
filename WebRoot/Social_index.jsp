@@ -13,8 +13,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title><s:property value="#request.socialUser.name"/> - Year Book</title>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
-<!--<link rel="stylesheet" href="styles/sass-compiled.css" /> 这个是新加的布局与其他布局冲突了 -->
-<%-- <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" /> --%>
+ <link rel="stylesheet" href="styles/sass-compiled.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 <script type="text/javascript" src="<%=basePath %>js/jquery-1.11.1.js"></script>
 <script type="text/javascript">
@@ -49,7 +49,7 @@ function getFollowingByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:#ff406d' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 					}
@@ -89,7 +89,7 @@ function getFollowersByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:red' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:#ff406d' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 					}
