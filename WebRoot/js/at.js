@@ -151,7 +151,28 @@
 		    }
 		};
 		
+		//post方式打开新窗口
+		function openPostWindow(url,args1,args2,name){
+			var tempForm = document.createElement("form");
+			tempForm.id="tempForm";
+			tempForm.method="post";
+			tempForm.action=url;
+			tempForm.target=name;
+			tempForm.style.display="none";
+			
+		    var hideinput=document.createElement("input");
+		    hideinput.type="submit";  
+		    hideinput.name=args1; 
+		    hideinput.value=args2;
+		    
+		    tempForm.appendChild(hideinput); 
+		    document.body.appendChild(tempForm);
+		    hideinput.click();
+		    document.body.removeChild(tempForm);
+		}
+		
 		//去某用户的主页
 		function goSocialIndex(userId){
-			window.location.href='user/getSocial?user.id='+userId;
+			//window.open("user/getSocial?user.id="+userId,'_blank');
+			openPostWindow("user/getSocial","user.id",userId,"_blank");
 		};

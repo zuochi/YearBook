@@ -20,7 +20,28 @@ createXMLHttpRequest();
 function loadBigPic(picId){
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
 };
-		
+
+//评论
+function comment(userBid,photoBid){
+	var reply = $("#reply"+photoBid).val();
+	if(reply.length<1 || reply.length>80){
+		alert("reply at least 1 in length,and max at 80.");
+		return;
+	}
+	$.ajax({
+		url:'/YearBook/user/doReply_execute',  
+		type:'post', 
+        data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply,
+        async:false,
+		success:function () {
+			$("#reply"+photoBid).val("");
+			//统计剩余字数
+			wordsNumber(photoBid);
+			alert("success");
+		}
+	});
+};
+
 //局部加载图片
 var toPageP=1;
 var hasPic=1;

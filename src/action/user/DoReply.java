@@ -56,7 +56,7 @@ public class DoReply extends UserAction{
 					};
 				}
 			}
-			out.print("success");
+			out.print(reply.getContext());
 		}else{
 			out.print("fail");
 		}

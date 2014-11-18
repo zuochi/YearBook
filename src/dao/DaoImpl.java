@@ -14,6 +14,7 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.transform.Transformers;
 import org.springframework.transaction.annotation.Transactional;
 
 import bean.PhotoAlbum;
@@ -573,9 +574,17 @@ public class DaoImpl<E> implements Dao {
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
-				list =  session.createSQLQuery(sql).addEntity(object.getClass()).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
+				if(object instanceof dto.Reply){
+					list =  session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
+				}else{
+					list =  session.createSQLQuery(sql).addEntity(object.getClass()).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
+				}
 			}else{
-				list = session.createSQLQuery(sql).addEntity(object.getClass()).list();
+				if(object instanceof dto.Reply){
+					list = session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).list();
+				}else{
+					list = session.createSQLQuery(sql).addEntity(object.getClass()).list();
+				}
 			}
 			for(Object o:list){
 				if(values!=null && values.length>0){

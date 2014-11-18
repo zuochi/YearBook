@@ -20,13 +20,7 @@ createXMLHttpRequest();
 function uploadPhoto(){
 	window.location.href=document.getElementById("basePath").value+"User_photoUpload.jsp";
 };
-		
-//放大图片之后读取
-function loadBigPic(picId){
-	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
-	//document.getElementById("reply"+picId).focus();
-};
-		
+
 //局部加载图片
 var type="mypost";
 var toPageP=1;
@@ -55,7 +49,7 @@ function socialShow(){
 	$("#myPostSelectd").removeClass().addClass("mypost"); 
 	$("#socialSelectd").removeClass().addClass("socialSelect"); 
 };
-		
+
 function getPhotosByPerPage(isNew){
 	if("true"==isNew){
 		toPageP=0;
@@ -102,17 +96,8 @@ function getPhotosByPerPage(isNew){
 						"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:200px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
 						"<textarea style='word-break:break-all;resize: none;' rows='3' cols='50'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea><br>"+
 						"<input type='button' value='Reply' onclick='comment("+document.getElementById("userId").value+","+json[i].id+")'/>"+
-							"<div class='ds-post-main'>"+
-									"<div class='ds-avatar'>"+
-										"<a title='用户名' href='' target='_blank'><img src='"+document.getElementById("basePath").value+"images/alex.jpg'></a>"+
-									"</div>"+
-									"<div class='ds-comment-body'>"+
-										"<a title='用户名' href='' target='_blank' class='user-name'>用户名</a>"+
-										"<div class='message'>what'up man.heyyo,我想长高10厘米，增重15斤 </div>"+
-										"<div class='p1'>时间：2015年9月14日22:38</div>"+
-									"</div>"+
-								"</div>"+
-							"</div>"+
+						"<span id='commentBody"+json[i].id+"'><span>"+
+						"</div>"+
 							"<figure>"+	
 							"<figcaption><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
 							"<input type='text' id='desTextArea"+json[i].id+"' style='display:none;' maxlength='60'/>" +
