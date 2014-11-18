@@ -23,88 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
 		<script type="text/javascript">
-		//放大图片之后读取
-		function loadBigPic(picId){
-			document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
-			//document.getElementById("reply"+picId).focus();
-			showComments(picId);
-		};
 		
-		//评论
-		function comment(userBid,photoBid){
-			var reply = $("#reply"+photoBid).val();
-			 if(reply.length<1 || reply.length>80){
-				alert("reply at least 1 in length,and max at 80.");
-				return;
-			}
-			$.ajax({
-				url:'/YearBook/user/doReply_execute',  
-				type:'post', 
-		        data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply,
-		        async:false,
-				success:function (context) {
-					if(context.error == undefined){
-						$("#reply"+photoBid).val("");
-						//统计剩余字数
-						wordsNumber(photoBid);
-						//获取时间 
-						var date=new Date(); 
-						//即使刷新评论
-						$("#commentBody"+photoBid).prepend(
-							"<div class='ds-post-main'>"+
-								"<div class='ds-avatar'>"+
-									"<a title='"+$("#nickName").val()+"' href='javascript:goSocialIndex("+$("#userId").val()+")' target='_blank'><img src='"+$("#urlM").val()+"'></a>"+
-								"</div>"+
-								"<div class='ds-comment-body'>"+
-									"<a title='"+$("#nickName").val()+"' href='javascript:goSocialIndex("+$("#userId").val()+")' target='_blank' class='user-name'>"+$("#nickName").val()+"</a>"+
-									"<div class='message'>"+context+"</div>"+
-									"<div align='right' class='p1'>"+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"</div>"+
-								"</div>"+
-							"</div>"	
-						);
-					}
-				}
-			});
-		};
-		
-		var toPageC = 0;
-		//显示评论
-		function showComments(photoBid){
-			toPageC+=1;
-			$.ajax({
-				url:'/YearBook/user/getMyPost_getPostReply',  
-				type:'post', 
-		        data:"photo.id="+photoBid+"&toPage="+toPageC,
-		        async:false,
-		        dataType:'json', 
-				success:function (json) {
-					if(json.error==undefined){
-						if($("#commentBody"+photoBid).text()==''){
-							if(json.length==undefined || json==''){
-								$("#commentBody"+photoBid).append("<br><br><center style='color:#8f8f8f;font-size:22px;'>No more comments.</a></center>");
-							}
-							for(var i=0; i<json.length; i++){
-								$("#commentBody"+photoBid).append(
-									"<div class='ds-post-main'>"+
-										"<div class='ds-avatar'>"+
-											"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
-										"</div>"+
-										"<div class='ds-comment-body'>"+
-											"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
-											"<div class='message'>"+json[i].context+"</div>"+
-											"<div align='right' class='p1'>20"+(json[i].signup_date.year-100)+"-"+
-												(json[i].signup_date.month+1)+"-"+
-												json[i].signup_date.date+" "+
-												json[i].signup_date.hours+":"+json[i].signup_date.minutes+":"+json[i].signup_date.seconds+"</div>"+
-										"</div>"+
-									"</div>"	
-								);
-							}
-						}
-					}
-				}
-			});
-		}
 		
 		//表情
 		/* $(document).ready(function(){
@@ -127,9 +46,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body>
-<!-- <textarea rows="10" cols="40" id="tags" ></textarea> -->
-<!-- <h1 class="emoticonText">It's a pirate ?-) ARGHHH!!!! :)</h1> -->
-<!-- <a href='user/getSocial?user.id=1'>ssss</a> -->
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="nickName" value="<s:property value="#session.user.name"/>"/>
 <input type="hidden" id="urlM" value="<s:property value="#session.user.headPhoto.urlM"/>"/>
