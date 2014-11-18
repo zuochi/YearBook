@@ -56,7 +56,7 @@ public class GetSocial extends UserAction{
 		return "social";
 	}
 	
-	//获取好友列表
+/*	//获取好友列表
 	public String getFriendByPerPage(){
 		try {
 			List<FriendInfomation> friendInfomationList = null;
@@ -88,7 +88,7 @@ public class GetSocial extends UserAction{
 			out.close();
 		}
 		return null;
-	}
+	}*/
 	
 	//获取关注列表
 	public String getFollowingByPerPage(){
@@ -106,7 +106,7 @@ public class GetSocial extends UserAction{
 			if(toPage>pc.getTotalPages()){
 				out.print("false");
 			}else{
-				List<User> userFriendList = service.getObjectsBySql("select u.* from user u where u.is_delete=0 and u.id in (select f.friend_id from friend_list f where f.is_delete=0 and f.user_id="+user.getId()+" order by f.update_date)",pc,user,"getHeadPhoto");
+				List<User> userFriendList = service.getObjectsBySql("select u.* from user u where u.is_delete=0 and u.id in (select f.friend_id from friend_list f where f.is_delete=0 and f.user_id="+user.getId()+" order by f.update_date desc)",pc,user,"getHeadPhoto");
 	
 				if(userFriendList.size()>0){
 					friendInfomationList = new ArrayList<FriendInfomation>();
@@ -149,7 +149,7 @@ public class GetSocial extends UserAction{
 			if(toPage>pc.getTotalPages()){
 				out.print("false");
 			}else{
-				List<User> userFriendList = service.getObjectsBySql("select u.* from user u where u.is_delete=0 and u.id in (select f.user_id from friend_list f where f.is_delete=0 and f.friend_id="+user.getId()+" order by f.update_date)",pc,user,"getHeadPhoto");
+				List<User> userFriendList = service.getObjectsBySql("select u.* from user u where u.is_delete=0 and u.id in (select f.user_id from friend_list f where f.is_delete=0 and f.friend_id="+user.getId()+" order by f.update_date desc)",pc,user,"getHeadPhoto");
 				
 				if(userFriendList.size()>0){
 					friendInfomationList = new ArrayList<FriendInfomation>();

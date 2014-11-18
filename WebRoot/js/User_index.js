@@ -96,9 +96,14 @@ function getPhotosByPerPage(isNew){
 						"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:200px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
 						"<textarea style='word-break:break-all;resize: none;' rows='3' cols='50'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea><br>"+
 						"<input type='button' value='Reply' onclick='comment("+document.getElementById("userId").value+","+json[i].id+")'/>"+
-						"<div align='center'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></div>"+
 						"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 						"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
+						"<div align='center'>" +
+							"<span id='pageShow"+json[i].id+"'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+							"<span id='commentPageTurningButton"+json[i].id+"'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
+							"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a><span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+							"<a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a><span>" +
+						"</div>"+
 						"<span id='commentBody"+json[i].id+"'><span>"+
 						"</div>"+
 							"<figure>"+	
@@ -118,13 +123,6 @@ function getPhotosByPerPage(isNew){
 		}
 	});
 	}
-};
-
-//放大图片之后读取
-function loadBigPic(picId){
-	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
-	//document.getElementById("reply"+picId).focus();
-	showComments(picId,$("#commentPage"+picId).val());
 };
 
 //评论
@@ -164,64 +162,67 @@ function comment(userBid,photoBid){
 	});
 };
 
+//放大图片之后读取
+function loadBigPic(picId){
+	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
+	//document.getElementById("reply"+picId).focus();
+	showComments(picId,$("#commentPage"+picId).val());
+};
+
 //上翻页
 function showCommentPreviousPage(photoBid){
-	//下翻过头复原
+	//上翻过头复原
 	if(parseInt($("#commentPage"+photoBid).val())>1){
 		$("#commentPage"+photoBid).val(parseInt($("#commentPage"+photoBid).val())-parseInt(1));
+		$("#commentBody"+photoBid).html("");
+		$("#commentCurrentPage"+photoBid).html($("#commentPage"+photoBid).val());
+		showComments(photoBid,$("#commentPage"+photoBid).val());
 	}
-	$("#commentBody"+photoBid).html("");
-	showComments(photoBid,$("#commentPage"+photoBid).val());
 };
 
 //下翻页
 function showCommentNextPage(photoBid){
-	$("#commentPage"+photoBid).val(parseInt($("#commentPage"+photoBid).val())+parseInt(1));
-	$("#commentBody"+photoBid).html("");
-	showComments(photoBid,$("#commentPage"+photoBid).val());
+	//下翻过头复原
+	if( parseInt($("#commentPage"+photoBid).val()) < parseInt($("#commentTotalPage"+photoBid).html())){
+		$("#commentPage"+photoBid).val(parseInt($("#commentPage"+photoBid).val())+parseInt(1));
+		$("#commentBody"+photoBid).html("");
+		$("#commentCurrentPage"+photoBid).html($("#commentPage"+photoBid).val());
+		showComments(photoBid,$("#commentPage"+photoBid).val());
+	}
 };
 
 //显示评论
 function showComments(photoBid,toPageC){
-	//获取总条数
-	getReplyCount(photoBid);
-	//获取当前图片评论的toPage
 	if($("#commentBody"+photoBid).text()==''){
+		//获取总条数
+		getReplyCount(photoBid);
 		$.ajax({
-			url:'/YearBook/user/getMyPost_getPostReply',  
+			url:'/YearBook/user/getReply_execute',  
 			type:'post', 
 	        data:"photo.id="+photoBid+"&toPage="+toPageC+"&replyCountN="+$("#commentCount"+photoBid).val(),
 	        async:false,
 	        dataType:'json', 
 			success:function (json) {
 				if(json.error==undefined){
-					
-						if(json.length==undefined || json==''){
-							//上翻过头复原
-							if(parseInt($("#commentPage"+photoBid).val())>1){
-								$("#commentPage"+photoBid).val(parseInt($("#commentPage"+photoBid).val())-parseInt(1));
-							}
-							$("#commentBody"+photoBid).append("<br><br><center style='color:#8f8f8f;font-size:22px;'>No more comments.</a></center>");
-						}
-						for(var i=0; i<json.length; i++){
-							$("#commentBody"+photoBid).append(
-								"<div class='ds-post-main'>"+
-									"<div class='ds-avatar'>"+
-										"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
-									"</div>"+
-									"<div class='ds-comment-body'>"+
-										"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
-										"<div class='message'>"+json[i].context+"</div>"+
-										"<div align='right' class='p1'>20"+(json[i].signup_date.year-100)+"-"+
-											(json[i].signup_date.month+1)+"-"+
-											json[i].signup_date.date+" "+
-											json[i].signup_date.hours+":"+json[i].signup_date.minutes+":"+json[i].signup_date.seconds+"</div>"+
-									"</div>"+
-								"</div>"	
-							);
-						}
+					for(var i=0; i<json.length; i++){
+						$("#commentBody"+photoBid).append(
+							"<div class='ds-post-main'>"+
+								"<div class='ds-avatar'>"+
+									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
+								"</div>"+
+								"<div class='ds-comment-body'>"+
+									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
+									"<div class='message'>"+json[i].context+"</div>"+
+									"<div align='right' class='p1'>20"+(json[i].signup_date.year-100)+"-"+
+										(json[i].signup_date.month+1)+"-"+
+										json[i].signup_date.date+" "+
+										json[i].signup_date.hours+":"+json[i].signup_date.minutes+":"+json[i].signup_date.seconds+"</div>"+
+								"</div>"+
+							"</div>"	
+						);
 					}
 				}
+			}
 		});
 	}
 };
@@ -229,17 +230,45 @@ function showComments(photoBid,toPageC){
 //获取评论的条数
 function getReplyCount(photoBid){
 	$.ajax({
-		url:'/YearBook/user/getMyPost_getReplyCount',  
+		url:'/YearBook/user/getReply_getReplyCount',  
 		type:'post', 
         data:"photo.id="+photoBid,
         async:false,
         dataType:'text', 
 		success:function (json) {
 			if(json!="fail"){
+				//如果没有评论则不显示翻页或者评论数少于5
+				if(parseInt(json)<5){
+					$("#commentPageTurningButton"+photoBid).hide();
+				}else{
+					$("#commentPageTurningButton"+photoBid).show();
+				}
 				$("#commentCount"+photoBid).val(json);
+				//计算总页数
+				if(parseInt(json)==0){
+					$("#pageShow"+photoBid).hide();
+					$("#commentBody"+photoBid).append("<div align='center'>no reply here,click <a href='javascript:void(0)' onclick='reloadReply("+photoBid+")'>Refresh</a> to receive the latest replys.<div>");
+				}else{
+					$("#pageShow"+photoBid).show();
+					var totalPages = 0 ;
+					if((parseInt(json)%5) == 0){
+						totalPages = parseInt(json) / 5;
+					}else{
+						totalPages = parseInt(json) / 5 + 1;
+					}
+					$("#commentTotalPage"+photoBid).html(parseInt(totalPages));
+				}
 			}
 		}
 	});
+};
+
+//重新读取评论
+function reloadReply(photoBid){
+	$("#commentPage"+photoBid).val(parseInt(1));
+	$("#commentBody"+photoBid).html("");
+	$("#commentCurrentPage"+photoBid).html(1);
+	showComments(photoBid,1);
 };
 
 //改写图片描述
