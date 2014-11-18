@@ -342,6 +342,23 @@ font-size: 16px;
 	display: block;
 	background-image: url(images/message.png);
 	background-repeat: no-repeat;
+	z-index:998;
+}
+.tishi{
+	margin-top:168px;
+	margin-left:86px;
+    font-weight: bold;
+	color:#fff;
+	line-height:18px;
+	text-align:center;
+	position:absolute;
+	float:left;
+	z-index:999;
+	width:20px;
+	height:20px;
+	background:#DE4C1C;
+	border-radius:50%;
+
 }
 #message a:hover{float: left;
 	margin-top:3px;
@@ -350,6 +367,7 @@ font-size: 16px;
 	display: block;
    background-image: url(images/message.jpg);
 	background-repeat: no-repeat;
+	z-index:998;
 }
 #bbs a{
 	float: left;

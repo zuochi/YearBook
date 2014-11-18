@@ -80,8 +80,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div id="bbs">
 					<a href="javascript:void(0)" onclick="goUrl(6)" target="main"></a>
 				</div>
-				<div id="message">
+				<div id="message"><div class="tishi">3</div>
 					<a href="javascript:void(0)" onclick="goUrl(7)" target="main"> </a>
+					
 				</div>
 				<div id="exit">
 					<a href="javascript:void(0)" onclick="goUrl(8)" target="_parent"></a>

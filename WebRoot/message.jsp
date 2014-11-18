@@ -96,14 +96,7 @@ eval(eval2);
 <!--反馈版块-->
   <h2>FEEDBACK</h2>
   <h3>please contact us if you have any questions</h3> 
-  <!--2个管理员的头像-->
-  <div id="yb"><img src="images/alex.jpg" alt="" width="100" height="100"  ></div>
-  <div id="by"><img src="images/alex.jgp" alt="" width="100" height="100"  ></div>
-  <!--发送给管理员对应的文本框以及发送按钮-->
-  <div id="feedback"><textarea cols="54" rows="3" type="text" class="fb"  maxLength=150 ></textarea></div>
-  <div id="feedback"><textarea cols="54" rows="3" type="text" class="fb"  maxLength=150 ></textarea></div>
-  <input type="button" value="Send" style="font-size:16px"  class="sent"/>
-  <input type="button" value="Send" style="font-size:16px"  class="sent1"/>
+  <h3> yearbook@soy.com</h3>
  
 </div>
 </div>
