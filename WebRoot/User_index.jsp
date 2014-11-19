@@ -109,7 +109,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath%>js/masonry.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/classie.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/cbpGridGallery.js"></script>
-		
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>

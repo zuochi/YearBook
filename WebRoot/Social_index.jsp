@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
 <link rel="stylesheet" href="styles/sass-compiled.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery.cssemoticons.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
@@ -117,6 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js" ></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/masonry.pkgd.min.js"></script>
