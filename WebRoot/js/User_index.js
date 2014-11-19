@@ -105,8 +105,8 @@ function getPhotosByPerPage(isNew){
 								"<span id='loadingComment"+json[i].id+"' class='loadComm'></span>"+
 								"<span id='pageShow"+json[i].id+"' style='display:none'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<span id='commentPageTurningButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
-								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a><span>&nbsp;&nbsp;&nbsp;&nbsp;" +
-								"<a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a><span>" +	
+								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+								"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
 							"</div>"+
 							"<span id='commentBody"+json[i].id+"'><span>"+
 							"</div>"+
@@ -170,8 +170,6 @@ function comment(userBid,photoBid){
 
 //放大图片之后读取
 function loadBigPic(picId){
-	document.getElementById("loadingComment"+picId).display="block";
-	document.getElementById("pageShow"+picId).display="block";
 	//$("#loadingBigPhoto"+picId).showLoading();//显示图片读取状态
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
 	//$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态

@@ -80,7 +80,8 @@ function getReplyCount(photoBid){
 		success:function (json) {
 			if(json!="fail"){
 				//如果没有评论则不显示翻页或者评论数少于5
-				if(parseInt(json)<pageSizeN){
+				$("#loadingComment"+photoBid).show();
+				if(parseInt(json)<=pageSizeN){
 					$("#commentPageTurningButton"+photoBid).hide();
 				}else{
 					$("#commentPageTurningButton"+photoBid).show();
@@ -88,10 +89,12 @@ function getReplyCount(photoBid){
 				$("#commentCount"+photoBid).val(json);
 				//计算总页数
 				if(parseInt(json)==0){
+					$("#commentRefreshButton"+photoBid).hide();
 					$("#pageShow"+photoBid).hide();
 					$("#commentBody"+photoBid).append("<div align='left' style='margin:15px 0 5px 30px'>no reply yet,click <a href='javascript:void(0)'style='color:#DE4C1C ' onclick='reloadReply("+photoBid+")'>Refresh</a> to display the latest status<div>");
 				}else{
 					$("#pageShow"+photoBid).show();
+					$("#commentRefreshButton"+photoBid).show();
 					var totalPages = 0 ;
 					if((parseInt(json)%pageSizeN) == 0){
 						totalPages = parseInt(json) / pageSizeN;
