@@ -101,7 +101,7 @@ function getPhotosByPerPage(isNew){
 							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 							"<div align='center'>" +
-								"<span id='loadingComment"+json[i].id+"'></span>"+
+								"<span id='loadingComment "+json[i].id+"'></span>"+
 								"<span id='pageShow"+json[i].id+"'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<span id='commentPageTurningButton"+json[i].id+"'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a><span>&nbsp;&nbsp;&nbsp;&nbsp;" +
@@ -125,7 +125,7 @@ function getPhotosByPerPage(isNew){
 				}
 			}
 		});
-		//$("#showPhotosLoading").showLoading();//隐藏读取状态
+		//$("#showPhotosLoading").hideLoading();//隐藏读取状态
 	}
 };
 
@@ -168,9 +168,9 @@ function comment(userBid,photoBid){
 
 //放大图片之后读取
 function loadBigPic(picId){
-	$("#loadingBigPhoto"+picId).showLoading();//显示图片读取状态
+	//$("#loadingBigPhoto"+picId).showLoading();//显示图片读取状态
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
-	$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
+	//$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
 	//document.getElementById("reply"+picId).focus();
 	//读取评论
 	showComments(picId,$("#commentPage"+picId).val());

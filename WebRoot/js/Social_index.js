@@ -122,9 +122,9 @@ function comment(userBid,photoBid){
 
 //放大图片之后读取
 function loadBigPic(picId){
-	$("#loadingBigPhoto"+picId).showLoading();//显示图片读取状态
+	//$("#loadingBigPhoto"+picId).showLoading();//显示图片读取状态
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
-	$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
+	//$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
 	//document.getElementById("reply"+picId).focus();
 	//读取评论
 	showComments(picId,$("#commentPage"+picId).val());
