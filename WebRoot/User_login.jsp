@@ -35,12 +35,12 @@
 			<div id="username">
 				<input
 					onfocus="this.style.color='#666';if(this.value=='ID') this.value='';"
-					value="ID" maxLength="35" size="12" class="search_keyword" name="userName" id="userName"/>
+					value="ID" maxLength="35" size="12" class="search_keyword" name="userName" id="userName" onkeydown="loginEnter()"/>
 			</div>
 			<!--Password文本框提示-->
 			<div id="focus">
 				<div id="password">
-					<label><span>Password</span><input type="password" class="input_txt" name="password" id="ps">
+					<label><span>Password</span><input type="password" class="input_txt" name="password" id="ps" onkeydown="loginEnter()"/>
 					</label>
 				</div>
 			</div>

@@ -101,43 +101,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="js/goUrl.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
 	<script type="text/javascript" src="js/my.js"></script>
-	<script type="text/javascript">
-		function goUrl(type){
-			if(type==1){
-				window.parent.main.location.href="User_headPhotoUpload.jsp";
-			}
-			if(type==2){
-				window.parent.main.location.href="/YearBook/user/getProfiles_execute";
-			}
-			if(type==3){
-				window.parent.main.location.href="mainPage.jsp";
-			}
-			/* if(type==4){
-				//window.parent.main.location.href="/YearBook/user/getSocial_getFriendByPerPage?user.id=<s:property value='#session.user.id'/>";
-				window.parent.main.location.href="friend.jsp";
-			} */
-			if(type==5){
-				window.parent.main.location.href="/YearBook/user/getMyPost_execute?user.id=<s:property value='#session.user.id'/>";
-			}
-			if(type==6){
-				window.parent.main.location.href="bbs.jsp";
-			}
-			if(type==7){
-				window.parent.main.location.href="message.jsp";
-			}
-			if(type==8){
-				window.parent.location.href="/YearBook/user/logout_execute";
-			}
-			if(type==9){
-				window.parent.main.location.href="/YearBook/user/autoLogin_execute";
-			}
-			if(type==10){
-				window.parent.main.location.href="mainPage.jsp?type=signup";
-			}
-		};
-	</script>
 </body>
 </html>

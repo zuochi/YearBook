@@ -296,12 +296,3 @@ function iWantTop(photoId,userId){
 		});
 	}
 };
-
-//跳去关注或者粉丝列表
-function goUrl(type){
-	if(type==4){
-		window.parent.main.location.href="friend.jsp?type=following";
-	}else if(type==11){
-		window.parent.main.location.href="friend.jsp?type=followers";
-	}
-};
