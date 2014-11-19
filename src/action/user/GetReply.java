@@ -24,10 +24,7 @@ public class GetReply extends UserAction{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		try {
-			user = (User) request.getSession().getAttribute("user");
-			
 			//int replyCount = (Integer) service.getObjectByHql("select count(*) from Reply r where r.isDelete=0 and userByUserId.id="+user.getId()+" and r.photo.id="+photo.getId(), "getInteger");
-			
 			PageController pc = new PageController(replyCountN,1,pageSizeN);
 			pc.setCurrentPage(toPage);
 
@@ -55,7 +52,7 @@ public class GetReply extends UserAction{
 		try {
 			user = (User) request.getSession().getAttribute("user");
 			
-			int replyCount = (Integer) service.getObjectByHql("select count(*) from Reply r where r.isDelete=0 and userByUserId.id="+user.getId()+" and r.photo.id="+photo.getId(), "getInteger");
+			int replyCount = (Integer) service.getObjectByHql("select count(*) from Reply r where r.isDelete=0 and r.photo.id="+photo.getId(), "getInteger");
 			
 			out = response.getWriter();
 			out.print(replyCount);

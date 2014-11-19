@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/calculateDistanceTime.js"></script>
 </head>
 <body>
 <input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>

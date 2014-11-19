@@ -100,6 +100,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		</div>
 		
+		<script type="text/javascript" src="<%=basePath%>js/calculateDistanceTime.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/getReply.js"></script>

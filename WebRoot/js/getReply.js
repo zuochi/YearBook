@@ -39,7 +39,7 @@ function showComments(photoBid,toPageC){
 		$.ajax({
 			url:'/YearBook/user/getReply_execute',  
 			type:'post', 
-	        data:"photo.id="+photoBid+"&toPage="+toPageC+"&replyCountN="+$("#commentCount"+photoBid).val()+"&pageSizeN="+pageSizeN,
+	        data:"photo.id="+photoBid+"&toPage="+toPageC+"&replyCountN="+$("#commentCount"+photoBid).val()+"&pageSizeN="+pageSizeN+"&user.id="+$("#userId").val(),
 	        async:false,
 	        dataType:'json', 
 			success:function (json) {
@@ -53,10 +53,11 @@ function showComments(photoBid,toPageC){
 								"<div class='ds-comment-body'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
 									"<div class='message'>"+json[i].context+"</div>"+
-									"<div align='right' class='p1'>20"+(json[i].signup_date.year-100)+"-"+
+									"<div align='right' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
+									/*"<div align='right' class='p1'>20"+(json[i].signup_date.year-100)+"-"+
 										(json[i].signup_date.month+1)+"-"+
 										json[i].signup_date.date+" "+
-										json[i].signup_date.hours+":"+json[i].signup_date.minutes+":"+json[i].signup_date.seconds+"</div>"+
+										json[i].signup_date.hours+":"+json[i].signup_date.minutes+":"+json[i].signup_date.seconds+"</div>"+*/
 								"</div>"+
 							"</div>"	
 						);

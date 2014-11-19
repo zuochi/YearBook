@@ -77,11 +77,12 @@ function getPhotosByPerPage(isNew){
 									"<div id='photo"+json[i].id+"' class='gc'>"+
 										"<span id='loadingBigPhoto"+json[i].id+"'></span>"+
 										"<div class='gridpic'><img src='"+document.getElementById("basePath").value+json[i].urlThumb+"'/></div>"+
-											"<div class='time'>20"+(json[i].uploadDate.year-100)+"-"+
+											"<div class='time'>"+calculateDT(json[i].uploadDate)+"</div>"+
+											/*"<div class='time'>20"+(json[i].uploadDate.year-100)+"-"+
 											(json[i].uploadDate.month+1)+"-"+
 											json[i].uploadDate.date+" "+
 											json[i].uploadDate.hours+":"+json[i].uploadDate.minutes+":"+json[i].uploadDate.seconds+
-											"</div>"+
+											"</div>"+*/
 									"</div>"+
 								"</figure>"+
 								"<input id='bigPicUrl"+json[i].id+"' type='hidden' value='"+json[i].url+"'/>"+
@@ -147,9 +148,10 @@ function comment(userBid,photoBid){
 				//统计剩余字数
 				wordsNumber(photoBid);
 				//获取时间 
-				var date=new Date();
+				//var date=new Date();
 				//即时刷新评论
-				$("#commentBody"+photoBid).prepend(
+				reloadReply(photoBid);
+				/*$("#commentBody"+photoBid).prepend(
 					"<div class='ds-post-main'>"+
 						"<div class='ds-avatar'>"+
 							"<a title='"+$("#nickName").val()+"' href='javascript:goSocialIndex("+$("#userId").val()+")' target='_blank'><img src='"+$("#urlM").val()+"'></a>"+
@@ -160,7 +162,7 @@ function comment(userBid,photoBid){
 							"<div align='right' class='p1'>"+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"</div>"+
 						"</div>"+
 					"</div>"
-				);
+				);*/
 			}
 		}
 	});
