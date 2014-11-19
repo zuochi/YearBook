@@ -18,6 +18,7 @@ import action.user.UserAction;
 @Scope("prototype")
 public class GetReply extends UserAction{
 	private int replyCountN;
+	private int pageSizeN;
 	
 	@Override
 	public String execute() throws Exception {
@@ -27,7 +28,7 @@ public class GetReply extends UserAction{
 			
 			//int replyCount = (Integer) service.getObjectByHql("select count(*) from Reply r where r.isDelete=0 and userByUserId.id="+user.getId()+" and r.photo.id="+photo.getId(), "getInteger");
 			
-			PageController pc = new PageController(replyCountN,1,5);
+			PageController pc = new PageController(replyCountN,1,pageSizeN);
 			pc.setCurrentPage(toPage);
 
 			if(toPage>pc.getTotalPages()){
@@ -77,4 +78,15 @@ public class GetReply extends UserAction{
 	public void setReplyCountN(int replyCountN) {
 		this.replyCountN = replyCountN;
 	}
+
+	@JSON(serialize=false)
+	public int getPageSizeN() {
+		return pageSizeN;
+	}
+
+	public void setPageSizeN(int pageSizeN) {
+		this.pageSizeN = pageSizeN;
+	}
+	
+	
 }

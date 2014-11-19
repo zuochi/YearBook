@@ -117,6 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="hasFollowers"></div>
 		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/getReply.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js" ></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
