@@ -66,7 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</header>
 			
-			<!-- 用户图片 -->
+<br><br><br><br><br><br><br><br>
+				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
+						
+				
+					<!-- 用户图片 -->
 			<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">
 					<ul id="photosUL" class="grid">
