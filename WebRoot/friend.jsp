@@ -21,7 +21,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="styles/sass-compiled.css" />
 </head>
 <body>
-
+<div class="top"> 
+<input type="text"  style="font-size:14px; margin-left:30px;">
+<input type="button" value="S" style="font-size:18px">earch
+</div>
 <a id="followersTitleA" href="javascript:void(0)" title="click to show followers."><div>Followers </div></a>
 <a id="followingTitleA" href="javascript:void(0)" title="click to show following."><div>Following </div></a>
 
