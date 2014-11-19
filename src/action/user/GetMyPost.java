@@ -1,22 +1,7 @@
 package action.user;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Properties;
-
-import net.sf.json.JSONArray;
-
-import org.apache.struts2.json.annotations.JSON;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import dto.FriendInfomation;
-
-import util.PageController;
-
-import bean.FriendList;
-import bean.Photo;
-import bean.User;
 
 @Controller
 @Scope("prototype")

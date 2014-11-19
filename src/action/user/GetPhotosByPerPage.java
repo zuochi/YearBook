@@ -24,7 +24,7 @@ public class GetPhotosByPerPage extends UserAction{
 			if(toPage>pc.getTotalPages()){
 				out.print("false");
 			}else{
-				// 让model层的photo作为json的媒介
+				//让model层的photo作为json的媒介
 				List<dto.Photo> modelPhotos = new ArrayList<dto.Photo>();
 				for (int i = 0; i < photos.size(); i++) {
 					dto.Photo modelPhoto = new dto.Photo(photos.get(i).getId(), photos.get(i).getUser().getId(),0, 

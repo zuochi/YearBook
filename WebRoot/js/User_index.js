@@ -55,80 +55,84 @@ function getPhotosByPerPage(isNew){
 		toPageP=0;
 	}
 	if(hasPic==1){
-	//自动返向下一页
-	toPageP+=1;
-	$.ajax({
-		url:'/YearBook/user/getPhotosByPerPage_execute',  
-		type:'post', 
-		data:"user.id="+document.getElementById("userId").value+"&toPage="+toPageP,
-		async:false,
-		dataType:'json',
-		success:function (json) {
-			if(json.error==undefined){
-				if(json.length==undefined){
-					hasPic=0;
-					$("#hasPhotos").html("<br><br><br><br><center style='color:#8f8f8f; font-size:22px;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br><br><br>");
-				}
-				for(var i=0; i<json.length; i++){
-					$("#photosUL").append(
-						"<li onclick='loadBigPic("+json[i].id+")'>"+
-							"<figure>"+
-								"<div id='photo"+json[i].id+"' class='gc'>"+
-									"<div class='gridpic'><img src='"+document.getElementById("basePath").value+json[i].urlThumb+"'/></div>"+
-										"<div class='time'>20"+(json[i].uploadDate.year-100)+"-"+
-										(json[i].uploadDate.month+1)+"-"+
-										json[i].uploadDate.date+" "+
-										json[i].uploadDate.hours+":"+json[i].uploadDate.minutes+":"+json[i].uploadDate.seconds+
-										"</div>"+
-								"</div>"+
-							"</figure>"+
-							"<input id='bigPicUrl"+json[i].id+"' type='hidden' value='"+json[i].url+"'/>"+
-						"</li>"+
-						"<div id='photoOPE"+json[i].id+"'>"+
-							"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='apply to post on Home Page.'></div>" +
-							"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='delete this Post.'></div>"+
-						"</div>"
-					);
-							
-					$("#photosUL2").append(
-						"<li value='"+json[i].id+"'>"+
-						"<div id='comment"+json[i].id+"' class='text2'>"+
-						"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:200px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
-						"<textarea style='word-break:break-all;resize: none;' rows='3' cols='50'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea>"+
-						"<input type='button' value='Reply' onclick='comment("+document.getElementById("userId").value+","+json[i].id+")'/>"+
-						"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
-						"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
-						"<div align='center'>" +
-							"<span id='pageShow"+json[i].id+"'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
-							"<span id='commentPageTurningButton"+json[i].id+"'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
-							"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a><span>&nbsp;&nbsp;&nbsp;&nbsp;" +
-							"<a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a><span>" +
-						"</div>"+
-						"<span id='commentBody"+json[i].id+"'><span>"+
-						"</div>"+
-							"<figure>"+	
-							"<figcaption><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
-							"<input type='text' id='desTextArea"+json[i].id+"' style='display:none;' maxlength='60'/>" +
-							"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
-							"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
-						    "</figcaption>"+
-								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
+		//$("#showPhotosLoading").showLoading();//显示读取状态
+		//自动返向下一页
+		toPageP+=1;
+		$.ajax({
+			url:'/YearBook/user/getPhotosByPerPage_execute',  
+			type:'post', 
+			data:"user.id="+document.getElementById("userId").value+"&toPage="+toPageP,
+			async:false,
+			dataType:'json',
+			success:function (json) {
+				if(json.error==undefined){
+					if(json.length==undefined){
+						hasPic=0;
+						$("#hasPhotos").html("<br><br><br><br><center style='color:#8f8f8f; font-size:22px;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br><br><br>");
+					}
+					for(var i=0; i<json.length; i++){
+						$("#photosUL").append(
+							"<li onclick='loadBigPic("+json[i].id+")'>"+
+								"<figure>"+
+									"<div id='photo"+json[i].id+"' class='gc'>"+
+										"<span id='loadingBigPhoto"+json[i].id+"'></span>"+
+										"<div class='gridpic'><img src='"+document.getElementById("basePath").value+json[i].urlThumb+"'/></div>"+
+											"<div class='time'>20"+(json[i].uploadDate.year-100)+"-"+
+											(json[i].uploadDate.month+1)+"-"+
+											json[i].uploadDate.date+" "+
+											json[i].uploadDate.hours+":"+json[i].uploadDate.minutes+":"+json[i].uploadDate.seconds+
+											"</div>"+
+									"</div>"+
 								"</figure>"+
-						"</li>"
-					);
+								"<input id='bigPicUrl"+json[i].id+"' type='hidden' value='"+json[i].url+"'/>"+
+							"</li>"+
+							"<div id='photoOPE"+json[i].id+"'>"+
+								"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='apply to post on Home Page.'></div>" +
+								"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='delete this Post.'></div>"+
+							"</div>"
+						);
+								
+						$("#photosUL2").append(
+							"<li value='"+json[i].id+"'>"+
+							"<div id='comment"+json[i].id+"' class='text2'>"+
+							"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:200px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
+							"<textarea style='word-break:break-all;resize: none;' rows='3' cols='50'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value.charAt(value.length-1),"+json[i].id+")'></textarea>"+
+							"<input type='button' value='Reply' onclick='comment("+document.getElementById("userId").value+","+json[i].id+")'/>"+
+							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
+							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
+							"<div align='center'>" +
+								"<span id='loadingComment"+json[i].id+"'></span>"+
+								"<span id='pageShow"+json[i].id+"'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+								"<span id='commentPageTurningButton"+json[i].id+"'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
+								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a><span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+								"<a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a><span>" +
+							"</div>"+
+							"<span id='commentBody"+json[i].id+"'><span>"+
+							"</div>"+
+								"<figure>"+	
+								"<figcaption><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
+								"<input type='text' id='desTextArea"+json[i].id+"' style='display:none;' maxlength='60'/>" +
+								"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
+								"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
+							    "</figcaption>"+
+									"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
+									"</figure>"+
+							"</li>"
+						);
+					}
+				}else{
+					alert("access fail!");
 				}
-			}else{
-				alert("access fail!");
 			}
-		}
-	});
+		});
+		//$("#showPhotosLoading").showLoading();//隐藏读取状态
 	}
 };
 
 //评论
 function comment(userBid,photoBid){
 	var reply = $("#reply"+photoBid).val();
-	 if(reply.length<1 || reply.length>80){
+	if(reply.length<1 || reply.length>80){
 		alert("reply at least 1 in length,and max at 80.");
 		return;
 	}
@@ -164,12 +168,15 @@ function comment(userBid,photoBid){
 
 //放大图片之后读取
 function loadBigPic(picId){
+	$("#loadingBigPhoto"+photoBid).showLoading();//显示图片读取状态
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
+	$("#loadingBigPhoto"+photoBid).hideLoading();//隐藏图片读取状态
 	//document.getElementById("reply"+picId).focus();
+	//读取评论
 	showComments(picId,$("#commentPage"+picId).val());
 };
 
-//上翻页
+//评论上翻页
 function showCommentPreviousPage(photoBid){
 	//上翻过头复原
 	if(parseInt($("#commentPage"+photoBid).val())>1){
@@ -180,7 +187,7 @@ function showCommentPreviousPage(photoBid){
 	}
 };
 
-//下翻页
+//评论下翻页
 function showCommentNextPage(photoBid){
 	//下翻过头复原
 	if( parseInt($("#commentPage"+photoBid).val()) < parseInt($("#commentTotalPage"+photoBid).html())){
@@ -194,6 +201,7 @@ function showCommentNextPage(photoBid){
 //显示评论
 function showComments(photoBid,toPageC){
 	if($("#commentBody"+photoBid).text()==''){
+		$("#loadingComment"+photoBid).showLoading();//显示读取状态
 		//获取总条数
 		getReplyCount(photoBid);
 		$.ajax({
@@ -224,6 +232,7 @@ function showComments(photoBid,toPageC){
 				}
 			}
 		});
+		$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
 	}
 };
 

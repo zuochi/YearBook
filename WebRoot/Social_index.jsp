@@ -13,9 +13,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title><s:property value="#request.socialUser.name"/> - Year Book</title>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component_social.css" />
- <link rel="stylesheet" href="styles/sass-compiled.css" />
+<link rel="stylesheet" href="styles/sass-compiled.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
-<script type="text/javascript" src="<%=basePath %>js/jquery-1.11.1.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
+<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
 </head>
 <body>
 <input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
@@ -113,7 +114,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="hasPhotos"></div>
 		<div id="hasFollowing"></div>
 		<div id="hasFollowers"></div>
-		<script type="text/javascript" src="<%=basePath %>js/at.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>

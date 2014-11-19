@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">
-    <title>PicKass</title>
+    <title><s:property value="#session.user.name"/> - Post</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">
@@ -17,33 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="description" content="This is my page">
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo2.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component.css" />
-		<%-- <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery-ui.css" /> --%>
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery.cssemoticons.css" media="screen"/>
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
-		
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
-		<script type="text/javascript">
-		
-		
-		//表情
-		/* $(document).ready(function(){
-			$('.emoticonText').emoticonize({
-				//delay: 800,
-				//animate: false,
-				//exclude: 'pre, code, .no-emoticons'
-			});
-			$('#toggle-headline').toggle(function(){
-				$('#large').unemoticonize({
-					//delay: 800,
-					//animate: false
-			})},function(){
-				$('#large').emoticonize({
-					//delay: 800,
-					//animate: false
-				})
-			});
-		}); */
-</script>
 </head>
 <body>
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
@@ -89,11 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</header>
 			
-<br><br><br><br><br><br><br><br>
-				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
-						
-				
-					<!-- 用户图片 -->
+			<!-- 用户图片 -->
 			<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">
 					<ul id="photosUL" class="grid">
@@ -123,21 +96,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		</div>
 		
-		<script type="text/javascript" src="<%=basePath %>js/at.js"></script>
-		<%-- <script type="text/javascript" src="<%=basePath %>js/jquery-ui.js"></script> --%>
-		<script type="text/javascript" src="<%=basePath %>js/User_index.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/jquery.cssemoticons.js" ></script>
-		<script type="text/javascript" src="<%=basePath %>js/modernizr.custom.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/imagesloaded.pkgd.min.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/masonry.pkgd.min.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/classie.js"></script>
-		<script type="text/javascript" src="<%=basePath %>js/cbpGridGallery.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/User_index.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js" ></script>
+		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/masonry.pkgd.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/classie.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/cbpGridGallery.js"></script>
 		
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
 		
 		<div id="hasPhotos"></div>
+		<div id="showPhotosLoading"></div>
 		
 		<div id="socialDiv" style="display: none">
 			<!-- 好友图片刷新 -->
