@@ -305,6 +305,7 @@ margin-top:8px;
 
 
 .message{
+		line-height:15px;
 	 font-family:"Microsoft Yahei";
 	color:#000;
     margin-top:5px;
@@ -566,4 +567,4 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 
 
 .noMoreInfo{color:#8f8f8f;font-size:22px;}
-
+.loadComm{position:absolute;left:25%;top:55%;}

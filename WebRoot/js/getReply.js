@@ -88,7 +88,7 @@ function getReplyCount(photoBid){
 				//计算总页数
 				if(parseInt(json)==0){
 					$("#pageShow"+photoBid).hide();
-					$("#commentBody"+photoBid).append("<div align='center'>no reply here,click <a href='javascript:void(0)' onclick='reloadReply("+photoBid+")'>Refresh</a> to receive the latest replys.<div>");
+					$("#commentBody"+photoBid).append("<div align='left' style='margin:15px 0 5px 30px'>no reply yet,click <a href='javascript:void(0)'style='color:#DE4C1C ' onclick='reloadReply("+photoBid+")'>Refresh</a> to display the latest status<div>");
 				}else{
 					$("#pageShow"+photoBid).show();
 					var totalPages = 0 ;
