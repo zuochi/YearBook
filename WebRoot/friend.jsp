@@ -17,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-
 <link rel="stylesheet" href="styles/sass-compiled.css" />
 </head>
 <body>
@@ -39,6 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
    </div>
 <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="js/goUrl.js" type="text/javascript"></script>
 <script src="js/modernizr.js" type="text/javascript"></script>
 <script src="js/friend.js" type="text/javascript"></script>
 </body>
