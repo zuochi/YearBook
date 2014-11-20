@@ -108,10 +108,10 @@ function getPhotosByPerPage(isNew){
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
 							"</div>"+
-							"<span id='commentBody"+json[i].id+"'><span>"+
+							"<span id='commentBody"+json[i].id+"'  ><span>"+
 							"</div>"+
 								"<figure>"+	
-								"<figcaption><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
+								"<figcaption ><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
 								"<input type='text' id='desTextArea"+json[i].id+"' style='display:none;' maxlength='60'/>" +
 								"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
 								"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
@@ -158,7 +158,7 @@ function comment(userBid,photoBid){
 						"</div>"+
 						"<div class='ds-comment-body'>"+
 							"<a title='"+$("#nickName").val()+"' href='javascript:goSocialIndex("+$("#userId").val()+")' target='_blank' class='user-name'>"+$("#nickName").val()+"</a>"+
-							"<div class='message'>"+context+"</div>"+
+							"<div class='message' >"+context+"</div>"+
 							"<div align='right' class='p1'>"+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"</div>"+
 						"</div>"+
 					"</div>"

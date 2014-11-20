@@ -7,7 +7,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 
 body {background-image:url(../images/background_main.png);background-repeat: repeat;
-    font-family: 'Lato', Calibri,  sans-serif;
+    font-family: Calibri,  sans-serif;
     color: #234;
     height:110%;
 }
@@ -20,7 +20,7 @@ body {background-image:url(../images/background_main.png);background-repeat: rep
 
 }
 a {
-	color:#234;
+	color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
 }

@@ -16,7 +16,7 @@ body {
 }
 
 a {
-		color:#234;
+		color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
 }
@@ -305,8 +305,8 @@ margin-top:8px;
 
 
 .message{
-		line-height:15px;
-	 font-family:"Microsoft Yahei";
+	line-height:15px;
+	font-family:"Microsoft Yahei";
 	color:#000;
     margin-top:5px;
 	font-size:11px;
@@ -490,7 +490,8 @@ color:#fff;
 text-align:center;
 	
 }
-
+h3{font-size:50px}
+p{font-size:25px;}
 .user-name {    font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;color:#DE4C1C }
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
 h1 span {font-size:12px;color:#696A52;}

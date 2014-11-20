@@ -1,4 +1,6 @@
 //评论上翻页
+
+
 function showCommentPreviousPage(photoBid){
 	//上翻过头复原
 	if(parseInt($("#commentPage"+photoBid).val())>1){
@@ -47,13 +49,13 @@ function showComments(photoBid,toPageC){
 				if(json.error==undefined){
 					for(var i=0; i<json.length; i++){
 						$("#commentBody"+photoBid).append(
-							"<div class='ds-post-main'>"+
+							"<div  class='ds-post-main'>"+
 								"<div class='ds-avatar'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
 								"</div>"+
-								"<div class='ds-comment-body'>"+
+								"<div  class='ds-comment-body'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
-									"<div class='message'>"+json[i].context+"</div>"+
+									"<div id='text' class='message' >"+json[i].context+"</div>"+
 									"<div align='right' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
 									/*"<div align='right' class='p1'>20"+(json[i].signup_date.year-100)+"-"+
 										(json[i].signup_date.month+1)+"-"+
@@ -68,6 +70,29 @@ function showComments(photoBid,toPageC){
 		});
 	}
 	$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
+	$(document).ready(function()
+			{
+						$('#text').emoticonize({
+							//delay: 800,
+							//animate: false,
+							//exclude: 'pre, code, .no-emoticons'
+						});
+						$('#toggle-headline').toggle(
+							function(){
+								$('#large').unemoticonize({
+									//delay: 800,
+									//animate: false
+								})
+							}, 
+							function(){
+								$('#large').emoticonize({
+									//delay: 800,
+									//animate: false
+								})
+							}
+						);
+					})
+	
 };
 
 //获取评论的条数

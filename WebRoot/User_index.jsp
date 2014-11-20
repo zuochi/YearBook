@@ -21,6 +21,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
+		<script type="text/javascript">	
+$(document).ready(function()
+{
+			$('#text').emoticonize({
+				//delay: 800,
+				//animate: false,
+				//exclude: 'pre, code, .no-emoticons'
+			});
+			$('#toggle-headline').toggle(
+				function(){
+					$('#large').unemoticonize({
+						//delay: 800,
+						//animate: false
+					})
+				}, 
+				function(){
+					$('#large').emoticonize({
+						//delay: 800,
+						//animate: false
+					})
+				}
+			);
+		})
+	</script>
+	
+	
 </head>
 <body>
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
@@ -88,10 +115,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="grid-sizer"></li>
 						<!-- 打印用户图片缩略图 -->
 						<s:if test="#request.photosCount==0">
-							<br><br><br><br>
+							<br><br>
 							<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<p class="text">
-							:( You are not upload any pictures yet,please click <a href="javascript:void(0)" onclick="uploadPhoto()" target="main">Upload.</a></p></center>
+							
+							<h3 id="text">: (  : )</h3><p>You are not upload any pictures yet,please click <a href="javascript:void(0)" onclick="uploadPhoto()" target="main">Upload.</a></p></center>
 						</s:if>
 					</ul>
 				</section> <!-- // grid-wrap -->
