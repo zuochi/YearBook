@@ -18,11 +18,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	$('#signContext').emoticonize();
-});
-</script>
 </head>
 <body>
 <input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
@@ -134,6 +129,10 @@ $(document).ready(function(){
 		<script type="text/javascript" src="<%=basePath%>js/cbpGridGallery.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+			
+			$(document).ready(function(){
+				$('#signContext').emoticonize();
+			});
 		</script>
 	</body>
 </html>

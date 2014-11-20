@@ -21,15 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js" ></script>
-		<script type="text/javascript">	
-		$(document).ready(function()
-		{
-			$('#signContext').emoticonize();
-		});
-	</script>
-	
-	
+
 </head>
 <body>
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
@@ -126,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/getReply.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/User_index.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js" ></script>
+		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/masonry.pkgd.min.js"></script>
@@ -134,6 +126,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath%>js/cbpGridGallery.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+			
+			$(document).ready(function()
+			{
+				$('#signContext').emoticonize();
+			});
 		</script>
 		
 		<div id="hasPhotos"></div>
