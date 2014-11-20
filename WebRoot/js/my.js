@@ -99,6 +99,12 @@ function isDuplicationOfName(value) {
 	 });
 };
 
+function registerEnter(){
+	if(window.event.keyCode==13){
+		registerCheck();
+	}
+};
+
 function registerCheck() {
 	var userName = document.getElementById("user.userName").value;
 	if($.trim(userName)==""){
@@ -116,6 +122,8 @@ function registerCheck() {
     	document.getElementById("user.userName").focus();
 		return;
 	}else{
+		//再检查一次是否重名
+		isDuplicationOfName(userName);
 		$("#Signwarn").html("&nbsp;");
 	}
 	
@@ -189,6 +197,12 @@ function registerCheck() {
 	}
 };
 
+function loginEnter(){
+	if(window.event.keyCode==13){
+		loginCheck();
+	}
+};
+
 function loginCheck() {
 	var userName = document.getElementById("userName").value;
 	
@@ -212,12 +226,12 @@ function loginCheck() {
 	
 	var password = document.getElementById("ps").value;
 	if($.trim(password)==""){
-		$("#Loginwarn").html("password couldn't be null.");
+		$("#Loginwarn").html("pw couldn't be null.");
 		document.getElementById("ps").value="";
 		document.getElementById("ps").focus();
 		return;
 	}else if(/\s/.test(password)){
-		$("#Loginwarn").html("pw can not have spaces.");
+		$("#Loginwarn").html("pw couldn't have spaces.");
 		document.getElementById("ps").value="";
 		document.getElementById("ps").focus();
         return;

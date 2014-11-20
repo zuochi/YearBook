@@ -158,8 +158,3 @@ function changeType(type){
 function scrollToTop(){
 	document.body.scrollTop=0;
 };
-
-//去某用户的主页
-function goSocialIndex(userId){
-	window.location.href='user/getSocial?user.id='+userId;
-};

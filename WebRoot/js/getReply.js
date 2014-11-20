@@ -5,7 +5,8 @@ function showCommentPreviousPage(photoBid){
 		$("#commentPage"+photoBid).val(parseInt($("#commentPage"+photoBid).val())-parseInt(1));
 		$("#commentBody"+photoBid).html("");
 		$("#commentCurrentPage"+photoBid).html($("#commentPage"+photoBid).val());
-		showComments(photoBid,$("#commentPage"+photoBid).val());
+		//showComments(photoBid,$("#commentPage"+photoBid).val());
+		delayLoadCommTime(photoBid,$("#commentPage"+photoBid).val(),500);
 	}
 };
 
@@ -16,7 +17,8 @@ function showCommentNextPage(photoBid){
 		$("#commentPage"+photoBid).val(parseInt($("#commentPage"+photoBid).val())+parseInt(1));
 		$("#commentBody"+photoBid).html("");
 		$("#commentCurrentPage"+photoBid).html($("#commentPage"+photoBid).val());
-		showComments(photoBid,$("#commentPage"+photoBid).val());
+		//showComments(photoBid,$("#commentPage"+photoBid).val());
+		delayLoadCommTime(photoBid,$("#commentPage"+photoBid).val(),500);
 	}
 };
 
@@ -31,7 +33,6 @@ function setPageSizeN(){
 //显示评论
 function showComments(photoBid,toPageC){
 	if($("#commentBody"+photoBid).text()==''){
-		$("#loadingComment"+photoBid).showLoading();//显示读取状态
 		//获取PageSizeN
 		setPageSizeN();
 		//获取总条数
@@ -65,8 +66,8 @@ function showComments(photoBid,toPageC){
 				}
 			}
 		});
-		$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
 	}
+	$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
 };
 
 //获取评论的条数
@@ -80,7 +81,8 @@ function getReplyCount(photoBid){
 		success:function (json) {
 			if(json!="fail"){
 				//如果没有评论则不显示翻页或者评论数少于5
-				if(parseInt(json)<pageSizeN){
+				$("#loadingComment"+photoBid).show();
+				if(parseInt(json)<=pageSizeN){
 					$("#commentPageTurningButton"+photoBid).hide();
 				}else{
 					$("#commentPageTurningButton"+photoBid).show();
@@ -88,10 +90,12 @@ function getReplyCount(photoBid){
 				$("#commentCount"+photoBid).val(json);
 				//计算总页数
 				if(parseInt(json)==0){
+					$("#commentRefreshButton"+photoBid).hide();
 					$("#pageShow"+photoBid).hide();
 					$("#commentBody"+photoBid).append("<div align='left' style='margin:15px 0 5px 30px'>no reply yet,click <a href='javascript:void(0)'style='color:#DE4C1C ' onclick='reloadReply("+photoBid+")'>Refresh</a> to display the latest status<div>");
 				}else{
 					$("#pageShow"+photoBid).show();
+					$("#commentRefreshButton"+photoBid).show();
 					var totalPages = 0 ;
 					if((parseInt(json)%pageSizeN) == 0){
 						totalPages = parseInt(json) / pageSizeN;
@@ -107,11 +111,19 @@ function getReplyCount(photoBid){
 
 //重新读取评论
 function reloadReply(photoBid){
+	$("#commentRefreshButton"+photoBid).hide();
 	$("#commentPage"+photoBid).val(parseInt(1));
 	$("#commentBody"+photoBid).html("");
 	$("#commentCurrentPage"+photoBid).html(1);
-	showComments(photoBid,1);
+	//showComments(photoBid,1);
+	delayLoadCommTime(photoBid,1,1200);
 };
+
+//短暂停顿之后获取评论
+function delayLoadCommTime(photoBid,currentPage,time){
+	$("#loadingComment"+photoBid).showLoading();//显示读取状态
+	setTimeout('showComments('+ photoBid +','+ currentPage +')', time);
+}
 
 //改写图片描述
 function updateDes(photoId){

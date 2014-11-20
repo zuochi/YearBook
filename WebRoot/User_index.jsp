@@ -35,7 +35,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="container">
 			<header class="clearfix">
 				<div class="prooo">
-					<div class="rad"><a href="<%=basePath%>User_headPhotoUpload.jsp" target="main"> <img src="<%=basePath%><s:property value="#session.headPhoto.urlL"/>" width="120" height="120" title="修改头像"/></a><div class="na"><s:property value="#session.user.name" /></div></div>
+					<div class="rad">
+						<s:if test="#session.headPhoto.urlL!=null">
+							<a href="javascript:void(0)" onclick="goUrl(1)" target="main"> 
+								<img src="<s:property value="#session.headPhoto.urlL"/>" alt="" width="120" height="120" title="修改头像"> 
+							</a>
+						</s:if>
+						<s:else>
+							<a href="javascript:void(0)" onclick="goUrl(1)" target="main"> 
+								<img src="images/bg.png" alt="" width="120" height="120" title="修改头像"> 
+							</a>
+						</s:else>
+						<div class="na"><s:property value="#session.user.name" /></div></div>
 						<s:if test="#session.user.sex==1">
                             <div class="male">&nbsp;&nbsp;&nbsp;&nbsp;male</div>
                         </s:if>
@@ -100,6 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		</div>
 		
+		<script type="text/javascript" src="<%=basePath%>js/goUrl.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/calculateDistanceTime.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>

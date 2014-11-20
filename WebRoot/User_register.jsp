@@ -35,17 +35,17 @@
 					onblur="isDuplicationOfName(this.value)"
 					onkeyup="keyup(event)"
 					onfocus="this.style.color='#666';if(this.value=='ID') this.value='';"
-					value="ID" maxLength=35 size=12 class="search_keyword"  name="user.userName" id="user.userName" />
+					value="ID" maxLength=35 size=12 class="search_keyword"  name="user.userName" id="user.userName" onkeydown="registerEnter()"/>
 			</div>
 			<!--Password文本框提示-->
 			<div id="focus">
 				<div id="password1">
-					<label><span>Password</span><input type="password" class="input_txt" name="user.password" id="user.password"/>
+					<label><span>Password</span><input type="password" class="input_txt" name="user.password" id="user.password" onkeydown="registerEnter()"/>
 					</label>
 				</div>
 				<div id="password2">
 					<label><span>Confirm Password</span><input type="password"
-						class="input_txt" name="passwordConfirm" id="passwordConfirm"/>
+						class="input_txt" name="passwordConfirm" id="passwordConfirm" onkeydown="registerEnter()"/>
 					</label>
 				</div>
 			</div>
