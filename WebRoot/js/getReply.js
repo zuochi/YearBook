@@ -49,50 +49,24 @@ function showComments(photoBid,toPageC){
 				if(json.error==undefined){
 					for(var i=0; i<json.length; i++){
 						$("#commentBody"+photoBid).append(
-							"<div  class='ds-post-main'>"+
+							"<div class='ds-post-main'>"+
 								"<div class='ds-avatar'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
 								"</div>"+
 								"<div  class='ds-comment-body'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
-									"<div id='text' class='message' >"+json[i].context+"</div>"+
+									"<div class='message' ><span id='commentEmo"+json[i].id+"'>"+json[i].context+"</span></div>"+
 									"<div align='right' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
-									/*"<div align='right' class='p1'>20"+(json[i].signup_date.year-100)+"-"+
-										(json[i].signup_date.month+1)+"-"+
-										json[i].signup_date.date+" "+
-										json[i].signup_date.hours+":"+json[i].signup_date.minutes+":"+json[i].signup_date.seconds+"</div>"+*/
 								"</div>"+
 							"</div>"	
 						);
+						$('#commentEmo'+json[i].id).emoticonize();
 					}
 				}
 			}
 		});
 	}
 	$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
-	$(document).ready(function()
-			{
-						$('#text').emoticonize({
-							//delay: 800,
-							//animate: false,
-							//exclude: 'pre, code, .no-emoticons'
-						});
-						$('#toggle-headline').toggle(
-							function(){
-								$('#large').unemoticonize({
-									//delay: 800,
-									//animate: false
-								})
-							}, 
-							function(){
-								$('#large').emoticonize({
-									//delay: 800,
-									//animate: false
-								})
-							}
-						);
-					})
-	
 };
 
 //获取评论的条数
@@ -149,29 +123,3 @@ function delayLoadCommTime(photoBid,currentPage,time){
 	$("#loadingComment"+photoBid).showLoading();//显示读取状态
 	setTimeout('showComments('+ photoBid +','+ currentPage +')', time);
 }
-
-//改写图片描述
-function updateDes(photoId){
-	$("#desPenButton"+photoId).show();
-	$("#desTextArea"+photoId).hide();
-	$("#updateDesButton"+photoId).hide();
-	
-	//若是重复 则不提交
-	if($("#desContext"+photoId).html() != $("#desTextArea"+photoId).val()){
-		//更新图片描述
-		$.ajax({
-			url:'/YearBook/user/updatePhoto_updateDescription',  
-			type:'post', 
-	        data:"photo.id="+photoId+"&photo.name="+$("#desTextArea"+photoId).val(),
-	        async:false,
-			dataType:'text', 
-			success:function (result) {
-				if(result=="success"){
-					$("#desContext"+photoId).html($("#desTextArea"+photoId).val());
-				}
-			}
-		});
-	}
-	$("#desContext"+photoId).show();
-	$("#desContext"+photoId).css("width","350px");
-};

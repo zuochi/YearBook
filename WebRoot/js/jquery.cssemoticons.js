@@ -58,7 +58,7 @@
       //"OwO":  { cssClass: "no-rotate" }, // these emoticons overflow and look weird even if they're made even smaller, could probably fix this with some more css trickery
       //"O-O":  { cssClass: "no-rotate" },
       //"O=)":    { cssClass: "small-emoticon" } 
-    }
+    };
     
     var specialRegex = new RegExp( '(\\' + escapeCharacters.join('|\\') + ')', 'g' );
     // One of these characters must be present before the matched emoticon, or the matched emoticon must be the first character in the container HTML
@@ -84,11 +84,11 @@
     
     var exclude = 'span.css-emoticon';
     if(opts.exclude){ exclude += ','+opts.exclude; }
-    var excludeArray = exclude.split(',')
+    var excludeArray = exclude.split(',');
 
     return this.not(exclude).each(function() {
       var container = $(this);
-      var cssClass = 'css-emoticon'
+      var cssClass = 'css-emoticon';
       if(opts.animate){ cssClass += ' un-transformed-emoticon animated-emoticon'; }
       
       for( var emoticon in specialEmoticons ){
@@ -98,7 +98,7 @@
       $(threeCharacterEmoticons).each(function(){
         container.html(container.html().replace(this,"$1<span class='" + cssClass + "'>$2</span>"));
       });                                                          
-      $(twoCharacterEmoticons).each(function(){                    
+      $(twoCharacterEmoticons).each(function(){
         container.html(container.html().replace(this,"$1<span class='" + cssClass + " spaced-emoticon'>$2</span>"));
       });
       // fix emoticons that got matched more then once (where one emoticon is a subset of another emoticon), and thus got nested spans
@@ -111,7 +111,7 @@
         setTimeout(function(){$('.un-transformed-emoticon').removeClass('un-transformed-emoticon');}, opts.delay);
       }
     });
-  }
+  };
   
   $.fn.unemoticonize = function(options) {
     var opts = $.extend({}, $.fn.emoticonize.defaults, options);

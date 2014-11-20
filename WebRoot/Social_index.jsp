@@ -18,6 +18,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#signContext').emoticonize();
+});
+</script>
 </head>
 <body>
 <input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
@@ -56,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<br></br>
 							<h7>Hi,I'm <s:property value="#request.socialUser.name"/></h7><br>
 							<s:if test="#request.socialUser.sign!=null && #request.socialUser.sign!=''">
-								<h7>Sign:<s:property value="#request.socialUser.sign"/></h7><br>
+								<h7 id="signContext">Sign: <s:property value="#request.socialUser.sign"/></h7><br>
 							</s:if>	
 							<s:if test="#request.socialUser.email!=null">
 								<h7>E-mail:<s:property value="#request.socialUser.email"/></h7><br>

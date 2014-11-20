@@ -72,7 +72,7 @@ public class DoReply extends UserAction{
 		
 		//先按空格分割
 		String[] friendsList = reply.split("\\s+");
-		
+
 		//使用StringBuilder重组字符串
 		StringBuilder replyStringBuilder = new StringBuilder("");
 				
@@ -80,6 +80,7 @@ public class DoReply extends UserAction{
 		
 		for(int i=0 ; i<friendsList.length ; i++){
 			try {
+				friendsList[i] += " ";
 				String[] friendsListMiddle = friendsList[i].split("@");
 				for(int j=0 ; j<friendsListMiddle.length ; j++){
 					if(j==0){
@@ -87,9 +88,9 @@ public class DoReply extends UserAction{
 						continue;
 					}
 					if(j==(friendsListMiddle.length-1) && !"".equals(friendsListMiddle[j])){
-						friend = getUserByName(friendsListMiddle[j],service);
+						friend = getUserByName(friendsListMiddle[j].trim(),service);
 						if(friend!=null){
-							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"</a> ");
+							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j].trim()+"</a> ");
 							//那么我们就艾特这个用户吧，先把该用户添加进Set里面，保证每个用户一条评论只@一次
 							if(followSet==null){
 								followSet = new TreeSet<User>(new UserComparetor());
@@ -99,7 +100,7 @@ public class DoReply extends UserAction{
 								followSet.add(friend);
 							}
 						}else{
-							replyStringBuilder.append("@" + friendsListMiddle[j] + " ");
+							replyStringBuilder.append("@" + friendsListMiddle[j]);
 						}
 					}else{
 						replyStringBuilder.append(("@" + friendsListMiddle[j]));

@@ -174,12 +174,23 @@ function loadBigPic(picId){
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
 	//$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
 	//document.getElementById("reply"+picId).focus();
+	//激活图片表情动画
+	$('#desContext'+picId).emoticonize();
 	//读取评论
 	delayLoadCommTime(picId,$("#commentPage"+picId).val(),700);
 };
 
 //显示图片描述
 function showDesEdit(photoId){
+	$('#desContext'+photoId).unemoticonize({
+		//delay: 0,
+		animate: true,
+		//exclude: 'pre, code, .no-emoticons'
+	});
+	setTimeout("showDesEditElement("+photoId+")", 1000);
+};
+
+function showDesEditElement(photoId){
 	$("#desPenButton"+photoId).hide();
 	$("#desContext"+photoId).hide();
 	$("#desTextArea"+photoId).show();
@@ -189,6 +200,34 @@ function showDesEdit(photoId){
 	
 	//聚焦
 	$("#desTextArea"+photoId).focus();
+};
+
+//改写图片描述
+function updateDes(photoId){
+	$("#desPenButton"+photoId).show();
+	$("#desTextArea"+photoId).hide();
+	$("#updateDesButton"+photoId).hide();
+	
+	//若是重复 则不提交
+	if($("#desContext"+photoId).html() != $("#desTextArea"+photoId).val()){
+		//更新图片描述
+		$.ajax({
+			url:'/YearBook/user/updatePhoto_updateDescription',  
+			type:'post', 
+	        data:"photo.id="+photoId+"&photo.name="+$("#desTextArea"+photoId).val(),
+	        async:false,
+			dataType:'text', 
+			success:function (result) {
+				if(result=="success"){
+					$("#desContext"+photoId).html($("#desTextArea"+photoId).val());
+					$("#desContextShow"+photoId).html($("#desTextArea"+photoId).val());
+				}
+			}
+		});
+	}
+	$("#desContext"+photoId).show();
+	$("#desContext"+photoId).css("width","350px");
+	$('#desContext'+photoId).emoticonize();
 };
 
 //改写签名
@@ -215,10 +254,20 @@ function updateSign(){
 	}
 	$("#signContext").show();
 	$("#signContext").css("width","350px");
+	$('#signContext').emoticonize();
 };
 
 //显示签名框 
 function showSignEdit(){
+	$('#signContext').unemoticonize({
+		//delay: 0,
+		animate: true,
+		//exclude: 'pre, code, .no-emoticons'
+	});
+	setTimeout("showSignEditElement()", 1000);
+};
+
+function showSignEditElement(){
 	$("#signButton").hide();
 	$("#signContext").hide();
 	$("#signTextArea").show();

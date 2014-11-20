@@ -21,30 +21,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
 		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
 		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
-		<script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
+		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js" ></script>
 		<script type="text/javascript">	
-$(document).ready(function()
-{
-			$('#text').emoticonize({
-				//delay: 800,
-				//animate: false,
-				//exclude: 'pre, code, .no-emoticons'
-			});
-			$('#toggle-headline').toggle(
-				function(){
-					$('#large').unemoticonize({
-						//delay: 800,
-						//animate: false
-					})
-				}, 
-				function(){
-					$('#large').emoticonize({
-						//delay: 800,
-						//animate: false
-					})
-				}
-			);
-		})
+		$(document).ready(function()
+		{
+			$('#signContext').emoticonize();
+		});
 	</script>
 	
 	
@@ -83,7 +65,7 @@ $(document).ready(function()
 							<div class="sign">
 								<a href="javascript:void(0)" title='edit my sign.' onclick="showSignEdit()"><div id="signButton" class="pen"></div></a>
 							sign：<input type="text" id="signTextArea" style="display:none" maxlength="42"/><input id="updateSignButton" style="display:none" type="button" value="Edit" onclick="updateSign()"/>
-								  <sign id="signContext"><s:property value="#session.user.sign"/></sign>
+								  <span id="signContext"><s:property value="#session.user.sign"/></span>
 							</div>
 							<a href="javascript:void(0)" title="click to show my Post." onclick="myPostShow()" target="main"><div id="myPostSelectd" class="mypostSelect">Mypost</div></a>
 							<a href="javascript:void(0)" title="click to show latest social's infomation." onclick="socialShow()" target="main"><div id="socialSelectd" class="social">Social</div></a>
@@ -118,7 +100,7 @@ $(document).ready(function()
 							<br><br>
 							<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							
-							<h3 id="text">: (  : )</h3><p>You are not upload any pictures yet,please click <a href="javascript:void(0)" onclick="uploadPhoto()" target="main">Upload.</a></p></center>
+							<h3><span class="css-emoticon animated-emoticon">: (</span></h3><p>You are not upload any pictures yet,please click <a href="javascript:void(0)" onclick="uploadPhoto()" target="main">Upload.</a></p></center>
 						</s:if>
 					</ul>
 				</section> <!-- // grid-wrap -->

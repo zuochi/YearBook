@@ -128,6 +128,8 @@ function loadBigPic(picId){
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
 	//$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
 	//document.getElementById("reply"+picId).focus();
+	//激活图片表情动画
+	$('#commentDesc'+picId).emoticonize();
 	//读取评论
 	delayLoadCommTime(picId,$("#commentPage"+picId).val(),700);
 };
