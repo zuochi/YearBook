@@ -3,6 +3,7 @@
 		var atFriendName;
 		var selectIndex = 0;
 		var selectLength = 0;
+		var atIndex = 0;
 		function getAtName(text,photoId){
 			//统计剩余字数
 			wordsNumber(photoId);
@@ -11,6 +12,8 @@
 			if(text=="@"){
 				searchFriendNameStatus = 1;
 				atFriendName = "";
+				//记录@的位置
+				atIndex = getCursorPos("reply"+photoId);
 				$("#friendTips"+photoId).html("<center>Who do you want to at?</center>");
 				$("#friendTips"+photoId).css("display","block");
 			}
@@ -61,6 +64,7 @@
 						}
 					}else{
 						atFriendName += text;
+						atFriendName = $("#reply"+photoId).val().substr(atIndex,atFriendName.length);
 					}
 					$.ajax({
 						url:'/YearBook/user/getSearchInfomation_execute',  
@@ -151,3 +155,39 @@
 		    }
 		};
 		
+		/**
+	     * 获取光标在短连接输入框中的位置
+	     * @param inputId 框Id
+	     * @return {*}
+	     */
+		function getCursorPos(inputId){
+	        var inpObj = document.getElementById(inputId);
+	         if(navigator.userAgent.indexOf("MSIE") > -1) { // IE
+	            var range = document.selection.createRange();
+	            range.text = '';
+	            range.setEndPoint('StartToStart',inpObj.createTextRange());
+	            return range.text.length;
+	        } else {
+	            return inpObj.selectionStart;
+	        }
+	    };
+	    
+	    /**
+	     * 设置光标在短连接输入框中的位置
+	     * @param inputId 框Id
+	     * @param pos
+	     * @return {*}s
+	     */
+	    function setCursorPos(inputId, pos){
+
+	        var inpObj = document.getElementById(inputId);
+	        if(navigator.userAgent.indexOf("MSIE") > -1){
+	            var range = document.selection.createRange();
+	            var textRange = inpObj.createTextRange();
+	            textRange.moveStart('character',pos);
+	            textRange.collapse();
+	            textRange.select();
+	        }else{
+	            inpObj.setSelectionRange(n,n);
+	        }
+	    };
