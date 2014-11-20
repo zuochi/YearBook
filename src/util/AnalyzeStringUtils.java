@@ -23,6 +23,7 @@ public class AnalyzeStringUtils {
 		
 		for(int i=0 ; i<friendsList.length ; i++){
 			try {
+				friendsList[i] += " ";
 				String[] friendsListMiddle = friendsList[i].split("@");
 				for(int j=0 ; j<friendsListMiddle.length ; j++){
 					if(j==0){
@@ -34,7 +35,7 @@ public class AnalyzeStringUtils {
 						if(friend!=null){
 							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"</a> ");
 						}else{
-							replyStringBuilder.append("@" + friendsListMiddle[j] + " ");
+							replyStringBuilder.append("@" + friendsListMiddle[j]);
 						}
 					}else{
 						replyStringBuilder.append(("@" + friendsListMiddle[j]));
