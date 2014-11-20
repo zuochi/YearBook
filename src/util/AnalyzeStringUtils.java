@@ -32,7 +32,7 @@ public class AnalyzeStringUtils {
 					if(j==(friendsListMiddle.length-1) && !"".equals(friendsListMiddle[j])){
 						friend = getUserByName(friendsListMiddle[j],service);
 						if(friend!=null){
-							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ");
+							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"</a> ");
 						}else{
 							replyStringBuilder.append("@" + friendsListMiddle[j] + " ");
 						}

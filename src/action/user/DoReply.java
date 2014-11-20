@@ -89,7 +89,7 @@ public class DoReply extends UserAction{
 					if(j==(friendsListMiddle.length-1) && !"".equals(friendsListMiddle[j])){
 						friend = getUserByName(friendsListMiddle[j],service);
 						if(friend!=null){
-							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"<a> ");
+							replyStringBuilder.append("<a href='javascript:goSocialIndex("+friend.getId()+")'>"+"@"+friendsListMiddle[j]+"</a> ");
 							//那么我们就艾特这个用户吧，先把该用户添加进Set里面，保证每个用户一条评论只@一次
 							if(followSet==null){
 								followSet = new TreeSet<User>(new UserComparetor());
