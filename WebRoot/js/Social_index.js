@@ -129,7 +129,7 @@ function loadBigPic(picId){
 	//$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
 	//document.getElementById("reply"+picId).focus();
 	//读取评论
-	showComments(picId,$("#commentPage"+picId).val());
+	delayLoadCommTime(picId,$("#commentPage"+picId).val(),700);
 };
 
 //返回顶部
