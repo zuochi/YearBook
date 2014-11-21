@@ -7,6 +7,8 @@ public class FriendInfomation{
 	private String fname;
 	private String sign;
 	private boolean isFriend;
+	//获取当前user的好友列表,判断与该用户的关系,0:未关注,1:已关注,2:朋友,3:被关注
+	private int relationShip;
 
 	public FriendInfomation() {
 	}
@@ -34,6 +36,17 @@ public class FriendInfomation{
 		this.fname = fname;
 		this.sign = sign;
 		this.isFriend = isFriend;
+	}
+	
+	public FriendInfomation(int userId, String lurl, String fname,
+			String sign, boolean isFriend, int relationShip) {
+		super();
+		this.userId = userId;
+		this.lurl = lurl;
+		this.fname = fname;
+		this.sign = sign;
+		this.isFriend = isFriend;
+		this.relationShip = relationShip;
 	}
 
 	public String getSurl() {
@@ -82,6 +95,14 @@ public class FriendInfomation{
 
 	public void setIsFriend(boolean isFriend) {
 		this.isFriend = isFriend;
+	}
+	
+	public int getRelationShip() {
+		return relationShip;
+	}
+
+	public void setRelationShip(int relationShip) {
+		this.relationShip = relationShip;
 	}
 
 	//配合SQL使用的get set方法
