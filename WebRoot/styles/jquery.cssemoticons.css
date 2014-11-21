@@ -13,7 +13,7 @@
  /* Basic styles for emoticons */
 span.css-emoticon {
   font-family: "Trebuchet MS"; /* seems to give the best and most consistent emoticon appearance */
-  font-size: 0.65em;
+  font-size: 0.7em;
   font-weight: bold;
   color: #000000;
   display: inline-block;
@@ -256,7 +256,7 @@ span.css-emoticon.un-transformed-emoticon, span.css-emoticon.animated-emoticon:h
     vertical-align: inherit;
     line-height: inherit;
     font-family: inherit; */
-    
+
     letter-spacing: inherit;
     color: inherit;
     overflow: visible;
