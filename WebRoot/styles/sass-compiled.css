@@ -1,5 +1,5 @@
 body {background-image:url(../images/background_main.png);background-repeat: repeat;
-     font-family: 'Lato', Calibri,  sans-serif;
+     font-family: Calibri,  sans-serif;
    margin:0px;
     color: #234;
     height:110%;
@@ -7,11 +7,10 @@ body {background-image:url(../images/background_main.png);background-repeat: rep
 blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 table{border-collapse:collapse;border-spacing:0}
 a {
-	color:#234;
+	color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
 }
-
 p{line-height:16px;;font-size:14px;;text-align:center;margin:0 auto;color:#fff;}
 a:hover{color:#000}img{max-width:100%}.pull-right{float:right}.pull-left{float:left}
 header{padding:30px 20px;background-image:url(../images/background_main.png);background-repeat: repeat;color:#234;margin-bottom:0px;margin-left:30px;}
@@ -31,14 +30,74 @@ footer{margin-top:30px;background:rgba(24,42,60,0.92);color:rgba(124,142,160,0.9
 .one{
 	float:left;
 	max-width:120px;
-	max-height:150px;
+	max-height:180px;
 	position:relative;
 	overflow:hidden;
 	margin:20px 0 8px 27px;
-	
-	
 }
-
+.guanzhuSmall{
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/000.jpg);
+	height:30px;
+	width:120px;
+}
+.guanzhuSmall:hover{
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/111.jpg);
+	height:30px;
+	width:120px;
+}
+.guanzhuFriendSmall{
+	
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/000.jpg);
+	height:50px;
+	width:200px;
+}
+.guanzhuFriendSmall:hover{
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/333.jpg);
+	height:50px;
+	width:200px;
+}
+.yiguanzhuSmall{margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/222.jpg);
+	height:50px;
+	width:200px;
+}
+.yiguanzhuSmall:hover{
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/444.jpg);
+	height:50px;
+	width:200px;
+}
+.friendSmall{margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/333.jpg);
+	height:50px;
+	width:200px;
+}
+.friendSmall:hover{
+	margin-top:0px;
+	float: top;
+	margin-left:0px;
+	background-image:url(../images/444.jpg);
+	height:50px;
+	width:200px;
+}
 .top{float:top;
 	background: #ffffff;		
 	width: 100%;

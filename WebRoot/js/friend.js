@@ -21,7 +21,7 @@ function getFollowingByPerPage(){
 					}
 					for(var i=0; i<json.length; i++){
 						$("#followingContext").append(
-							"<div class='one'>"+
+							"<div class='one'>"+"<div class='guanzhuSmall'></div>"+
 								"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      
@@ -62,7 +62,7 @@ function getFollowersByPerPage(){
 					}
 					for(var i=0; i<json.length; i++){
 						$("#followersContext").append(
-							"<div class='one'>"+
+							"<div class='one'>"+"<div class='guanzhuSmall'></div>"+
 								"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      
