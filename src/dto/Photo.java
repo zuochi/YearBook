@@ -117,4 +117,44 @@ public class Photo implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 	
+	//配合数据库用的GET SET方法
+	public Integer getUser_id() {
+		return userId;
+	}
+
+	public void setUser_id(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Integer getAlbum_id() {
+		return photoAlbumId;
+	}
+
+	public void setAlbum_id(Integer photoAlbumId) {
+		this.photoAlbumId = photoAlbumId;
+	}
+
+	public String getUrl_thumb() {
+		return urlThumb;
+	}
+
+	public void setUrl_thumb(String urlThumb) {
+		this.urlThumb = urlThumb;
+	}
+
+	public Timestamp getUpload_date() {
+		return uploadDate;
+	}
+
+	public void setUpload_date(Timestamp uploadDate) {
+		this.uploadDate = uploadDate;
+	}
+
+	public Integer getIs_delete() {
+		return isDelete;
+	}
+
+	public void setIs_delete(Integer isDelete) {
+		this.isDelete = isDelete;
+	}
 }

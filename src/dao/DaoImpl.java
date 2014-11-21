@@ -573,7 +573,7 @@ public class DaoImpl<E> implements Dao {
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
-				if(object instanceof dto.Reply){
+				if(object instanceof dto.Reply || object instanceof dto.Photo){
 					list =  session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
 				}else{
 					list =  session.createSQLQuery(sql).addEntity(object.getClass()).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
@@ -609,6 +609,32 @@ public class DaoImpl<E> implements Dao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			sessionFactory.close();
+		}
+		return list;
+	}
+	
+	@Override
+	public List getDtoObjectsBySql(String sql,PageController pc,Object object) {
+		// TODO Auto-generated method stub
+		List list = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			if(pc!=null){
+				list =  session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
+			}else{
+				list = session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).list();
+			}
+		} catch (HibernateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {

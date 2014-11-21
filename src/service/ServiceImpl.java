@@ -170,5 +170,10 @@ public class ServiceImpl<E> implements Service{
 		return dao.getObjectsBySql(sql,pc, object, values);
 	}
 
+	@Override
+	public List getDtoObjectsBySql(String sql, PageController pc, Object object) {
+		// TODO Auto-generated method stub
+		return dao.getDtoObjectsBySql(sql, pc, object);
+	}
 	
 }
