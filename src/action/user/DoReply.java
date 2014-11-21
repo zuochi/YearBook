@@ -114,11 +114,6 @@ public class DoReply extends UserAction{
 		return replyStringBuilder.toString();
 	}
 	
-	private boolean noifyFriend(User currentUser,User friend){
-		//提醒用户
-		return false;
-	}
-	
 	//at提醒
 	private boolean atNoifyFriend(User currentUser,User friend){
 		return service.saveObject(new AtNotify(null,currentUser,null,reply,friend,null,null,new Timestamp(System.currentTimeMillis()),0,0));
