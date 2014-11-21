@@ -1,4 +1,5 @@
 var display = 0;
+
 //following
 var followingIsNew=true;
 var hasFollowing=1;
@@ -98,7 +99,7 @@ function getFollowersByPerPage(){
 $(document).ready(function(){
 	if($("#type").val()=="following"){
 		display=0;
-		followingIsNew=false;
+		//followingIsNew=false;
 		showFollowing();
 		//getFollowingByPerPage();
 		$("#followersTitleA").attr("onclick","changeType(1)");
@@ -106,7 +107,7 @@ $(document).ready(function(){
 		$("#followersTitleA").removeClass().addClass("title"); 
 	}else if($("#type").val()=="followers"){
 		display=1;
-		followersIsNew=false;
+		//followersIsNew=false;
 		showFollowers();
 		//getFollowersByPerPage();
 		$("#followingTitleA").attr("onclick","changeType(0)");
