@@ -149,6 +149,8 @@ function reloadReply(photoBid){
 
 //短暂停顿之后获取评论
 function delayLoadCommTime(photoBid,currentPage,time){
-	$("#loadingComment"+photoBid).showLoading();//显示读取状态
-	setTimeout('showComments('+ photoBid +','+ currentPage +')', time);
+	if($("#commentBody"+photoBid).text()==''){
+		$("#loadingComment"+photoBid).showLoading();//显示读取状态
+		setTimeout('showComments('+ photoBid +','+ currentPage +')', time);
+	}
 }
