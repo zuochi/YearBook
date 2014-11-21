@@ -57,9 +57,9 @@ span.css-emoticon {
 
 /* Styles for two-character emoticons that need more letter-spacing for proportionality */
 span.css-emoticon.spaced-emoticon {
-  padding-left: 0.2em;
+  padding-left: 0.1em;
   width: 1.34em;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
 }
 
 /* This is a dirty dirty hack, because webkit doesn't properly do the padding+width=total-width as it should

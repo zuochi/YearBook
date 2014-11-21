@@ -56,6 +56,8 @@ function showComments(photoBid,toPageC){
 								"<div  class='ds-comment-body'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
 									"<div class='message' ><span id='commentEmo"+json[i].id+"'>"+json[i].context+"</span></div>"+
+									"<div class='pinglun'>"+"</div>"+
+									"<div class='shanchu'>"+"</div>"+
 									"<div align='right' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
 								"</div>"+
 							"</div>"	

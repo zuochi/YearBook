@@ -71,7 +71,7 @@ eval(eval2);
 		</div>
 		<div class="ds-comment-body">
 			<a title="用户名" href="" target="_blank" class="user-name">用户名</a>
-			<p class="text">":-) :) :o)是不是上了5天班了？"、"以为是周末了？"、"今天才周三，哈哈！"。</p>
+			<p class="text">" :-) :) :o)是不是上了5天班了？"、"以为是周末了？"、"今天才周三，哈哈！"。</p>
 		
 			<div class="time"><p>时间</p></div>
 			<div class=tree_1 onMouseover="line(this)" onMouseOut="delline(this)" onClick="showtree('reply')"><a href="javascript:void(0)">	<div class="comments_icon"></div>
