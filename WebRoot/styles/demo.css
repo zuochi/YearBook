@@ -9,6 +9,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 body {background-image:url(../images/background_main.png);background-repeat: repeat;
     font-family: Calibri,  sans-serif;
     color: #234;
+
     height:110%;
 }
 .clearfix{

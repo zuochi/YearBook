@@ -12,6 +12,7 @@ body {
 	background-image:url(../images/background_main.png);background-repeat: repeat;
     font-family:  Calibri,  sans-serif;
     color: #234;
+    line-height:16px;
     height:110%;
 }
 
