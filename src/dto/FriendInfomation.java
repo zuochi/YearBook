@@ -84,4 +84,20 @@ public class FriendInfomation{
 		this.isFriend = isFriend;
 	}
 
+	//配合SQL使用的get set方法
+	public String getUrl_s() {
+		return surl;
+	}
+
+	public void setUrl_s(String surl) {
+		this.surl = surl;
+	}
+
+	public String getName() {
+		return fname;
+	}
+
+	public void setName(String fname) {
+		this.fname = fname;
+	}
 }
