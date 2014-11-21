@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <body>
+<input type="hidden" id="isMine" value="1"/>
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="nickName" value="<s:property value="#session.user.name"/>"/>
 <input type="hidden" id="urlM" value="<s:property value="#session.user.headPhoto.urlM"/>"/>

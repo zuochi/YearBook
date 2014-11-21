@@ -321,7 +321,7 @@ function deletePhoto(photoId){
 				}
 			}
 		});
-	} 
+	}
 };
 
 //我要上首页

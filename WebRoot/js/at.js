@@ -204,7 +204,6 @@
 	     * @return {*}s
 	     */
 	    function setCursorPos(inputId, pos){
-
 	        var inpObj = document.getElementById(inputId);
 	        if(navigator.userAgent.indexOf("MSIE") > -1){
 	            var range = document.selection.createRange();

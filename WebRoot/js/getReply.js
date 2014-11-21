@@ -49,16 +49,16 @@ function showComments(photoBid,toPageC){
 				if(json.error==undefined){
 					for(var i=0; i<json.length; i++){
 						$("#commentBody"+photoBid).append(
-							"<div class='ds-post-main'>"+
+							"<div id='replyBody"+json[i].id+"' class='ds-post-main'>"+
 								"<div class='ds-avatar'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
 								"</div>"+
 								"<div  class='ds-comment-body'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
 									"<div class='message' ><span id='commentEmo"+json[i].id+"'>"+json[i].context+"</span></div>"+
-									"<div class='pinglun'>"+"</div>"+
-									"<div class='shanchu'>"+"</div>"+
-									"<div align='right' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
+									($("#isMine").val()==0?($("#currentUserId").val()==json[i].user_id?("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"):""):("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"))+
+									($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""))+
+									"<div align='left' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
 								"</div>"+
 							"</div>"	
 						);
@@ -69,6 +69,33 @@ function showComments(photoBid,toPageC){
 		});
 	}
 	$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
+};
+
+//评论自动回复填写
+function replyAutoComplete(nickName,photoBid){
+	$("#reply"+photoBid).val("reply @" + nickName+" :");
+	$("#reply"+photoBid).focus();
+	focusLast(document.getElementById(("reply"+photoBid)));
+};
+
+//删除评论
+function deleteReply(replyId){
+	if(confirm("Are you sure to delete this reply?")) { 
+		  $.ajax({
+			url:'/YearBook/user/deleteReply_execute',  
+			type:'post', 
+			data:"reply.id="+replyId,
+			async:false,
+			dataType:'text', 
+			success:function (msg) {
+				if(msg=="success"){   
+					$("#replyBody"+replyId).remove();
+				 }else{
+					alert("delete " + msg);
+				}
+			}
+		});
+	}
 };
 
 //获取评论的条数
