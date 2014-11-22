@@ -233,7 +233,7 @@ function getFollowingByPerPage(){
 					for(var i=0; i<json.length; i++){
 						$("#followingContext").append(
 							"<div class='one'>"+
-							(json[i].userId==$("#currentUserId").val()?"<div class='guanzhuSmall'></div>":getRelationStatus(json[i].relationShip,"\"followingAttrSpan"+json[i].userId+"\"",json[i].userId,json[i].fname))+
+							(json[i].userId==$("#currentUserId").val()?"<div class='itisme'></div>":getRelationStatus(json[i].relationShip,"\"followingAttrSpan"+json[i].userId+"\"",json[i].userId,json[i].fname))+
 								"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      
@@ -275,7 +275,7 @@ function getFollowersByPerPage(){
 					for(var i=0; i<json.length; i++){
 						$("#followersContext").append(
 							"<div class='one'>"+
-								(json[i].userId==$("#currentUserId").val()?"<div class='guanzhuSmall'></div>":getRelationStatus(json[i].relationShip,"\"followerAttrSpan"+json[i].userId+"\"",json[i].userId,json[i].fname))+
+								(json[i].userId==$("#currentUserId").val()?"<div class='itisme'></div>":getRelationStatus(json[i].relationShip,"\"followerAttrSpan"+json[i].userId+"\"",json[i].userId,json[i].fname))+
 								"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      

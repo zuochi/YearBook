@@ -20,7 +20,7 @@ body {background-image:url(../images/background_main.png);background-repeat: rep
 	padding:20px 0 0 30px;
 
 }
-a {
+a { 
 		color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
@@ -31,8 +31,8 @@ a:hover {
 }
 
 .container > header {
-	
-	width: 100%;
+	padding-right:97%;
+	width: 200px;
 	margin: 0 auto;
 	
 }
