@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.sf.json.JSONArray;
 
+import org.apache.struts2.json.annotations.JSON;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -18,6 +19,8 @@ import bean.User;
 @Controller
 @Scope("prototype")
 public class GetSocial extends UserAction{
+	private boolean isMine = true;
+	
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
@@ -111,12 +114,21 @@ public class GetSocial extends UserAction{
 				if(userFriendList.size()>0){
 					friendInfomationList = new ArrayList<FriendInfomation>();
 					//transform
-					for(User friend : userFriendList){
-						//判断是否互相关注
-						if(isFollowed(friend.getId(), user.getId())){
-							friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),true));
-						}else{
-							friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),false));
+					//判断是否自己的粉丝列表
+					if(isMine){
+						for(User friend : userFriendList){
+							//判断是否互相关注
+							if(isFollowed(friend.getId(), user.getId())){
+								friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),true));
+							}else{
+								friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),false));
+							}
+						}
+					}else{
+						//获取主用户与改用户的关系
+						user = (User) request.getSession().getAttribute("user");
+						for(User friend : userFriendList){
+							friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),false,getRelationship(user.getId(),friend.getId())));
 						}
 					}
 					JSONArray json = JSONArray.fromObject(friendInfomationList);
@@ -154,12 +166,21 @@ public class GetSocial extends UserAction{
 				if(userFriendList.size()>0){
 					friendInfomationList = new ArrayList<FriendInfomation>();
 					//transform
-					for(User follow : userFriendList){
-						//判断是否互相关注
-						if(isFollowed(user.getId(),follow.getId())){
-							friendInfomationList.add(new FriendInfomation(follow.getId(),follow.getHeadPhoto().getUrlL(),follow.getName(),follow.getSign(),true));
-						}else{
-							friendInfomationList.add(new FriendInfomation(follow.getId(),follow.getHeadPhoto().getUrlL(),follow.getName(),follow.getSign(),false));
+					//判断是否自己的粉丝列表
+					if(isMine){
+						for(User follow : userFriendList){
+							//判断是否互相关注
+							if(isFollowed(user.getId(),follow.getId())){
+								friendInfomationList.add(new FriendInfomation(follow.getId(),follow.getHeadPhoto().getUrlL(),follow.getName(),follow.getSign(),true));
+							}else{
+								friendInfomationList.add(new FriendInfomation(follow.getId(),follow.getHeadPhoto().getUrlL(),follow.getName(),follow.getSign(),false));
+							}
+						}
+					}else{
+						//获取主用户与改用户的关系
+						user = (User) request.getSession().getAttribute("user");
+						for(User friend : userFriendList){
+							friendInfomationList.add(new FriendInfomation(friend.getId(),friend.getHeadPhoto().getUrlL(),friend.getName(),friend.getSign(),false,getRelationship(user.getId(),friend.getId())));
 						}
 					}
 					JSONArray json = JSONArray.fromObject(friendInfomationList);
@@ -205,4 +226,15 @@ public class GetSocial extends UserAction{
 			}
 		}
 	}
+	
+	@JSON(serialize=false)
+	public boolean getIsMine() {
+		return isMine;
+	}
+
+	public void setIsMine(boolean isMine) {
+		this.isMine = isMine;
+	}
+	
+	
 }

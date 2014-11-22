@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <a id="followingTitleA" href="javascript:void(0)" title="click to show following."><div>Following </div></a>
 
 <input id="type" type="hidden" value="<%=request.getParameter("type") %>"/>
+<input id="hasBeenModify" type="hidden" value="0"/>
 <input id="userId" type="hidden" value="<s:property value='#session.user.id'/>"/>
 <div class="frame" id="context">
 

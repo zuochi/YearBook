@@ -29,7 +29,7 @@ function getFollowingByPerPage(){
 					for(var i=0; i<json.length; i++){
 						$("#followingContext").append(
 							"<div class='one'>" +
-								(json[i].isFriend==true?(("<span id='followAttrDIV"+json[i].userId+"'><a href='javascript:void(0)' onclick='cancleFollowFriendSmall("+json[i].userId+",\""+json[i].fname+"\")'><div class='friendSmall'></div></a></span>")):("<span id='followAttrDIV"+json[i].userId+"'><a href='javascript:void(0)' onclick='cancleFollowSmall("+json[i].userId+")'><div class='yiguanzhuSmall'></div></a></span>"))+
+								(json[i].isFriend==true?(("<span id='followingAttrSpan"+json[i].userId+"'><a href='javascript:void(0)' onclick='cancleFollowFriendSmall(\"followingAttrSpan"+json[i].userId+"\","+json[i].userId+",\""+json[i].fname+"\")'><div class='friendSmall'></div></a></span>")):("<span id='followingAttrSpan"+json[i].userId+"'><a href='javascript:void(0)' onclick='cancleFollowSmall(\"followingAttrSpan"+json[i].userId+"\","+json[i].userId+")'><div class='yiguanzhuSmall'></div></a></span>"))+
 								"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      
@@ -37,7 +37,7 @@ function getFollowingByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div id='followFriendName"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div id='followFriendNamefollowingAttrSpan"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 						$('#followingSignContext'+json[i].userId).emoticonize();
@@ -76,7 +76,7 @@ function getFollowersByPerPage(){
 					for(var i=0; i<json.length; i++){
 						$("#followersContext").append(
 							"<div class='one'>" +
-							(json[i].isFriend==true?(("<span id='followAttrDIV"+json[i].userId+"'><a href='javascript:void(0)' onclick='cancleFollowFriendSmall("+json[i].userId+",\""+json[i].fname+"\")'><div class='friendSmall'></div></a></span>")):("<span id='followAttrDIV"+json[i].userId+"'><a href='javascript:void(0)' onclick='followFriendSmall("+json[i].userId+",\""+json[i].fname+"\")'><div class='guanzhuFriendSmall'></div></a></span>"))+
+							(json[i].isFriend==true?(("<span id='followerAttrSpan"+json[i].userId+"'><a href='javascript:void(0)' onclick='cancleFollowFriendSmall(\"followerAttrSpan"+json[i].userId+"\","+json[i].userId+",\""+json[i].fname+"\")'><div class='friendSmall'></div></a></span>")):("<span id='followerAttrSpan"+json[i].userId+"'><a href='javascript:void(0)' onclick='followFriendSmall(\"followerAttrSpan"+json[i].userId+"\","+json[i].userId+",\""+json[i].fname+"\")'><div class='guanzhuFriendSmall'></div></a></span>"))+
 									"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      
@@ -84,7 +84,7 @@ function getFollowersByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div id='followFriendName"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div id='followFriendNamefollowerAttrSpan"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 						$('#followersSignContext'+json[i].userId).emoticonize();
@@ -99,17 +99,17 @@ function getFollowersByPerPage(){
 $(document).ready(function(){
 	if($("#type").val()=="following"){
 		display=0;
-		//followingIsNew=false;
+		followingIsNew=false;
 		showFollowing();
-		//getFollowingByPerPage();
+		getFollowingByPerPage();
 		$("#followersTitleA").attr("onclick","changeType(1)");
 		$("#followingTitleA").removeClass().addClass("titleSelect"); 
 		$("#followersTitleA").removeClass().addClass("title"); 
 	}else if($("#type").val()=="followers"){
 		display=1;
-		//followersIsNew=false;
+		followersIsNew=false;
 		showFollowers();
-		//getFollowersByPerPage();
+		getFollowersByPerPage();
 		$("#followingTitleA").attr("onclick","changeType(0)");
 		$("#followingTitleA").removeClass().addClass("title"); 
 		$("#followersTitleA").removeClass().addClass("titleSelect"); 
@@ -127,32 +127,42 @@ $(document).ready(function(){
 
 //showFollowing
 function showFollowing(){
-/*	$("#followingContext").show();
+	//有更改的话重新加载
+	if($("#hasBeenModify").val()==1){
+		$("#followingContext").html("");
+		$("#hasFollowing").html("");
+		//$("#followersContext").html("");
+		//$("#hasFollowers").html("");
+		//followersIsNew=true;
+		followingIsNew=true;
+		$("#hasBeenModify").val(0);
+		getFollowingByPerPage();
+	}
+
+	$("#followingContext").show();
 	$("#hasFollowing").show();
 	$("#followersContext").hide();
-	$("#hasFollowers").hide();*/
-	
-	$("#followingContext").html("");
-	$("#hasFollowing").html("");
-	$("#followersContext").html("");
-	$("#hasFollowers").html("");
-	followingIsNew=true;
-	getFollowingByPerPage();
+	$("#hasFollowers").hide();
 };
 
 //showFollowers
 function showFollowers(){
-/*	$("#followingContext").hide();
+	//有更改的话重新加载
+	if($("#hasBeenModify").val()==1){
+		//$("#followingContext").html("");
+		//$("#hasFollowing").html("");
+		$("#followersContext").html("");
+		$("#hasFollowers").html("");
+		followersIsNew=true;
+		//followingIsNew=true;
+		$("#hasBeenModify").val(0);
+		getFollowersByPerPage();
+	}
+		
+	$("#followingContext").hide();
 	$("#hasFollowing").hide();
 	$("#followersContext").show();
-	$("#hasFollowers").show();*/
-	
-	$("#followingContext").html("");
-	$("#hasFollowing").html("");
-	$("#followersContext").html("");
-	$("#hasFollowers").html("");
-	followersIsNew=true;
-	getFollowersByPerPage();
+	$("#hasFollowers").show();
 };
 
 //设换
@@ -160,10 +170,10 @@ function changeType(type){
 	if(type==0){
 		display=0;
 		//若是没有加载则进行第一次加载
-		/*if(followingIsNew==true){
+		if(followingIsNew==true){
 			getFollowingByPerPage();
 			followingIsNew=false;
-		}*/
+		}
 		showFollowing();
 		$("#followingTitleA").attr("onclick","");
 		$("#followersTitleA").attr("onclick","changeType(1)");
@@ -172,10 +182,10 @@ function changeType(type){
 	}else{
 		display=1;
 		//若是没有加载则进行第一次加载
-		/*if(followersIsNew==true){
+		if(followersIsNew==true){
 			getFollowersByPerPage();
 			followersIsNew=false;
-		}*/
+		}
 		showFollowers();
 		$("#followingTitleA").attr("onclick","changeType(0)");
 		$("#followersTitleA").attr("onclick","");

@@ -23,6 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
 <input type="hidden" id="currentUserId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="isMine" value="0"/>
+<input id="hasBeenModify" type="hidden" value="0"/>
 <input type="hidden" id="basePath" value="<%=basePath%>"/>
 <div class="top"> 
 <input type="text"  style="font-size:14px;margin-left:30px;">
@@ -122,6 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/getReply.js"></script>
+		<script type="text/javascript" src="<%=basePath%>js/followOperationSmall.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/Social_index.js"></script>
 		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js" ></script>
 		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>

@@ -36,7 +36,7 @@ function getPhotosByPerPage(isNew){
 			if(json.error==undefined){
 				if(json.length==undefined){
 					hasPic=0;
-					$("#hasPhotos").html("<br><br><center style='color:#8f8f8f;font-size:22px;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top </a>OR <a href='javascript:history.go(-1);'>click to Go Back.</a></center><br><br>");
+					$("#hasPhotos").html("<br><br><center class='noMoreInfo'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top</a>.</center><br><br>");
 				}
 				for(var i=0; i<json.length; i++){
 					$("#photosUL").append(
@@ -150,7 +150,7 @@ function follow(socialUserId){
         		 $("#followersNumber").html(parseInt($("#followersNumber").html())+parseInt(1));
         		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='cancleFollow("+socialUserId+")'><div id='followAttr' class='yiguanzhu'></div></a>");
         	 }else{
-        		 alert("操作失败");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
@@ -167,7 +167,7 @@ function cancleFollow(socialUserId){
         		 $("#followersNumber").html(parseInt($("#followersNumber").html())-parseInt(1));
         		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='follow("+socialUserId+")'><div id='followAttr' class='guanzhu'></div></a>");
         	 }else{
-        		alert("操作失败");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
@@ -184,7 +184,7 @@ function followFriend(socialUserId){
         		 $("#followersNumber").html(parseInt($("#followersNumber").html())+parseInt(1));
         		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='cancleFollowFriend("+socialUserId+")'><div id='followAttr' class='friend'></div></a>");
         	 }else{
-        		 alert("操作失败");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
@@ -201,7 +201,7 @@ function cancleFollowFriend(socialUserId){
         		 $("#followersNumber").html(parseInt($("#followersNumber").html())-parseInt(1));
         		 $("#followAttrDIV").html("<a href='javascript:void(0)' onclick='followFriend("+socialUserId+")'><div id='followAttr' class='guanzhuFriend'></div></a>");
         	 }else{
-        		alert("操作失败");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
@@ -220,18 +220,20 @@ function getFollowingByPerPage(){
 		$.ajax({
 			url:'/YearBook/user/getSocial_getFollowingByPerPage',  
 			type:'post', 
-			data:"user.id="+$("#userId").val()+"&toPage="+toPageFollowing,
+			data:"user.id="+$("#userId").val()+"&isMine="+false+"&toPage="+toPageFollowing,
 			async:false,
 			dataType:"json",
 			success:function (json) {
 				if(json.error==undefined){
 					if(json.length==undefined){
 						hasFollowing=0;
-						$("#hasFollowing").html("<br><br><br><br><div><center class='noMoreInfo'>oops:(,there are no more following,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top </a>OR <a href='javascript:history.go(-1);'>click to Go Back.</a></center><br><br><br><br>");
+						$("#hasFollowing").html("<br><br><br><br><div><center class='noMoreInfo'>oops:(,there are no more following,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top </a>.</center><br><br><br><br>");
 					}
+					//alert(json[0].relationShip);
 					for(var i=0; i<json.length; i++){
 						$("#followingContext").append(
-							"<div class='one'>"+"<div class='guanzhuSmall'></div>"+
+							"<div class='one'>"+
+							(json[i].userId==$("#currentUserId").val()?"<div class='guanzhuSmall'></div>":getRelationStatus(json[i].relationShip,"\"followingAttrSpan"+json[i].userId+"\"",json[i].userId,json[i].fname))+
 								"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      
@@ -239,7 +241,7 @@ function getFollowingByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:#ff406d' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div id='followFriendNamefollowingAttrSpan"+json[i].userId+"' class='name'>"+(json[i].relationShip==2?"<isFriend style='color:#ff406d' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 						$('#followingSignContext'+json[i].userId).emoticonize();
@@ -261,18 +263,19 @@ function getFollowersByPerPage(){
 		$.ajax({
 			url:'/YearBook/user/getSocial_getFollowersByPerPage',  
 			type:'post', 
-			data:"user.id="+$("#userId").val()+"&toPage="+toPageFollowers,
+			data:"user.id="+$("#userId").val()+"&isMine="+false+"&toPage="+toPageFollowers,
 			async:false,
 			dataType:"json",
 			success:function (json) {
 				if(json.error==undefined){
 					if(json.length==undefined){
 						hasFollowers=0;
-						$("#hasFollowers").html("<br><br><br><br><center class='noMoreInfo'>oops:(,there are no more followers,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top </a>OR <a href='javascript:history.go(-1);'>click to Go Back.</a></center><br><br><br><br>");
+						$("#hasFollowers").html("<br><br><br><br><center class='noMoreInfo'>oops:(,there are no more followers,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top</a>.</center><br><br><br><br>");
 					}
 					for(var i=0; i<json.length; i++){
 						$("#followersContext").append(
-							"<div class='one'>"+"<div class='guanzhuSmall'></div>"+
+							"<div class='one'>"+
+								(json[i].userId==$("#currentUserId").val()?"<div class='guanzhuSmall'></div>":getRelationStatus(json[i].relationShip,"\"followerAttrSpan"+json[i].userId+"\"",json[i].userId,json[i].fname))+
 								"<div class='pic'>"+
 									"<img src='"+(json[i].lurl!=null&&json[i].lurl!=''?json[i].lurl:"images/bg.png")+"' class='pic-image' alt='Pic'/>"+
 									"<span class='pic-caption left-to-right'>"+      
@@ -280,7 +283,7 @@ function getFollowersByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div class='name'>"+(json[i].isFriend==true?"<isFriend style='color:#ff406d' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div id='followFriendNamefollowerAttrSpan"+json[i].userId+"' class='name'>"+(json[i].relationShip==2?"<isFriend style='color:#ff406d' title='we followed each other.'>♥ </isFriend><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 						$('#followersSignContext'+json[i].userId).emoticonize();
@@ -288,6 +291,18 @@ function getFollowersByPerPage(){
 				}
 			}
 		});
+	}
+};
+
+function getRelationStatus(relationShip,elementId,userId,fname){
+	if(relationShip==0){
+		return ("<span id="+elementId+"><a href='javascript:void(0)' onclick='followSmall("+elementId+","+userId+")'><div class='guanzhuSmall'></div></a></span>");
+	}else if(relationShip==1){
+		return ("<span id="+elementId+"><a href='javascript:void(0)' onclick='cancleFollowSmall("+elementId+","+userId+")'><div class='yiguanzhuSmall'></div></a></span>");
+	}else if(relationShip==2){
+		return ("<span id="+elementId+"><a href='javascript:void(0)' onclick='cancleFollowFriendSmall("+elementId+","+userId+",\""+fname+"\")'><div class='friendSmall'></div></a></span>");
+	}else{
+		return ("<span id="+elementId+"><a href='javascript:void(0)' onclick='followFriendSmall("+elementId+","+userId+",\""+fname+"\")'><div class='guanzhuFriendSmall'></div></a></span>");
 	}
 };
 
@@ -303,31 +318,47 @@ function showPost(){
 };
 	
 function showFollowing(){
-	if(followingIsNew==true){
-		followingIsNew=false;
-		getFollowingByPerPage();
-	}
 	$("#grid-gallery").hide();
 	$("#followingContext").show();
 	$("#followersContext").hide();
 	$("#hasPhotos").hide();
 	$("#hasFollowing").show();
 	$("#hasFollowers").hide();
+	if($("#hasBeenModify").val()==1){
+		hasFollowing=1;
+		toPageFollowing=0;
+		followingIsNew=true;
+		$("#followingContext").html("");
+		$("#hasFollowing").html("");
+		$("#hasBeenModify").val(0);
+	}
+	if(followingIsNew==true){
+		followingIsNew=false;
+		getFollowingByPerPage();
+	}
 	myPostDisplay=0;
 	display=0;
 };
 	
 function showFollowers(){
-	if(followersIsNew==true){
-		followersIsNew=false;
-		getFollowersByPerPage();
-	}
 	$("#grid-gallery").hide();
 	$("#followingContext").hide();
 	$("#followersContext").show();
 	$("#hasPhotos").hide();
 	$("#hasFollowing").hide();
 	$("#hasFollowers").show();
+	if($("#hasBeenModify").val()==1){
+		hasFollowers=1;
+		toPageFollowers=0;
+		followersIsNew=true;
+		$("#followersContext").html("");
+		$("#hasFollowers").html("");
+		$("#hasBeenModify").val(0);
+	}
+	if(followersIsNew==true){
+		followersIsNew=false;
+		getFollowersByPerPage();
+	}
 	myPostDisplay=0;
 	display=1;
 };

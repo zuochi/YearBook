@@ -1,4 +1,4 @@
-function followSmall(socialUserId){
+function followSmall(elementId,socialUserId){
 	$.ajax({
          url:'/YearBook/user/follow_execute',  
          type:'post', 
@@ -6,15 +6,16 @@ function followSmall(socialUserId){
          async:false,
          success:function (msg) {
         	 if(msg=="success"){
-        		 $("#followAttrDIV"+socialUserId).html("<span id='followAttrDIV"+socialUserId+"'><a href='javascript:void(0)' onclick='cancleFollowSmall("+socialUserId+")'><div class='yiguanzhuSmall'></div></a></span>");
+        		 $("#"+elementId).html("<a href='javascript:void(0)' onclick='cancleFollowSmall(\""+elementId+"\","+socialUserId+")'><div class='yiguanzhuSmall'></div></a>");
+        		 $("#hasBeenModify").val(1);
         	 }else{
-        		 alert("fail");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
 };
 
-function cancleFollowSmall(socialUserId){
+function cancleFollowSmall(elementId,socialUserId){
 	$.ajax({
          url:'/YearBook/user/follow_execute',  
          type:'post', 
@@ -22,15 +23,16 @@ function cancleFollowSmall(socialUserId){
          async:false,
          success:function (msg) {
         	 if(msg=="success"){
-        		 $("#followAttrDIV"+socialUserId).html("<span id='followAttrDIV"+socialUserId+"'><a href='javascript:void(0)' onclick='followSmall("+socialUserId+")'><div class='guanzhuSmall'></div></a></span>");
+        		 $("#"+elementId).html("<a href='javascript:void(0)' onclick='followSmall(\""+elementId+"\","+socialUserId+")'><div class='guanzhuSmall'></div></a>");
+        		 $("#hasBeenModify").val(1);
         	 }else{
-        		alert("fail");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
 };
 
-function followFriendSmall(socialUserId,fname){
+function followFriendSmall(elementId,socialUserId,fname){
 	$.ajax({
          url:'/YearBook/user/follow_execute',  
          type:'post', 
@@ -38,16 +40,17 @@ function followFriendSmall(socialUserId,fname){
          async:false,
          success:function (msg) {
         	 if(msg=="success"){
-        		 $("#followAttrDIV"+socialUserId).html("<span id='followAttrDIV"+socialUserId+"'><a href='javascript:void(0)' onclick='cancleFollowFriendSmall("+socialUserId+",\""+fname+"\")'><div class='friendSmall'></div></a></span>");
-        		 $("#followFriendName"+socialUserId).html("<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>"+fname+"</name>");
+        		 $("#"+elementId).html("<a href='javascript:void(0)' onclick='cancleFollowFriendSmall(\""+elementId+"\","+socialUserId+",\""+fname+"\")'><div class='friendSmall'></div></a>");
+        		 $("#followFriendName"+elementId).html("<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>"+fname+"</name>");
+        		 $("#hasBeenModify").val(1);
         	 }else{
-        		 alert("fail");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
 };
 
-function cancleFollowFriendSmall(socialUserId,fname){
+function cancleFollowFriendSmall(elementId,socialUserId,fname){
 	$.ajax({
          url:'/YearBook/user/follow_execute',  
          type:'post', 
@@ -55,11 +58,17 @@ function cancleFollowFriendSmall(socialUserId,fname){
          async:false,
          success:function (msg) {
         	 if(msg=="success"){
-        		 $("#followAttrDIV"+socialUserId).html("<span id='followAttrDIV"+socialUserId+"'><a href='javascript:void(0)' onclick='followFriendSmall("+socialUserId+",\""+fname+"\")'><div class='guanzhuFriendSmall'></div></a></span>");
-        		 $("#followFriendName"+socialUserId).html("<name title='click to show detail.'>"+fname+"</name>");
+        		 $("#"+elementId).html("<a href='javascript:void(0)' onclick='followFriendSmall(\""+elementId+"\","+socialUserId+",\""+fname+"\")'><div class='guanzhuFriendSmall'></div></a>");
+        		 $("#followFriendName"+elementId).html("<name title='click to show detail.'>"+fname+"</name>");
+        		 $("#hasBeenModify").val(1);
         	 }else{
-        		alert("fail");
+        		 operationRepeatWarn();
         	 }
          }
 	 });
+};
+
+function operationRepeatWarn(){
+	alert("This operation has been submit,we will refresh the web page for your right now.");
+	 window.location.reload(true);
 };
