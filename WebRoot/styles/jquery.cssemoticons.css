@@ -67,7 +67,8 @@ span.css-emoticon.spaced-emoticon {
    I think the width of the border may be throwing things off, because it's more noticable for small icons */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   span.css-emoticon.spaced-emoticon {
-  
+   padding-left: 0em;
+  letter-spacing: 0.1em;
     width: 1.4em;
   }
 }
