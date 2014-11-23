@@ -52,6 +52,6 @@ function deleteMessage(replyId){
 };
 
 //先加载一次 
-$(document).ready(function(){
+/*$(document).ready(function(){
 	showPhotoReplys();
-});
+});*/

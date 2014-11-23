@@ -98,9 +98,18 @@ float:left;
 	background-image:url(../images/delete_icon-hover.png);
 }
 
-.tree_1{float:left;
-margin-left:5px;
+ul {
+	list-style-type:none;
+	height: 20px;
+} /* 即使没有菜单项也能保持顶级菜单栏的高度。 */
+
+ul>li {
+	float:none;
+	text-align: center;
+	display: inline-block;
+	width: 70px;
 }
+
 a {text-decoration:none; color:#DE4C1C;}
 a img {border:0;}
 a:hover {text-decoration:underline;color:#000;}

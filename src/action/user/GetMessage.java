@@ -22,6 +22,25 @@ public class GetMessage extends UserAction{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		user = (User) request.getSession().getAttribute("user");
+		try {
+			//status=0 ,且评论者不为自己的未读的条数
+			count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
+			
+			PageController pc = new PageController(count,1,15);
+			pc.setCurrentPage(toPage);
+			
+			if(toPage>pc.getTotalPages()){
+				out.print("fail");
+			}else{
+				List<dto.Reply> replys = service.getDtoObjectsBySql("select r.id,r.user_id,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date from reply r,user u LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.is_delete=0 and u.id=r.user_id and r.status=0 and r.user_id!="+user.getId()+" and r.user_bid="+user.getId()+" order by r.signup_date desc", pc,new dto.Reply());
+				request.setAttribute("messageReplyPc", pc);
+				request.setAttribute("messageReply", replys);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "message";
 	}
 
@@ -31,7 +50,7 @@ public class GetMessage extends UserAction{
 			//status=0 ,且评论者不为自己的未读的条数
 			count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
 			
-			PageController pc = new PageController(count,1,10);
+			PageController pc = new PageController(count,1,15);
 			pc.setCurrentPage(toPage);
 			
 			if(toPage>pc.getTotalPages()){
