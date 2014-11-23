@@ -27,10 +27,13 @@ public class GetMessage extends UserAction{
 
 	public String getPhotoReplysByPerPage(){
 		user = (User) request.getSession().getAttribute("user");
-		
 		try {
+			//status=0 ,且评论者不为自己的未读的条数
+			count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
+			
 			PageController pc = new PageController(count,1,10);
 			pc.setCurrentPage(toPage);
+			
 			if(toPage>pc.getTotalPages()){
 				out.print("fail");
 			}else{
@@ -47,7 +50,6 @@ public class GetMessage extends UserAction{
 			out.flush();
 			out.close();
 		}
-		
 		return null;
 	}
 	
