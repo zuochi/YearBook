@@ -3,43 +3,14 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" > 
-<head profile="http://gmpg.org/xfn/11"> 
-	
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head> 
+<base href="<%=basePath%>">
 
 <title>Message</title>
-<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
 <link href="styles/message.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
-<script type="text/javascript">	
-$(document).ready(function()
-{
-			$('.text').emoticonize({
-				//delay: 800,
-				//animate: false,
-				//exclude: 'pre, code, .no-emoticons'
-			});
-			$('#toggle-headline').toggle(
-				function(){
-					$('#large').unemoticonize({
-						//delay: 800,
-						//animate: false
-					})
-				}, 
-				function(){
-					$('#large').emoticonize({
-						//delay: 800,
-						//animate: false
-					})
-				}
-			);
-		})
-	</script>
-	
-	
 <script>
 function showtree(str)//展开|关闭子分支
 {
@@ -65,28 +36,9 @@ eval(eval2);
 
 
 <!--评论-->
-<div class="ds-post-main">
-		<div class="ds-avatar">
-			<a title="用户名" href="" target="_blank"><img alt="设计达人" src="images/alex.jpg"></a><!-- 用户头像 -->
-		</div>
-		<div class="ds-comment-body">
-			<a title="用户名" href="" target="_blank" class="user-name">用户名</a>
-			<p class="text">" :-) :) :o)是不是上了5天班了？"、"以为是周末了？"、"今天才周三，哈哈！"。</p>
-		
-			<div class="time"><p>时间</p></div>
-			<div class=tree_1 onMouseover="line(this)" onMouseOut="delline(this)" onClick="showtree('reply')"><a href="javascript:void(0)">	<div class="comments_icon"></div>
-			</a><span id=span_reply style="color:gray"></span></div>
-			<div id=reply_value class=tree_2 style="display:none">
-			<div class=tree_add onMouseOver="line(this)" onMouseOut="delline(this)">
-				<form action="">
-					<input type="text" name="reply"/>
-					<input type="button" value="回复"/>
-				</form> 
-			</div>
-			</div>
-		</div>
-	</div>
+<div id='photoReplyDiv'>
 
+</div>
 
 
 
@@ -100,6 +52,8 @@ eval(eval2);
  
 </div>
 </div>
-
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
+<script type="text/javascript" src="js/getMessage.js" ></script>
 </body>
 </html>

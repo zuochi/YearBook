@@ -17,9 +17,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css"
-	href="<%=basePath %>styles/webuploader.css" />
+	href="styles/webuploader.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=basePath %>styles/style_upload.css" />
+	href="styles/style_upload.css" />
 </head>
 <body>
 	<div id="wrapper">
@@ -45,8 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="<%=basePath %>js/jquery.js"></script>
-	<script type="text/javascript" src="<%=basePath %>js/webuploader.js"></script>
-	<script type="text/javascript" src="<%=basePath %>js/upload.js"></script>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/webuploader.js"></script>
+	<script type="text/javascript" src="js/upload.js"></script>
 </body>
 </html>

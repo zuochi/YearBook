@@ -15,12 +15,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="expires" content="0">
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 		<meta http-equiv="description" content="This is my page">
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/demo2.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/component.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/jquery.cssemoticons.css" media="screen"/>
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/friendTips.css" />
-		<link rel="stylesheet" type="text/css" href="<%=basePath%>styles/showLoading.css" />
-		<script type="text/javascript" src="<%=basePath%>js/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/demo2.css" />
+		<link rel="stylesheet" type="text/css" href="styles/component.css" />
+		<link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
+		<link rel="stylesheet" type="text/css" href="styles/showLoading.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 
 </head>
 <body>
@@ -113,18 +113,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		</div>
 		
-		<script type="text/javascript" src="<%=basePath%>js/goUrl.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/calculateDistanceTime.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/jquery.showLoading.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/at.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/getReply.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/User_index.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/modernizr.custom.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/imagesloaded.pkgd.min.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/masonry.pkgd.min.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/classie.js"></script>
-		<script type="text/javascript" src="<%=basePath%>js/cbpGridGallery.js"></script>
+		<script type="text/javascript" src="js/goUrl.js"></script>
+		<script type="text/javascript" src="js/calculateDistanceTime.js"></script>
+		<script type="text/javascript" src="js/jquery.showLoading.js"></script>
+		<script type="text/javascript" src="js/at.js"></script>
+		<script type="text/javascript" src="js/jquery.cssemoticons.js"></script>
+		<script type="text/javascript" src="js/modernizr.custom.js"></script>
+		<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+		<script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+		<script type="text/javascript" src="js/classie.js"></script>
+		<script type="text/javascript" src="js/cbpGridGallery.js"></script>
+		<script type="text/javascript" src="js/getReply.js"></script>
+		<script type="text/javascript" src="js/User_index.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 			

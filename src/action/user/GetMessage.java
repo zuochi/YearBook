@@ -1,58 +1,84 @@
 package action.user;
 
+import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
 
+import net.sf.json.JSONArray;
+
+import org.apache.struts2.json.annotations.JSON;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import bean.Reply;
-
 import util.PageController;
+
+import bean.User;
 
 
 @Controller
 @Scope("prototype")
 public class GetMessage extends UserAction{
-	private String type ;
+	private int count;
 	
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		return "message";
+	}
+
+	public String getPhotoReplysByPerPage(){
+		user = (User) request.getSession().getAttribute("user");
 		
-		if("getPhotoComments".equals(type)){
-			
+		try {
+			PageController pc = new PageController(count,1,10);
+			pc.setCurrentPage(toPage);
+			if(toPage>pc.getTotalPages()){
+				out.print("fail");
+			}else{
+				List<dto.Reply> replys = service.getDtoObjectsBySql("select r.id,r.user_id,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date from reply r,user u LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.is_delete=0 and u.id=r.user_id and r.status=0 and r.user_id!="+user.getId()+" and r.user_bid="+user.getId()+" order by r.signup_date desc", pc,new dto.Reply());
+				
+				JSONArray json = JSONArray.fromObject(replys);
+				out = response.getWriter();
+				out.print(json);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			out.flush();
+			out.close();
 		}
 		
 		return null;
 	}
-
-	private boolean getPhotoComment(){
+	
+	//获取未读总条数
+	public String getUnReadCount(){
 		try {
-			//获取相片数量
-			Properties pro = new Properties();
-			pro.setProperty("photo.id", photo.getId().toString());
-			int photosCommentCount = service.getTotalRowsByProperties(pro, new Reply(),true);
-					
-			//获取相片评论
-			PageController photoReplyPc = new PageController(photosCommentCount, 1,10);
-			photoReplyPc.setCurrentPage(toPage);
-			List<Reply> photoReplys = service.getObjectsByPrepageAndProperties(pro, photoReplyPc,new Reply(), true);
-							
-			if(photoReplys.size()!=0){
-				request.setAttribute("photoReplys", photoReplys);
-				request.setAttribute("photoReplysPc", photoReplyPc);
-				request.setAttribute("photosCount", photosCommentCount);
-			}
-			return true;
-		} catch (Exception e) {
+			user = (User) request.getSession().getAttribute("user");
+			
+			//status=0 ,且评论者不为自己的未读的条数
+			count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
+			
+			out = response.getWriter();
+			out.print(count);
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			out.print("fail");
 			e.printStackTrace();
+		} finally{
+			out.flush();
+			out.close();
 		}
-		return false;
+		return null;
 	}
 	
-	public void setType(String type) {
-		this.type = type;
+	@JSON(serialize=false)
+	public int getCount() {
+		return count;
 	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+	
 }

@@ -40,10 +40,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
    </div>
 <script src="js/jquery-1.11.1.js" type="text/javascript"></script>
-<script src="js/followOperationSmall.js" type="text/javascript"></script>
-<script type="text/javascript" src="<%=basePath%>js/jquery.cssemoticons.js"></script>
+<script src="js/jquery.cssemoticons.js" type="text/javascript"></script>
 <script src="js/goUrl.js" type="text/javascript"></script>
 <script src="js/modernizr.js" type="text/javascript"></script>
+<script src="js/followOperationSmall.js" type="text/javascript"></script>
 <script src="js/friend.js" type="text/javascript"></script>
 </body>
 </html>

@@ -50,8 +50,6 @@ public class GetReply extends UserAction{
 	//获取评论总条数
 	public String getReplyCount(){
 		try {
-			user = (User) request.getSession().getAttribute("user");
-			
 			int replyCount = (Integer) service.getObjectByHql("select count(*) from Reply r where r.isDelete=0 and r.photo.id="+photo.getId(), "getInteger");
 			
 			out = response.getWriter();
