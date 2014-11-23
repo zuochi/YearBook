@@ -571,7 +571,7 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 
 
 .noMoreInfo{color:#8f8f8f;font-size:22px;}
-.loadComm{position:absolute;left:25%;top:55%;}
+.loadComm{position:absolute;left:50%;top:50%;z-index:999999999;}
 .pinglun{ 
 	margin:10px 0 0 0;
 	float:right;
@@ -601,5 +601,23 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 	width:18px;
 	background-image:url(../images/delete_icon-hover.png);
 }
-
+.jvbao{
+	font-size:9px;
+	margin:7px 0 0 7px;
+	float:right;
+	height:10px;
+	width:25px;
+	color:#DE4C1C;
+	text-decoration: none;
+	outline: none;
+	
+}
+.jvbao:hover{
+	font-size:9px;
+	margin:7px 0 0 7px;
+	float:right;
+	height:10px;
+	width:25px;
+    color:#000;
+}
 

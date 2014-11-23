@@ -116,6 +116,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="followersContext"></div>
 		
 		<div id="hasPhotos"></div>
+		<div id="loadingComment" class="loadComm"></div>
+		
 		<div id="hasFollowing"></div>
 		<div id="hasFollowers"></div>
 		<script type="text/javascript" src="js/goUrl.js"></script>

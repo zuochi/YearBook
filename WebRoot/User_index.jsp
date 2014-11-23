@@ -135,6 +135,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</script>
 		
 		<div id="hasPhotos"></div>
+		<div id="loadingComment" class="loadComm"></div>
+		
+		
 		<div id="showPhotosLoading"></div>
 		
 		<div id="socialDiv" style="display: none">

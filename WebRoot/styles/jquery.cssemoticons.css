@@ -23,14 +23,14 @@ span.css-emoticon {
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
-  width: 1.54em; /* note that this is a multiple of this span's font-size, not containing text font-size */
-  height: 1.54em; /* so, relative to containing text, width and height are 0.9 x 1.6 = 1.44em */
+  width: 1.8em; /* note that this is a multiple of this span's font-size, not containing text font-size */
+  height: 1.8em; /* so, relative to containing text, width and height are 0.9 x 1.6 = 1.44em */
   text-align: center;
   padding: 0;
-  line-height: 1.34em;
-  -moz-border-radius: 1.54em;
-  -webkit-border-radius: 1.54em;
-  border-radius: 1.54em;
+  line-height: 1.5em;
+  -moz-border-radius: 1.8em;
+  -webkit-border-radius: 1.8em;
+  border-radius: 1.8em;
   -moz-box-shadow: 1px -1px 2px rgba(0,0,0,0.5);
   -webkit-box-shadow: 1px -1px 2px rgba(0,0,0,0.5);
   box-shadow: 1px -1px 2px rgba(0,0,0,0.5);
@@ -57,10 +57,10 @@ span.css-emoticon {
 
 /* Styles for two-character emoticons that need more letter-spacing for proportionality */
 span.css-emoticon.spaced-emoticon {
-  
-  width: 1.34em;
+    width: 1.8em;
+   height:1.8em;
   padding-left: 0em;
-  letter-spacing: 0.1em;
+  letter-spacing:0.1em;
 }
 
 /* This is a dirty dirty hack, because webkit doesn't properly do the padding+width=total-width as it should
@@ -68,25 +68,27 @@ span.css-emoticon.spaced-emoticon {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   span.css-emoticon.spaced-emoticon {
    padding-left: 0em;
-  letter-spacing: 0.1em;
-    width: 1.4em;
+  letter-spacing:0.1em;
+  height:1.8em;
+    width: 1.8em;
   }
 }
 
 /* Styles for emoticons that need to have smaller characters to fit inside the circle */
 span.css-emoticon.small-emoticon {
-  font-size: 0.55em;
-  width: 1.82em;
-  height: 1.82em;
+  font-size: 0.7em;
+  width: 1.8em;
+  height: 1.8em;
   line-height: 1.72em;
-  -moz-border-radius: 1.82em;
-  -webkit-border-radius: 1.82em;
-  border-radius: 1.82em;
+  -moz-border-radius: 1.8em;
+  -webkit-border-radius: 1.8em;
+  border-radius: 1.8em;
 }
 
 span.css-emoticon.small-emoticon.spaced-emoticon {
   padding-left: 0;
-  width: 1.82em;
+  width: 1.8em;
+  height:1.8em;
   letter-spacing: 0.1em;
 }
 
@@ -276,7 +278,7 @@ span.css-emoticon.un-transformed-emoticon, span.css-emoticon.animated-emoticon:h
 }
 
 span.css-emoticon.nintendo-controller {
-  font-size: .8em;
+  font-size: 0.8em;
   height: 1.2em;
   line-height: 1em;
   width: 2.7em;

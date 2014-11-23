@@ -58,6 +58,7 @@ function showComments(photoBid,toPageC){
 									"<div class='message' ><span id='commentEmo"+json[i].id+"'>"+json[i].context+"</span></div>"+
 									($("#isMine").val()==0?($("#currentUserId").val()==json[i].user_id?("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"):""):("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"))+
 									($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""))+
+									"<div class='jvbao'>"+"举报"+"</div>"+
 									"<div align='left' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
 								"</div>"+
 							"</div>"	
@@ -150,7 +151,7 @@ function reloadReply(photoBid){
 //短暂停顿之后获取评论
 function delayLoadCommTime(photoBid,currentPage,time){
 	if($("#commentBody"+photoBid).text()==''){
-		$("#loadingComment"+photoBid).showLoading();//显示读取状态
+		$("#loadingComment").showLoading();//显示读取状态
 		setTimeout('showComments('+ photoBid +','+ currentPage +')', time);
 	}
 }
