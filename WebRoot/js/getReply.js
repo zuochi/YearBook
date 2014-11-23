@@ -51,10 +51,10 @@ function showComments(photoBid,toPageC){
 						$("#commentBody"+photoBid).append(
 							"<div id='replyBody"+json[i].id+"' class='ds-post-main'>"+
 								"<div class='ds-avatar'>"+
-									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
+									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
 								"</div>"+
 								"<div  class='ds-comment-body'>"+
-									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_bid+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
+									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
 									"<div class='message' ><span id='commentEmo"+json[i].id+"'>"+json[i].context+"</span></div>"+
 									($("#isMine").val()==0?($("#currentUserId").val()==json[i].user_id?("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"):""):("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"))+
 									($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""))+
