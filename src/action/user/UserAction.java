@@ -106,6 +106,14 @@ public class UserAction extends ActionSupport implements SessionAware {
 		this.toPage = toPage;
 	}
 
+	//判断是否登录了
+	protected boolean isLogin(User user){
+		if(user==null){
+			return false;
+		}else{
+			return true;
+		}
+	}
 	
 	@Override
 	public void setSession(Map<String, Object> session) {
