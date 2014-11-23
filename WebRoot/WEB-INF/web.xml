@@ -42,6 +42,12 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<!-- <filter>
+		<filter-name>isLoginFilter</filter-name>
+		<filter-class>filter.LoginListener</filter-class>
+	</filter> -->
+
 
 	<error-page>
 		<error-code>404</error-code>

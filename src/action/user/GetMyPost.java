@@ -13,6 +13,10 @@ public class GetMyPost extends UserAction{
 		// TODO Auto-generated method stub
 		user = (User) request.getSession().getAttribute("user");
 		
+		if(!isLogin(user)){
+			return "login";
+		}
+		
 		//获取相片数量
 		int photosCount = (Integer) service.getObjectByHql("select count(*) from Photo where isDelete=0 and user.id="+user.getId(), "getInteger");
 		

@@ -19,6 +19,11 @@ eval(eval2);
 
 
 <body>
+<%
+	if (session.getAttribute("user") == null) {
+		response.sendRedirect("/YearBook/user/autoLogin_execute");
+	}
+%>
 	<!-- 绿色-->
 <div id="liuyanban">
 

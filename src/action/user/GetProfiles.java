@@ -14,10 +14,14 @@ public class GetProfiles extends UserAction{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		if(!isLogin(user)){
+			return "login";
+		}
+		
 		List<Profession> professions = service.getObjectsByHql("from Profession",null);
 		List<SchoolYear> schoolYears = service.getObjectsByHql("from SchoolYear order by year desc",null);
-		session.put("professions", professions);
-		session.put("schoolYears", schoolYears);
+		request.setAttribute("professions", professions);
+		request.setAttribute("schoolYears", schoolYears);
 		return "profile";
 	}
 }

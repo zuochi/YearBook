@@ -20,6 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
 </head>
 <body>
+<%
+	if (session.getAttribute("user") == null) {
+		response.sendRedirect("/YearBook/user/autoLogin_execute");
+	}
+%>
 <input id="pageM" type="hidden" value="<s:property value="#request.messageReplyPc.currentPage" />"/>
 <input id="countM" type="hidden" value="<s:property value="#request.messageReplyCount" />"/>
 <div id="M">

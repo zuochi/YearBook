@@ -23,6 +23,11 @@ public class GetMessage extends UserAction{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		user = (User) request.getSession().getAttribute("user");
+		
+		if(!isLogin(user)){
+			return "login";
+		}
+		
 		try {
 			//status=0 ,且评论者不为自己的未读的条数
 			count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");

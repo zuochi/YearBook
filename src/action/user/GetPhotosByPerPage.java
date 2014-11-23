@@ -13,6 +13,10 @@ public class GetPhotosByPerPage extends UserAction{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		if(!isLogin(user)){
+			return "login";
+		}
+		
 		int photosCount = (Integer) service.getObjectByHql("select count(p) from Photo p where isDelete=0 and user.id="+user.getId(),"getInteger");
 		PageController pc = new PageController(photosCount, 1,20);
 		pc.setCurrentPage(toPage);
