@@ -69,22 +69,35 @@ margin-left:23px;
 	height:20px;
 	width:100%;
 }	
-	
-	
+
 .comments_icon{
 	float:left;
-
 	height:10px;
 	width:14px;
 	background-image:url(../images/comments_icon.png);
 }
 .comments_icon:hover{
 float:left;
-
 	height:10px;
 	width:14px;
 	background-image:url(../images/comments_icon-hover.png);
 }
+
+.shanchu{ 
+	margin:5px 0 0 7px;
+	float:right;
+	height:18px;
+	width:18px;
+	background-image:url(../images/delete_icon2.png);
+}
+.shanchu:hover{
+	margin:5px 0 0 7px;
+    float:right;
+	height:18px;
+	width:18px;
+	background-image:url(../images/delete_icon-hover.png);
+}
+
 .tree_1{float:left;
 margin-left:5px;
 }
