@@ -11,6 +11,7 @@ function showReplyFrame(elementId){
 function showPhotoReplys(toPageM,countM){
 	//if($("#commentBody"+photoBid).text()==''){
 		//toPageM+=1;
+		$("#photoReplyDiv").html("");
 		$.ajax({
 			url:'/YearBook/user/getMessage_getPhotoReplysByPerPage',  
 			type:'post', 
@@ -49,6 +50,11 @@ function showPhotoReplys(toPageM,countM){
 //删除消息
 function deleteMessage(replyId){
 	$("#replyBody"+replyId).remove();
+};
+
+//翻页
+function messageTurnPage(toPageM,countM){
+	window.location.href="/YearBook/user/getMessage_execute?toPage="+toPageM+"&count="+countM;
 };
 
 //先加载一次 

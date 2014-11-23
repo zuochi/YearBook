@@ -63,25 +63,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul>
 	<li>Page:<s:property value="#request.messageReplyPc.currentPage" />/<s:property value="#request.messageReplyPc.totalPages" />
 	<s:if test="#request.messageReplyPc.hasPrevious==true">
-		<li><a href="lzf/adminMessage_msgShow?toPage=1">First</a></li>
-		<li><a href="lzf/adminMessage_msgShow?toPage=<s:property value="#request.messageReplyPc.previousPage"/>">Previous</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(1,<s:property value="#request.messageReplyCount"/>)">First</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.previousPage"/>,<s:property value="#request.messageReplyCount"/>)">Previous</a></li>
 	</s:if>
 	<s:else>
-		<!-- <li>First</li>
-		<li>Previous</li> -->
+		<li class='disableTurnPage'>First</li>
+		<li class='disableTurnPage'>Previous</li>
 	</s:else> 
-	<s:if test="#request.pc.hasNext==true">
-		<li><a href="lzf/adminMessage_msgShow?toPage=<s:property value="#request.messageReplyPc.nextPage"/>">Next</a></li>
-		<li><a href="lzf/adminMessage_msgShow?toPage=<s:property value="#request.messageReplyPc.totalPages"/>">Last</a></li>
+	<s:if test="#request.messageReplyPc.hasNext==true">
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.nextPage"/>,<s:property value="#request.messageReplyCount" />)">Next</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.totalPages"/>,<s:property value="#request.messageReplyCount" />)">Last</a></li>
 	</s:if>
 	<s:else>
-		<!-- <li>Next</li>
-		<li>Last</li> -->
+		<li class='disableTurnPage'>Next</li>
+		<li class='disableTurnPage'>Last</li>
 	</s:else>
 	<s:if test="#request.messageReplyPc.totalPages>1">
 		<li>Jump:
 			<select id="changePage" onchange="toPage(this.value)">
-				<%--<s:iterator var="index" begin="1" end="#request.messageReplyPc.totalPages">
+				<s:iterator var="index" begin="1" end="#request.messageReplyPc.totalPages">
 					<s:if test="#request.messageReplyPc.currentPage==#index">
 						<option selected="selected">
 							<s:property value="#index" />
@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<s:property value="#index" />
 						</option>
 					</s:else>
-				</s:iterator>--%>
+				</s:iterator>
 			</select> 
 		</li>
 	</s:if>

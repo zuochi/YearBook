@@ -98,6 +98,10 @@ float:left;
 	background-image:url(../images/delete_icon-hover.png);
 }
 
+.disableTurnPage{ 
+	color:burlywood;
+}
+
 ul {
 	list-style-type:none;
 	height: 20px;
