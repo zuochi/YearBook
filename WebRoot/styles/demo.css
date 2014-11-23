@@ -400,14 +400,14 @@ margin-top:8px;
 }
 
 .pinglun{ 
-	margin:10px 0 0 0;
+	margin:10px 0 0 5px;
 	float:right;
 	height:10px;
 	width:14px;
 	background-image:url(../images/comments_icon.png);
 }
 .pinglun:hover{
-	margin:10px 0 0 0;
+	margin:10px 0 0 5px;
     float:right;
 	height:10px;
 	width:14px;
@@ -433,7 +433,7 @@ margin-top:8px;
 	margin:7px 0 0 7px;
 	float:right;
 	height:10px;
-	width:25px;
+	width:30px;
 	color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
@@ -444,7 +444,7 @@ margin-top:8px;
 	margin:7px 0 0 7px;
 	float:right;
 	height:10px;
-	width:25px;
+	width:30px;
     color:#000;
 }
 
@@ -468,4 +468,4 @@ h1 span {font-size:12px;color:#696A52;}
 .ds-comment-body {z-index:1;position:relative;left:0;background: #ffffff;padding:5px 5px 5px 35px;color:#696A52; border-radius:0px; box-shadow:2px 2px 3px rgba(0,0,0,.15), 0 1px 0 rgba(255,255,255,.75) inset;}
 	
 .noMoreInfo{color:#8f8f8f;font-size:22px;}
-.loadComm{position:absolute;left:50%;top:50%;z-index:999999999;}
+.loadComm{position:fixed;left:50%;top:50%;z-index:999;}

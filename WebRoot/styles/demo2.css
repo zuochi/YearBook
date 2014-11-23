@@ -491,7 +491,7 @@ color:#fff;
 text-align:center;
 	
 }
-h3{font-size:50px}
+h3{font-size:40px}
 p{font-size:25px;}
 .user-name {    font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;color:#DE4C1C }
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
@@ -571,16 +571,16 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 
 
 .noMoreInfo{color:#8f8f8f;font-size:22px;}
-.loadComm{position:absolute;left:50%;top:50%;z-index:999999999;}
+.loadComm{position: fixed;left: 50%;top: 50%;z-index: 999;}
 .pinglun{ 
-	margin:10px 0 0 0;
+	margin:10px 0 0 5px;
 	float:right;
 	height:10px;
 	width:14px;
 	background-image:url(../images/comments_icon.png);
 }
 .pinglun:hover{
-	margin:10px 0 0 0;
+	margin:10px 0 0 5px;
     float:right;
 	height:10px;
 	width:14px;
@@ -606,7 +606,7 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 	margin:7px 0 0 7px;
 	float:right;
 	height:10px;
-	width:25px;
+	width:30px;
 	color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
@@ -617,7 +617,7 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 	margin:7px 0 0 7px;
 	float:right;
 	height:10px;
-	width:25px;
+	width:30px;
     color:#000;
 }
 
