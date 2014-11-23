@@ -20,7 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
 </head>
 <body>
-
+<input id="pageM" type="hidden" value="<s:property value="#request.messageReplyPc.currentPage" />"/>
+<input id="countM" type="hidden" value="<s:property value="#request.messageReplyCount" />"/>
 <div id="M">
 <div class="border_radius">
   <h2>Message</h2>
@@ -33,22 +34,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!--评论-->
 <div id="photoReplyDiv">
-	<s:iterator var="index" begin="1" end="#request.messageReplyPc.totalPages">
-		<div id='replyBody"+json[i].id+"' class='ds-post-main'>
-		<div class='ds-avatar'>
-			<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank'><img src='"+json[i].url_m+"'></a>
+	<%-- <s:iterator var="index" id="o" value="#request.messageReply">
+		<div id="replyBody<s:property value="#o.id"/>" class="ds-post-main">
+			<div class='ds-avatar'>
+				<a title='<s:property value="#o.name"/>' href='javascript:goSocialIndex(<s:property value="#o.user_id"/>)' target='_blank'><img src='<s:property value="#o.url_m"/>'></a>
+			</div>
+			<div class='ds-comment-body'>
+				<a title='<s:property value="#o.name"/>' href='javascript:goSocialIndex(<s:property value="#o.user_id"/>)' target='_blank' class='user-name'><s:property value="#o.name"/></a>
+				<p id='commentEmo<s:property value="#o.id"/>'><s:property value="#o.context"/></p>
+				<div class='time'><p>calculateDT(json[i].signup_date)</p></div>
+				<a href='javascript:void(0)' onclick='deleteMessage(<s:property value="#o.id"/>)'><div class='shanchu' title='delete this reply'></div></a>
+				<a href='javascript:void(0)' onclick='showReplyFrame(\"replyFrame<s:property value="#o.id"/>\")'><div class='comments_icon' title='reply <s:property value="#o.name"/>' style='float:right'></div></a>
+				<div id='replyFrame<s:property value="#o.id"/>' style='display:none'>
+					<input id='replyFrame<s:property value="#o.id"/>Text' type='text' style='width:360px'/>
+					<input type='button' value='reply'/>
+				</div>
+			</div>
 		</div>
-		<div class='ds-comment-body'>
-		<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>json[i].name</a>
-		<p id='commentEmo"+json[i].id+"'>json[i].context</p>
-		<div class='time'><p>calculateDT(json[i].signup_date)</p></div>
-		<a href='javascript:void(0)' onclick='deleteMessage("+json[i].id+")'><div class='shanchu' title='delete this reply'></div></a>
-		<a href='javascript:void(0)' onclick='showReplyFrame(\"replyFrame"+json[i].id+"\")'><div class='comments_icon' title='reply "+json[i].name+"' style='float:right'></div></a>
-		<div id='replyFrame"+json[i].id+"' style='display:none'>
-			<input id='replyFrame"+json[i].id+"Text' type='text' style='width:360px'/>
-			<input type='button' value='reply'/>
-		</div>
-	</s:iterator>
+	</s:iterator> --%>
 </div>
 
 <!-- 翻页 -->

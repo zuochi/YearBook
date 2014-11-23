@@ -5,16 +5,16 @@ function showReplyFrame(elementId){
 	$("#"+elementId+"Text").focus();
 };
 
-var toPageM = 0;
+//var toPageM = 0;
 
 //显示评论
-function showPhotoReplys(){
+function showPhotoReplys(toPageM,countM){
 	//if($("#commentBody"+photoBid).text()==''){
-		toPageM+=1;
+		//toPageM+=1;
 		$.ajax({
 			url:'/YearBook/user/getMessage_getPhotoReplysByPerPage',  
 			type:'post', 
-	        data:"toPage="+toPageM,
+	        data:"toPage="+toPageM+"&count="+countM,
 	        async:false,
 	        dataType:'json', 
 			success:function (json) {
@@ -52,6 +52,6 @@ function deleteMessage(replyId){
 };
 
 //先加载一次 
-/*$(document).ready(function(){
-	showPhotoReplys();
-});*/
+$(document).ready(function(){
+	showPhotoReplys($("#pageM").val(),$("#countM").val());
+});
