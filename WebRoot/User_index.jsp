@@ -24,6 +24,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <body>
+<%
+	if (session.getAttribute("user") == null) {
+		response.sendRedirect("/YearBook/user/autoLogin_execute");
+	}
+%>
 <input type="hidden" id="isMine" value="1"/>
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="nickName" value="<s:property value="#session.user.name"/>"/>

@@ -20,6 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 </head>
 <body>
+<%
+	if (session.getAttribute("user") == null) {
+		response.sendRedirect("/YearBook/user/autoLogin_execute");
+	}
+%>
 <input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
 <input type="hidden" id="currentUserId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="isMine" value="0"/>

@@ -22,6 +22,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	href="styles/style_upload.css" />
 </head>
 <body>
+<%
+	if (session.getAttribute("user") == null) {
+		response.sendRedirect("/YearBook/user/autoLogin_execute");
+	}
+%>
 	<div id="wrapper">
 		<div id="container">
 			<!--头部，相册选择和格式选择-->
