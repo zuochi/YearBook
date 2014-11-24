@@ -33,7 +33,7 @@ function showPhotoReplys(toPageM,countM){
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
 								"<a href='javascript:void(0)' onclick='deleteMessage("+json[i].id+")'><div class='shanchu' title='delete this reply'></div></a>"+
 								"<a href='javascript:void(0)' onclick='showReplyFrame(\"Freply"+json[i].id+"\",\""+json[i].name+"\")'><div class='comments_icon' title='reply "+json[i].name+"' style='float:right'></div></a>"+
-								"<div id='friendTips"+json[i].id+"' class='friendTip'/>"+
+								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
 								"<div id='Freply"+json[i].id+"' style='display:none'>"+
 										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'/>"+
 										"<input type='button' value='reply'/>"+

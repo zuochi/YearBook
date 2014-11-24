@@ -14,7 +14,26 @@
 .friendTip a{
 	
 	color:white;
-	/*background-color:#3ab6ae;
+	/*background-color:#3ab6ae;*/
+}
+
+.friendTipMessage{
+	/* height:80px; */
+    border: 1px solid #8f8f8f;
+	color:white;
+	background-color: #3ab6ae;
+	z-index:9999;
+	display: none;
+	width: 200px;
+	margin: 24px 0px 0px 150px;
+	position:absolute;
+	/* padding: 10px 5px 15px 20px; */
+}
+
+.friendTipMessage a{
+	
+	color:white;
+	/*background-color:#3ab6ae;*/
 }
 
 /*.friendTip a:hover{
