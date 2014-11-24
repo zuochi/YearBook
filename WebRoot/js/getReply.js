@@ -1,6 +1,4 @@
 //评论上翻页
-
-
 function showCommentPreviousPage(photoBid){
 	//上翻过头复原
 	if(parseInt($("#commentPage"+photoBid).val())>1){
@@ -69,7 +67,7 @@ function showComments(photoBid,toPageC){
 			}
 		});
 	}
-	$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
+	$("#loadingComment").hideLoading();//隐藏读取状态
 };
 
 //评论自动回复填写

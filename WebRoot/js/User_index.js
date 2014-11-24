@@ -52,12 +52,12 @@ function socialShow(){
 
 function getPhotosByPerPage(isNew){
 	if("true"==isNew){
-		toPageP=0;
+		toPageP=1;
 	}
 	if(hasPic==1){
-		//$("#showPhotosLoading").showLoading();//显示读取状态
-		//自动返向下一页
-		toPageP+=1;
+		if("true"!=isNew){
+			$("#loadingPhoto").showLoading();//显示读取状态
+		}
 		$.ajax({
 			url:'/YearBook/user/getPhotosByPerPage_execute',  
 			type:'post', 
@@ -66,6 +66,8 @@ function getPhotosByPerPage(isNew){
 			dataType:'json',
 			success:function (json) {
 				if(json.error==undefined){
+					//成功之后翻页
+					toPageP+=1;
 					if(json.length==undefined){
 						hasPic=0;
 						$("#hasPhotos").html("<br><br><br><br><center style='color:#8f8f8f; font-size:22px;'>oops,there are no more photos,<a class='solltop' href='javascript:void(0)' onclick='scrollToTop()'>scroll to top.</a></center><br><br><br><br>");
@@ -78,11 +80,6 @@ function getPhotosByPerPage(isNew){
 										"<span id='loadingBigPhoto"+json[i].id+"'></span>"+
 										"<div class='gridpic'><img src='"+document.getElementById("basePath").value+json[i].urlThumb+"'/></div>"+
 											"<div class='time'>"+calculateDT(json[i].uploadDate)+"</div>"+
-											/*"<div class='time'>20"+(json[i].uploadDate.year-100)+"-"+
-											(json[i].uploadDate.month+1)+"-"+
-											json[i].uploadDate.date+" "+
-											json[i].uploadDate.hours+":"+json[i].uploadDate.minutes+":"+json[i].uploadDate.seconds+
-											"</div>"+*/
 									"</div>"+
 								"</figure>"+
 								"<input id='bigPicUrl"+json[i].id+"' type='hidden' value='"+json[i].url+"'/>"+
@@ -102,7 +99,6 @@ function getPhotosByPerPage(isNew){
 							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 							"<div align='left' style='margin:3px 0 0 7px;'>" +
-							//	"<span id='loadingComment"+json[i].id+"' class='loadComm'></span>"+
 								"<span id='pageShow"+json[i].id+"' style='display:none'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<span id='commentPageTurningButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
@@ -126,7 +122,9 @@ function getPhotosByPerPage(isNew){
 				}
 			}
 		});
-		//$("#showPhotosLoading").hideLoading();//隐藏读取状态
+		if("true"!=isNew){
+			$("#loadingPhoto").hideLoading();//隐藏读取状态
+		}
 	}
 };
 
@@ -168,12 +166,9 @@ function comment(userBid,photoBid){
 	});
 };
 
-//放大图片之后读取
+//放大图片之后读取评论
 function loadBigPic(picId){
-	//$("#loadingBigPhoto"+picId).showLoading();//显示图片读取状态
 	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
-	//$("#loadingBigPhoto"+picId).hideLoading();//隐藏图片读取状态
-	//document.getElementById("reply"+picId).focus();
 	//激活图片表情动画
 	$('#desContext'+picId).emoticonize();
 	//读取评论

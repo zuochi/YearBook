@@ -141,9 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div id="hasPhotos"></div>
 		<div id="loadingComment" class="loadComm"></div>
-		
-		
-		<div id="showPhotosLoading"></div>
+		<div id="loadingPhoto" class="loadPic"></div>
 		
 		<div id="socialDiv" style="display: none">
 			<!-- 好友图片刷新 -->
