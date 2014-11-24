@@ -108,7 +108,7 @@ function getPhotosByPerPage(isNew){
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
 							"</div>"+
-							"<span id='commentBody"+json[i].id+"'  ><span>"+
+							"<span id='commentBody"+json[i].id+"'><span>"+
 							"</div>"+
 								"<figure>"+	
 								"<figcaption ><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
@@ -116,7 +116,7 @@ function getPhotosByPerPage(isNew){
 								"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
 								"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
 							    "</figcaption>"+
-									"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='"+document.getElementById("basePath").value+json[i].url+"' target='_blank' title='点击在新页面中打开'><img id='bigPic"+json[i].id+"' /></a></div>"+
+									"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='ShowBigPic.jsp?url="+json[i].url+"' target='_blank' title='Show big size in a new window.'><img id='bigPic"+json[i].id+"' /></a></div>"+
 									"</figure>"+
 							"</li>"
 						);

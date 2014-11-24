@@ -39,8 +39,8 @@ body{background-image:url(images/background_main.png);background-repeat: repeat;
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
-
-
+<%String url = request.getParameter("url"); %>
+<p align="center"><img src="<%=url %>"/>
 
 </body>
 </html>
