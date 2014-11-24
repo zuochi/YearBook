@@ -29,7 +29,7 @@ function getPhotosByPerPage(isNew){
 	if(hasPic==1){
 		if("true"!=isNew  && showPhotoLoading==toPageP){
 			$("#loadingPhoto").showLoading();//显示读取状态
-			showPhotoLoadingshowPhotoLoading+=1;
+			showPhotoLoading+=1;
 		}
 		$.ajax({
 			url:'/YearBook/user/getPhotosByPerPage_execute',  
