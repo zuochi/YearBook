@@ -573,7 +573,7 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 
 .noMoreInfo{color:#8f8f8f;font-size:22px;}
 .loadComm{position: fixed;left: 33%;top: 50%;z-index: 999;}
-.loadPic{position: fixed;left: 45%;top: 90%;z-index: 999;}
+.loadPic{position: fixed;left: 45%;top: 80%;z-index: 999;}
 .pinglun{ 
 	margin:10px 0 0 5px;
 	float:right;
