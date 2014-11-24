@@ -75,6 +75,8 @@ function replyAutoComplete(nickName,photoBid){
 	$("#reply"+photoBid).val("reply@" + nickName+" ");
 	//$("#reply"+photoBid).focus();
 	focusLast(document.getElementById(("reply"+photoBid)));
+	//统计剩余字数
+	wordsNumber(photoBid);
 };
 
 //删除评论
