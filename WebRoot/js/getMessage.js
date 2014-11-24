@@ -52,7 +52,20 @@ function showPhotoReplys(toPageM,countM){
 //删除消息
 function deleteMessage(replyId){
 	if(confirm("Are you sure to delete this reply?")) {
-		$("#replyBody"+replyId).remove();
+		 $.ajax({
+			url:'/YearBook/user/deleteReply_execute',  
+			type:'post', 
+			data:"reply.id="+replyId,
+			async:false,
+			dataType:'text', 
+			success:function (msg) {
+				if(msg=="success"){   
+					$("#replyBody"+replyId).remove();
+				 }else{
+					alert("delete " + msg);
+				}
+			}
+		});
 	}
 };
 

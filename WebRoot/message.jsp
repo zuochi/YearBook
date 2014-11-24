@@ -64,6 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <!-- 翻页 -->
+<s:if test="#request.messageReplyCount>0">
 <ul style=" padding:0px;margin-left:15px;">
 	<li style="margin-left:0px;">Page:<s:property value="#request.messageReplyPc.currentPage" />/<s:property value="#request.messageReplyPc.totalPages" />
 	<s:if test="#request.messageReplyPc.hasPrevious==true">
@@ -101,6 +102,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</li>
 	</s:if>
 </ul>
+</s:if>
+<s:else>
+<h3 align="center"><span class="css-emoticon animated-emoticon" style="font-size:1.8em;">:'(</span></h3><p><h3>You haven't received any replys yet.</h3></p>
+</s:else>
 
 <!--反馈版块-->
   <h2>FEEDBACK</h2>
