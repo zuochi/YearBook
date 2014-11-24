@@ -32,7 +32,7 @@ public class GetMessage extends UserAction{
 			//status=0 ,且评论者不为自己的未读的条数
 			count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id="+user.getId()+" and r.userByUserId.id!="+user.getId(), "getInteger");
 			
-			PageController pc = new PageController(count,1,1);
+			PageController pc = new PageController(count,1,2);
 			pc.setCurrentPage(toPage);
 			
 			/*if(toPage>pc.getTotalPages()){
@@ -56,7 +56,7 @@ public class GetMessage extends UserAction{
 			//status=0 ,且评论者不为自己的未读的条数
 			//count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
 			
-			PageController pc = new PageController(count,1,1);
+			PageController pc = new PageController(count,1,2);
 			pc.setCurrentPage(toPage);
 			
 			if(toPage>pc.getTotalPages()){
