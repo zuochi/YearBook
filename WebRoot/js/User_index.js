@@ -63,7 +63,7 @@ function getPhotosByPerPage(isNew){
 		$.ajax({
 			url:'/YearBook/user/getPhotosByPerPage_execute',  
 			type:'post', 
-			data:"user.id="+document.getElementById("userId").value+"&toPage="+toPageP,
+			data:"user.id="+$("#userId").val()+"&toPage="+toPageP,
 			async:false,
 			dataType:'json',
 			success:function (json) {
@@ -80,7 +80,7 @@ function getPhotosByPerPage(isNew){
 								"<figure>"+
 									"<div id='photo"+json[i].id+"' class='gc'>"+
 										"<span id='loadingBigPhoto"+json[i].id+"'></span>"+
-										"<div class='gridpic'><img src='"+document.getElementById("basePath").value+json[i].urlThumb+"'/></div>"+
+										"<div class='gridpic'><img src='"+json[i].urlThumb+"'/></div>"+
 											"<div class='time'>"+calculateDT(json[i].uploadDate)+"</div>"+
 									"</div>"+
 								"</figure>"+
@@ -97,7 +97,7 @@ function getPhotosByPerPage(isNew){
 							"<div id='comment"+json[i].id+"' class='text2'>"+
 							"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:200px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
 							"<textarea style='margin-left:7px;word-break:break-all;resize: none;' rows='3' cols='52'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'></textarea>"+
-							"<input style='position:absolute; left:342px;top:70px' type='button' value='Reply' onclick='comment("+document.getElementById("userId").value+","+json[i].id+")'/><br>"+
+							"<input style='position:absolute; left:342px;top:70px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+")'/><br>"+
 							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 							"<div align='left' style='margin:3px 0 0 7px;'>" +
@@ -170,7 +170,7 @@ function comment(userBid,photoBid){
 
 //放大图片之后读取评论
 function loadBigPic(picId){
-	document.getElementById("bigPic"+picId).src=document.getElementById("basePath").value+document.getElementById("bigPicUrl"+picId).value;
+	$("#bigPic"+picId).attr("src",$("#bigPicUrl"+picId).val());
 	//激活图片表情动画
 	$('#desContext'+picId).emoticonize();
 	//读取评论
@@ -187,6 +187,7 @@ function showDesEdit(photoId){
 	setTimeout("showDesEditElement("+photoId+")", 1000);
 };
 
+//显示描述修改的元素
 function showDesEditElement(photoId){
 	$("#desPenButton"+photoId).hide();
 	$("#desContext"+photoId).hide();
@@ -264,6 +265,7 @@ function showSignEdit(){
 	setTimeout("showSignEditElement()", 1000);
 };
 
+//显示签名修改的元素
 function showSignEditElement(){
 	$("#signButton").hide();
 	$("#signContext").hide();
@@ -280,15 +282,7 @@ function showSignEditElement(){
 function scrollToTop(){
 	document.body.scrollTop=0;
 };
-		
-function mypost(userId){
-	window.location.href="/YearBook/user/getMyPost_execute?userId="+userId;
-};
-		
-function social(userId){
-	window.location.href="/YearBook/user/getSocial_execute?userId="+userId;
-};
-		
+	
 //删除照片
 var loadPhotoCount = false;
 var photoCount;
