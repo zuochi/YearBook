@@ -26,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 %>
 <input type="hidden" id="userId" value="<s:property value="#request.socialUser.id"/>"/>
+<input type="hidden" id="nickName" value="<s:property value="#request.socialUser.name"/>"/>
 <input type="hidden" id="currentUserId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="isMine" value="0"/>
 <input id="hasBeenModify" type="hidden" value="0"/>

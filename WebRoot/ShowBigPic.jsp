@@ -8,9 +8,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<%
+	String url = request.getParameter("url");
+	String name = request.getParameter("name");
+%>
 <base href="<%=basePath%>">
 
-<title>图片点击新窗口放大图页面</title>
+<title><%=name %> - YearBook</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -39,7 +43,6 @@ body{background-image:url(images/background_main.png);background-repeat: repeat;
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
-<%String url = request.getParameter("url"); %>
 <p align="center"><img src="<%=url %>"/>
 
 </body>

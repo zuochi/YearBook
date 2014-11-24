@@ -74,7 +74,7 @@ function getPhotosByPerPage(isNew){
 							"<span id='commentBody"+json[i].id+"'><span>"+
 							"</div>"+
 							"<figure>"+"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>"+json[i].name+"</div></figcaption>"+	
-								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='ShowBigPic.jsp?url="+json[i].url+"' target='_blank' title='Show big size in a new window.'><img id='bigPic"+json[i].id+"' /></a></div>"+
+								"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='ShowBigPic.jsp?url="+json[i].url+"&name="+$("#nickName").val()+"' target='_blank' title='Show big size in a new window.'><img id='bigPic"+json[i].id+"' /></a></div>"+
 						    "</figure>"+
 						"</li>"
 					);
