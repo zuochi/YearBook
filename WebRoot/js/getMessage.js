@@ -51,7 +51,9 @@ function showPhotoReplys(toPageM,countM){
 
 //删除消息
 function deleteMessage(replyId){
-	$("#replyBody"+replyId).remove();
+	if(confirm("Are you sure to delete this reply?")) {
+		$("#replyBody"+replyId).remove();
+	}
 };
 
 //翻页
