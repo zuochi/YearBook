@@ -29,12 +29,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input id="countM" type="hidden" value="<s:property value="#request.messageReplyCount" />"/>
 <div id="M">
 <div class="border_radius">
+
   <h2>Message</h2>
   <h3>Here you can reply messages that you have received </h3>
+  
  <!--以下为收到的评论与对应评论的人的头像-->
  <br/>
- <a href="javascript:void(0)">照片评论</a>|<a href="javascript:void(0)">BBS评论</a>|<a href="javascript:void(0)">好友私信</a><br/>
--------------------------------------
+ <div align="center">
+ <a  href="javascript:void(0)">照片评论</a>|<a href="javascript:void(0)">BBS评论</a>|<a href="javascript:void(0)">好友私信</a><br/></div>
+ <div style=" float:top;margin:10px 0 10px 0;position:relative;border-bottom:1px dashed #8f8f8f;"></div>
 
 
 <!--评论-->
@@ -60,8 +63,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <!-- 翻页 -->
-<ul>
-	<li>Page:<s:property value="#request.messageReplyPc.currentPage" />/<s:property value="#request.messageReplyPc.totalPages" />
+<ul style=" padding:0px;margin-left:15px;">
+	<li style="margin-left:0px;">Page:<s:property value="#request.messageReplyPc.currentPage" />/<s:property value="#request.messageReplyPc.totalPages" />
 	<s:if test="#request.messageReplyPc.hasPrevious==true">
 		<li><a href="javascript:void(0)" onclick="messageTurnPage(1,<s:property value="#request.messageReplyCount"/>)">First</a></li>
 		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.previousPage"/>,<s:property value="#request.messageReplyCount"/>)">Previous</a></li>
@@ -79,8 +82,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<li class='disableTurnPage'>Last</li>
 	</s:else>
 	<s:if test="#request.messageReplyPc.totalPages>1">
-		<li>Jump:
-			<select id="changePage" onchange="toPage(this.value)">
+		<li style="width:90px;" >Jump:
+			<select style="float:right;" id="changePage" onchange="toPage(this.value)">
 				<s:iterator var="index" begin="1" end="#request.messageReplyPc.totalPages">
 					<s:if test="#request.messageReplyPc.currentPage==#index">
 						<option selected="selected">

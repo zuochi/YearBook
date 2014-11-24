@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 body{background-image:url(../images/background_main.png)}
-#M{width:500px;height:100%;margin:10px auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:50px;}
+#M{width:500px;height:100%;margin:10px auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:30px 50px 50px 50px;}
 
 .border_radius{border-radius:3px;color:#B00000;}
 h2{font-size:30px;text-shadow:1px 1px 3px #fff;  text-align:center;}

@@ -22,19 +22,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <style type="text/css">
-body{background-image:url(images/background_main.png);background-repeat: repeat;;margin:0;}
-.top{float:top;
+
+body{background-image:url(images/background_main.png);background-repeat: repeat;margin:0; }
+.top{
+
+    z-index:2; 
+    top:0;
+    left:0;
 	background: #ffffff;		
 	width: 100%;
 	height: 40px;
-	position: relative;
-	z-index: 2;
+	position:fixed;
 	box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
 	-moz-box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
 	-webkit-box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
-	margin-bottom: 10px;
 	position: relative;
    opacity: 0.7;}
+.pic{padding:20px 0px 50px 0px; }
 </style>
 
 </head>
@@ -43,7 +47,7 @@ body{background-image:url(images/background_main.png);background-repeat: repeat;
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
-<p align="center"><img src="<%=url %>"/>
+<div class="pic" align="center" ><img style="max-width:100%" src="<%=url %>"/></div>
 
 </body>
 </html>
