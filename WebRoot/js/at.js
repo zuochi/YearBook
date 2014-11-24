@@ -69,16 +69,16 @@
 						return;
 					}
 					//退格
-					/*if(window.event.keyCode==8){
-						if(atFriendName.length>0){
-							atFriendName = atFriendName.substring(0,atFriendName.length-1);
-						}else{
+					if(window.event.keyCode==8){
+						if(atFriendName.length==0){
+							/*atFriendName = atFriendName.substring(0,atFriendName.length-1);
+						}else{*/
 							searchFriendNameStatus=0;
 							$("#friendTips"+photoId).html("");
 							$("#friendTips"+photoId).css("display","none");
 							return;
 						}
-					}*/
+					}
 
 					//atFriendName += text;
 					atFriendName = $.trim($("#reply"+photoId).val().substring(atIndex,getCursorPos("reply"+photoId)));
