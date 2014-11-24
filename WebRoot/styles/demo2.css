@@ -508,7 +508,7 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 .ds-comment-body, .ds-avatar, .ds-avatar a,
 .ds-avatar img {-webkit-transition:.4s all ease-in-out;-moz-transition:.4s all ease-in-out;-o-transition:.4s all ease-in-out;-ms-transition:.4s all ease-in-out;transition:.4s all ease-in-out}
 .ds-post-main:hover .ds-avatar img {-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}
-.ds-comment-body {z-index:1;position:relative;left:0;background: #ffffff;padding:5px 5px 5px 35px;color:#696A52; border-radius:0px; box-shadow:2px 2px 3px rgba(0,0,0,.15), 0 1px 0 rgba(255,255,255,.75) inset;}
+.ds-comment-body {/*z-index:1*/;position:relative;left:0;background: #ffffff;padding:5px 5px 5px 35px;color:#696A52; border-radius:0px; box-shadow:2px 2px 3px rgba(0,0,0,.15), 0 1px 0 rgba(255,255,255,.75) inset;}
 	
 
 .friendframepic{
