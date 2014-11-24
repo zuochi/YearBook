@@ -16,7 +16,7 @@ function showPhotoReplys(toPageM,countM){
 		$.ajax({
 			url:'/YearBook/user/getMessage_getPhotoReplysByPerPage',  
 			type:'post', 
-	        data:"toPage="+toPageM+"&count="+countM,
+	        data:"toPage="+toPageM+"&count="+countM+"&type=photo",
 	        async:false,
 	        dataType:'json', 
 			success:function (json) {

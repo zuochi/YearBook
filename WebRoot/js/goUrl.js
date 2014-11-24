@@ -17,7 +17,7 @@ function goUrl(type){
 	}else if(type==6){
 		window.parent.main.location.href="bbs.jsp";
 	}else if(type==7){
-		window.parent.main.location.href="/YearBook/user/getMessage_execute";
+		window.parent.main.location.href="/YearBook/user/getMessage_execute?type=photo";
 	}else if(type==8){
 		window.parent.location.href="/YearBook/user/logout_execute";
 	}else if(type==9){
