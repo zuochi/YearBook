@@ -1,38 +1,38 @@
 .friendTip{
 	/* height:80px; */
     border: 1px solid #8f8f8f;
-	color:white;
-	background-color: #3ab6ae;
+	color:#DE4C1C;
+	background-color: #fff;
 	z-index:9999;
 	display: none;
 	width: 200px;
-	margin: 72px 0px 0px 173px;
+	margin: 72px 0px 0px 193px;
 	position:absolute;
 	/* padding: 10px 5px 15px 20px; */
 }
 
 .friendTip a{
 	
-	color:white;
+	color:#000;
 	/*background-color:#3ab6ae;*/
 }
 
 .friendTipMessage{
 	/* height:80px; */
     border: 1px solid #8f8f8f;
-	color:white;
-	background-color: #3ab6ae;
+	color:#DE4C1C;
+	background-color: #fff;
 	z-index:9999;
 	display: none;
-	width: 200px;
-	margin: 24px 0px 0px 150px;
+	width: 198px;
+	margin: 24px 0px 0px 160px;
 	position:absolute;
 	/* padding: 10px 5px 15px 20px; */
 }
 
 .friendTipMessage a{
 	
-	color:white;
+	color:#000;
 	/*background-color:#3ab6ae;*/
 }
 

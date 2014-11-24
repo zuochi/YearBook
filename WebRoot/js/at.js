@@ -22,7 +22,7 @@
 				atFriendName = "";
 				//记录@的位置
 				atIndex = cursorPos;
-				$("#friendTips"+photoId).html("<center>Who do you want to at?</center>");
+				$("#friendTips"+photoId).html("<center style='font-family:  Calibri,  sans-serif;'>Who do you want to at?</center>");
 				$("#friendTips"+photoId).css("display","block");
 			}
 			if(searchFriendNameStatus==1){
@@ -42,13 +42,14 @@
 						setCursorPos("reply"+photoId, atIndex+atFriendName.length);
 						$("#friendTips"+photoId).css("display","block");
 						if(selectIndex>=1){
-							$("#ft"+photoId+selectIndex).css("color","white");
+							$("#ft"+photoId+selectIndex).css("color","black");
+						
 							selectIndex -= 1;
-							$("#ft"+photoId+selectIndex).css("color","yellow");
+							$("#ft"+photoId+selectIndex).css("color","#DE4C1C");
 						}else{
-							$("#ft"+photoId+selectIndex).css("color","white");
+							$("#ft"+photoId+selectIndex).css("color","black");
 							selectIndex = (selectLength-1);
-							$("#ft"+photoId+selectIndex).css("color","yellow");
+							$("#ft"+photoId+selectIndex).css("color","#DE4C1C");
 						}
 						return;
 					}
@@ -58,13 +59,13 @@
 						setCursorPos("reply"+photoId, atIndex+atFriendName.length);
 						$("#friendTips"+photoId).css("display","block");
 						if(selectIndex<(selectLength-1)){
-							$("#ft"+photoId+selectIndex).css("color","white");
+							$("#ft"+photoId+selectIndex).css("color","black");
 							selectIndex += 1;
-							$("#ft"+photoId+selectIndex).css("color","yellow");
+							$("#ft"+photoId+selectIndex).css("color","#DE4C1C");
 						}else{
-							$("#ft"+photoId+selectIndex).css("color","white");
+							$("#ft"+photoId+selectIndex).css("color","black");
 							selectIndex = 0;
-							$("#ft"+photoId+selectIndex).css("color","yellow");
+							$("#ft"+photoId+selectIndex).css("color","#DE4C1C");
 						}
 						return;
 					}
@@ -91,7 +92,7 @@
 						dataType:'json', 
 						success:function (json) {
 							if(json.error==undefined && json.length>0){
-								$("#friendTips"+photoId).html("<center>Please choose your follow</center>");
+								$("#friendTips"+photoId).html("<center style='font-family:  Calibri,  sans-serif;'>Please choose your follow</center>");
 								$("#friendTips"+photoId).css("display","block");
 								//重置选择INDEX
 								selectIndex = 0;
@@ -99,7 +100,7 @@
 								for(var i=0; i<json.length; i++){
 									$("#friendTips"+photoId).append("<a onmouseover='mouserOver("+photoId+","+i+")' onmouseout='mouserOut("+photoId+","+i+")' id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32;margin-top:3px;' src='"+((json[i].surl==null || json[i].surl=='')?"images/bg.png":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
 								}
-								$("#ft"+photoId+selectIndex).css("color","yellow");
+								$("#ft"+photoId+selectIndex).css("color","#DE4C1C");
 							}
 						}
 					});
@@ -109,12 +110,12 @@
 		
 		//鼠标进来
 		function mouserOver(photoId,index){
-			$("#ft"+photoId+index).css("color","yellow");
+			$("#ft"+photoId+index).css("color","#DE4C1C");
 		};
 		
 		//鼠标出去
 		function mouserOut(photoId,index){
-			$("#ft"+photoId+index).css("color","white");
+			$("#ft"+photoId+index).css("color","black");
 		};
 		
 		//回车选择
