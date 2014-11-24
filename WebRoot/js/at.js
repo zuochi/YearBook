@@ -7,8 +7,13 @@
 		var atIndex = 0;
 		function getAtName(context,photoId){
 			var cursorPos = getCursorPos("reply"+photoId);
+			
+			//光标前面的字
 			var text = context.charAt(cursorPos-1);
+			
+			//光标后面的字
 			var afterText = context.charAt(cursorPos);
+			
 			//统计剩余字数
 			wordsNumber(photoId);
 			//判断当前输入的字符是否为@，且判断@后面是否结尾或者空格。
@@ -21,12 +26,16 @@
 				$("#friendTips"+photoId).css("display","block");
 			}
 			if(searchFriendNameStatus==1){
+				//空格则隐藏
 				if(window.event.keyCode==32){
-					searchFriendNameStatus=0;
-					$("#friendTips"+photoId).html("");
-					$("#friendTips"+photoId).css("display","none");
-					return;
-				}else if(text!="@"){
+					if(text==" "){
+						searchFriendNameStatus=0;
+						$("#friendTips"+photoId).html("");
+						$("#friendTips"+photoId).css("display","none");
+						return;
+					}
+				}
+				if(text!="@"){
 					//上选择
 					if(window.event.keyCode==38){
 						//保持不变
@@ -60,7 +69,7 @@
 						return;
 					}
 					//退格
-					if(window.event.keyCode==8){
+					/*if(window.event.keyCode==8){
 						if(atFriendName.length>0){
 							atFriendName = atFriendName.substring(0,atFriendName.length-1);
 						}else{
@@ -69,10 +78,11 @@
 							$("#friendTips"+photoId).css("display","none");
 							return;
 						}
-					}else{
-						//atFriendName += text;
-						atFriendName = $.trim($("#reply"+photoId).val().substring(atIndex,getCursorPos("reply"+photoId)));
-					}
+					}*/
+
+					//atFriendName += text;
+					atFriendName = $.trim($("#reply"+photoId).val().substring(atIndex,getCursorPos("reply"+photoId)));
+					
 					$.ajax({
 						url:'/YearBook/user/getSearchInfomation_execute',  
 						type:'post', 
@@ -206,7 +216,7 @@
 	    function setCursorPos(inputId, pos){
 	        var inpObj = document.getElementById(inputId);
 	        if(navigator.userAgent.indexOf("MSIE") > -1){
-	            var range = document.selection.createRange();
+	            //var range = document.selection.createRange();
 	            var textRange = inpObj.createTextRange();
 	            textRange.moveStart('character',pos);
 	            textRange.collapse();

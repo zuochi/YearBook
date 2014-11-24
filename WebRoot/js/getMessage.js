@@ -1,8 +1,9 @@
 //显示、隐藏回复框 
-function showReplyFrame(elementId){
+function showReplyFrame(elementId,nickName){
 	eval(eval2=elementId+".style.display="+elementId+".style.display=='none'?'':'none'");
-	replyAutoComplete
-	$("#"+elementId+"Text").focus();
+	var replyId = elementId.substring(1,elementId.length);
+	$("#"+replyId).val("reply@" + nickName+" ");
+	focusLast(document.getElementById((replyId)));
 };
 
 //var toPageM = 0;
@@ -31,9 +32,10 @@ function showPhotoReplys(toPageM,countM){
 								"<p id='commentEmo"+json[i].id+"'>"+json[i].context+"</p>"+
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
 								"<a href='javascript:void(0)' onclick='deleteMessage("+json[i].id+")'><div class='shanchu' title='delete this reply'></div></a>"+
-								"<a href='javascript:void(0)' onclick='showReplyFrame(\"replyFrame"+json[i].id+"\")'><div class='comments_icon' title='reply "+json[i].name+"' style='float:right'></div></a>"+
-								"<div id='replyFrame"+json[i].id+"' style='display:none'>"+
-										"<input id='replyFrame"+json[i].id+"Text' type='text' style='width:360px'/>"+
+								"<a href='javascript:void(0)' onclick='showReplyFrame(\"Freply"+json[i].id+"\",\""+json[i].name+"\")'><div class='comments_icon' title='reply "+json[i].name+"' style='float:right'></div></a>"+
+								"<div id='friendTips"+json[i].id+"' class='friendTip'/>"+
+								"<div id='Freply"+json[i].id+"' style='display:none'>"+
+										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'/>"+
 										"<input type='button' value='reply'/>"+
 								"</div>"+
 						"</div>"

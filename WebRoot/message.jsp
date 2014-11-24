@@ -18,6 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 <link href="styles/message.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
 </head>
 <body>
 <%
@@ -74,8 +75,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<li class='disableTurnPage'>Previous</li>
 	</s:else> 
 	<s:if test="#request.messageReplyPc.hasNext==true">
-		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.nextPage"/>,<s:property value="#request.messageReplyCount" />)">Next</a></li>
-		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.totalPages"/>,<s:property value="#request.messageReplyCount" />)">Last</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.nextPage"/>,<s:property value="#request.messageReplyCount"/>)">Next</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.totalPages"/>,<s:property value="#request.messageReplyCount"/>)">Last</a></li>
 	</s:if>
 	<s:else>
 		<li class='disableTurnPage'>Next</li>
@@ -83,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</s:else>
 	<s:if test="#request.messageReplyPc.totalPages>1">
 		<li style="width:90px;" >Jump:
-			<select style="float:right;" id="changePage" onchange="toPage(this.value)">
+			<select style="float:right;" id="changePage" onchange="messageTurnPage(this.value,<s:property value="#request.messageReplyCount"/>)">
 				<s:iterator var="index" begin="1" end="#request.messageReplyPc.totalPages">
 					<s:if test="#request.messageReplyPc.currentPage==#index">
 						<option selected="selected">
@@ -110,6 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/goUrl.js" ></script>
+<script type="text/javascript" src="js/at.js" ></script>
 <script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
 <script type="text/javascript" src="js/calculateDistanceTime.js" ></script>
 <script type="text/javascript" src="js/getMessage.js" ></script>
