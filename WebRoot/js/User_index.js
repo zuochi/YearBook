@@ -27,6 +27,7 @@ var toPageP=1;
 var hasPic=1;
 var myPostDisplay=1;
 var socialDisplay=0;
+var showPhotoLoading=2;
 
 function myPostShow(){
 	myPostDisplay=1;
@@ -55,8 +56,9 @@ function getPhotosByPerPage(isNew){
 		toPageP=1;
 	}
 	if(hasPic==1){
-		if("true"!=isNew){
+		if("true"!=isNew && showPhotoLoading==toPageP){
 			$("#loadingPhoto").showLoading();//显示读取状态
+			showPhotoLoading+=1;
 		}
 		$.ajax({
 			url:'/YearBook/user/getPhotosByPerPage_execute',  
@@ -122,7 +124,7 @@ function getPhotosByPerPage(isNew){
 				}
 			}
 		});
-		if("true"!=isNew){
+		if("true"!=isNew && showPhotoLoading>=toPageP){
 			$("#loadingPhoto").hideLoading();//隐藏读取状态
 		}
 	}
