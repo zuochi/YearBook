@@ -25,19 +25,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 body{background-image:url(images/background_main.png);background-repeat: repeat;margin:0; }
 .top{
-
     z-index:2; 
     top:0;
     left:0;
-	background: #ffffff;		
-	width: 100%;
+	background: #ffffff;	
+    width:100%;
+	overflow:hidden;
 	height: 40px;
-	position:fixed;
+	position:absolute;
 	box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
 	-moz-box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
 	-webkit-box-shadow:  rgba(0,0,0, 0.1) 0px 0px 5px;
 	position: relative;
    opacity: 0.7;}
+   
 .pic{padding:20px 0px 50px 0px; }
 </style>
 
