@@ -72,7 +72,7 @@ function showComments(photoBid,toPageC){
 
 //评论自动回复填写
 function replyAutoComplete(nickName,photoBid){
-	$("#reply"+photoBid).val("reply@" + nickName+" : ");
+	$("#reply"+photoBid).val("reply@" + nickName+" ");
 	$("#reply"+photoBid).focus();
 	focusLast(document.getElementById(("reply"+photoBid)));
 };
