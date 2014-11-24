@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import bean.Profession;
 import bean.SchoolYear;
+import bean.User;
 
 @Controller
 @Scope("prototype")
@@ -14,6 +15,8 @@ public class GetProfiles extends UserAction{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
+		user = (User) request.getSession().getAttribute("user");
+		
 		if(!isLogin(user)){
 			return "login";
 		}
