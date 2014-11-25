@@ -16,7 +16,7 @@ function showPhotoReplys(toPageM,countM){
 		$.ajax({
 			url:'/YearBook/user/getMessage_getPhotoReplysByPerPage',  
 			type:'post', 
-	        data:"toPage="+toPageM+"&count="+countM+"&type=photo",
+	        data:"toPage="+toPageM+"&count="+countM,
 	        async:false,
 	        dataType:'json', 
 			success:function (json) {
@@ -52,20 +52,7 @@ function showPhotoReplys(toPageM,countM){
 //删除消息
 function deleteMessage(replyId){
 	if(confirm("Are you sure to delete this reply?")) {
-		 $.ajax({
-			url:'/YearBook/user/deleteReply_execute',  
-			type:'post', 
-			data:"reply.id="+replyId,
-			async:false,
-			dataType:'text', 
-			success:function (msg) {
-				if(msg=="success"){   
-					$("#replyBody"+replyId).remove();
-				 }else{
-					alert("delete " + msg);
-				}
-			}
-		});
+		$("#replyBody"+replyId).remove();
 	}
 };
 
