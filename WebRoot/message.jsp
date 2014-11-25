@@ -95,26 +95,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- 翻页 -->
 <s:if test="#request.messageReplyCount>0">
-<ul style=" padding:0px;margin-left:15px; font-size:18px;">
+<ul style=" padding:0px;margin-left:5px; font-size:16px;">
 	<li style="margin-left:0px;">Page:<s:property value="#request.messageReplyPc.currentPage" />/<s:property value="#request.messageReplyPc.totalPages" />
 	<s:if test="#request.messageReplyPc.hasPrevious==true">
 		<li><a href="javascript:void(0)" onclick="messageTurnPage(1,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">First</a></li>
 		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.previousPage"/>,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">Previous</a></li>
 	</s:if>
 	<s:else>
-		<li class='disableTurnPage'>First</li>
-		<li class='disableTurnPage'>Previous</li>
+		<li style="font-size:14px;" class='disableTurnPage'>First</li>
+		<li style="font-size:14px;" class='disableTurnPage'>Previous</li>
 	</s:else> 
 	<s:if test="#request.messageReplyPc.hasNext==true">
 		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.nextPage"/>,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">Next</a></li>
 		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.totalPages"/>,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">Last</a></li>
 	</s:if>
 	<s:else>
-		<li class='disableTurnPage'>Next</li>
-		<li class='disableTurnPage'>Last</li>
+		<li style="font-size:14px;" class='disableTurnPage'>Next</li>
+		<li style="font-size:14px;" class='disableTurnPage'>Last</li>
 	</s:else>
 	<s:if test="#request.messageReplyPc.totalPages>1">
-		<li style="width:90px;" >Jump:
+		<li style="width:100px;" >Jump:
 			<select style="float:right;" id="changePage" onchange="messageTurnPage(this.value,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">
 				<s:iterator var="index" begin="1" end="#request.messageReplyPc.totalPages">
 					<s:if test="#request.messageReplyPc.currentPage==#index">
@@ -138,10 +138,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </s:else>
 <div id="replySuccessTip"></div>
 <!--反馈版块-->
-  <h2>FEEDBACK</h2>
+<div class="fb">
+     
+  <h2><span style="font-size:25px;color:#000; text-align:center; margin-right:10px;margin-top:-10px;"class="css-emoticon animated-emoticon">   ?-)</span>FEEDBACK</h2>
   <h3>please contact us if you have any questions</h3> 
   <h3>yearbook@soy.com</h3>
- 
+ </div>
 </div>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
