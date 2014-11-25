@@ -31,7 +31,7 @@ public class GetReply extends UserAction{
 			if(toPage>pc.getTotalPages()){
 				out.print("fail");
 			}else{
-				List<dto.Reply> replys = service.getDtoObjectsBySql("select r.id,r.user_id,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date from reply r,user u LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.is_delete=0 and u.id=r.user_id and r.user_bid="+user.getId()+" and r.photo_bid="+photo.getId() + " order by r.signup_date desc", pc,new dto.Reply());
+				List<dto.Reply> replys = service.getDtoObjectsBySql("select r.id,r.user_id,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date from reply r,user u LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.is_delete=0 and u.id=r.user_id and r.photo_bid="+photo.getId() + " order by r.signup_date desc", pc,new dto.Reply());
 				
 				JSONArray json = JSONArray.fromObject(replys);
 				out = response.getWriter();

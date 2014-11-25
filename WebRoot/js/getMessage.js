@@ -6,6 +6,54 @@ function showReplyFrame(elementId,nickName){
 	focusLast(document.getElementById((replyId)));
 };
 
+//回复
+function comment(userBid,replyId,photoBid,nickName){
+	var reply = $("#reply"+replyId).val();
+	if(reply.length<1 || reply.length>80){
+		alert("reply at least 1 in length,and max at 80.");
+		return;
+	}
+	/** 屏蔽所有按钮 **/
+	$("input[type='button']").each(function() {
+		this.disabled = true;
+	});
+	$.ajax({
+		url:'/YearBook/user/doReply_execute',
+		type:'post',
+        data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply,
+        async:false,
+		success:function (context) {
+			if(context.error == undefined){
+				/** 恢复所有按钮 **/
+				$("input[type='button']").each(function() {
+					this.disabled = false;
+				});
+				$("#reply"+replyId).val("reply@"+nickName+" ");
+				$("#replySuccessTip").html("reply success!").hide(3000); 
+				focusLast(document.getElementById(("reply"+replyId)));
+				//统计剩余字数
+				//wordsNumber(photoBid);
+				//获取时间 
+				//var date=new Date();
+				//即时刷新评论
+				//reloadReply(photoBid);
+				/*$("#commentBody"+photoBid).prepend(
+					"<div class='ds-post-main'>"+
+						"<div class='ds-avatar'>"+
+							"<a title='"+$("#nickName").val()+"' href='javascript:goSocialIndex("+$("#userId").val()+")' target='_blank'><img src='"+$("#urlM").val()+"'></a>"+
+						"</div>"+
+						"<div class='ds-comment-body'>"+
+							"<a title='"+$("#nickName").val()+"' href='javascript:goSocialIndex("+$("#userId").val()+")' target='_blank' class='user-name'>"+$("#nickName").val()+"</a>"+
+							"<div class='message' >"+context+"</div>"+
+							"<div align='right' class='p1'>"+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"</div>"+
+						"</div>"+
+					"</div>"
+				);*/
+			}
+		}
+	});
+};
+
 //var toPageM = 0;
 
 //显示评论
@@ -36,7 +84,7 @@ function showPhotoReplys(toPageM,countM){
 								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
 								"<div id='Freply"+json[i].id+"' style='display:none'>"+
 										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'/>"+
-										"<input type='button' value='reply'/>"+
+										"<input type='button' value='reply' onclick='comment("+json[i].user_id+","+json[i].id+","+json[i].photo_bid+",\""+json[i].name+"\")'/>"+
 								"</div>"+
 						"</div>"
 						);
@@ -77,7 +125,7 @@ function messageTurnPage(toPageM,countM,type){
 
 //selectType
 function changeType(type){
-	window.location.href="/YearBook/user/getMessage_execute??type="+type;
+	window.location.href="/YearBook/user/getMessage_execute?type="+type;
 };
 
 //先加载一次 

@@ -134,9 +134,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </ul>
 </s:if>
 <s:else>
-<h3 align="center"><span class="css-emoticon animated-emoticon" style="font-size:1.8em;">:'(</span></h3><p><h3>You haven't received any replys yet.</h3></p>
+<h3 align="center"><span class="css-emoticon animated-emoticon" style="font-size:1.8em;">:'(</span></h3><p><h3>You haven't received any replys yet.</h3>
 </s:else>
-
+<div id="replySuccessTip"></div>
 <!--反馈版块-->
   <h2>FEEDBACK</h2>
   <h3>please contact us if you have any questions</h3> 

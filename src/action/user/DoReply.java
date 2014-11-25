@@ -41,6 +41,7 @@ public class DoReply extends UserAction{
 		reply.setSignupDate(new Timestamp(System.currentTimeMillis()));
 		reply.setStatus(0);
 		reply.setIsDelete(0);
+		
 		out = response.getWriter();
 		
 		if(service.saveObject(reply)){
@@ -96,8 +97,17 @@ public class DoReply extends UserAction{
 								followSet = new TreeSet<User>(new UserComparetor());
 							}
 							//@自己是没有提示的，或者别人在自己的图片的评论@自己也是没有提示的，只有评论
-							System.out.println(reply.getUserByUserBid().getId().intValue() + " " + friend.getId().intValue());
-							if(!friend.getName().equals(currentUser.getName()) && reply.getUserByUserBid().getId().intValue()!=friend.getId().intValue()){
+							if(friend.getId().intValue()!=currentUser.getId().intValue() && reply.getUserByUserBid().getId().intValue()!=friend.getId().intValue()){
+								//判断第一个@到的用户是否reply对象
+								if(i==0){
+									if(replyContext.startsWith("reply")){
+										reply.getUserByUserBid().setId(friend.getId().intValue());
+										continue;
+									}
+								}
+								/*if(photo.getUser().getId()!=friend.getId().intValue()){
+									//还差这个
+								}*/
 								followSet.add(friend);
 							}
 						}else{
