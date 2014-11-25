@@ -77,7 +77,7 @@ function showPhotoReplys(toPageM,countM){
 							"</div>"+
 							"<div class='ds-comment-body'>"+
 								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
-								"<p id='commentEmo"+json[i].id+"'>"+json[i].context+"</p>"+
+								"<div class='message' id='commentEmo"+json[i].id+"'>"+json[i].context+"</div>"+
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
 								"<a href='javascript:void(0)' onclick='deleteMessage("+json[i].id+")'><div class='shanchu' title='delete this reply'></div></a>"+
 								"<a href='javascript:void(0)' onclick='showReplyFrame(\"Freply"+json[i].id+"\",\""+json[i].name+"\")'><div class='comments_icon' title='reply "+json[i].name+"' style='float:right'></div></a>"+
