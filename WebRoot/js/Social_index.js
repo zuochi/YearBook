@@ -98,12 +98,20 @@ function comment(userBid,photoBid){
 		alert("reply at least 1 in length,and max at 80.");
 		return;
 	}
+	/** 屏蔽所有按钮 **/
+	$("input[type='button']").each(function() {
+		this.disabled = true;
+	});
 	$.ajax({
 		url:'/YearBook/user/doReply_execute',  
 		type:'post', 
         data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply,
         async:false,
 		success:function (context) {
+			/** 恢复所有按钮 **/
+			$("input[type='button']").each(function() {
+				this.disabled = false;
+			});
 			$("#reply"+photoBid).val("");
 			//统计剩余字数
 			wordsNumber(photoBid);
