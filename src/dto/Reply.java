@@ -16,16 +16,17 @@ public class Reply {
 	private String url_m;
 	private Integer user_bid;
 	private Integer photo_bid;
+	private Integer status;
 	private String context;
 	private Timestamp signup_date;
 	
 	public Reply() {
 		super();
 	}
-	
+
 	public Reply(Integer id, Integer user_id, String name, String url_m,
-			Integer user_bid, Integer photo_bid, String context,
-			Timestamp signup_date) {
+			Integer user_bid, Integer photo_bid, Integer status,
+			String context, Timestamp signup_date) {
 		super();
 		this.id = id;
 		this.user_id = user_id;
@@ -33,6 +34,7 @@ public class Reply {
 		this.url_m = url_m;
 		this.user_bid = user_bid;
 		this.photo_bid = photo_bid;
+		this.status = status;
 		this.context = context;
 		this.signup_date = signup_date;
 	}
@@ -85,7 +87,13 @@ public class Reply {
 	public void setSignup_date(Timestamp signup_date) {
 		this.signup_date = signup_date;
 	}
-	
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "Reply [id=" + id + ", user_id=" + user_id + ", url_m=" + url_m

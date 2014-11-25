@@ -66,12 +66,12 @@ public class DoReply extends UserAction{
 	}
 	
 	//解析at到的用户
-	public String analyzeFriendUrl(String reply,User currentUser,Service service){
+	public String analyzeFriendUrl(String replyContext,User currentUser,Service service){
 		//去除前后空格
-		reply = reply.trim();
+		replyContext = replyContext.trim();
 		
 		//先按空格分割
-		String[] friendsList = reply.split("\\s+");
+		String[] friendsList = replyContext.split("\\s+");
 
 		//使用StringBuilder重组字符串
 		StringBuilder replyStringBuilder = new StringBuilder("");
@@ -95,8 +95,9 @@ public class DoReply extends UserAction{
 							if(followSet==null){
 								followSet = new TreeSet<User>(new UserComparetor());
 							}
-							//@自己是没有提示的
-							if(!friend.getName().equals(currentUser.getName())){
+							//@自己是没有提示的，或者别人在自己的图片的评论@自己也是没有提示的，只有评论
+							System.out.println(reply.getUserByUserBid().getId().intValue() + " " + friend.getId().intValue());
+							if(!friend.getName().equals(currentUser.getName()) && reply.getUserByUserBid().getId().intValue()!=friend.getId().intValue()){
 								followSet.add(friend);
 							}
 						}else{

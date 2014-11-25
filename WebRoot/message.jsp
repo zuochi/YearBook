@@ -19,6 +19,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="styles/message.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
+<style type="text/css">
+	.selected{
+	
+	}
+</style>
 </head>
 <body>
 <%
@@ -37,10 +42,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <!--以下为收到的评论与对应评论的人的头像-->
  <br/>
  <div align="center">
- <a  href="javascript:void(0)">Photo's reply</a>&nbsp;&nbsp;
- <a href="javascript:void(0)">At me</a>&nbsp;&nbsp;
- <a href="javascript:void(0)">Private message</a>&nbsp;&nbsp;
- <a href="javascript:void(0)">BBS's reply</a><br/></div>&nbsp;&nbsp;
+
+ <s:if test="#request.type=='photo'">
+  	<span class="selected">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</span>&nbsp;&nbsp;
+ </s:if>
+ <s:else>
+ 	<a href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCounts"/>)</a>&nbsp;&nbsp;
+ </s:else>
+ <s:if test="#request.type=='replyMe'">
+ 	Reply me&nbsp;&nbsp;
+ </s:if>
+ <s:else>
+ 	<a href="javascript:void(0)"  onclick="changeType('replyMe')">Reply me</a>&nbsp;&nbsp;
+ </s:else>
+ <s:if test="#request.type=='mentionMe'">
+  	Mention me&nbsp;&nbsp;
+ </s:if>
+ <s:else>
+ 	<a href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me</a>&nbsp;&nbsp;
+ </s:else>
+ <s:if test="#request.type=='bbs'">
+  	BBS's reply&nbsp;&nbsp;
+ </s:if>
+ <s:else>
+ 	<a href="javascript:void(0)"  onclick="changeType('bbs')">BBS's reply</a>&nbsp;&nbsp;
+ </s:else>
+ <br/></div>
  <div style=" float:top;margin:10px 0 10px 0;position:relative;border-bottom:1px dashed #8f8f8f;"></div>
 
 
@@ -71,16 +98,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <ul style=" padding:0px;margin-left:15px; font-size:18px;">
 	<li style="margin-left:0px;">Page:<s:property value="#request.messageReplyPc.currentPage" />/<s:property value="#request.messageReplyPc.totalPages" />
 	<s:if test="#request.messageReplyPc.hasPrevious==true">
-		<li><a href="javascript:void(0)" onclick="messageTurnPage(1,<s:property value="#request.messageReplyCount"/>)">First</a></li>
-		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.previousPage"/>,<s:property value="#request.messageReplyCount"/>)">Previous</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(1,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">First</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.previousPage"/>,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">Previous</a></li>
 	</s:if>
 	<s:else>
 		<li class='disableTurnPage'>First</li>
 		<li class='disableTurnPage'>Previous</li>
 	</s:else> 
 	<s:if test="#request.messageReplyPc.hasNext==true">
-		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.nextPage"/>,<s:property value="#request.messageReplyCount"/>)">Next</a></li>
-		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.totalPages"/>,<s:property value="#request.messageReplyCount"/>)">Last</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.nextPage"/>,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">Next</a></li>
+		<li><a href="javascript:void(0)" onclick="messageTurnPage(<s:property value="#request.messageReplyPc.totalPages"/>,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">Last</a></li>
 	</s:if>
 	<s:else>
 		<li class='disableTurnPage'>Next</li>
@@ -88,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</s:else>
 	<s:if test="#request.messageReplyPc.totalPages>1">
 		<li style="width:90px;" >Jump:
-			<select style="float:right;" id="changePage" onchange="messageTurnPage(this.value,<s:property value="#request.messageReplyCount"/>)">
+			<select style="float:right;" id="changePage" onchange="messageTurnPage(this.value,<s:property value="#request.messageReplyCount"/>,'<s:property value="#request.type"/>')">
 				<s:iterator var="index" begin="1" end="#request.messageReplyPc.totalPages">
 					<s:if test="#request.messageReplyPc.currentPage==#index">
 						<option selected="selected">

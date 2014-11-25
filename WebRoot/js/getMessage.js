@@ -71,8 +71,13 @@ function deleteMessage(replyId){
 };
 
 //翻页
-function messageTurnPage(toPageM,countM){
-	window.location.href="/YearBook/user/getMessage_execute?toPage="+toPageM+"&count="+countM;
+function messageTurnPage(toPageM,countM,type){
+	window.location.href="/YearBook/user/getMessage_execute?toPage="+toPageM+"&count="+countM+"&type="+type;
+};
+
+//selectType
+function changeType(type){
+	window.location.href="/YearBook/user/getMessage_execute??type="+type;
 };
 
 //先加载一次 
