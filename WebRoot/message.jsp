@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- 翻页 -->
 <s:if test="#request.messageReplyCount>0">
-<ul style=" padding:0px;margin-left:15px;">
+<ul style=" padding:0px;margin-left:15px; font-size:18px;">
 	<li style="margin-left:0px;">Page:<s:property value="#request.messageReplyPc.currentPage" />/<s:property value="#request.messageReplyPc.totalPages" />
 	<s:if test="#request.messageReplyPc.hasPrevious==true">
 		<li><a href="javascript:void(0)" onclick="messageTurnPage(1,<s:property value="#request.messageReplyCount"/>)">First</a></li>
