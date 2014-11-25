@@ -22,7 +22,7 @@
 				atFriendName = "";
 				//记录@的位置
 				atIndex = cursorPos;
-				$("#friendTips"+photoId).html("<center style='font-family:  Calibri,  sans-serif;'>Who do you want to at?</center>");
+				$("#friendTips"+photoId).html("<center style='font-family:  Calibri,  sans-serif;'>Who do you want to mention?</center>");
 				$("#friendTips"+photoId).css("display","block");
 			}
 			if(searchFriendNameStatus==1){
@@ -92,7 +92,7 @@
 						dataType:'json', 
 						success:function (json) {
 							if(json.error==undefined && json.length>0){
-								$("#friendTips"+photoId).html("<center style='font-family:  Calibri,  sans-serif;'>Please choose your follow</center>");
+								$("#friendTips"+photoId).html("<center style='font-family:  Calibri,  sans-serif;'>Please choose from the following</center>");
 								$("#friendTips"+photoId).css("display","block");
 								//重置选择INDEX
 								selectIndex = 0;

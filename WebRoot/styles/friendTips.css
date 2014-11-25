@@ -5,8 +5,8 @@
 	background-color: #fff;
 	z-index:9999;
 	display: none;
-	width: 200px;
-	margin: 72px 0px 0px 193px;
+	width: 225px;
+	margin: 72px 0px 0px 167px;
 	position:absolute;
 	/* padding: 10px 5px 15px 20px; */
 }
@@ -24,8 +24,8 @@
 	background-color: #fff;
 	z-index:9999;
 	display: none;
-	width: 198px;
-	margin: 24px 0px 0px 160px;
+	width: 225px;
+	margin: 24px 0px 0px 133px;
 	position:absolute;
 	/* padding: 10px 5px 15px 20px; */
 }
