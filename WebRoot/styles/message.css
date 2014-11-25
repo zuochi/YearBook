@@ -3,16 +3,16 @@
 body{background-image:url(../images/background_main.png);
 
 }
-a { font-size:15px;
-	font-family:  Calibri,  sans-serif;
+a { font-size:12px;
+    font-family:"Microsoft Yahei";
 	color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
 }
 
 a:hover {
-	font-size:15px;
-	font-family:  Calibri,  sans-serif;
+	font-size:12px;
+	font-family:"Microsoft Yahei";
 	color: #000;
     text-decoration: none;
 }
@@ -29,9 +29,13 @@ a:hover {
     text-decoration: none;
 	
 }
+.fb{margin:0 auto;
+	width:100%;
+    height:100px;
+	margin-top:100px;
+}
 
-
-#M{width:500px;height:100%;margin:10px auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:30px 50px 50px 50px;}
+#M{width:500px;margin:10px auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:30px 50px 50px 50px;}
 
 .border_radius{border-radius:3px;color:#B00000;}
 h2{font-size:30px;text-shadow:1px 1px 3px #fff;  text-align:center;}
@@ -73,22 +77,7 @@ margin-left:23px;
 	height: 128px;
 	width: 220px;
 	}
-.fb{
-	height: 115px;
-	width: 205px;
-	margin-top:2px;
-	margin-left:5px;
-	border-top-width: 0px;
-	border-right-width: 0px;
-	border-bottom-width: 1px;
-	border-left-width: 0px;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	border-bottom-color: #384B4A;
-	background-color: transparent;
-	font-size: 14px;}
+
 .sent{
 	margin-left:100px;}
 .sent1{
@@ -143,7 +132,13 @@ ul>li {
 	display: inline-block;
 	width: 70px;
 }
-
+.message{
+	line-height:15px;
+	font-family:"Microsoft Yahei";
+	color:#000;
+    margin-top:5px;
+	font-size:11px;
+}
 
 a img {border:0;}
 
@@ -153,7 +148,7 @@ h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
 h1 span {font-size:12px;color:#696A52;}
 .p1{ font-size:6px; margin:5px 0px 0px 185px; color:#8f8f8f; }
 .p2{font-size:15px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-style: normal;}
-p{font-size:7px;}
+p{font-size:7px; font-family:"Calibri"; color:#8f8f8f; }
 
 /* comment style */
 .ds-post-main { position:relative;margin-bottom:20px; margin-top:10px;  width:100%;}
@@ -163,5 +158,5 @@ p{font-size:7px;}
 .ds-comment-body, .ds-avatar, .ds-avatar a,
 .ds-avatar img {-webkit-transition:.4s all ease-in-out;-moz-transition:.4s all ease-in-out;-o-transition:.4s all ease-in-out;-ms-transition:.4s all ease-in-out;transition:.4s all ease-in-out}
 .ds-post-main:hover .ds-avatar img {-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}
-.ds-comment-body {/*z-index:1*/;position:relative;left:0;background: #ffffff;padding:5px 5px 15px 35px;color:#696A52; border-radius:0px; box-shadow:2px 2px 3px rgba(0,0,0,.15), 0 1px 0 rgba(255,255,255,.75) inset;}
+.ds-comment-body {/*z-index:1*/;	font-family:  Calibri,  sans-serif;position:relative;left:0;background: #ffffff;padding:5px 5px 15px 35px;color:#696A52; border-radius:0px; box-shadow:2px 2px 3px rgba(0,0,0,.15), 0 1px 0 rgba(255,255,255,.75) inset;}
 	
