@@ -400,14 +400,14 @@ margin-top:8px;
 }
 
 .pinglun{ 
-	margin:10px 0 0 5px;
+	margin:10px 3px 0 7px;
 	float:right;
 	height:10px;
 	width:14px;
 	background-image:url(../images/comments_icon.png);
 }
 .pinglun:hover{
-	margin:10px 0 0 5px;
+	margin:10px 3px 0 7px;
     float:right;
 	height:10px;
 	width:14px;
