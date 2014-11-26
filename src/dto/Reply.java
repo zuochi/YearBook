@@ -1,5 +1,6 @@
 package dto;
 
+import java.lang.reflect.Field;
 import java.sql.Timestamp;
 
 import bean.AtNotify;
@@ -12,6 +13,7 @@ import bean.User;
 public class Reply {
 	private Integer id;
 	private Integer user_id;
+	private Integer photoOwnerId;
 	private String name;
 	private String url_m;
 	private Integer user_bid;
@@ -37,6 +39,30 @@ public class Reply {
 		this.status = status;
 		this.context = context;
 		this.signup_date = signup_date;
+	}
+
+	public Reply(Integer id, Integer user_id, Integer photoOwnerId,
+			String name, String url_m, Integer user_bid, Integer photo_bid,
+			Integer status, String context, Timestamp signup_date) {
+		super();
+		this.id = id;
+		this.user_id = user_id;
+		this.photoOwnerId = photoOwnerId;
+		this.name = name;
+		this.url_m = url_m;
+		this.user_bid = user_bid;
+		this.photo_bid = photo_bid;
+		this.status = status;
+		this.context = context;
+		this.signup_date = signup_date;
+	}
+	
+	public Integer getPhotoOwnerId() {
+		return photoOwnerId;
+	}
+
+	public void setPhotoOwnerId(Integer photoOwnerId) {
+		this.photoOwnerId = photoOwnerId;
 	}
 
 	public String getName() {
@@ -96,8 +122,10 @@ public class Reply {
 
 	@Override
 	public String toString() {
-		return "Reply [id=" + id + ", user_id=" + user_id + ", url_m=" + url_m
+		return "Reply [id=" + id + ", user_id=" + user_id + ", photoOwnerId="
+				+ photoOwnerId + ", name=" + name + ", url_m=" + url_m
 				+ ", user_bid=" + user_bid + ", photo_bid=" + photo_bid
-				+ ", context=" + context + ", signup_date=" + signup_date + "]";
+				+ ", status=" + status + ", context=" + context
+				+ ", signup_date=" + signup_date + "]";
 	}
 }

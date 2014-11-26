@@ -1,5 +1,6 @@
 package dao;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
@@ -11,10 +12,13 @@ import java.util.Properties;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 import org.springframework.transaction.annotation.Transactional;
+
+import dto.Reply;
 
 import bean.PhotoAlbum;
 import bean.User;
@@ -624,7 +628,13 @@ public class DaoImpl<E> implements Dao {
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
-				list =  session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
+				SQLQuery sqlQuery = session.createSQLQuery(sql);
+				/*if(object instanceof dto.Reply){
+					for(Field field:object.getClass().getDeclaredFields()){
+						sqlQuery.addScalar(field.getName());
+					}
+				}*/
+				list = sqlQuery.setResultTransformer(Transformers.aliasToBean(object.getClass())).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
 			}else{
 				list = session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).list();
 			}
