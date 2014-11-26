@@ -41,31 +41,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
  <!--以下为收到的评论与对应评论的人的头像-->
  <br/>
- <div align="center">
+ <div align="center" style="margin-left:25px;">
 
  <s:if test="#request.type=='photo'">
   	<span class="selected">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCounts"/>)</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;" href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCounts"/>)</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='replyMe'">
  	Reply me&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a href="javascript:void(0)"  onclick="changeType('replyMe')">Reply me</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('replyMe')">Reply me</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='mentionMe'">
   	Mention me&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='bbs'">
   	BBS's reply&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a href="javascript:void(0)"  onclick="changeType('bbs')">BBS's reply</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('bbs')">BBS's reply</a>&nbsp;&nbsp;
  </s:else>
  <br/></div>
  <div style=" float:top;margin:10px 0 10px 0;position:relative;border-bottom:1px dashed #8f8f8f;"></div>
