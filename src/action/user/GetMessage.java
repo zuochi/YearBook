@@ -47,6 +47,10 @@ public class GetMessage extends UserAction{
 		return "message";
 	}
 
+	public String getMentionMeByPerPage(){
+		return type;
+	}
+	
 	public String getPhotoReplysByPerPage(){
 		user = (User) request.getSession().getAttribute("user");
 		try {

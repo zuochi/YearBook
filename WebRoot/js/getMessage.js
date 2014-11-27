@@ -71,7 +71,9 @@ function showPhotoReplys(toPageM,countM){
 				if(json.error==undefined){
 					for(var i=0; i<json.length; i++){
 						$("#photoReplyDiv").append(
+							//json[i].status+
 							"<div id='replyBody"+json[i].id+"' class='ds-post-main'>"+
+							//json[i].photo_bid+
 							"<div class='ds-avatar'>"+
 								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
 							"</div>"+
