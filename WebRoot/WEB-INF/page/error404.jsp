@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <center>
-    <img src="<%=basePath %>/images/error404.jpg"/>
+    <img src="<%=basePath %>images/error404.jpg"/>
     </center>
   </body>
 </html>
