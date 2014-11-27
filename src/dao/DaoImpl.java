@@ -629,11 +629,11 @@ public class DaoImpl<E> implements Dao {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
 				SQLQuery sqlQuery = session.createSQLQuery(sql);
-				/*if(object instanceof dto.Reply){
+				if(object instanceof dto.Message){
 					for(Field field:object.getClass().getDeclaredFields()){
 						sqlQuery.addScalar(field.getName());
 					}
-				}*/
+				}
 				list = sqlQuery.setResultTransformer(Transformers.aliasToBean(object.getClass())).setFirstResult(pc.getPageStartRow()).setMaxResults(pc.getPageSize()).list();
 			}else{
 				list = session.createSQLQuery(sql).setResultTransformer(Transformers.aliasToBean(object.getClass())).list();

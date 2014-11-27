@@ -97,7 +97,7 @@ function getPhotosByPerPage(isNew){
 							"<div id='comment"+json[i].id+"' class='text2'>"+
 							"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:200px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
 							"<textarea style='margin-left:7px;word-break:break-all;resize: none;' rows='3' cols='52'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'></textarea>"+
-							"<input style='position:absolute; left:342px;top:70px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+")'/><br>"+
+							"<input style='position:absolute; left:342px;top:70px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+","+$("#userId").val()+")'/><br>"+
 							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 							"<div align='left' style='margin:3px 0 0 7px;'>" +
@@ -131,7 +131,7 @@ function getPhotosByPerPage(isNew){
 };
 
 //评论
-function comment(userBid,photoBid){
+function comment(userBid,photoBid,photoOwnerId){
 	var reply = $("#reply"+photoBid).val();
 	if(reply.length<1 || reply.length>80){
 		alert("reply at least 1 in length,and max at 80.");
@@ -144,7 +144,7 @@ function comment(userBid,photoBid){
 	$.ajax({
 		url:'/YearBook/user/doReply_execute',
 		type:'post',
-        data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply,
+        data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply+"&photo.user.id="+photoOwnerId,
         async:false,
 		success:function (context) {
 			if(context.error == undefined){

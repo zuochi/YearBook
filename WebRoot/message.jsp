@@ -49,12 +49,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <s:else>
  	<a style="font-size:15px;" href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCounts"/>)</a>&nbsp;&nbsp;
  </s:else>
- <s:if test="#request.type=='replyMe'">
- 	Reply me&nbsp;&nbsp;
- </s:if>
- <s:else>
- 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('replyMe')">Reply me</a>&nbsp;&nbsp;
- </s:else>
  <s:if test="#request.type=='mentionMe'">
   	Mention me&nbsp;&nbsp;
  </s:if>
@@ -140,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--反馈版块-->
 <div class="fb">
      
-  <h2><span style="font-size:25px;color:#000; text-align:center; margin-right:10px;margin-top:-10px;"class="css-emoticon animated-emoticon">   ?-)</span>FEEDBACK</h2>
+  <h2><span style="font-size:25px;color:#000; text-align:center; margin-right:10px;margin-top:-10px;"class="css-emoticon animated-emoticon">?-)</span>FEEDBACK</h2>
   <h3>please contact us if you have any questions</h3> 
   <h3>yearbook@soy.com</h3>
  </div>

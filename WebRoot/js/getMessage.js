@@ -7,7 +7,7 @@ function showReplyFrame(elementId,nickName){
 };
 
 //回复
-function comment(userBid,replyId,photoBid,nickName){
+function comment(userBid,replyId,photoBid,nickName,photoOwnerId){
 	var reply = $("#reply"+replyId).val();
 	if(reply.length<1 || reply.length>80){
 		alert("reply at least 1 in length,and max at 80.");
@@ -20,7 +20,7 @@ function comment(userBid,replyId,photoBid,nickName){
 	$.ajax({
 		url:'/YearBook/user/doReply_execute',
 		type:'post',
-        data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply,
+        data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply+"&photo.user.id="+photoOwnerId,
         async:false,
 		success:function (context) {
 			if(context.error == undefined){
@@ -84,7 +84,7 @@ function showPhotoReplys(toPageM,countM){
 								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
 								"<div id='Freply"+json[i].id+"' style='display:none'>"+
 										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'/>"+
-										"<input type='button' value='reply' onclick='comment("+json[i].user_id+","+json[i].id+","+json[i].photo_bid+",\""+json[i].name+"\")'/>"+
+										"<input type='button' value='reply' onclick='comment("+json[i].user_id+","+json[i].id+","+json[i].photo_bid+",\""+json[i].name+"\","+json[i].photoOwnerId+")'/>"+
 								"</div>"+
 						"</div>"
 						);

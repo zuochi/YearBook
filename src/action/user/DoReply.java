@@ -105,10 +105,9 @@ public class DoReply extends UserAction{
 										continue;
 									}
 								}
-								/*if(photo.getUser().getId()!=friend.getId().intValue()){
-									//还差这个
-								}*/
-								followSet.add(friend);
+								if(photo.getUser().getId()!=friend.getId().intValue()){
+									followSet.add(friend);
+								}
 							}
 						}else{
 							replyStringBuilder.append("@" + friendsListMiddle[j]);
