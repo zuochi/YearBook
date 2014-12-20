@@ -40,6 +40,11 @@
                 <comment>上传日期</comment>
             </column>
         </property>
+        <property name="isAccusation" type="java.lang.Integer">
+            <column name="is_accusation">
+                <comment>0:未举报 1:被举报</comment>
+            </column>
+        </property>
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete">
                 <comment>0:未删除 1:已删除</comment>
