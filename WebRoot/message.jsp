@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
 <style type="text/css">
 	.selected{
-	
+		
 	}
 </style>
 </head>
@@ -31,6 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		response.sendRedirect("/YearBook/user/autoLogin_execute");
 	}
 %>
+<input id="typeM" type="hidden" value="<s:property value="#request.type" />"/>
 <input id="pageM" type="hidden" value="<s:property value="#request.messageReplyPc.currentPage" />"/>
 <input id="countM" type="hidden" value="<s:property value="#request.messageReplyCount" />"/>
 <div id="M">
@@ -47,13 +48,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<span class="selected">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a style="font-size:15px;" href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCounts"/>)</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;" href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='mentionMe'">
-  	Mention me&nbsp;&nbsp;
+ 	<span class="selected">Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='bbs'">
   	BBS's reply&nbsp;&nbsp;
