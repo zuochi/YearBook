@@ -125,6 +125,7 @@ public class PhotoUpload extends UserAction{
 		photo.setUrl("uploadImgs/"+file.getName());
 		photo.setUploadDate(new Timestamp(System.currentTimeMillis()));
 		photo.setUser(user);
+		photo.setIsAccusation(0);
 		photo.setIsDelete(0);
 		//photo.setPhotoAlbum(photoAlbum);
 		service.saveObject(photo);

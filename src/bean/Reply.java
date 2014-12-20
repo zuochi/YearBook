@@ -20,6 +20,7 @@ public class Reply implements java.io.Serializable {
 	private String context;
 	private Timestamp signupDate;
 	private Integer status;
+	private Integer isAccusation;
 	private Integer isDelete;
 
 	// Constructors
@@ -39,9 +40,11 @@ public class Reply implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Reply(User userByUserId, Bbs bbs, PrivateLetter privateLetter,
-			User userByUserBid, Photo photo, String context, Timestamp signupDate,
-			Integer status, Integer isDelete) {
+	public Reply(Integer id, User userByUserId, Bbs bbs,
+			PrivateLetter privateLetter, User userByUserBid, Photo photo,
+			String context, Timestamp signupDate, Integer status,
+			Integer isAccusation, Integer isDelete) {
+		this.id = id;
 		this.userByUserId = userByUserId;
 		this.bbs = bbs;
 		this.privateLetter = privateLetter;
@@ -50,6 +53,7 @@ public class Reply implements java.io.Serializable {
 		this.context = context;
 		this.signupDate = signupDate;
 		this.status = status;
+		this.isAccusation = isAccusation;
 		this.isDelete = isDelete;
 	}
 
@@ -133,6 +137,14 @@ public class Reply implements java.io.Serializable {
 
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
+	}
+
+	public Integer getIsAccusation() {
+		return isAccusation;
+	}
+
+	public void setIsAccusation(Integer isAccusation) {
+		this.isAccusation = isAccusation;
 	}
 
 }

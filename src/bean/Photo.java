@@ -19,6 +19,7 @@ public class Photo implements java.io.Serializable {
 	private String url;
 	private String urlThumb;
 	private Timestamp uploadDate;
+	private Integer isAccusation;
 	private Integer isDelete;
 	private Set replies = new HashSet(0);
 	private Set IWantTops = new HashSet(0);
@@ -39,17 +40,20 @@ public class Photo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Photo(User user, PhotoAlbum photoAlbum, String name, String url,String urlThumb,
-			Timestamp uploadDate, Integer isDelete, Set replies, Set IWantTops) {
+	public Photo(Integer id, User user, PhotoAlbum photoAlbum, String name,
+			String url, String urlThumb, Timestamp uploadDate,
+			Integer isAccusation, Integer isDelete, Set replies, Set iWantTops) {
+		this.id = id;
 		this.user = user;
 		this.photoAlbum = photoAlbum;
 		this.name = name;
 		this.url = url;
 		this.urlThumb = urlThumb;
 		this.uploadDate = uploadDate;
+		this.isAccusation = isAccusation;
 		this.isDelete = isDelete;
 		this.replies = replies;
-		this.IWantTops = IWantTops;
+		IWantTops = iWantTops;
 	}
 
 	// Property accessors
@@ -132,6 +136,14 @@ public class Photo implements java.io.Serializable {
 
 	public void setIWantTops(Set IWantTops) {
 		this.IWantTops = IWantTops;
+	}
+
+	public Integer getIsAccusation() {
+		return isAccusation;
+	}
+
+	public void setIsAccusation(Integer isAccusation) {
+		this.isAccusation = isAccusation;
 	}
 
 }

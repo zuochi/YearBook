@@ -41,6 +41,7 @@ public class DoReply extends UserAction{
 		reply.setSignupDate(new Timestamp(System.currentTimeMillis()));
 		reply.setStatus(0);
 		reply.setIsDelete(0);
+		reply.setIsAccusation(0);
 		
 		out = response.getWriter();
 		
