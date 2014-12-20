@@ -51,6 +51,10 @@ public class GetMessage extends UserAction{
 		return type;
 	}
 	
+	/**
+	 * 获取图片评论
+	 * @return String
+	 */
 	public String getPhotoReplysByPerPage(){
 		user = (User) request.getSession().getAttribute("user");
 		try {
