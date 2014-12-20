@@ -1,8 +1,5 @@
 package dto;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * PhotoAlbum entity. @author MyEclipse Persistence Tools
  */

@@ -1,14 +1,6 @@
 package dto;
 
-import java.lang.reflect.Field;
 import java.sql.Timestamp;
-
-import bean.AtNotify;
-import bean.Bbs;
-import bean.HeadPhoto;
-import bean.Photo;
-import bean.PrivateLetter;
-import bean.User;
 
 public class Reply {
 	private Integer id;

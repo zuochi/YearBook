@@ -22,6 +22,7 @@ public class Photo implements java.io.Serializable {
 	private String url;
 	private String urlThumb;
 	private Timestamp uploadDate;
+	private Integer isAccusation;
 	private Integer isDelete;
 
 	// Constructors
@@ -40,15 +41,17 @@ public class Photo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Photo(Integer id,Integer userId, Integer photoAlbumId, String name, String url,String urlThumb,
-			Timestamp uploadDate,Integer isDelete) {
-		this.id=id;
+	public Photo(Integer id, Integer userId, Integer photoAlbumId, String name,
+			String url, String urlThumb, Timestamp uploadDate,
+			Integer isAccusation, Integer isDelete) {
+		this.id = id;
 		this.userId = userId;
 		this.photoAlbumId = photoAlbumId;
 		this.name = name;
 		this.url = url;
 		this.urlThumb = urlThumb;
 		this.uploadDate = uploadDate;
+		this.isAccusation = isAccusation;
 		this.isDelete = isDelete;
 	}
 
@@ -157,4 +160,13 @@ public class Photo implements java.io.Serializable {
 	public void setIs_delete(Integer isDelete) {
 		this.isDelete = isDelete;
 	}
+
+	public Integer getIs_accusation() {
+		return isAccusation;
+	}
+
+	public void setIs_accusation(Integer isAccusation) {
+		this.isAccusation = isAccusation;
+	}
+	
 }
