@@ -12,6 +12,7 @@ public class Reply {
 	private Integer photo_bid;
 	private Integer status;
 	private String context;
+	private Integer is_accusation;
 	private Timestamp signup_date;
 	
 	public Reply() {
@@ -110,6 +111,14 @@ public class Reply {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getIs_accusation() {
+		return is_accusation;
+	}
+
+	public void setIs_accusation(Integer is_accusation) {
+		this.is_accusation = is_accusation;
 	}
 
 	@Override

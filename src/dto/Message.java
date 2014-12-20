@@ -12,43 +12,9 @@ public class Message {
 	private Integer photo_bid;
 	private Integer status;
 	private String context;
+	private Integer is_accusation;
 	private Timestamp signup_date;
-	
-	public Message() {
-		super();
-	}
 
-	public Message(Integer id, Integer user_id, String name, String url_m,
-			Integer user_bid, Integer photo_bid, Integer status,
-			String context, Timestamp signup_date) {
-		super();
-		this.id = id;
-		this.user_id = user_id;
-		this.name = name;
-		this.url_m = url_m;
-		this.user_bid = user_bid;
-		this.photo_bid = photo_bid;
-		this.status = status;
-		this.context = context;
-		this.signup_date = signup_date;
-	}
-
-	public Message(Integer id, Integer user_id, Integer photoOwnerId,
-			String name, String url_m, Integer user_bid, Integer photo_bid,
-			Integer status, String context, Timestamp signup_date) {
-		super();
-		this.id = id;
-		this.user_id = user_id;
-		this.photoOwnerId = photoOwnerId;
-		this.name = name;
-		this.url_m = url_m;
-		this.user_bid = user_bid;
-		this.photo_bid = photo_bid;
-		this.status = status;
-		this.context = context;
-		this.signup_date = signup_date;
-	}
-	
 	public Integer getPhotoOwnerId() {
 		return photoOwnerId;
 	}
@@ -110,6 +76,14 @@ public class Message {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getIs_accusation() {
+		return is_accusation;
+	}
+
+	public void setIs_accusation(Integer is_accusation) {
+		this.is_accusation = is_accusation;
 	}
 
 	@Override
