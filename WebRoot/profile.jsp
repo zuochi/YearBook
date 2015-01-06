@@ -59,7 +59,7 @@
 		<div id="option">
 				
 				<select style="font-size:16px;" name="user.schoolYear.id" id="select3">
-				<option value="">School year&nbsp;
+				<option value="">School year&nbsp;&nbsp;
 				</option>
 				<s:iterator value="#request.schoolYears" id="o">
 					<option
@@ -74,7 +74,7 @@
 			
 			<select style="font-size:16px;" name="user.profession.id" id="select"
 				tabindex="2">
-				<option value="">Profession
+				<option value="">Profession&nbsp;&nbsp;
 </option>
 				<s:iterator value="#request.professions" id="o">
 					<option
@@ -88,7 +88,7 @@
 			</select>
 			
 			<select style="font-size:16px;" name="user.sex" id="select2">
-				<option value="">Gender
+				<option value="">Gender&nbsp;&nbsp;
 					&nbsp;</option>
 				<option
 					<s:if test="#session.user.sex==1">

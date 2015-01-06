@@ -74,8 +74,8 @@
 <img src="images/yingyu.png" alt="" width="90" height="90" />&nbsp;&nbsp;
 <div class="shake"><a href="mainPage_guanli.jsp" target="main"><img src="images/guanli.jpg" alt="" width="90" height="90" /> </a>   </div>&nbsp;&nbsp;
 <div class="shake"><a href="mainPage_dongyu.jsp" target="main"><img src="images/dongyu.jpg" alt="" width="90" height="90" /> </a>   </div> &nbsp;&nbsp;
-<div class="shake"><a href="mainPage_jinrong.jsp" target="main"><img src="images/jinrong.jpg" alt="" width="90" height="90" /></a> </div>&nbsp;&nbsp;
 <div class="shake"><a href="mainPage_zhongwen.jsp" target="main"><img src="images/zhongwen.jpg" alt="" width="90" height="90" /> </a> </div>&nbsp;&nbsp;
+<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
 <img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
 <img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
 <img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
