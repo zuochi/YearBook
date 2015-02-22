@@ -31,6 +31,23 @@
 <%
 	}
 %>
+
+<!-- top -->
+<div id="menu">
+<p>Please Sign In or Resgister</p>
+<div class="center">
+<p>Home</p>
+<p>Profile</p>
+<p>Post</p>
+<img style="float:left" src="images/logo.png" alt="" width="120"	height="80"  />
+<p>Message</p>
+<p>Feedback</p>
+<p>Exit</p>
+
+</div>
+
+
+</div>
 	<!--滚动图-->
 
 	  <div class="hero">
@@ -50,14 +67,14 @@
                 <img src="img/test5.jpg">
             </div> -->
 
-      
+      <!-- 
                 <div class="container">
                 <div class="tagline">
-                    <h3>Tips:</h3>
+                    <h3>Welcome:</h3>
                     <p>Show your Pic here <br> Click the top nearby your photos.</p>
                 </div>
                 
-            </div>
+            </div> -->
            
            
         </div>
