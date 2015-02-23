@@ -24,6 +24,7 @@
 	<br />
 	<div id="loginbg"></div>
 	<div id="login" style="display:none;">
+	<img src="images/denglu.png" alt="" width="200"	height="300" style="position: absolute;z-index:-1;">
 		<h2>
 			<input id="close_login" type="button" title="退出登录" value="x"
 				onclick="close_login()" />
@@ -49,7 +50,7 @@
 			</div>
 			<div>
 				<input id="fnlogin" type="button" onclick="loginCheck()"
-					style="color:#FFF" value="Log In" />
+					style="color:#FFF" value="Sign in" />
 			</div>
 		</form>
 	</div>

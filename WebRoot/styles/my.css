@@ -39,9 +39,8 @@ margin-bottom:0px;
 	left: 40%;
 	width: 200px;
 	z-index: 201;
-	background-image: url(images/denglu.png);
 	background-repeat: no-repeat;
-	height: 279px;
+	height: 300px;
 	background-position: center top;
 }
 
@@ -51,7 +50,7 @@ margin-bottom:0px;
 	float: right;
 	border: none;
 	cursor: pointer;
-	margin: 2px 6px 0 0;
+	margin: 10px 15px 0 0;
 }
 
 
@@ -66,14 +65,14 @@ margin-bottom:0px;
 	border-left-style: none;
 	border-bottom-color: #000000;
 	background-color: transparent;
-    margin-top:31px;
-	margin-left: 59px;
+    margin-top:7px;
+	margin-left: 55px;
 }
 
 #password {
 
-	margin-top: 1px;
-	margin-left: 55px;
+	margin-top:8px;
+	margin-left: 50px;
 }
 
 
@@ -84,12 +83,13 @@ margin-bottom:0px;
 	border: none;
 	width: 100px;
 	background-image: url(images/login2.png);
-	margin-top: 10px;
+	margin-top: 40px;
 	margin-left: 55px;
 }
 
 #reme {
-	margin-top: 55px;
+	color:#fff;
+	padding-top: 60px;
 	margin-left:70px;
 }
 
@@ -113,9 +113,8 @@ margin-bottom:0px;
 	left: 40%;
 	width: 200px;
 	z-index: 201;
-	background-image: url(images/zhuce.png);
 	background-repeat: no-repeat;
-	height: 279px;
+	height:300px;
 	background-position: center top;
 }
 
@@ -125,7 +124,7 @@ margin-bottom:0px;
 	float: right;
 	border: none;
 	cursor: pointer;
-	margin: 2px 6px 0 0;
+	margin: 5px 10px 0 0;
 }
 
 #username1 {
@@ -139,20 +138,20 @@ margin-bottom:0px;
 	border-left-style: none;
 	border-bottom-color: #384B4A;
 	background-color: transparent;
-	margin-top: 25px;
-	margin-left: 61px;
+	padding-top: 13px;
+	padding-left:55px;
 }
 
 #password1 {
 	
-	margin-top: 17px;
-	margin-left: 57px;
+	margin-top: 22px;
+	margin-left: 50px;
 }
 
 #password2 {
 	
-	margin-top: 16px;
-	margin-left: 57px;
+	margin-top: 20px;
+	margin-left: 50px;
 }
 
 #register  div input#fnregister {
@@ -162,7 +161,7 @@ margin-bottom:0px;
 	border: none;
 	width: 100px;
 	background-image: url(images/login2.png);
-	margin-top: 30px;
+	margin-top: 45px;
 	margin-left: 55px;
 }
 
@@ -416,6 +415,7 @@ font-size: 16px;
 	border-bottom-style: none;
 	border-left-style: none;
 	outline:none;
+	color:#fff;
 }
 
 #Loginwarn{
@@ -435,7 +435,7 @@ margin-top:45px;
 	
 label{
 	height:20px;position:relative;margin-top:13px ;margin-left:5px;}
-span{position:absolute;float:left;line-height:20px;cursor:text;}
+span{position:absolute;float:left;line-height:20px;cursor:text; color:#fff}
 .input_txt{
 	border-top-style: none;
 	border-right-style: none;

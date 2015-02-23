@@ -23,6 +23,7 @@
 	<!--注册界面-->
 	<div id="registerbg"></div>
 	<div id="register" style="display:none;">
+	<img src="images/zhuce.png" alt="" width="200"	height="300" style="position: absolute;z-index:-1;">
 		<h1>
 			<input id="close_register" type="button" title="退出注册" value="x"
 				onclick="close_register()" />
@@ -54,11 +55,12 @@
 			<!--注册按钮-->
 			<div>
 				<input id="fnregister" type="button" onclick="registerCheck()"
-					style="color:#FFF" value="Sign Up" />
+					style="color:#fff" value="Sign up" />
 			</div>
 			<s:token></s:token>
 		</form>
-	</div>
+		</div>
+
  <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/my.js"></script>
 </body>
