@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="styles/styles.css" type="text/css">
 <link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css">
         
-
+<jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />
 <title>Year Book </title>
 </head>
@@ -33,21 +33,7 @@
 %>
 
 <!-- top -->
-<div id="menu">
-<p>Please Sign In or Resgister</p>
-<div class="center">
-<p>Home</p>
-<p>Profile</p>
-<p>Post</p>
-<img style="float:left" src="images/logo.png" alt="" width="120"	height="80"  />
-<p>Message</p>
-<p>Feedback</p>
-<p>Exit</p>
 
-</div>
-
-
-</div>
 	<!--滚动图-->
 
 	  <div class="hero">
@@ -167,7 +153,8 @@
 		<div style="clear:both; height: 40px"></div>
 	</div></div>
 	<!-- END container -->
-
+	
+	
 	<jsp:include page="User_login.jsp" />
 	<jsp:include page="User_register.jsp" />
 	
