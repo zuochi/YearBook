@@ -105,7 +105,7 @@ public class GetMessage extends UserAction{
 				out.print("fail");
 			}else{
 				//使用数据转换类
-				List<dto.Message> messages = service.getDtoObjectsBySql("select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status from reply r,user u,photo ph LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"") +" and r.user_id!="+user.getId()+" and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) order by r.signup_date desc", pc,new dto.Message());
+				List<dto.Message> messages = service.getDtoObjectsBySql("select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status from reply r,photo ph,user u LEFT JOIN head_photo p on p.is_delete=0 and p.id=u.head_photo_id where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"") +" and r.user_id!="+user.getId()+" and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) group by r.id order by r.signup_date desc", pc,new dto.Message());
 				JSONArray json = JSONArray.fromObject(messages);
 				out = response.getWriter();
 				out.print(json);
