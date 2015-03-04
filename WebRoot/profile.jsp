@@ -20,6 +20,8 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link href="styles/profile.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
+<jsp:include page="guide.jsp" />
 </head>
 <body>
 	<%

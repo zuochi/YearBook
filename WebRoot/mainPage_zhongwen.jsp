@@ -12,8 +12,9 @@
 <link href="styles/reset.css" rel="stylesheet"  type="text/css">
 <link rel="stylesheet" href="styles/styles.css" type="text/css">
 <link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css">
+<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
         
-
+<jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />
 <title>IT </title>
 </head>

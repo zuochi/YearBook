@@ -19,6 +19,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="styles/message.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
+<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
+
+<jsp:include page="guide.jsp" />
 <style type="text/css">
 	.selected{
 		

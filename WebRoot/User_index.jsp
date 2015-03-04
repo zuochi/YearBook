@@ -20,8 +20,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
 		<link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
 		<link rel="stylesheet" type="text/css" href="styles/showLoading.css" />
+		<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-
+<jsp:include page="guide.jsp" />
 </head>
 <body>
 <%
