@@ -185,7 +185,7 @@ function registerCheck() {
 	         success:function (msg) {
 	        	if(msg=="success"){
 	        		$("#Signwarn").html("signup success,now loging.");
-	        		window.parent.left.location.reload();
+	        		window.location.href="index.jsp";
 	        		close_register();
 	        	}else{
 	        		$("#Signwarn").html(msg);
@@ -251,10 +251,10 @@ function loginCheck() {
          success:function (msg) {
         	if(msg=="success"){
         		$("#Loginwarn").html("login success.");
-        		window.parent.left.location.reload();
+        		window.location.href="index.jsp";
         		close_login();
         	}else{
-        		$("#Loginwarn").html("ID or Password incorrect.");
+        		$("#Loginwarn").html("ID or PW incorrect.");
         	}
          }
 	 });

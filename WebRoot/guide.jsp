@@ -7,17 +7,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <!-- 顶部菜单栏 -->
 <div id="menu">
-<p>Please Sign In or Resgister</p>
+<p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign</a> In or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p>
 <div class="center">
-<p>Home</p>
-<p>Profile</p>
-<p>Post</p>
+<p><a href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
 <img style="float:left" src="images/logo.png" alt="" width="120"	height="80"  />
-<p>Message</p>
-<p>Feedback</p>
-<p>Exit</p>
+<p><a href="javascript:void(0)" onclick="goUrl(7)">Message</a></p>
+<p><a href="javascript:void(0)" >Feedback</a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(8)">Exit</a></p>
 
 </div>
-
-
 </div>
+<script type="text/javascript" src="js/goUrl.js"></script>

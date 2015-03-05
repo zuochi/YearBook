@@ -1,31 +1,31 @@
 function goUrl(type){
 	if(type==1){
-		window.parent.main.location.href="User_headPhotoUpload.jsp";
+		window.location.href="User_headPhotoUpload.jsp";
 	}else if(type==2){
-		window.parent.main.location.href="/YearBook/user/getProfiles_execute";
+		window.location.href="/YearBook/user/getProfiles_execute";
 	}else if(type==3){
-		window.parent.main.location.href="mainPage.jsp";
+		window.location.href="index.jsp";
 	}
 	/* if(type==4){
 		//window.parent.main.location.href="/YearBook/user/getSocial_getFriendByPerPage?user.id=<s:property value='#session.user.id'/>";
 		window.parent.main.location.href="friend.jsp";
 	} */
 	else if(type==4){
-		window.parent.main.location.href="friend.jsp?type=following";
+		window.location.href="friend.jsp?type=following";
 	}else if(type==5){
-		window.parent.main.location.href="/YearBook/user/getMyPost_execute";
+		window.location.href="/YearBook/user/getMyPost_execute";
 	}else if(type==6){
-		window.parent.main.location.href="bbs.jsp";
+		window.location.href="bbs.jsp";
 	}else if(type==7){
-		window.parent.main.location.href="/YearBook/user/getMessage_execute?type=photo";
+		window.location.href="/YearBook/user/getMessage_execute?type=photo";
 	}else if(type==8){
-		window.parent.location.href="/YearBook/user/logout_execute";
+		window.location.href="/YearBook/user/logout_execute";
 	}else if(type==9){
-		window.parent.main.location.href="/YearBook/user/autoLogin_execute";
+		window.location.href="/YearBook/user/autoLogin_execute";
 	}else if(type==10){
-		window.parent.main.location.href="mainPage.jsp?type=signup";
+		window.location.href="index.jsp?type=signup";
 	}else if(type==11){
-		window.parent.main.location.href="friend.jsp?type=followers";
+		window.location.href="friend.jsp?type=followers";
 	}
 };
 

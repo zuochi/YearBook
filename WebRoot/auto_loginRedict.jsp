@@ -17,9 +17,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<script type="text/javascript">
-  	window.parent.left.location.reload();
-  	window.location.href="/YearBook/mainPage.jsp";
-  </script>
+  	/* window.parent.left.location.reload(); */
+  	//window.location.reload(true);
+  	window.location.href="/YearBook/index.jsp";
+  	//window.location.reload();
+  	</script>
   </head>
   
   <body>
