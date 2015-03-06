@@ -3,7 +3,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: normal;
 	font-family: verdana, tahoma, helvetica, arial, sans-serif, "宋体";
 	font-style: normal;
@@ -266,84 +266,6 @@ font-size: 16px;
 	margin-top: 15px;}
 
 
-#home a{
-	float: left;
-	width: 131px;
-	height: 35px;
-	margin-top: 10px;
-	display: block;
-   background-image: url(images/home.png);
-	background-repeat: no-repeat;
-}
-#home a:hover{
-	float: left;
-	margin-top: 10px;
-	width: 131px;
-	height: 35px;
-   background-image: url(images/home.jpg) ;
-	background-repeat: no-repeat;
-}
-#profile a{
-	float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-    display: block;
-	background-image: url(images/profile.png);
-	background-repeat: no-repeat;
-}
-#profile a:hover{float: left;
-	margin-top:3px;
-	width: 131px;
-	height:35px;
-	display: block;
-   background-image: url(images/profile.jpg);
-	background-repeat: no-repeat;
-}
-#friend a{
-	float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-    display: block;
-	background-image: url(images/friend.png);
-	background-repeat: no-repeat;
-}
-#friend a:hover{float: left;
-	margin-top:3px;
-	width: 131px;
-	height:35px;
-	display: block;
-   background-image: url(images/friend.jpg);
-	background-repeat: no-repeat;}
-#photo a{
-	float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-    display: block;
-	background-image: url(images/photo.png);
-	background-repeat: no-repeat;
-}
-#photo a:hover{float: left;
-	margin-top:3px;
-	width: 131px;
-	height:35px;
-	display: block;
-   background-image: url(images/photo.jpg);
-	background-repeat: no-repeat;
-}
-#message a {
-	
-	float: left;
-	margin-top:3px;
-	width: 131px;
-	height:35px;
-	display: block;
-	background-image: url(images/message.png);
-	background-repeat: no-repeat;
-	z-index:998;
-}
 .tishi{
 	
 	margin-top:168px;
@@ -362,50 +284,7 @@ font-size: 16px;
 	border-radius:50%;
 
 }
-#message a:hover{float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-	display: block;
-   background-image: url(images/message.jpg);
-	background-repeat: no-repeat;
-	z-index:998;
-}
-#bbs a{
-	float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-	display: block;
-	background-image: url(images/bbs.png);
-	background-repeat: no-repeat;
-}
-#bbs a:hover{float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-	display: block;
-   background-image: url(images/bbs.jpg);
-	background-repeat: no-repeat;
-}
-#exit a{
-	float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-	display: block;
-	background-image: url(images/exit.png);
-	background-repeat: no-repeat;
-}
-#exit a:hover{
-	float: left;
-	margin-top:3px;
-	width: 131px;
-	height: 35px;
-	display: block;
-   background-image: url(images/exit.jpg);
-	background-repeat: no-repeat;
-}
+
 .search_keyword{
 	width:110px;
     height:25px;

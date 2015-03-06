@@ -22,8 +22,8 @@ a {
 }
 
 a:hover {
-
-	color: #000;
+color:#DE4C1C;
+text-decoration: underline;
 }
 
 .container > header {

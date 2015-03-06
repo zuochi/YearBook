@@ -5,6 +5,7 @@ html, body {
   width: 100%;
   -webkit-font-smoothing: antialiased;
   font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }
+
 #menu{
 	width:100%;
 	background-color:#000;
@@ -15,6 +16,24 @@ html, body {
     z-index:11;
     position:fixed;		
 }
+.menu2{
+	width:277px;
+	height:90px;
+	float:left;
+	
+	}
+a { font-size:15px;
+	color:#dc6a4d ;
+	text-decoration: none;
+	outline: none;
+	
+}
+
+a:hover {
+	font-size:15px;
+	color:#dc6a4d ;
+    text-decoration: underline;
+}
 .center{
 	width:800px;
 	height:90px;
@@ -22,13 +41,13 @@ html, body {
 	text-align: center;
 }
 #menu p{
-	padding:40px 27px 0 27px;
+	padding:20px 27px 0 27px;
 	float:left;
-	font-size:17px;
+	font-size:15px;
 	color:#fff;
 }
 #menu p:hover{
-	font-size:17px;
+	font-size:15px;
 	color:#fff;
-	text-decoration: underline;
+
 }

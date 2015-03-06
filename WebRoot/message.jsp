@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 
-<jsp:include page="guide.jsp" />
+
 <style type="text/css">
 	.selected{
 		
@@ -150,5 +150,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
 <script type="text/javascript" src="js/calculateDistanceTime.js" ></script>
 <script type="text/javascript" src="js/getMessage.js" ></script>
+<jsp:include page="guide.jsp" />
 </body>
 </html>
