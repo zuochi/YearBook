@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <!-- 顶部菜单栏 -->
 <div id="menu">
-<p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign</a> In or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p>
+<div class="menu2"><p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign In</a>  or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p></div>
 <div class="center">
 <p><a href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
