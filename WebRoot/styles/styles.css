@@ -4,7 +4,8 @@ html, body {
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
-  font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }
+font-family: verdana, tahoma, helvetica, arial, sans-serif, "宋体"; }
+
 #menu{
 	width:100%;
 	background-color:#000;
@@ -12,23 +13,36 @@ html, body {
 	filter:alpha(opacity=70); /*IE滤镜，透明度70%*/
     -moz-opacity:0.7; /*Firefox私有，透明度70%*/
     opacity:0.7;/*其他，透明度70%*/
-    z-index:11;
-    position:fixed;		
+    position:fixed;
+    z-index:3;		
+}
+
+a { font-size:15px;
+	color:#dc6a4d ;
+	text-decoration: none;
+	outline: none;
+	
+}
+
+a:hover {
+	font-size:15px;
+	color:#dc6a4d ;
+    text-decoration: underline;
 }
 .center{
-	width:800px;
+	width:835px;
 	height:90px;
 	margin:0 auto;
 	text-align: center;
 }
 #menu p{
-	padding:40px 27px 0 27px;
+	padding:40px 35px 0 35px;
 	float:left;
-	font-size:17px;
+	font-size:15px;
 	color:#fff;
 }
 #menu p:hover{
-	font-size:17px;
+	font-size:15px;
 	color:#fff;
 
 }

@@ -29,7 +29,7 @@
 			response.sendRedirect("/YearBook/user/autoLogin_execute");
 		}
 	%>
-	
+	<div style="height:100px; width:100%"></div>
 	<form class="border_radius" id="focus">
 		<input type="hidden" name="user.id" value="<s:property value="#session.user.id"/>" />
 		<input type="hidden" id="nameOld" name="nameOld" value="<s:property value="#session.user.name"/>" />
