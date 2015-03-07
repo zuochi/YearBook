@@ -34,6 +34,7 @@ body{
 </style>
 </head>
 <body>
+<jsp:include page="guide.jsp" />
 	<%
 		if (session.getAttribute("user") == null) {
 			response.sendRedirect("/YearBook/user/User_autoLogin");

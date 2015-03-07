@@ -6,12 +6,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!-- 左侧菜单栏 -->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
 <base href="<%=basePath%>">
-
-<title>My JSP 'guidance_left.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -24,10 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="styles/reset.css" rel="stylesheet"  type="text/css">
 
 <jsp:include page="styles/my.css" />
-</head>
-<%
-
-%>
 <body>
 	<!--左侧导航-->
 	<div id="container">
@@ -105,5 +96,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
 	<script type="text/javascript" src="js/my.js"></script>
-</body>
-</html>

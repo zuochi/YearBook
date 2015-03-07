@@ -43,21 +43,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<div style="width:100%;height:7%;background:#3ab6ae; ">
-
-<div class="top"><a href="Guanli_tupianshenhe.jsp">图片审核</a></div>
-<div class="top"><a href="Guanli_shouyegonggao.jsp" >首页公告</a></div>
-<div class="top2">评论管理</div>
-<div class="top"><a href="Guanli_tupianguanli.jsp" >图片管理</a></div>
-<div class="top"><a href="Guanli_bbs.jsp" >BBs管理</a></div>
-
-</div>
+<jsp:include page="/admin/Guanli_guidce.jsp"></jsp:include>
 <!-- class=main里面的内容为局部刷新内容，即每一个模块的布局都要写在main里面 -->
 <div class="main">
 
-
-<!-- 评论管理模块 -->
-评论管理
+<!-- bbs管理模块 -->
+bbs管理
 
 
 <div class="no">NO.1

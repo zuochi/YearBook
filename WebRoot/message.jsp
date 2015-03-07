@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 </head>
 <body>
+<jsp:include page="guide.jsp" />
 <%
 	if (session.getAttribute("user") == null) {
 		response.sendRedirect("/YearBook/user/autoLogin_execute");

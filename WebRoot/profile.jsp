@@ -21,9 +21,9 @@
 <meta http-equiv="description" content="This is my page">
 <link href="styles/profile.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
-<jsp:include page="guide.jsp" />
 </head>
 <body>
+<jsp:include page="guide.jsp" />
 	<%
 		if (session.getAttribute("user") == null) {
 			response.sendRedirect("/YearBook/user/autoLogin_execute");
