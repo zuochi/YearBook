@@ -18,7 +18,7 @@ font-family: verdana, tahoma, helvetica, arial, sans-serif, "宋体"; }
 }
 
 a { font-size:15px;
-	color:#dc6a4d ;
+	color:#3ab6ae ;
 	text-decoration: none;
 	outline: none;
 	
@@ -26,7 +26,7 @@ a { font-size:15px;
 
 a:hover {
 	font-size:15px;
-	color:#dc6a4d ;
+	color:#3ab6ae ;
     text-decoration: underline;
 }
 .center{
