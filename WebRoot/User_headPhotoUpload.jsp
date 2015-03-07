@@ -15,9 +15,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
+<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 <style type="text/css">
 h1 {
-	margin-top: 32px;
+	margin-top: 0px;
 	color: #234;
 	text-align: center;
 	text-shadow:1px 1px 3px #fff;
@@ -35,6 +36,7 @@ body{
 </head>
 <body>
 <jsp:include page="guide.jsp" />
+<div style="height:100px; width:100%"></div>
 	<%
 		if (session.getAttribute("user") == null) {
 			response.sendRedirect("/YearBook/user/User_autoLogin");
