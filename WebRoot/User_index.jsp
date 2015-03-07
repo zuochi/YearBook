@@ -36,10 +36,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="hidden" id="urlM" value="<s:property value="#session.user.headPhoto.urlM"/>"/>
 <input type="hidden" id="photoCountHidden" value="<s:property value="#request.photosCount"/>"/>
 <input type="hidden" id="basePath" value="<%=basePath%>"/>
+<div style="height:100px; width:100%"></div>
 <div class="top"> 
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
+
 		<div class="container">
 			<header class="clearfix">
 				<div class="prooo">
@@ -88,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br><br><br><br><br><br><br><br>
 				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
 						
-				
+			<div style="height:40px; width:100%"></div>	
 					<!-- 用户图片 -->
 			<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">

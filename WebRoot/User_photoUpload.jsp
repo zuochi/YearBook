@@ -16,10 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<link rel="stylesheet" type="text/css"
-	href="styles/webuploader.css" />
-<link rel="stylesheet" type="text/css"
-	href="styles/style_upload.css" />
+<link rel="stylesheet" type="text/css" href="styles/webuploader.css" />
+<link rel="stylesheet" type="text/css" href="styles/style_upload.css" />
+<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
+<jsp:include page="guide.jsp" />
 </head>
 <body>
 <%
@@ -27,6 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		response.sendRedirect("/YearBook/user/autoLogin_execute");
 	}
 %>
+<div style="height:100px; width:100%"></div>
 	<div id="wrapper">
 		<div id="container">
 			<!--头部，相册选择和格式选择-->
