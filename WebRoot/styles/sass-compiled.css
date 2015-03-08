@@ -11,7 +11,7 @@ a {	font-family:"Microsoft Yahei";
 	text-decoration: none;
 	outline: none;
 }
-p{line-height:16px;font-size:14px;;text-align:center;margin:0 auto;color:#fff;}
+p{line-height:16px;font-size:14px;;text-align:center;color:#fff;}
 a:hover{color:#000；	font-family:"Microsoft Yahei";}img{max-width:100%}.pull-right{float:right}.pull-left{float:left}
 header{padding:30px 20px;background-image:url(../images/background_main.png);background-repeat: repeat;color:#234;margin-bottom:0px;margin-left:30px;}
 .btn-download{background:rgba(24,42,60,0.92);color:rgba(124,142,160,0.92);padding:20px 50px;display:inline-block;-webkit-border-radius:5px;-moz-border-radius:5px;-o-border-radius:5px;-ms-border-radius:5px;border-radius:5px}

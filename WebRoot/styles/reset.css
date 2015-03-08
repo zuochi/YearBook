@@ -171,13 +171,13 @@ button:hover{text-decoration:none; color:#dc6a4d; cursor:pointer}
 .like_number{float:left;
 margin-left:42px;
 margin-top:17px;
-    font-size:7px;
+    font-size:12px;
 	hieght:7px;
 	width:30px;	
 }
 .likes_icon{
-margin:0 auto;
-height:40px;
+    margin:0 auto;
+    height:40px;
 	width:40px;
 	background-image:url(../images/likes_icon.png);			
 }
