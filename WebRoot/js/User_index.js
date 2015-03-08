@@ -86,18 +86,18 @@ function getPhotosByPerPage(isNew){
 								"</figure>"+
 								"<input id='bigPicUrl"+json[i].id+"' type='hidden' value='"+json[i].url+"'/>"+
 							"</li>"+
-							"<div id='photoOPE"+json[i].id+"'>"+
+							"<div id='photoOPE"+json[i].id+"'>"+"<div class='operate'>"+
 								"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='apply to post on Home Page.'></div>" +
 								"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='delete this Post.'></div>"+
-							"</div>"
+							"</div>"+"</div>"
 						);
 								
 						$("#photosUL2").append(
 							"<li value='"+json[i].id+"'>"+
 							"<div id='comment"+json[i].id+"' class='text2'>"+
-							"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:200px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
-							"<textarea style='margin-left:7px;word-break:break-all;resize: none;' rows='3' cols='52'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'></textarea>"+
-							"<input style='position:absolute; left:342px;top:70px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+","+$("#userId").val()+")'/><br>"+
+							"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:300px;margin:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
+							"<textarea style='margin-left:7px;word-break:break-all;resize: none;' rows='3' cols='60'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'></textarea>"+
+							"<input style='position:absolute; left:397px;top:75px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+","+$("#userId").val()+")'/><br>"+
 							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 							"<div align='left' style='margin:3px 0 0 7px;'>" +
@@ -310,7 +310,7 @@ function deletePhoto(photoId){
 				if(msg=="success"){   
 					photoCount = photoCount-1;
 					$("#picCountDiv").html(""+photoCount);
-					$("#photoOPE"+photoId).html("<div class='up' title='我要上首页'></div>"+"<div class='de' title='删除'></div>");
+					$("#photoOPE"+photoId).html("<div class='operate'>"+"<div class='up' title='我要上首页'></div>"+"<div class='de' title='删除'></div>"+"</div>");
 					$("#photo"+photoId).html("<div class='gridpic'><center><img src='"+document.getElementById("basePath").value+"images/deleted.jpg"+"'/></center></div>");
 					$("#comment"+photoId).html("<center>&nbsp;</center>");
 					$("#commentPic"+photoId).html("<center><div id='bigPic"+photoId+"' ><img src='"+document.getElementById("basePath").value+"images/deletedBig.jpg"+"'/></center></div></center>");

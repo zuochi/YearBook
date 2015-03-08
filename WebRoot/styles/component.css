@@ -42,7 +42,6 @@
 }
 
 .grid {
-	
 	color:#234;
 	margin: 0 auto;
 }
@@ -64,52 +63,59 @@
 	background: #fff;
 
 }
-
-.de{float:left;
-margin-top:217px;
-margin-left:0px;
-	z-index:200;
+.operate{
+    z-index:200;
+    float:left;
+	margin:210px 0 0px 120px;
+	width:100px;
+	height:65px;
+    position:relative;
+    padding:0px 15px 0px 15px;
+	
+}
+.de{
+   float:left;
+   z-index:200;
    position:relative;
    width:20px;
    height:20px;
+   margin:0 0 0 0;
    background:url(../images/delete_icon2.png) no-repeat;
-   padding:28px 15px 30px 15px;
+
 }
 .de:hover{
-float:left;
-margin-top:217px;
-margin-left:0px;
-z-index:200;
+   float:left;
+   z-index:200;
    position:relative;
    width:20px;
    height:20px;
    background:url(../images/delete_icon-hover.png) no-repeat;
-   padding:28px 15px 30px 15px;
+   margin:0 0 0 0;
 }
 
-.up{margin-top:217px;
-margin-left:170px;
-	float:left;
-	z-index:200;
+.up{
+  
+   float:left;
+   z-index:200;
    position:relative;
    width:20px;
    height:20px;
-	padding:28px 0px 30px 15px;
-	 background:url(../images/up_icon.png) no-repeat;
+   margin:0 0 0 30px;
+   background:url(../images/up_icon.png) no-repeat;
 }
 
-.up:hover{margin-top:217px;
-margin-left:170px;
-	float:left;
-	z-index:200;
+.up:hover{
+   float:left;
+   z-index:200;
    position:relative;
    width:20px;
    height:20px;
-   padding:28px 0px 30px 15px;
-	 background:url(../images/up_icon-hover.png) no-repeat;
+   margin:0 0 0 30px;
+   background:url(../images/up_icon-hover.png) no-repeat;
 }
 
-.gridpic{z-index:1;
+.gridpic{
+	z-index:1;
 	float: left;
 	positon:relative;
 	width:200px;
@@ -186,7 +192,7 @@ margin-left:170px;
 	width: 70%;
 	height: 99%;
 	position: absolute;
-	left: 37%;
+	left: 36%;
 	margin: 3px 0 0 -330px;
 	visibility: hidden;
 }
@@ -194,7 +200,8 @@ margin-left:170px;
 .slideshow li.show {
 	visibility: visible;
 }
-.text2{background:#fff;
+.text2{
+	background:#fff;
     border-right-color:#234;
 	float:left;
 	height:100%;

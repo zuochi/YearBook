@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" href="styles/sass-compiled.css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
+<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 </head>
 <body>
 <jsp:include page="guide.jsp" />
@@ -28,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		response.sendRedirect("/YearBook/user/autoLogin_execute");
 	}
 %>
+<div style="height:100px; width:100%"></div>
 <div class="top"> 
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
