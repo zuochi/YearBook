@@ -47,13 +47,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <div align="center" style="margin-left:25px;">
 
  <s:if test="#request.type=='photo'">
-  	<span class="selected">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</span>&nbsp;&nbsp;
+  	<span >Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
  	<a style="font-size:15px;" href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='mentionMe'">
- 	<span class="selected">Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</span>&nbsp;&nbsp;
+ 	<span >Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
  	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</a>&nbsp;&nbsp;

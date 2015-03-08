@@ -46,7 +46,9 @@
 				Password</span><input type="password" id="user.password"
 			name="user.password" class="input_txt border_radius"> </label> <label><span>Confirm
 				Password</span><input type="password" id="passwordConfirm"
-			class="input_txt border_radius"> </label> <label><span>QQ
+			class="input_txt border_radius"> </label> 
+			<label><span>Telephone</span><input type="text" class="input_txt border_radius"  /> </label>
+			<label><span>QQ
 		</span><input type="text" class="input_txt border_radius" id="user.qq"
 			name="user.qq" value="<s:property value="#session.user.qq"/>">
 		</label> <label><span>WeChat</span><input type="text"
