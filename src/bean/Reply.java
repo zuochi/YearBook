@@ -11,7 +11,7 @@ public class Reply implements java.io.Serializable {
 
 	// Fields
 
-	private Integer id;
+	private String id;
 	private User userByUserId;
 	private Bbs bbs;
 	private PrivateLetter privateLetter;
@@ -40,7 +40,7 @@ public class Reply implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Reply(Integer id, User userByUserId, Bbs bbs,
+	public Reply(String id, User userByUserId, Bbs bbs,
 			PrivateLetter privateLetter, User userByUserBid, Photo photo,
 			String context, Timestamp signupDate, Integer status,
 			Integer isAccusation, Integer isDelete) {
@@ -59,11 +59,11 @@ public class Reply implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

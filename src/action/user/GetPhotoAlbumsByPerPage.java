@@ -1,11 +1,7 @@
 package action.user;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
-import net.sf.json.JSON;
-import net.sf.json.JSONArray;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -17,8 +13,7 @@ import bean.PhotoAlbum;
 @Scope("prototype")
 public class GetPhotoAlbumsByPerPage extends UserAction{
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		int photoAlbumscount = service.getTotalRowsByUserId(new Properties(),new PhotoAlbum(),Integer.parseInt(request.getParameter("userId")));
 		Properties pro = new Properties();
 		if (request.getParameter("userId") != null) {

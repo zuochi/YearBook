@@ -1,6 +1,5 @@
 package action.user;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -18,7 +17,7 @@ public class GetMySocial extends UserAction{
 	private int followersToPage;
 	
 	@Override
-	public String execute() throws Exception {
+	public String execute() {
 		// TODO Auto-generated method stub
 		
 		//获取following数量

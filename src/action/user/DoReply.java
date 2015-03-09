@@ -1,5 +1,6 @@
 package action.user;
 
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.Comparator;
 import java.util.Date;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import service.Service;
-
+import util.CommonUtils;
 import bean.AtNotify;
 import bean.Reply;
 import bean.User;
@@ -27,7 +28,7 @@ public class DoReply extends UserAction{
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public String execute() throws Exception {
+	public String execute() {
 		// TODO Auto-generated method stub
 		//当前用户
 		User currentUser = (User) request.getSession().getAttribute("user");
@@ -38,16 +39,22 @@ public class DoReply extends UserAction{
 		reply.setContext(analyzeFriendUrl(reply.getContext(),currentUser,service));
 		
 		//保存评论时间，用于获取用户评论的ID
+		reply.setId(CommonUtils.createUUID());
 		reply.setSignupDate(new Timestamp(System.currentTimeMillis()));
 		reply.setStatus(0);
 		reply.setIsDelete(0);
 		reply.setIsAccusation(0);
 		
-		out = response.getWriter();
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		if(service.saveObject(reply)){
 			//返回成功并获取当前评论
-			reply = getCurrentReply(currentUser,reply.getSignupDate());
+			//reply = getCurrentReply(currentUser,reply.getSignupDate());
+			
 			
 			//那么我们就艾特这些用户吧
 			if(followSet!=null){

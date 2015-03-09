@@ -1,4 +1,4 @@
-﻿package action.user;
+﻿package action.admin;
 
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -16,22 +16,13 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.ActionSupport;
 
 import service.Service;
-import bean.HeadPhoto;
-import bean.Photo;
-import bean.PhotoAlbum;
 import bean.User;
+
 @Controller
 @Scope("prototype")
-public class UserAction extends ActionSupport implements SessionAware {
+public class AdminAction extends ActionSupport implements SessionAware {
 	@Autowired
 	protected Service service;
-	protected User user;
-	protected Photo photo;
-	protected PhotoAlbum photoAlbum;
-	protected HeadPhoto headPhoto;
-	protected String userName;
-	protected String password;
-	protected String auto_login;
 	protected int toPage;
 	protected HttpServletRequest request = ServletActionContext.getRequest();
 	protected HttpServletResponse response = ServletActionContext.getResponse();
@@ -40,50 +31,6 @@ public class UserAction extends ActionSupport implements SessionAware {
 	
 	public void setService(Service service) {
 		this.service = service;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
-	}
-	
-	public HeadPhoto getHeadPhoto() {
-		return headPhoto;
-	}
-
-	public void setHeadPhoto(HeadPhoto headPhoto) {
-		this.headPhoto = headPhoto;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public Photo getPhoto() {
-		return photo;
-	}
-
-	public PhotoAlbum getPhotoAlbum() {
-		return photoAlbum;
-	}
-
-	public void setPhotoAlbum(PhotoAlbum photoAlbum) {
-		this.photoAlbum = photoAlbum;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public void setAuto_login(String auto_login) {
-		this.auto_login = auto_login;
 	}
 
 	public void setToPage(int toPage) {
@@ -101,12 +48,10 @@ public class UserAction extends ActionSupport implements SessionAware {
 	
 	@Override
 	public void setSession(Map<String, Object> session) {
-		// TODO Auto-generated method stub
 		response.setCharacterEncoding("utf-8");
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.session = session;

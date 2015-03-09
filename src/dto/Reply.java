@@ -3,7 +3,7 @@ package dto;
 import java.sql.Timestamp;
 
 public class Reply {
-	private Integer id;
+	private String id;
 	private Integer user_id;
 	private Integer photoOwnerId;
 	private String name;
@@ -19,7 +19,7 @@ public class Reply {
 		super();
 	}
 
-	public Reply(Integer id, Integer user_id, String name, String url_m,
+	public Reply(String id, Integer user_id, String name, String url_m,
 			Integer user_bid, Integer photo_bid, Integer status,
 			String context, Timestamp signup_date) {
 		super();
@@ -34,7 +34,7 @@ public class Reply {
 		this.signup_date = signup_date;
 	}
 
-	public Reply(Integer id, Integer user_id, Integer photoOwnerId,
+	public Reply(String id, Integer user_id, Integer photoOwnerId,
 			String name, String url_m, Integer user_bid, Integer photo_bid,
 			Integer status, String context, Timestamp signup_date) {
 		super();
@@ -64,10 +64,10 @@ public class Reply {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public Integer getUser_id() {

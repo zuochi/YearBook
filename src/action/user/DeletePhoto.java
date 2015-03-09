@@ -1,19 +1,15 @@
 package action.user;
 
-import java.util.Properties;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import bean.IWantTop;
 import bean.Photo;
 
 @Controller
 @Scope("prototype")
 public class DeletePhoto extends UserAction {
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			out = response.getWriter();
 			photo = (Photo) service.getObjectByHql("from Photo where isDelete=0 and id=" + photo.getId());
@@ -28,7 +24,6 @@ public class DeletePhoto extends UserAction {
 				out.print("fail");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			out.flush();

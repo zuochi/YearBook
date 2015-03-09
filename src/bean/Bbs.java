@@ -12,7 +12,7 @@ public class Bbs implements java.io.Serializable {
 
 	// Fields
 
-	private Integer id;
+	private String id;
 	private User user;
 	private String context;
 	private Date signupDate;
@@ -46,11 +46,11 @@ public class Bbs implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

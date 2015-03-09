@@ -6,9 +6,8 @@
 -->
 <hibernate-mapping>
     <class name="bean.Bbs" table="bbs" catalog="yearbook">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="java.lang.String">
             <column name="id" />
-            <generator class="identity" />
         </id>
         <many-to-one name="user" class="bean.User" fetch="select">
             <column name="user_id" not-null="true">

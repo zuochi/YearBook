@@ -14,8 +14,7 @@ import bean.User;
 @Scope("prototype")
 public class Register extends UserAction {
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			out = response.getWriter();
 			// 初始化headPhoto
@@ -50,7 +49,11 @@ public class Register extends UserAction {
 					login.setPassword(password);
 					login.setService(service);
 					login.setSession(session);
-					login.execute();
+					try {
+						login.execute();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				} else {
 					out.print("fail");
 				}
@@ -58,7 +61,6 @@ public class Register extends UserAction {
 				out.print("fail");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			out.print("fail");
 			e.printStackTrace();
 		} finally {

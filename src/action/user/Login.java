@@ -1,15 +1,11 @@
 package action.user;
 
-import java.io.IOException;
-import java.util.Properties;
-
 import javax.servlet.http.Cookie;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import util.CookieUtils;
-import bean.HeadPhoto;
 import bean.User;
 
 @Controller

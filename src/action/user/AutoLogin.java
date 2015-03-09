@@ -10,8 +10,7 @@ import util.CookieUtils;
 public class AutoLogin extends UserAction{
 	
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		CookieUtils cookieUtils = new CookieUtils();
 		if (cookieUtils.getCookie(request, service, session)) {
 			return "autoLogin";

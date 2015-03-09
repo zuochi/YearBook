@@ -7,8 +7,7 @@ import org.springframework.stereotype.Controller;
 @Scope("prototype")
 public class DeletePhotoAlbum extends UserAction {
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			photoAlbum.setId(Integer.parseInt(request
 					.getParameter("photoAlbum.id")));
@@ -20,7 +19,6 @@ public class DeletePhotoAlbum extends UserAction {
 				out.print("fail");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			out.flush();

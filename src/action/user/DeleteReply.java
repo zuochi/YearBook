@@ -13,8 +13,7 @@ public class DeleteReply extends UserAction {
 	private Reply reply;
 	
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			out = response.getWriter();
 			reply = (Reply) service.getObjectByHql("from Reply where isDelete=0 and id=" + reply.getId());
@@ -29,7 +28,6 @@ public class DeleteReply extends UserAction {
 				out.print("fail");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			out.flush();

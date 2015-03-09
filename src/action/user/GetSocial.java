@@ -22,9 +22,7 @@ public class GetSocial extends UserAction{
 	private boolean isMine = true;
 	
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
-
+	public String execute() {
 		int socialPhotosCount = (Integer) service.getObjectByHql("select count(*) from Photo where isDelete=0 and user.id="+user.getId(), "getInteger");
 		
 		//获取社交用户
@@ -84,7 +82,6 @@ public class GetSocial extends UserAction{
 				out.print(json);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			out.flush();
@@ -136,7 +133,6 @@ public class GetSocial extends UserAction{
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			out.flush();
@@ -189,7 +185,6 @@ public class GetSocial extends UserAction{
 				}
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			out.flush();

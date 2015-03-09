@@ -14,8 +14,7 @@ import util.CookieUtils;
 @Scope("prototype")
 public class Logout extends UserAction {
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			session.removeAttribute("user");
@@ -48,7 +47,6 @@ public class Logout extends UserAction {
 		try {
 			response.sendRedirect("/YearBook/index.jsp");// 自动转跳到主页
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "logout";

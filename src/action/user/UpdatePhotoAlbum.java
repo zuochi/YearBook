@@ -9,8 +9,7 @@ import org.springframework.stereotype.Controller;
 @Scope("prototype")
 public class UpdatePhotoAlbum extends UserAction{
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			photoAlbum.setId(Integer.parseInt(request
 					.getParameter("photoAlbum.id")));
@@ -25,7 +24,6 @@ public class UpdatePhotoAlbum extends UserAction{
 				out.print("fail");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			out.flush();

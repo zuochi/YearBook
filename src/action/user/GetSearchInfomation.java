@@ -19,8 +19,7 @@ public class GetSearchInfomation extends UserAction{
 	private String type;
 	private FriendList friendList;
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			user = (User) request.getSession().getAttribute("user");
 			out = response.getWriter();
@@ -33,7 +32,6 @@ public class GetSearchInfomation extends UserAction{
 				out.print(json);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			out.flush();

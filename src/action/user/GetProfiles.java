@@ -13,8 +13,7 @@ import bean.User;
 @Scope("prototype")
 public class GetProfiles extends UserAction{
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		user = (User) request.getSession().getAttribute("user");
 		
 		if(!isLogin(user)){

@@ -1,6 +1,6 @@
 package action.user;
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.json.JSONArray;
@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import util.PageController;
-import bean.User;
 
 import action.user.UserAction;
 
@@ -21,8 +20,7 @@ public class GetReply extends UserAction{
 	private int pageSizeN;
 	
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			//int replyCount = (Integer) service.getObjectByHql("select count(*) from Reply r where r.isDelete=0 and userByUserId.id="+user.getId()+" and r.photo.id="+photo.getId(), "getInteger");
 			PageController pc = new PageController(replyCountN,1,pageSizeN);
@@ -38,7 +36,6 @@ public class GetReply extends UserAction{
 				out.print(json);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			out.flush();
@@ -55,7 +52,6 @@ public class GetReply extends UserAction{
 			out = response.getWriter();
 			out.print(replyCount);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			out.print("fail");
 			e.printStackTrace();
 		} finally{

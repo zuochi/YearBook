@@ -1,7 +1,7 @@
 package action.user;
 
+import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.Properties;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -13,14 +13,17 @@ import bean.User;
 @Scope("prototype")
 public class Follow extends UserAction{
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		user = (User) request.getSession().getAttribute("user");
 	
 		User followUser =new User();
 		followUser.setId(Integer.parseInt(request.getParameter("userId")));
 		
-		out = response.getWriter();
+		try {
+			out = response.getWriter();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 		
 		if("follow".equals(request.getParameter("type"))){
 			//查找是否已经有删除过的记录
@@ -55,7 +58,6 @@ public class Follow extends UserAction{
 					out.print("fail");
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

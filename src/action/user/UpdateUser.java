@@ -3,16 +3,13 @@ package action.user;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import bean.Profession;
-import bean.SchoolYear;
 import bean.User;
 
 @Controller
 @Scope("prototype")
 public class UpdateUser extends UserAction {
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		try {
 			//判断是否使用旧密码
 			if (request.getParameter("user.password") != "") {
@@ -28,7 +25,6 @@ public class UpdateUser extends UserAction {
 				out.print("fail");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			out.print("fail");
 			e.printStackTrace();
 		} finally {

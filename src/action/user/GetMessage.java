@@ -21,8 +21,7 @@ public class GetMessage extends UserAction{
 	private String type;
 	
 	@Override
-	public String execute() throws Exception {
-		// TODO Auto-generated method stub
+	public String execute() {
 		user = (User) request.getSession().getAttribute("user");
 		
 		if(!isLogin(user)){
@@ -73,13 +72,12 @@ public class GetMessage extends UserAction{
 				out.print("fail");
 			}else{
 				//使用数据转换类
-				List<dto.Message> messages = service.getDtoObjectsBySql("select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status from reply r,user u,photo ph LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"") +" and r.user_id!="+user.getId()+" and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) order by r.signup_date desc", pc,new dto.Message());
+				List<dto.Message> messages = service.getDtoObjectsBySql("select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status from user u,photo ph,reply r LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"") +" and r.user_id!="+user.getId()+" and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) order by r.signup_date desc", pc,new dto.Message());
 				JSONArray json = JSONArray.fromObject(messages);
 				out = response.getWriter();
 				out.print(json);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			out.flush();
@@ -111,7 +109,6 @@ public class GetMessage extends UserAction{
 				out.print(json);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally{
 			out.flush();
@@ -129,7 +126,6 @@ public class GetMessage extends UserAction{
 			return (Integer) service.getObjectByHql("select count(r.id) from Reply r where r.status=0 and r.isDelete=0 and r.photo.id is not null and (r.userByUserBid.id="+user.getId()+" or r.photo.id in (select p.id from Photo p where p.user.id="+user.getId()+")) and r.userByUserId.id!="+user.getId(), "getInteger");
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return 0;
@@ -144,7 +140,6 @@ public class GetMessage extends UserAction{
 			return (Integer) service.getObjectByHql("select count(a.id) from AtNotify a where a.isDelete=0 and a.status=0 and a.userByUserBid.id="+user.getId(), "getInteger");
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return 0;

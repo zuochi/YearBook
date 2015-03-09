@@ -3,7 +3,7 @@ package dto;
 import java.sql.Timestamp;
 
 public class Message {
-	private Integer id;
+	private String id;
 	private Integer user_id;
 	private Integer photoOwnerId;
 	private String name;
@@ -29,10 +29,10 @@ public class Message {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public Integer getUser_id() {

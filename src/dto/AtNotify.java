@@ -13,8 +13,8 @@ public class AtNotify implements java.io.Serializable {
 	private Integer id;
 	private Integer user_id;
 	private Integer user_bid;
-	private Integer bbs_bid;
-	private Integer reply_bid;
+	private String bbs_bid;
+	private String reply_bid;
 	private Integer photo_bid;
 	private Integer photoDesc_bid;
 	private Timestamp at_date;
@@ -51,19 +51,19 @@ public class AtNotify implements java.io.Serializable {
 		this.user_bid = user_bid;
 	}
 
-	public Integer getBbs_bid() {
+	public String getBbs_bid() {
 		return bbs_bid;
 	}
 
-	public void setBbs_bid(Integer bbs_bid) {
+	public void setBbs_bid(String bbs_bid) {
 		this.bbs_bid = bbs_bid;
 	}
 
-	public Integer getReply_bid() {
+	public String getReply_bid() {
 		return reply_bid;
 	}
 
-	public void setReply_bid(Integer reply_bid) {
+	public void setReply_bid(String reply_bid) {
 		this.reply_bid = reply_bid;
 	}
 
