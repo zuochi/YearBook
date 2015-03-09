@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<br><br>
 							<center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							
-							<h3><span class="css-emoticon animated-emoticon" style="font-size:1.8em;">: (</span></h3><p>You are not upload any pictures yet,please click <a href="javascript:void(0)" onclick="uploadPhoto()" target="main">Upload.</a></p></center>
+							<h3><span class="css-emoticon animated-emoticon" style="font-size:1.8em;">: (</span></h3><p>You are not upload any pictures yet,please click <a style="font-size:20px;" href="javascript:void(0)" onclick="uploadPhoto()" target="main">Upload.</a></p></center>
 						</s:if>
 					</ul>
 				</section> <!-- // grid-wrap -->

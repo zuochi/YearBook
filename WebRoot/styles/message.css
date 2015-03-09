@@ -36,15 +36,11 @@ a:hover {
     text-decoration: none;
 	
 }
-.fb{margin:0 auto;
-	width:100%;
-    height:100px;
-	margin-top:100px;
-}
+
 
 #M{width:500px;margin:0 auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:30px 50px 50px 50px;}
 
-.border_radius{border-radius:3px;color:#3ab6ac;}
+.border_radius{border-radius:3px;color:#303030;}
 h2{font-size:30px;text-shadow:1px 1px 3px #fff;  text-align:center;}
 h3{ margin-top:0px; font-size:16px;text-align:center;}
 h4{ font-size:5px; color:#DE4C1C}
@@ -77,12 +73,6 @@ h5{float:left;font-size:14px;margin-botton:50px;}
 margin-top:15px;
 	margin-left:140px;
 	
-	}
-#feedback{float:left;
-margin-left:23px;
-	background-image:url(../images/feedback.png);
-	height: 128px;
-	width: 220px;
 	}
 
 .sent{
@@ -152,7 +142,7 @@ a img {border:0;}
 .user-name {  font-family:"Microsoft Yahei";font-size:15px; font-weight:normal;color:#DE4C1C }
 .user-name:hover{font-family:"Microsoft Yahei";font-size:15px; font-weight:normal;color:#000 }}
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
-h1 span {font-size:12px;color:#696A52;}
+h1 span {font-size:12px;color:#303030;}
 .p1{ font-size:6px; margin:5px 0px 0px 185px; color:#8f8f8f; }
 .p2{font-size:15px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-style: normal;}
 p{font-size:7px; color:#8f8f8f; }

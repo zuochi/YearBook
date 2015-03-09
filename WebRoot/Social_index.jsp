@@ -33,6 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="hidden" id="isMine" value="0"/>
 <input id="hasBeenModify" type="hidden" value="0"/>
 <input type="hidden" id="basePath" value="<%=basePath%>"/>
+<div style="height:100px; width:100%"></div>
 <div class="top"> 
 <input type="text"  style="font-size:14px;margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
@@ -65,14 +66,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</s:else>
 							</div>
 							<br></br>
-							<h7>Hi,I'm <s:property value="#request.socialUser.name"/></h7><br>
+							<h3>Hi,I'm <s:property value="#request.socialUser.name"/></h3><br>
 							<s:if test="#request.socialUser.sign!=null && #request.socialUser.sign!=''">
-								<h7 id="signContext">Sign: <s:property value="#request.socialUser.sign"/></h7><br>
+								<h3 id="signContext">Sign: <s:property value="#request.socialUser.sign"/></h3><br>
 							</s:if>	
 							<s:if test="#request.socialUser.email!=null">
-								<h7>E-mail:<s:property value="#request.socialUser.email"/></h7><br>
+								<h3>E-mail:<s:property value="#request.socialUser.email"/></h3><br>
 							</s:if>
-							<h7>Profile:</h7><br>
+							<h3>Profile:</h3><br>
 							<s:if test="#request.socialUser.sex==1">
 								<div class="male">Sex:male</div>
 							</s:if>
@@ -80,17 +81,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="female">Sex:female</div>
 							</s:else>
 							<s:if test="#request.socialUser.weChat!=null && #request.socialUser.weChat!=''">
-								<h7>Wechat:<s:property value="#request.socialUser.weChat"/></h7><br>
+								<h3>Wechat:<s:property value="#request.socialUser.weChat"/></h3><br>
 							</s:if>
 							<s:if test="#request.socialUser.qq!=null && #request.socialUser.qq!=''">
-								<h7>QQ:<s:property value="#request.socialUser.qq"/></h7><br>
+								<h3>QQ:<s:property value="#request.socialUser.qq"/></h3><br>
 							</s:if>
 						
 							 <s:if test="#request.socialProfession!=null">
-								<h7>Profession:<s:property value="#request.socialProfession.name"/></h7><br>
+								<h3>Profession:<s:property value="#request.socialProfession.name"/></h3><br>
 						  </s:if>
                            <s:if test="#request.socialSchoolYear!=null">
-								<h7>Academic Year:<s:property value="#request.socialSchoolYear.year"/></h7><br>
+								<h3>Academic Year:<s:property value="#request.socialSchoolYear.year"/></h3><br>
 						  </s:if>
 							<div class="attfan">
 							<a href="javascript:void(0)" onclick="showPost()"><div class="po">Post : <s:property value="#request.socialPhotosCount"/></div></a>

@@ -47,22 +47,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <div align="center" style="margin-left:25px;">
 
  <s:if test="#request.type=='photo'">
-  	<span >Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</span>&nbsp;&nbsp;
+  	<span style="font-size:16px;color:#3ab6ac;font-weight:normal;" >Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a style="font-size:15px;" href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;color:#303030;" href="javascript:void(0)" onclick="changeType('photo')">Photo's reply(<s:property value="#request.messageReplyUnReadCount"/>)</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='mentionMe'">
- 	<span >Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</span>&nbsp;&nbsp;
+ 	<span style="font-size:16px;color:#3ab6ac;font-weight:normal;" >Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;color:#303030;" href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</a>&nbsp;&nbsp;
  </s:else>
  <s:if test="#request.type=='bbs'">
-  	BBS's reply&nbsp;&nbsp;
+  <span style="font-size:16px;color:#3ab6ac;font-weight:normal;" >	BBS's reply</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a style="font-size:15px;" href="javascript:void(0)"  onclick="changeType('bbs')">BBS's reply</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;color:#303030;" href="javascript:void(0)"  onclick="changeType('bbs')">BBS's reply</a>&nbsp;&nbsp;
  </s:else>
  <br/></div>
  <div style=" float:top;margin:10px 0 10px 0;position:relative;border-bottom:1px dashed #8f8f8f;"></div>
@@ -134,13 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <h3 align="center"><span class="css-emoticon animated-emoticon" style="font-size:1.8em;">:'(</span></h3><p><h3>You haven't received any replys yet.</h3>
 </s:else>
 <div id="replySuccessTip"></div>
-<!--反馈版块-->
-<div class="fb">
-     
-  <h2><span style="font-size:25px;color:#000; text-align:center; margin-right:10px;margin-top:-10px;"class="css-emoticon animated-emoticon">?-)</span>FEEDBACK</h2>
-  <h3>please contact us if you have any questions</h3> 
-  <h3>yearbook@soy.com</h3>
- </div>
+
 </div>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
