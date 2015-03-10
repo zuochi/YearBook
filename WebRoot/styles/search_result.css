@@ -55,6 +55,7 @@ a:hover {
 }
 .information{
 	height:100px;
+	width:80%;
 	float:left;
 }
 .left2{
@@ -71,6 +72,26 @@ a:hover {
 	height:20px;
 	font-size:12px;
 	color:#303030;
+}
+.male{
+	padding:7px 0 0 7%;
+    font-family:"Microsoft YaHei",微软雅黑;
+ 	font-weight:bold;
+	text-align:left;
+	float:left;
+	height:20px;
+	font-size:12px;
+	color:#43a2da;
+}
+.female{
+	padding:7px 0 0 7%;
+    font-family:"Microsoft YaHei",微软雅黑;
+ 	font-weight:bold;
+	text-align:left;
+	float:left;
+	height:20px;
+	font-size:12px;
+	color:#ff406d;
 }
 
 .left3{
