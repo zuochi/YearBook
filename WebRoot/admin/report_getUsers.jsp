@@ -4,12 +4,13 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- 后台管理页面 -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>Year Book </title>
+<title>Year Book - 用户管理</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -47,30 +48,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- class=main里面的内容为局部刷新内容，即每一个模块的布局都要写在main里面 -->
 <div class="main">
 
-<!-- 图片审核模块 -->
-图片审核
-
-
+<!-- 图片管理模块 -->
 <div id="ctr">
+	<c:forEach var="obj" items="${objs}">
+		<div class="box photo col1">
+			${obj.name}
+			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
+		</div>
+	</c:forEach>
+</div>
+
+<!-- <div id="ctr">
 		<div class="box photo col1">
 			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h1>上首页</h1><h2>删除</h2></div></div>
+			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
 		</div>
 		<div class="box photo col1">
 			<img src="images/2.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h1>上首页</h1><h2>删除</h2></div></div>
+			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
 		</div>
 				<div class="box photo col1">
 			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h1>上首页</h1><h2>删除</h2></div></div>
+			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
 		</div>
-</div>
+</div> -->
 
 <hr>
-
-
-
-
 </div>
 </body>
 </html>

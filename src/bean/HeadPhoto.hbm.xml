@@ -6,9 +6,8 @@
 -->
 <hibernate-mapping>
     <class name="bean.HeadPhoto" table="head_photo" catalog="yearbook">
-        <id name="id" type="java.lang.Integer">
+        <id name="id" type="java.lang.String">
             <column name="id" />
-            <generator class="assigned" />
         </id>
         <property name="urlS" type="java.lang.String">
             <column name="url_s" length="200">

@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import util.CommonUtils;
 import bean.HeadPhoto;
 import bean.User;
 
@@ -18,17 +19,8 @@ public class Register extends UserAction {
 		try {
 			out = response.getWriter();
 			// 初始化headPhoto
-			int random;
-			while (true) {
-				random = (int) (Math.random() * 90000000 + 10000000);
-				Properties pro = new Properties();
-				pro.setProperty("name", random + "");
-				if (service.isDuplicationOfProperties(pro, new User()) == false) {// 保证不重复
-					user.setName(random + "");
-					break;
-				}
-			}
-			//去除用户的空格
+			String uuid = CommonUtils.createUUID();
+			user.setName(uuid);
 			user.setLastLogintime(new Timestamp(System.currentTimeMillis()));
 			user.setSignupDate(new Timestamp(System.currentTimeMillis()));
 			user.setIsDelete(0);
@@ -39,7 +31,7 @@ public class Register extends UserAction {
 			if (service.isDuplicationOfProperties(pro, new User()) == false) {// 双重验证用户名是否有重复
 				// 初始化头像
 				HeadPhoto headPhoto = new HeadPhoto();
-				headPhoto.setId(random);
+				headPhoto.setId(uuid);
 				headPhoto.setIsDelete(0);
 				service.saveObject(headPhoto);
 				user.setHeadPhoto(headPhoto);

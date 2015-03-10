@@ -10,7 +10,7 @@ import util.PageController;
 
 @Controller
 @Scope("prototype")
-public class GetPhotos extends AdminAction{
+public class GetIWantTops extends AdminAction{
 
 	@Override
 	public String execute() {
@@ -34,6 +34,6 @@ public class GetPhotos extends AdminAction{
 			request.setAttribute("pc", pc);
 		}
 		
-		return "report_getPhotos";
+		return "report_getIWantTops";
 	}
 }

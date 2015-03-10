@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<jsp:include page="/admin/Guanli_guidce.jsp"></jsp:include>
+<jsp:include page="/admin/guidce.jsp"></jsp:include>
 <!-- class=main里面的内容为局部刷新内容，即每一个模块的布局都要写在main里面 -->
 <div class="main">
 
