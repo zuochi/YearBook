@@ -11,7 +11,7 @@ public class HeadPhoto implements java.io.Serializable {
 
 	// Fields
 
-	private Integer id;
+	private String id;
 	private String urlS;
 	private String urlM;
 	private String urlL;
@@ -26,12 +26,12 @@ public class HeadPhoto implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public HeadPhoto(Integer id) {
+	public HeadPhoto(String id) {
 		this.id = id;
 	}
 
 	/** full constructor */
-	public HeadPhoto(Integer id, String urlS, String urlM, String urlL,
+	public HeadPhoto(String id, String urlS, String urlM, String urlL,
 			String urlO, Integer isDelete, Set users) {
 		this.id = id;
 		this.urlS = urlS;
@@ -44,11 +44,11 @@ public class HeadPhoto implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getId() {
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
