@@ -29,11 +29,16 @@ a:hover {
 	color:#3ab6ae ;
     text-decoration: underline;
 }
+.guidance{
+	width:830px;
+	height:90px;
+	position:relative;
+	margin:0 auto;
+}
 .center{
 	position:absolute;
 	width:830px;
 	height:90px;
-	left:23.5%;
 	text-align: center;
 }
 #menu p{

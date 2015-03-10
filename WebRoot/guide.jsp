@@ -8,6 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 顶部菜单栏 -->
 <div id="menu">
 <p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign In</a>  or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p>
+<div class="guidance">
 <div class="center">
 <p><a href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
@@ -17,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
 <p><a href="javascript:void(0)" >Feedback</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(8)">Exit</a></p>
-
+</div>
 </div>
 </div>
 <script type="text/javascript" src="js/goUrl.js"></script>
