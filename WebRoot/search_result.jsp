@@ -34,14 +34,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
+
+<div class="result">
+
 <div class="user">
 <div class="headphoto"></div>
 <div class="information">
 <div class="left2">
-<h1>Username</h1><h1>male</h1><h1 >Posts:12</h1><h1>Followings:7</h1><h1>Followers:11</h1>
+<h1>Username</h1><div class="male">male</div><h1 >Posts:12</h1><h1>Followings:7</h1><h1>Followers:11</h1>
 </div>
 
-<div class="left3"><h2>Hometown:Foshan</h2><h2>Profession:IT</h2><h2>School year:2015</h2>
+<div class="left3"><h2>Hometown:Foshan</h2><h2>School year:2015</h2><h2>Profession:IT</h2>
 </div>
 <div class="sign"><h3>Sign:</h3></div>
 </div>
@@ -55,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <h1>Username</h1><div class="female">female</div><h1 >Posts:12</h1><h1>Followings:7</h1><h1>Followers:11</h1>
 </div>
 
-<div class="left3"><h2>Hometown:Foshan</h2><h2>Profession:IT</h2><h2>School year:2015</h2>
+<div class="left3"><h2>Hometown:Foshan</h2><h2>School year:2015</h2><h2>Profession:国际经济与金融学院</h2>
 </div>
 <div class="sign"><h3>Sign:</h3></div>
 </div>
@@ -70,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <h1>Username</h1><div class="male">male</div><h1 >Posts:12</h1><h1>Followings:7</h1><h1>Followers:11</h1>
 </div>
 
-<div class="left3"><h2>Hometown:Foshan</h2><h2>Profession:IT</h2><h2>School year:2015</h2>
+<div class="left3"><h2>Hometown:Foshan</h2><h2>School year:2015</h2><h2>Profession:IT</h2>
 </div>
 <div class="sign"><h3>Sign:</h3></div>
 </div>
@@ -78,6 +81,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
-
+</div>
 </body>
 </html>
