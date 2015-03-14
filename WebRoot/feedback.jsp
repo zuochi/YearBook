@@ -4,7 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!-- 查看Message的页面 -->
+<!-- 反馈的页面 -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -58,8 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/goUrl.js" ></script>
 <script type="text/javascript" src="js/at.js" ></script>
 <script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
-<script type="text/javascript" src="js/calculateDistanceTime.js" ></script>
-<script type="text/javascript" src="js/getMessage.js" ></script>
+
 
 </body>
 </html>
