@@ -54,9 +54,9 @@ function showComments(photoBid,toPageC){
 								"<div  class='ds-comment-body'>"+
 									"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
 									"<div class='message' ><span id='commentEmo"+json[i].id+"'>"+json[i].context+"</span></div>"+
-									($("#isMine").val()==0?($("#currentUserId").val()==json[i].user_id?("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"):""):("<a href='javascript:void(0)' onclick='deleteReply("+json[i].id+")' title='delete'><div class='shanchu'></div></a>"))+
+									($("#isMine").val()==0?($("#currentUserId").val()==json[i].user_id?("<a href='javascript:void(0)' onclick='deleteReply(\""+json[i].id+"\")' title='delete'><div class='shanchu'></div></a>"):""):("<a href='javascript:void(0)' onclick='deleteReply(\""+json[i].id+"\")' title='delete'><div class='shanchu'></div></a>"))+
 									($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='pinglun'></div></a>"):""))+
-									"<div class='jvbao'>"+"举报"+"</div>"+
+									($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='accusationReply(\""+json[i].id+"\")' title='举报'><div class='jvbao'>举报</div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='accusationReply(\""+json[i].id+"\")' title='举报'><div class='jvbao'>举报</div></a>"):""))+
 									"<div align='left' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
 								"</div>"+
 							"</div>"	
@@ -92,7 +92,27 @@ function deleteReply(replyId){
 				if(msg=="success"){   
 					$("#replyBody"+replyId).remove();
 				 }else{
-					alert("delete " + msg);
+					alert("fail");
+				}
+			}
+		});
+	}
+};
+
+//举报评论
+function accusationReply(replyId){
+	if(confirm("Are you sure to report this reply to adminstartor?")) { 
+		  $.ajax({
+			url:'/YearBook/user/accusationReply_execute',  
+			type:'post', 
+			data:"reply.id="+replyId,
+			async:false,
+			dataType:'text', 
+			success:function (msg) {
+				if(msg=="success"){   
+					alert("please wait for the adminstartor's reply,thank for your report.");
+				}else{
+					alert("fail");
 				}
 			}
 		});

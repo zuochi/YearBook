@@ -50,12 +50,9 @@ public class DoReply extends UserAction{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 		if(service.saveObject(reply)){
 			//返回成功并获取当前评论
 			//reply = getCurrentReply(currentUser,reply.getSignupDate());
-			
-			
 			//那么我们就艾特这些用户吧
 			if(followSet!=null){
 				Iterator<User> it = followSet.iterator();

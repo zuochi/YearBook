@@ -1,25 +1,21 @@
 package action.user;
-import org.apache.struts2.json.annotations.JSON;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import bean.Reply;
-
-
+import bean.Photo;
 
 @Controller
 @Scope("prototype")
-public class DeleteReply extends UserAction {
-	private Reply reply;
-	
+public class AccusationPhoto extends UserAction {
 	@Override
 	public String execute() {
 		try {
 			out = response.getWriter();
-			reply = (Reply) service.getObjectByHql("from Reply where isDelete=0 and id='" + reply.getId()+"'");
-			if(reply!=null){
-				reply.setIsDelete(1);
-				if (service.updateObject(reply)) {
+			photo = (Photo) service.getObjectByHql("from Photo where isDelete=0 and id=" + photo.getId());
+			if(photo!=null){
+				photo.setIsAccusation(1);
+				if (service.updateObject(photo)) {
 					out.print("success");
 				}else {
 					out.print("fail");
@@ -34,14 +30,5 @@ public class DeleteReply extends UserAction {
 			out.close();
 		}
 		return null;
-	}
-
-	@JSON(serialize=false)
-	public Reply getReply() {
-		return reply;
-	}
-
-	public void setReply(Reply reply) {
-		this.reply = reply;
 	}
 }

@@ -146,6 +146,7 @@ function loadBigPic(picId){
 //返回顶部
 function scrollToTop(){
 	document.body.scrollTop=0;
+	document.getElementById("menu").style.display="block";
 };
 
 function follow(socialUserId){

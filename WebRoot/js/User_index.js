@@ -289,6 +289,7 @@ function showSignEditElement(){
 //返回顶部
 function scrollToTop(){
 	document.body.scrollTop=0;
+	document.getElementById("menu").style.display="block";
 };
 	
 //删除照片

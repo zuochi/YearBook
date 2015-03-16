@@ -17,10 +17,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link href="styles/guanli.css" rel="stylesheet"  type="text/css">
- <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 <script type="text/javascript">
-	    $(function(){
+	$(function(){
 	    var $ctr = $('#ctr');
 	    $ctr.imagesLoaded( function(){
 	      $ctr.masonry({
@@ -40,14 +40,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 	});
 	</script>
-
 </head>
-
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
+<%--翻页按钮 开始 --%>
+<form id="form" action="admin/getPhotos_execute">
+<input type="hidden" id="toPage" name="toPage" value="1">
+<jsp:include page="/template/pageControl.jsp"></jsp:include>
+</form>
+<%--翻页按钮 结束 --%>
 <!-- class=main里面的内容为局部刷新内容，即每一个模块的布局都要写在main里面 -->
 <div class="main">
-
 <!-- 图片管理模块 -->
 <div id="ctr">
 	<c:forEach var="obj" items="${objs}">
@@ -57,22 +60,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</c:forEach>
 </div>
-
-<!-- <div id="ctr">
-		<div class="box photo col1">
-			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-		<div class="box photo col1">
-			<img src="images/2.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-				<div class="box photo col1">
-			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-</div> -->
-
 <hr>
 </div>
 </body>

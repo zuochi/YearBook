@@ -8,9 +8,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="styles/csshake.css" rel="stylesheet" type="text/css"/>
-<link href="styles/reset.css" rel="stylesheet"  type="text/css">
-<link rel="stylesheet" href="styles/styles.css" type="text/css">
-<link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css">
+<link href="styles/reset.css" rel="stylesheet"  type="text/css"/>
+<link rel="stylesheet" href="styles/styles.css" type="text/css"/>
+<link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css"/>
         
 <jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />

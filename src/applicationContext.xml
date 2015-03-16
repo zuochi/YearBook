@@ -11,7 +11,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 	<!-- 连接池-->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/yearbook" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/yearbook?useUnicode=true&amp;characterEncoding=utf-8" />
 		<property name="maxIdleTime" value="25000" />
 		<property name="properties">
 			<props>
