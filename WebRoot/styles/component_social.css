@@ -36,9 +36,8 @@
 
 /* Grid style */
 .grid-wrap {
-	margin-top:0px;
-	width:83%;
-    margin-left:220px;
+	margin:0 10px 0 220px;
+   
 	padding: 0 0 0 15px;
 }
 

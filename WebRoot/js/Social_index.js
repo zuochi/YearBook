@@ -47,6 +47,7 @@ function getPhotosByPerPage(isNew){
 					}
 					for(var i=0; i<json.length; i++){
 						$("#photosUL").append(
+								"<div class='report'>举报</div>"+
 							"<li onclick='loadBigPic("+json[i].id+")'>"+
 								"<figure>"+
 									"<div id='photo"+json[i].id+"' class='gc'>"+

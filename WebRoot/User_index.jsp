@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</header>
 			
-<br><br><br><br><br><br><br><br>
+<div style="height:150px;width:100%;"></div>
 				<!-- 注意！从这里开始，有多少个li下面的弹框就要对应多少个li,图片的位置也是对应的 -->
 						
 			<div style="height:40px; width:100%"></div>	

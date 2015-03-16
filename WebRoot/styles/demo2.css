@@ -5,6 +5,7 @@
 body, html { font-size: 100%; padding: 0; margin: 0;}
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after {  }
 
@@ -15,16 +16,7 @@ body {
     height:110%;
 }
 
-a {
-		color:#DE4C1C;
-	text-decoration: none;
-	outline: none;
-}
 
-a:hover {
-color:#DE4C1C;
-text-decoration: underline;
-}
 
 .container > header {
 	width: 100%;
@@ -360,7 +352,7 @@ margin-top:8px;
 	margin-left:15px;
     margin-top:15px;
 	font-size:18px;
-	color:#234;
+	color:#1c1c1c;
 	float:left;
 	
 }
@@ -368,15 +360,13 @@ margin-top:8px;
 	margin-right:10px;
 	margin-top:0px;
 	float:left;
-	height:19px;
-	width:19px;
-	background-image:url(../images/pen_icon.png);
+	font-size:16px;
+	color:#DE4C1C;
+	
 }
 .pen:hover{
-	height:19px;
-	width:19px;
-	background-image:url(../images/pen_icon-hover.png);
-	
+	font-size:16px;
+	color:#1c1c1c;
 }
 .prooo{
 
@@ -491,9 +481,10 @@ text-align:center;
 }
 h3{font-size:30px}
 p{font-size:20px;}
-.user-name {    font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;color:#DE4C1C }
+.user-name {  font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;color:#DE4C1C; }
+.user-name:hover{color:#000; font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;text-decoration: none;}
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
-h1 span {font-size:12px;color:#696A52;}
+h1 span {font-size:12px;color:#2d2d2d;}
 .p1{   font-family:"Calibri";font-size:12px; margin:5px 0px 0px 0px; color:#8f8f8f; }
 h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-style: normal;}
 .p2{line-height:16px;font-size:15px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-style: normal;}
@@ -571,53 +562,24 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 .noMoreInfo{color:#8f8f8f;font-size:22px;}
 .loadComm{position: fixed;left: 33%;top: 50%;z-index: 999;}
 .loadPic{position: fixed;left: 45%;top: 80%;z-index: 999;}
-.pinglun{ 
-	margin:10px 0 0 5px;
-	float:right;
-	height:10px;
-	width:14px;
-	background-image:url(../images/comments_icon.png);
-}
-.pinglun:hover{
-	margin:10px 0 0 5px;
-    float:right;
-	height:10px;
-	width:14px;
-	background-image:url(../images/comments_icon-hover.png);
-}
-
-.shanchu{ 
+.operate2{
+	font-size:8px;
 	margin:5px 0 0 7px;
-	float:right;
-	height:18px;
-	width:18px;
-	background-image:url(../images/delete_icon2.png);
-}
-.shanchu:hover{
-	margin:5px 0 0 7px;
-    float:right;
-	height:18px;
-	width:18px;
-	background-image:url(../images/delete_icon-hover.png);
-}
-.jvbao{
-	font-size:9px;
-	margin:7px 0 0 7px;
 	float:right;
 	height:10px;
 	width:30px;
-	color:#DE4C1C;
+	color:#000;
 	text-decoration: none;
 	outline: none;
 	
 }
-.jvbao:hover{
-	font-size:9px;
-	margin:7px 0 0 7px;
+.operate2:hover{
+	font-size:8px;
+	margin:5px 0 0 7px;
 	float:right;
 	height:10px;
 	width:30px;
-    color:#000;
+    color:#DE4C1C;
 }
 .solltop
 {

@@ -34,8 +34,7 @@ margin-bottom:0px;
 
 #login {
 	position: fixed;
-	top: 20%;
-	left: 40%;
+	margin:auto;left:0; right:0; top:0; bottom:0;
 	width: 200px;
 	z-index: 201;
 	font-size:12px;
@@ -103,14 +102,13 @@ margin-bottom:0px;
 	filter: alpha(opacity = 50);
 	-moz-opacity: 0.5;
 	opacity: 0.5;
-	background-color: #333333;
+	background-color: #000000;
 }
 
 #register {
 	font-size:12px;
 	position: fixed;
-	top: 20%;
-	left: 40%;
+	margin:auto;left:0; right:0; top:0; bottom:0;
 	width: 200px;
 	z-index: 201;
 	background-repeat: no-repeat;

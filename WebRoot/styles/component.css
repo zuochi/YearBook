@@ -66,52 +66,47 @@
 .operate{
     z-index:200;
     float:left;
-	margin:210px 0 0px 120px;
-	width:100px;
+	margin:210px 0 0px 100px;
+	width:120px;
 	height:65px;
     position:relative;
     padding:0px 15px 0px 15px;
 	
 }
 .de{
-   float:left;
-   z-index:200;
-   position:relative;
-   width:20px;
-   height:20px;
-   margin:0 0 0 0;
-   background:url(../images/delete_icon2.png) no-repeat;
-
+   font-size:8px;
+	margin:5px 0 0 12px;
+	float:right;
+	height:10px;
+	color:#3a3a3a;
+	text-decoration: none;
+	outline: none;
+  
 }
 .de:hover{
-   float:left;
-   z-index:200;
-   position:relative;
-   width:20px;
-   height:20px;
-   background:url(../images/delete_icon-hover.png) no-repeat;
-   margin:0 0 0 0;
+    font-size:8px;
+	margin:5px 0 0 12px;
+	float:right;
+	height:10px;
+    color:#DE4C1C;
 }
 
 .up{
-  
-   float:left;
-   z-index:200;
-   position:relative;
-   width:20px;
-   height:20px;
-   margin:0 0 0 30px;
-   background:url(../images/up_icon.png) no-repeat;
+    font-size:8px;
+	margin:5px 0 0 7px;
+	float:right;
+	height:10px;
+	color:#3a3a3a;
+	text-decoration: none;
+	outline: none;
 }
 
 .up:hover{
-   float:left;
-   z-index:200;
-   position:relative;
-   width:20px;
-   height:20px;
-   margin:0 0 0 30px;
-   background:url(../images/up_icon-hover.png) no-repeat;
+    font-size:8px;
+	margin:5px 0 0 7px;
+	float:right;
+	height:10px;
+    color:#DE4C1C;
 }
 
 .gridpic{

@@ -87,8 +87,9 @@ function getPhotosByPerPage(isNew){
 								"<input id='bigPicUrl"+json[i].id+"' type='hidden' value='"+json[i].url+"'/>"+
 							"</li>"+
 							"<div id='photoOPE"+json[i].id+"'>"+"<div class='operate'>"+
-								"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='apply to post on Home Page.'></div>" +
-								"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='delete this Post.'></div>"+
+							"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='delete this Post.'>删除</div>"+
+								"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='apply to post on Home Page.'>上首页</div>" +
+							
 							"</div>"+"</div>"
 						);
 								
@@ -109,7 +110,7 @@ function getPhotosByPerPage(isNew){
 							"<span id='commentBody"+json[i].id+"'><span>"+
 							"</div>"+
 								"<figure>"+	
-								"<figcaption ><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'></div></a>" +
+								"<figcaption ><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'>Edit</div></a>" +
 								"<input type='text' id='desTextArea"+json[i].id+"' style='display:none;' maxlength='60'/>" +
 								"<input id='updateDesButton"+json[i].id+"' style='display:none' type='button' value='Edit' onclick='updateDes("+json[i].id+")'/>"+
 								"<des class='p2' id='desContext"+json[i].id+"'>"+json[i].name+"</des>" +
@@ -311,7 +312,7 @@ function deletePhoto(photoId){
 				if(msg=="success"){   
 					photoCount = photoCount-1;
 					$("#picCountDiv").html(""+photoCount);
-					$("#photoOPE"+photoId).html("<div class='operate'>"+"<div class='up' title='我要上首页'></div>"+"<div class='de' title='删除'></div>"+"</div>");
+					$("#photoOPE"+photoId).html("<div class='operate'>"+"<div class='de' title='delete this Post'>删除</div>"+"<div class='up' title='show my pic in Home page'>上首页</div>"+"</div>");
 					$("#photo"+photoId).html("<div class='gridpic'><center><img src='"+document.getElementById("basePath").value+"images/deleted.jpg"+"'/></center></div>");
 					$("#comment"+photoId).html("<center>&nbsp;</center>");
 					$("#commentPic"+photoId).html("<center><div id='bigPic"+photoId+"' ><img src='"+document.getElementById("basePath").value+"images/deletedBig.jpg"+"'/></center></div></center>");
