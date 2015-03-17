@@ -37,7 +37,7 @@ function getFollowingByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div id='followFriendNamefollowingAttrSpan"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div id='followFriendNamefollowingAttrSpan"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 						$('#followingSignContext'+json[i].userId).emoticonize();
@@ -84,7 +84,7 @@ function getFollowersByPerPage(){
 									"</span>"+
 								"</div>"+
 								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].userId+")' target='main'>"+
-								"<div id='followFriendNamefollowerAttrSpan"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
+								"<div id='followFriendNamefollowerAttrSpan"+json[i].userId+"' class='name'>"+(json[i].isFriend==true?"<name title='click to show detail.'>":"<name title='click to show detail.'>")+json[i].fname+"</name></div></a>"+
 							"</div>"
 						);
 						$('#followersSignContext'+json[i].userId).emoticonize();

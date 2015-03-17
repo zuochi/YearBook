@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="female">&nbsp;&nbsp;&nbsp;&nbsp;female</div>
                         </s:else>
 							<div class="sign">
-								<a href="javascript:void(0)" title='edit my sign.' onclick="showSignEdit()"><div id="signButton" class="pen"></div></a>
+								<a href="javascript:void(0)" title='edit my sign.' onclick="showSignEdit()"><div id="signButton" class="pen" style="margin:2px 10px 0 0;font-size:14px; ">Edit</div></a>
 							sign：<input type="text" id="signTextArea" style="display:none" maxlength="42"/><input id="updateSignButton" style="display:none" type="button" value="Edit" onclick="updateSign()"/>
 								  <span id="signContext"><s:property value="#session.user.sign"/></span>
 							</div>

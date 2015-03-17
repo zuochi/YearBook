@@ -41,7 +41,7 @@ function followFriendSmall(elementId,socialUserId,fname){
          success:function (msg) {
         	 if(msg=="success"){
         		 $("#"+elementId).html("<a href='javascript:void(0)' onclick='cancleFollowFriendSmall(\""+elementId+"\","+socialUserId+",\""+fname+"\")'><div class='friendSmall'></div></a>");
-        		 $("#followFriendName"+elementId).html("<span style='color:#ff406d' title='we followed each other.'>♥ </span><name title='click to show detail.'>"+fname+"</name>");
+        		 $("#followFriendName"+elementId).html("<name title='click to show detail.'>"+fname+"</name>");
         		 $("#hasBeenModify").val(1);
         	 }else{
         		 operationRepeatWarn();
