@@ -563,7 +563,7 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 .loadComm{position: fixed;left: 33%;top: 50%;z-index: 999;}
 .loadPic{position: fixed;left: 45%;top: 80%;z-index: 999;}
 .operate2{
-	font-size:8px;
+	font-size:x-small;
 	margin:5px 0 0 7px;
 	float:right;
 	height:10px;
@@ -574,7 +574,7 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 	
 }
 .operate2:hover{
-	font-size:8px;
+	font-size:x-small;
 	margin:5px 0 0 7px;
 	float:right;
 	height:10px;

@@ -428,7 +428,7 @@ margin-top:8px;
 
 
 
-h3{font-size:17px;word-break:break-all;font-weight:normal;line-height:25px;color:#234;}
+h3{font-size:medium;word-break:break-all;font-weight:normal;color:#234;}
 .user-name {  font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;color:#DE4C1C; }
 .user-name:hover{color:#000; font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;text-decoration: none;}
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}
