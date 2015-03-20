@@ -47,7 +47,7 @@ function getPhotosByPerPage(isNew){
 					}
 					for(var i=0; i<json.length; i++){
 						$("#photosUL").append(
-								"<div class='report'>举报</div>"+
+							($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='accusationPhoto(\""+json[i].id+"\")' title='举报'><div class='report'>举报</div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='accusationPhoto(\""+json[i].id+"\")' title='举报'><div class='report'>举报</div></a>"):""))+
 							"<li onclick='loadBigPic("+json[i].id+")'>"+
 								"<figure>"+
 									"<div id='photo"+json[i].id+"' class='gc'>"+

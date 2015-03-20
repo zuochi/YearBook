@@ -28,18 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			isAnimated: true
 	      });
 	    });
-	  
-	  });
-	  $(document).ready(function() {
-		$("#random").skippr();
-		$("#random2").skippr({
-		navType: 'bubble',
-		autoPlay: true,
-		autoPlayDuration: 2000
-		});
 	});
 	</script>
-
 </head>
 
 <body>

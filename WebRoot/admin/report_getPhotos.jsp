@@ -17,29 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link href="styles/guanli.css" rel="stylesheet"  type="text/css">
-<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-	    var $ctr = $('#ctr');
-	    $ctr.imagesLoaded( function(){
-	      $ctr.masonry({
-	        itemSelector : '.box',
-			isFitWidth: true,
-			isAnimated: true
-	      });
-	    });
-	  
-	  });
-	  $(document).ready(function() {
-		$("#random").skippr();
-		$("#random2").skippr({
-		navType: 'bubble',
-		autoPlay: true,
-		autoPlayDuration: 2000
-		});
-	});
-	</script>
 </head>
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
@@ -56,11 +33,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<c:forEach var="obj" items="${objs}">
 		<div class="box photo col1">
 			<img src="${obj.urlThumb}" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
+			<div class="likes_icon">
+				<div class="like_number">
+					<h2><a href="javascript:void(0)" onclick="deletePhoto(${obj.id})">删除</a></h2>
+					<h2><a href="javascript:void(0)" onclick="missPhoto(${obj.id})">忽略</a></h2>
+				</div>
+			</div>
 		</div>
 	</c:forEach>
 </div>
 <hr>
 </div>
+<script type="text/javascript" src="js/admin/photo.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+	    var $ctr = $('#ctr');
+	    $ctr.imagesLoaded( function(){
+	      $ctr.masonry({
+	        itemSelector : '.box',
+			isFitWidth: true,
+			isAnimated: true
+	      });
+	    });
+	  });
+</script>
 </body>
 </html>

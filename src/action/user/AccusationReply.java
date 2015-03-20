@@ -14,21 +14,27 @@ public class AccusationReply extends UserAction{
 	
 	@Override
 	public String execute() {
-		reply = (Reply) service.getObjectByHql("from Reply where isDelete=0 and id='" + reply.getId()+"'");
-		reply.setIsAccusation(1);
-		
 		try {
 			out = response.getWriter();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		if(service.updateObject(reply)){
-			out.print("success");
+		reply = (Reply) service.getObjectByHql("from Reply where isDelete=0 and id='" + reply.getId()+"'");
+		if(reply.getIsAccusation()!=null && reply.getIsAccusation()==0){
+			reply.setIsAccusation(1);
+
+			if(service.updateObject(reply)){
+				out.print("success");
+			}else{
+				out.print("fail");
+			}
 		}else{
-			out.print("fail");
+			out.print("repeat");
 		}
 		
+		out.flush();
+		out.close();
 		return null;
 	}
 
