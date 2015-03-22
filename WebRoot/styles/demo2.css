@@ -169,13 +169,12 @@ body {
 	}
 }
 .male{
-	margin-top:15px;
-	margin-left:135px;
+	margin:15px 0 0 135px;
 	font-size:17px;
 	color:#43a2da;
 }
 .female{
-	margin-top:15px;
+	margin:15px 0 0 135px;
 	font-size:17px;
 	color:#ff406d;
 }
