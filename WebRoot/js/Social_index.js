@@ -64,14 +64,15 @@ function getPhotosByPerPage(isNew){
 								"<div id='comment"+json[i].id+"' class='text2'>"+
 								"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:300px;margin-top:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
 								"<textarea style='margin-left:7px;word-break:break-all;resize: none;' rows='3' cols='60'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'></textarea>"+
-								"<input style='position:absolute; left:397px;top:75px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+","+$("#userId").val()+")'/><br>"+
+								"<input style='position:absolute; left:7px;top:70px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+","+$("#userId").val()+")'/><br>"+
 								"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 								"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 								"<div align='left' style='margin:3px 0 0 7px;'>" +
-									"<span id='pageShow"+json[i].id+"' style='display:none'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
+								"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a style='font-size:small;padding:0 50px 0 250px' href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
+									"<span id='pageShow"+json[i].id+"' style='display:none;font-size:small;'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 									"<span id='commentPageTurningButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
 									"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
-									"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
+
 								"</div>"+
 								"<span id='commentBody"+json[i].id+"'><span>"+
 								"</div>"+

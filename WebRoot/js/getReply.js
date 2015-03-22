@@ -143,7 +143,7 @@ function getReplyCount(photoBid){
 				if(parseInt(json)==0){
 					$("#commentRefreshButton"+photoBid).hide();
 					$("#pageShow"+photoBid).hide();
-					$("#commentBody"+photoBid).append("<div align='center' style='padding:10px 0 0 0;font-size:small;'>no reply yet,click <a href='javascript:void(0)'style='color:#DE4C1C ' onclick='reloadReply("+photoBid+")'>Refresh</a> to display the latest status<div>");
+					$("#commentBody"+photoBid).append("<div align='center' style='padding:15px 0 0 0;font-size:medium;'>no reply yet,click <a href='javascript:void(0)'style='color:#DE4C1C ' onclick='reloadReply("+photoBid+")'>Refresh</a> to display the latest status<div>");
 				}else{
 					$("#pageShow"+photoBid).show();
 					$("#commentRefreshButton"+photoBid).show();

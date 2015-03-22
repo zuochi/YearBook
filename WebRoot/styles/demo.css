@@ -363,7 +363,7 @@ margin-top:8px;
 	width:70px;
 	height:20px;
 	z-index:2;
-	margin:193px 140px 62px 10px;
+	margin:193px 140px 63px 10px;
 	position:relative;
 	color:#8f8f8f;
 	font-size:12px;
@@ -407,7 +407,7 @@ margin-top:8px;
 
 
 .operate{
-	font-size:8px;
+	font-size:x-small;
 	margin:5px 0 0 7px;
 	float:right;
 	height:10px;
@@ -418,7 +418,7 @@ margin-top:8px;
 	
 }
 .operate:hover{
-	font-size:8px;
+	font-size:x-small;
 	margin:5px 0 0 7px;
 	float:right;
 	height:10px;
