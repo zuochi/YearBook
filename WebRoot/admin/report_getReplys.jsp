@@ -17,32 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link href="styles/guanli.css" rel="stylesheet"  type="text/css">
- <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
-<script type="text/javascript">
-	    $(function(){
-	    var $ctr = $('#ctr');
-	    $ctr.imagesLoaded( function(){
-	      $ctr.masonry({
-	        itemSelector : '.box',
-			isFitWidth: true,
-			isAnimated: true
-	      });
-	    });
-	  
-	  });
-	  $(document).ready(function() {
-		$("#random").skippr();
-		$("#random2").skippr({
-		navType: 'bubble',
-		autoPlay: true,
-		autoPlayDuration: 2000
-		});
-	});
-	</script>
-
 </head>
-
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
 <%--翻页按钮 开始 --%>
@@ -53,32 +28,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--翻页按钮 结束 --%>
 <!-- class=main里面的内容为局部刷新内容，即每一个模块的布局都要写在main里面 -->
 <div class="main">
-
-
 <!-- 评论管理模块 -->
 评论管理
 
 <c:forEach var="obj" items="${objs}">
 	<div class="no">${obj.name}
-	<div class="comment">
-	<div class="pic">
-		<img alt="" src="${obj.url_m}">
+		<div class="comment">
+			<div class="pic">
+				<img alt="" src="${obj.url_m}">
+			</div>
+			<div class="neirong">${obj.context}</div>
+			<div><a href="javascript:void(0)" onclick="deleteReply('${obj.id}')">删除</a></div>
+			<div><a href="javascript:void(0)" onclick="missReply('${obj.id}')">忽略</a></div>
+		</div>
+		
 	</div>
-	<div class="neirong">${obj.context}</div></div></div>
 	<br>
 </c:forEach>
 <div class="no">NO.2
 <div class="comment">
 <div class="pic">头像</div>
 <div class="neirong">测试一下</div>
-
 </div>
 </div>
 <br>
 <hr>
-
-
-
 </div>
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="js/admin/reply.js"></script>
+<script type="text/javascript">
+$(function(){
+	var $ctr = $('#ctr');
+    $ctr.imagesLoaded( function(){
+      $ctr.masonry({
+        itemSelector : '.box',
+		isFitWidth: true,
+		isAnimated: true
+      });
+    });
+});
+</script>
 </body>
 </html>

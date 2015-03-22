@@ -49,8 +49,8 @@ public class CookieUtils{
 						if (user != null) {
 							if(password.equals(user.getPassword())){
 								pro = new Properties();
-								pro.setProperty("id", user.getHeadPhoto().getId().toString());
-								HeadPhoto headPhoto = (HeadPhoto) service.getObjectByProperties(pro, new HeadPhoto());
+								pro.setProperty("id", user.getHeadPhoto().getId());
+								HeadPhoto headPhoto = (HeadPhoto) service.getObjectByHql("from HeadPhoto h where h.id='"+user.getHeadPhoto().getId()+"'");
 								session.put("user", user);
 								session.put("headPhoto", headPhoto);
 								return true;

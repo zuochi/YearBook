@@ -13,7 +13,6 @@ import bean.User;
 public class Login extends UserAction{
 	@Override
 	public String execute() throws Exception {
-		// TODO Auto-generated method stub
 		try {
 			out = response.getWriter();
 			user = (User) service.getObjectByHql("from User where isDelete=0 and userName='"+userName+"'", "getHeadPhoto");
@@ -37,7 +36,6 @@ public class Login extends UserAction{
 				out.print("fail");
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			out.print("fail");
 			e.printStackTrace();
 		} finally {

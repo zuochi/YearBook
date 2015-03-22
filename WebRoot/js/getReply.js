@@ -57,7 +57,6 @@ function showComments(photoBid,toPageC){
 									($("#isMine").val()==0?($("#currentUserId").val()==json[i].user_id?("<a href='javascript:void(0)' onclick='deleteReply(\""+json[i].id+"\")' title='delete'><div class='operate'>删除</div></a>"):""):("<a href='javascript:void(0)' onclick='deleteReply(\""+json[i].id+"\")' title='delete'><div class='operate2'>删除</div></a>"))+
 									($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='accusationReply(\""+json[i].id+"\")' title='inform'><div class='operate'>举报</div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='accusationReply(\""+json[i].id+"\")' title='举报'><div class='operate2'>举报</div></a>"):""))+
 									($("#isMine").val()==0?($("#currentUserId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='operate'>评论</div></a>"):""):($("#userId").val()!=json[i].user_id?("<a href='javascript:void(0)' onclick='replyAutoComplete(\""+json[i].name+"\",+"+photoBid+")' title='reply'><div class='operate2'>评论</div></a>"):""))+
-
 									"<div align='left' class='p1'>"+calculateDT(json[i].signup_date)+"</div>"+
 								"</div>"+
 							"</div>"	
@@ -111,9 +110,11 @@ function accusationReply(replyId){
 			dataType:'text', 
 			success:function (msg) {
 				if(msg=="success"){   
-					alert("please wait for the adminstartor's reply,thank for your report.");
+					alert("Please wait for the adminstartor's reply,thank for your report.");
+				}else if(msg=="repeat"){
+					alert("This reply had been report to adminstartor.");
 				}else{
-					alert("fail");
+					alert("Report fail,please contact the adminstartor to fix this problem QAQ,thank you!");
 				}
 			}
 		});
