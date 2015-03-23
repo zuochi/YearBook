@@ -1,11 +1,10 @@
 package action.admin;
+
 import org.apache.struts2.json.annotations.JSON;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bean.Reply;
-
-
 
 @Controller
 @Scope("prototype")

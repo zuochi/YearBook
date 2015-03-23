@@ -1,11 +1,6 @@
 package dto;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
-
-import bean.PhotoAlbum;
-import bean.User;
 
 /**
  * Photo entity. @author MyEclipse Persistence Tools

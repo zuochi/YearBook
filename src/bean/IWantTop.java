@@ -16,7 +16,8 @@ public class IWantTop implements java.io.Serializable {
 	private Timestamp signupDate;
 	private Integer status;
 	private Integer isDelete;
-
+	private Timestamp reviewDate;
+	
 	// Constructors
 
 	/** default constructor */
@@ -33,12 +34,13 @@ public class IWantTop implements java.io.Serializable {
 
 	/** full constructor */
 	public IWantTop(User user, Photo photo, Timestamp signupDate,
-			Integer status, Integer isDelete) {
+			Integer status, Integer isDelete, Timestamp reviewDate) {
 		this.user = user;
 		this.photo = photo;
 		this.signupDate = signupDate;
 		this.status = status;
 		this.isDelete = isDelete;
+		this.reviewDate = reviewDate;
 	}
 
 	// Property accessors
@@ -91,4 +93,11 @@ public class IWantTop implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
+	public Timestamp getReviewDate() {
+		return reviewDate;
+	}
+
+	public void setReviewDate(Timestamp reviewDate) {
+		this.reviewDate = reviewDate;
+	}
 }

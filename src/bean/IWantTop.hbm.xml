@@ -27,12 +27,17 @@
         </property>
         <property name="status" type="java.lang.Integer">
             <column name="status" not-null="true">
-                <comment>0:未处理;1:已处理</comment>
+                <comment>0:未处理;1:通过;2:未通过;3:下架</comment>
             </column>
         </property>
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete">
                 <comment>0:未删除 1:已删除</comment>
+            </column>
+        </property>
+        <property name="reviewDate" type="java.sql.Timestamp">
+            <column name="review_date" length="19" not-null="false">
+                <comment>审核日期</comment>
             </column>
         </property>
     </class>

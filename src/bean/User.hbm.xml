@@ -46,6 +46,16 @@
         <property name="lastLogintime" type="java.sql.Timestamp">
             <column name="last_logintime" length="19" />
         </property>
+         <property name="telePhone" type="java.lang.String">
+            <column name="tele_phone" length="32">
+                <comment>联系电话</comment>
+            </column>
+        </property>
+         <property name="homeTown" type="java.lang.String">
+            <column name="home_town" length="32">
+                <comment>家乡</comment>
+            </column>
+        </property>
         <property name="qq" type="java.lang.String">
             <column name="qq" length="20" />
         </property>

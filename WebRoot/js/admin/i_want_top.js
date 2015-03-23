@@ -1,38 +1,16 @@
-//删除照片
-function deletePhoto(photoId){
-	if(confirm("Are you sure to delete this photo?")) { 
+//审核
+function reviewIWantTop(iWantTopId,result){
+	if(confirm(result==1?"图片将会通过审核？":"图片不通过审核？")) { 
 		  $.ajax({
-			url:'/YearBook/admin/deletePhotoA_execute',  
+			url:'/YearBook/admin/reviewIWantTops_execute',  
 			type:'post', 
-			data:"photo.id="+photoId,
+			data:{"i_want_top.id":iWantTopId,"i_want_top.status":result},
 			async:false,
 			dataType:'text', 
 			success:function (msg) {
 				if(msg=="success"){   
 					window.location.reload(true);
-				 }else{
-					alert("delete " + msg);
-				}
-			}
-		});
-	}
-};
-
-//忽略图片
-function missPhoto(photoId){
-	if(confirm("Are you sure to miss this photo?")) { 
-		  $.ajax({
-			url:'/YearBook/admin/missAccusationPhoto_execute',  
-			type:'post', 
-			data:"photo.id="+photoId,
-			async:false,
-			dataType:'text', 
-			success:function (msg) {
-				if(msg=="success"){   
-					window.location.reload(true);
-				 }else{
-					alert("delete " + msg);
-				}
+				 }
 			}
 		});
 	}

@@ -35,6 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<img src="${obj.urlThumb}" alt="Stanley" />
 			<div class="likes_icon">
 				<div class="like_number">
+					<h2>上传用户：<a href="javascript:editUser(${obj.user.id})">${obj.user.name}</a></h2>
+					<h2>上传时间：${obj.uploadDate}</h2>
 					<h2><a href="javascript:void(0)" onclick="deletePhoto(${obj.id})">删除</a></h2>
 					<h2><a href="javascript:void(0)" onclick="missPhoto(${obj.id})">忽略</a></h2>
 				</div>
@@ -48,16 +50,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-	    var $ctr = $('#ctr');
-	    $ctr.imagesLoaded( function(){
-	      $ctr.masonry({
-	        itemSelector : '.box',
-			isFitWidth: true,
-			isAnimated: true
-	      });
-	    });
-	  });
+$(function(){
+    var $ctr = $('#ctr');
+    $ctr.imagesLoaded( function(){
+      $ctr.masonry({
+        itemSelector : '.box',
+		isFitWidth: true,
+		isAnimated: true
+      });
+    });
+});
+
+function editUser(userId){
+	window.location.href="admin/getUserDetail_execute?user.id="+userId;
+};
 </script>
 </body>
 </html>

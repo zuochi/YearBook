@@ -35,7 +35,6 @@ public class PhotoUpload extends UserAction{
 	private FileInputStream fis;
 	
 	public String execute() {
-		//basePath = ServletActionContext.getServletContext().getRealPath("\\");
 		basePath = ServletActionContext.getServletContext().getRealPath("/") + "/";
 		user = (User) request.getSession().getAttribute("user");
 		try {
@@ -113,14 +112,12 @@ public class PhotoUpload extends UserAction{
 			tag.getGraphics().drawImage(src,0,0,200,height,null);
 		}
 		//绘制缩小后的图
-		//FileOutputStream fos = new FileOutputStream(savePath + "\\" +"thumb_"+file.getName());
 		FileOutputStream fos = new FileOutputStream(savePath + "/" +"thumb_"+file.getName());
 		//输出到文件流
 		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(fos);
 		//近JPEG编码
 		encoder.encode(tag);
 		//保存缩略图地址
-		//photo.setUrlThumb("uploadImgs\\"+"thumb_"+file.getName());
 		photo.setUrlThumb("uploadImgs/"+"thumb_"+file.getName());
 		fos.flush();
 		fos.close();
@@ -129,7 +126,6 @@ public class PhotoUpload extends UserAction{
 	private void savePhoto() throws Exception{
 		//先保存到数据库
 		photo.setName("No description yet.");
-		//photo.setUrl("uploadImgs\\"+file.getName());
 		photo.setUrl("uploadImgs/"+file.getName());
 		photo.setUploadDate(new Timestamp(System.currentTimeMillis()));
 		photo.setUser(user);
@@ -141,7 +137,6 @@ public class PhotoUpload extends UserAction{
 		//保存到服务器的路径
 		String savePath = basePath+"uploadImgs";
 		// 保存相片到服务器，以服务器的文件保存地址和源文件名建立上传文件输出流
-		//fos = new FileOutputStream(savePath + "\\"+ file.getName());
 		fos = new FileOutputStream(savePath + "/"+ file.getName());
 		// 以上传文件建立一个文件上传流
 		fis = new FileInputStream(file);
@@ -199,7 +194,6 @@ public class PhotoUpload extends UserAction{
 			headPhoto.setUrlO("uploadImgs/headPhoto/"+headPhotoFile.getName());
 		}
 	}
-	
 	
 	private class Result
 	{

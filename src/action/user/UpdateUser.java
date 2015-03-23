@@ -18,6 +18,9 @@ public class UpdateUser extends UserAction {
 				user.setPassword(request.getParameter("user.passwordOld"));
 			}
 			out = response.getWriter();
+			
+			user.setIsDelete(0);
+			
 			if (service.updateUser(user)) {
 				out.print("success");
 				session.put("user", user);

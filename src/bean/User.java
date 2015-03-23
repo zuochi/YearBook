@@ -23,6 +23,8 @@ public class User implements java.io.Serializable {
 	private String sign;
 	private Timestamp signupDate;
 	private Timestamp lastLogintime;
+	private String telePhone;
+	private String homeTown;
 	private String qq;
 	private String weChat;
 	private String email;
@@ -191,6 +193,22 @@ public class User implements java.io.Serializable {
 
 	public void setWeChat(String weChat) {
 		this.weChat = weChat;
+	}
+
+	public String getTelePhone() {
+		return telePhone;
+	}
+
+	public void setTelePhone(String telePhone) {
+		this.telePhone = telePhone;
+	}
+
+	public String getHomeTown() {
+		return homeTown;
+	}
+
+	public void setHomeTown(String homeTown) {
+		this.homeTown = homeTown;
 	}
 
 	public String getEmail() {
