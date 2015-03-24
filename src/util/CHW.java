@@ -17,7 +17,7 @@ public class CHW{
 	public void setCondition(String key,Object value,String opr){
 		if(sb==null){
 			sb = new StringBuilder();
-			sb.append(" where 1=1 ");
+			sb.append(" where 1=1");
 		}
 		
 		if(value!=null){

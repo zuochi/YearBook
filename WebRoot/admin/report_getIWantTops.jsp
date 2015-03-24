@@ -22,7 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
 <%--翻页按钮 开始 --%>
 <form id="form" action="admin/getIWantTops_execute">
-<input type="hidden" id="toPage" name="toPage" value="1">
 <jsp:include page="/template/pageControl.jsp"></jsp:include>
 </form>
 <%--翻页按钮 结束 --%>

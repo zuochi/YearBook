@@ -21,8 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
 
-<%--高级搜索 --%>
 <form id="form" action="admin/getUsers_execute">
+<%--高级搜索 --%>
 <br>
 <div align="center">
 账号:<input type="text" name="user.userName" value="${params.userName}">
