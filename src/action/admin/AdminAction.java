@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.ActionSupport;
 
 import service.Service;
+import util.CommonUtils;
 import bean.User;
 
 @Controller
@@ -24,6 +25,8 @@ public class AdminAction extends ActionSupport implements SessionAware {
 	@Autowired
 	protected Service service;
 	protected int toPage;
+	protected String orderBy;
+	protected String desc;
 	protected HttpServletRequest request = ServletActionContext.getRequest();
 	protected HttpServletResponse response = ServletActionContext.getResponse();
 	protected PrintWriter out;
@@ -35,6 +38,24 @@ public class AdminAction extends ActionSupport implements SessionAware {
 
 	public void setToPage(int toPage) {
 		this.toPage = toPage;
+	}
+	
+	public void setOrderBy(String orderBy) {
+		if(!CommonUtils.isBlank(orderBy)){
+			this.orderBy = orderBy;
+		}else{
+			this.orderBy = null;
+		}
+		request.setAttribute("orderBy", orderBy);
+	}
+
+	public void setDesc(String desc) {
+		if(!CommonUtils.isBlank(desc)){
+			this.desc = desc;
+		}else{
+			this.desc = "";
+		}
+		request.setAttribute("desc", desc);
 	}
 
 	//判断是否登录了

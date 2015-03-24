@@ -27,27 +27,27 @@ import java.util.Collection;
 public class PageController {
 
 	// 总行数
-	int totalRowsAmount;
+	private int totalRowsAmount;
 	// 每页行数
-	int pageSize = 10;
+	private int pageSize = 10;
 	// 总页数
-	int totalPages;
+	private int totalPages;
 	// 当前页码
-	int currentPage = 1;
+	private int currentPage = 1;
 	// 下一页
-	int nextPage;
+	private int nextPage;
 	// 上一页
-	int previousPage;
+	private int previousPage;
 	// 是否有下一页
-	boolean hasNext;
+	private boolean hasNext;
 	// 是否有上一页
-	boolean hasPrevious;
+	private boolean hasPrevious;
 
 	// 当前页开始行
-	int pageStartRow;
+	private int pageStartRow;
 
 	// 当前页要显示的行数
-	int pageEndRow;
+	private int pageEndRow;
 
 	/**
 	 * 构造函数。

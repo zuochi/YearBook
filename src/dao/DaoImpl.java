@@ -18,8 +18,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.transform.Transformers;
 import org.springframework.transaction.annotation.Transactional;
 
-import dto.Reply;
-
 import bean.PhotoAlbum;
 import bean.User;
 
@@ -82,7 +80,6 @@ public class DaoImpl<E> implements Dao {
 		StringBuilder sb = new StringBuilder("from "
 				+ object.getClass().getName() + " ");
 		String hql = getHQLByPropertiesDESC(sb, pro, false);
-		int count = getTotalRowsByProperties(pro, object,false);
 		Session session = null;
 		try {
 			session = sessionFactory.getCurrentSession();
@@ -107,13 +104,11 @@ public class DaoImpl<E> implements Dao {
 		StringBuilder sb = new StringBuilder("from "
 				+ object.getClass().getName() + " ");
 		String hql = getHQLByPropertiesDESCandDEL(sb, pro, false);
-		int count = getTotalRowsByProperties(pro, object,false);
 		Session session = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			// Query可以完成查询,删除,更新操作
 			Query query = session.createQuery(hql);
-			// List<Emp> allEmps = query.list();
 			List<Object> objects = query.list();
 			if (objects.size() != 0) {
 				objuectGetForSql = objects.get(0);
@@ -128,7 +123,7 @@ public class DaoImpl<E> implements Dao {
 	}
 
 	@Override
-	public List<E> getObjectsByPrepage(PageController pc, Object object) {
+	public List<?> getObjectsByPrepage(PageController pc, Object object) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
 			String hql = "select o from " + object.getClass().getName() + " o";
@@ -146,7 +141,7 @@ public class DaoImpl<E> implements Dao {
 	}
 
 	@Override
-	public List<E> getObjectsByPrepage(Properties pro, PageController pc,
+	public List<?> getObjectsByPrepage(Properties pro, PageController pc,
 			Object object) {
 		StringBuilder sb = new StringBuilder("from "
 				+ object.getClass().getName() + " ");
@@ -172,7 +167,7 @@ public class DaoImpl<E> implements Dao {
 	}
 
 	@Override
-	public List<E> getObjectsByPrepageAndProperties(Properties pro,
+	public List<?> getObjectsByPrepageAndProperties(Properties pro,
 			PageController pc, Object object, boolean DESC) {
 		StringBuilder sb = new StringBuilder("from "
 				+ object.getClass().getName() + " ");
@@ -198,12 +193,11 @@ public class DaoImpl<E> implements Dao {
 	}
 
 	@Override
-	public List getObjectsByProperties(Properties pro, Object object,
+	public List<?> getObjectsByProperties(Properties pro, Object object,
 			boolean DESC) {
 		StringBuilder sb = new StringBuilder("from "
 				+ object.getClass().getName() + " ");
 		String hql = getHQLByPropertiesDESC(sb, pro, DESC);
-		int count = getTotalRowsByProperties(pro, object,DESC);
 		Session session = null;
 		try {
 			session = sessionFactory.getCurrentSession();
@@ -219,7 +213,7 @@ public class DaoImpl<E> implements Dao {
 	}
 	
 	@Override
-	public List getObjectsByPrepageAndByPropertiesLike(Properties pro,PageController pc, Object object,
+	public List<?> getObjectsByPrepageAndByPropertiesLike(Properties pro,PageController pc, Object object,
 			boolean DESC) {
 		StringBuilder sb = new StringBuilder("from "
 				+ object.getClass().getName() + " ");
@@ -248,7 +242,7 @@ public class DaoImpl<E> implements Dao {
 			boolean DESC) {
 		if (pro != null && pro.size() > 0) {
 			hql.append(" where isDelete=0 and ");
-			Enumeration enu = pro.propertyNames();
+			Enumeration<?> enu = pro.propertyNames();
 			while (enu.hasMoreElements()) {
 				String key = (String) enu.nextElement();
 				if ("id".equals(key) || "user.id".equals(key)
@@ -287,7 +281,7 @@ public class DaoImpl<E> implements Dao {
 			boolean DESC) {
 		if (pro != null && pro.size() > 0) {
 			hql.append(" where isDelete=1 and ");
-			Enumeration enu = pro.propertyNames();
+			Enumeration<?> enu = pro.propertyNames();
 			while (enu.hasMoreElements()) {
 				String key = (String) enu.nextElement();
 				if ("id".equals(key) || "user.id".equals(key)
@@ -325,7 +319,7 @@ public class DaoImpl<E> implements Dao {
 	private String getHQLgetHQLByPropertiesDESCLike(StringBuilder hql, Properties pro,boolean DESC) {
 		if (pro != null && pro.size() > 0) {
 			hql.append(" where isDelete=0 and ");
-			Enumeration enu = pro.propertyNames();
+			Enumeration<?> enu = pro.propertyNames();
 			while (enu.hasMoreElements()) {
 				String key = (String) enu.nextElement();
 				if(!"".equals(pro.getProperty(key)) && pro.getProperty(key).charAt(0)=='='){
@@ -373,7 +367,7 @@ public class DaoImpl<E> implements Dao {
 	}
 
 	@Override
-	public List getAllObjects(Object object) {
+	public List<?> getAllObjects(Object object) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
 			String hql = "select o from " + object.getClass().getName() + " o";
@@ -546,8 +540,8 @@ public class DaoImpl<E> implements Dao {
 	}
 	
 	@Override
-	public List getObjectsBySql(String sql,PageController pc,Object object,String... values) {
-		List list = null;
+	public List<?> getObjectsBySql(String sql,PageController pc,Object object,String... values) {
+		List<?> list = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
@@ -590,8 +584,8 @@ public class DaoImpl<E> implements Dao {
 	}
 	
 	@Override
-	public List getDtoObjectsBySql(String sql,PageController pc,Object object) {
-		List list = null;
+	public List<?> getDtoObjectsBySql(String sql,PageController pc,Object object) {
+		List<?> list = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
@@ -619,7 +613,7 @@ public class DaoImpl<E> implements Dao {
 	
 	@Override
 	public Object getObjectBySql(String sql,Object object,String... values) {
-		List list = null;
+		List<?> list = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(object instanceof Integer){
@@ -663,8 +657,8 @@ public class DaoImpl<E> implements Dao {
 	 * "String... values" 为方法的名字，去括号
 	 */
 	@Override
-	public List getObjectsByHql(String hql,PageController pc, String... values) {
-		List list = null;
+	public List<?> getObjectsByHql(String hql,PageController pc, String... values) {
+		List<?> list = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
@@ -702,7 +696,7 @@ public class DaoImpl<E> implements Dao {
 
 	@Override
 	public Object getObjectByHql(String hql, String... values) {
-		List list = null;
+		List<?> list = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			if(values!=null && values.length>0 && "getInteger".equals(values[0])){

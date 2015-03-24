@@ -20,8 +20,8 @@ public class GetProfiles extends UserAction{
 			return "login";
 		}
 		
-		List<Profession> professions = service.getObjectsByHql("from Profession",null);
-		List<SchoolYear> schoolYears = service.getObjectsByHql("from SchoolYear order by year desc",null);
+		List<Profession> professions = service.getObjectsByHql("from Profession where isDelete=0",null);
+		List<SchoolYear> schoolYears = service.getObjectsByHql("from SchoolYear where isDelete=0 order by year desc",null);
 		request.setAttribute("professions", professions);
 		request.setAttribute("schoolYears", schoolYears);
 		return "profile";

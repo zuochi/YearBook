@@ -13,6 +13,7 @@ ul>li {
 	width: 100px;
 }
 </style>
+<input type="hidden" id="toPage" name="toPage" value="1">
 <div align="center">
 	<ul>
 		<li>${pc.currentPage}/${pc.totalPages}</li>
