@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>Year Book - 处理举报的图片</title>
+<title>Year Book - 审核“上首页”的图片</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -20,71 +20,88 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
-<%--翻页按钮 开始 --%>
+
 <form id="form" action="admin/getIWantTops_execute">
+<%--高级搜索 --%>
+<br>
+<div align="center">
+申请编号:<input type="text" name="iwant.id" value="${params.id}">
+上传人id:<input type="text" name="iwant.user.id" value="${params.user.id}">
+上传人昵称:<input type="text" name="iwant.user.name" value="${params.user.name}">
+状态:<select name="iwant.status">
+		<option value="">全部</option>
+		<option <c:if test="${params.status==0}">selected="selected"</c:if> value="0">未审核</option>
+		<option <c:if test="${params.status==1}">selected="selected"</c:if> value="1">通过</option>
+		<option <c:if test="${params.status==2}">selected="selected"</c:if> value="2">未通过</option>
+		<option <c:if test="${params.status==3}">selected="selected"</c:if> value="3">下架</option>
+	</select>
+<input type="submit" value="查找">
+<input type="button" onclick="resetSearch()" value="重置">
+<script type="text/javascript">
+function resetSearch(){
+	window.location.href="admin/getIWantTops_execute";
+};
+</script>
+</div>
+<br>
+<%--高级搜索 --%>
+
+<%--导入排序 --%>
+<jsp:include page="/template/sort.jsp"></jsp:include>
+<%--导入排序 --%>
+
+<%--翻页按钮 开始 --%>
 <jsp:include page="/template/pageControl.jsp"></jsp:include>
 </form>
 <%--翻页按钮 结束 --%>
 <!-- class=main里面的内容为局部刷新内容，即每一个模块的布局都要写在main里面 -->
 <div class="main">
 <!-- 图片管理模块 -->
-<div id="ctr">
-	<c:forEach var="obj" items="${objs}">
-		<div class="box photo col1">
-			<img src="${obj.photo.urlThumb}" alt="Stanley" />
-				<div class="likes_icon">
-					<div class="like_number">
-						<h2>上传时间:${obj.signupDate}</h2>
-					</div>
-				</div>
-				<div class="likes_icon">
-					<div class="like_number">
-						<h2>上传者:${obj.user.name}</h2>
-					</div>
-				</div>
-				<div class="likes_icon">
-					<div class="like_number">
-						<h2><a href="javascript:void(0)" onclick="reviewIWantTop(${obj.id},2)">不通过</a></h2>
-					</div>
-				</div>
-			<div class="likes_icon">
-				<div class="like_number">
-					<h2><a href="javascript:void(0)" onclick="reviewIWantTop(${obj.id},1)">通过</a></h2>
-				</div>
-			</div>
-		</div>
-	</c:forEach>
-</div>
-<!-- <div id="ctr">
-		<div class="box photo col1">
-			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-		<div class="box photo col1">
-			<img src="images/2.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-				<div class="box photo col1">
-			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-</div> -->
-<hr>
+<table border="1" align="center">
+<thead>
+	<tr>
+		<th>上传图片预览</th>
+		<th><a href="javascript:orderBy('id')">申请编号</a></th>
+		<th><a href="javascript:orderBy('user.id')">上传人id</a></th>
+		<th><a href="javascript:orderBy('user.name')">上传人昵称</a></th>
+		<th><a href="javascript:orderBy('signupDate')">申请时间</a></th>
+		<th><a href="javascript:orderBy('status')">状态</a></th>
+		<th>通过</th>
+		<th>未通过</th>
+		<!-- <th>编辑/查看</th> -->
+	</tr>
+</thead>
+<c:forEach var="obj" items="${objs}">
+	<tr>
+		<td><a target="_blank" href="ShowBigPic.jsp?url=${obj.photo.url}&name=${obj.user.name}" title="点击放大"><img src="${obj.photo.urlThumb}" title="点击放大" /></a></td>
+		<td>${obj.id}</td>
+		<td><a target="_blank" href="admin/getUserDetail_execute?user.id=${obj.user.id}" title="查看更多">${obj.user.id}</a></td>
+		<td><a target="_blank" href="admin/getUserDetail_execute?user.id=${obj.user.id}" title="查看更多">${obj.user.name}</a></td>
+		<td>${obj.signupDate}</td>
+		<td>
+			<c:if test="${obj.status==0}"><span style="color:red">未审核</span></c:if>
+			<c:if test="${obj.status==1}"><span style="color:green">通过</span></c:if>
+			<c:if test="${obj.status==2}"><span style="color:orange">未通过</span></c:if>
+			<c:if test="${obj.status==3}"><span style="color:black">下架</span></c:if>
+		</td>
+		<td>
+			<c:if test="${obj.status==0}"><span><a href="javascript:reviewIWantTop(${obj.id},1)">通过</a></span></c:if>
+			<c:if test="${obj.status==1}"><span>通过</span></c:if>
+			<c:if test="${obj.status==2}"><span><a href="javascript:reviewIWantTop(${obj.id},1)">通过</a></span></c:if>
+			<c:if test="${obj.status==3}"><span>通过</span></c:if>
+		</td>
+		<td>
+			<c:if test="${obj.status==0}"><span><a href="javascript:reviewIWantTop(${obj.id},2)">不通过</a></span></c:if>
+			<c:if test="${obj.status==1}"><span><a href="javascript:reviewIWantTop(${obj.id},2)">不通过</a></span></c:if>
+			<c:if test="${obj.status==2}"><span>不通过</span></c:if>
+			<c:if test="${obj.status==3}"><span>不通过</span></c:if>
+		</td>
+		<%-- <td><a href="javascript:editUser(${obj.id})">编辑/查看</a></td> --%>
+	</tr>
+</c:forEach>
+</table>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 <script type="text/javascript" src="js/admin/i_want_top.js"></script>
-<script type="text/javascript">
-	$(function(){
-	    var $ctr = $('#ctr');
-	    $ctr.imagesLoaded( function(){
-	      $ctr.masonry({
-	        itemSelector : '.box',
-			isFitWidth: true,
-			isAnimated: true
-	      });
-	    });
-	  });
-</script>
 </body>
 </html>

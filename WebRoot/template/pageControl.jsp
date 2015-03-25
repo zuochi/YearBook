@@ -42,14 +42,20 @@ ul>li {
 				<c:forEach var="index" begin="1" end="${pc.totalPages}">
 					<c:choose>
 						<c:when test="${index==pc.currentPage}">
-							<option selected="selected">${index }</option>
+							<option selected="selected">${index}</option>
 						</c:when>
 						<c:otherwise>
-							<option>${index }</option>
+							<option>${index}</option>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 			</select>
+		</li>
+		<li>
+			 页容:<input style="width:30px" maxlength="2" name="pageSize" value="${pageSize}">
+		</li>
+		<li>
+			<input type="submit" value="设置页容">
 		</li>
 	</ul>
 </div>

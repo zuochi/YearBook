@@ -18,6 +18,26 @@ function deletePhoto(photoId){
 	}
 };
 
+//恢复照片
+function recoveryPhoto(photoId){
+	if(confirm("Are you sure to recovery this photo?")) { 
+		  $.ajax({
+			url:'/YearBook/admin/recoveryPhotoA_execute',  
+			type:'post', 
+			data:"photo.id="+photoId,
+			async:false,
+			dataType:'text', 
+			success:function (msg) {
+				if(msg=="success"){   
+					window.location.reload(true);
+				 }else{
+					alert("delete " + msg);
+				}
+			}
+		});
+	}
+};
+
 //忽略图片
 function missPhoto(photoId){
 	if(confirm("Are you sure to miss this photo?")) { 

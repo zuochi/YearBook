@@ -28,23 +28,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 账号:<input type="text" name="user.userName" value="${params.userName}">
 昵称:<input type="text" name="user.name" value="${params.name}">
 状态:<select name="user.isDelete">
-		<option value="">--请选择--</option>
+		<option value="">--全部--</option>
 		<option <c:if test="${params.isDelete==0}">selected="selected"</c:if> value="0">--正常--</option>
 		<option <c:if test="${params.isDelete==1}">selected="selected"</c:if> value="1">--注销--</option>
 	</select>
 性别:<select name="user.sex">
-		<option value="">--请选择--</option>
+		<option value="">--全部--</option>
 		<option <c:if test="${params.sex==1}">selected="selected"</c:if> value="1">--男--</option>
 		<option <c:if test="${params.sex==0}">selected="selected"</c:if> value="0">--女--</option>
 	</select>
 专业:<select name="user.profession.id">
-			<option value="">--请选择--</option>
+			<option value="">--全部--</option>
 		<c:forEach var="o" items="${professions}">
 			<option <c:if test="${params.profession.id==o.id}">selected="selected"</c:if> value="${o.id}">${o.name}</option>
 		</c:forEach>
 	</select>
 学年:<select name="user.schoolYear.id">
-			<option value="">--请选择--</option>
+			<option value="">--全部--</option>
 		<c:forEach var="o" items="${schoolYears}">
 			<option <c:if test="${params.schoolYear.id==o.id}">selected="selected"</c:if> value="${o.id}">${o.year}</option>
 		</c:forEach>
@@ -77,8 +77,8 @@ function resetSearch(){
 	<tr>
 		<th>头像</th>
 		<th><a href="javascript:orderBy('user.id')">id</a></th>
-		<th><a href="javascript:orderBy('user.schoolYear.id')">学年</a></th>
-		<th><a href="javascript:orderBy('user.profession.id')">专业</a></th>
+		<th><a href="javascript:orderBy('user.schoolYear.year')">学年</a></th>
+		<th><a href="javascript:orderBy('user.profession.name')">专业</a></th>
 		<th><a href="javascript:orderBy('user.userName')">账号</a></th>
 		<th><a href="javascript:orderBy('user.name')">昵称</a></th>
 		<th><a href="javascript:orderBy('user.sex')">性别</a></th>
@@ -108,43 +108,12 @@ function resetSearch(){
 			<c:if test="${obj.isDelete==0}">正常</c:if>
 			<c:if test="${obj.isDelete==1}">注销</c:if>
 		</td>
-		<td><a href="javascript:editUser(${obj.id})">编辑/查看</a></td>
+		<td><a target="_blank" href="admin/getUserDetail_execute?user.id=${obj.id}">编辑/查看</a></td>
 	</tr>
 </c:forEach>
 </table>
-<!-- <div id="ctr">
-		<div class="box photo col1">
-			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-		<div class="box photo col1">
-			<img src="images/2.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-				<div class="box photo col1">
-			<img src="images/1.jpg" alt="Stanley" />
-			<div class="likes_icon"><div class="like_number"><h2>删除</h2></div></div>
-		</div>
-</div> -->
-<hr>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/jquery.masonry.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	var $ctr = $('#ctr');
-	$ctr.imagesLoaded( function(){
-		$ctr.masonry({
-			itemSelector : '.box',
-			isFitWidth: true,
-			isAnimated: true
-		});
-	});
-});
-
-function editUser(userId){
-	window.location.href="admin/getUserDetail_execute?user.id="+userId;
-};
-</script>
 </body>
 </html>

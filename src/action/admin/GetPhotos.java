@@ -6,27 +6,53 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import bean.Photo;
+import bean.Reply;
+import util.CHW;
 import util.PageController;
 
 @Controller
 @Scope("prototype")
 public class GetPhotos extends AdminAction{
+	private Photo photo;
 
 	@Override
 	public String execute() {
-		/*if(!isLogin(user)){
-			return "login";
-		}*/
+		CHW chw = new CHW();
 		
-		int photosCount = (Integer) service.getObjectByHql("select count(p.id) from Photo p where isDelete=0 and isAccusation=1","getInteger");
-		PageController pc = new PageController(photosCount, 1,20);
+		if(photo!=null){
+			chw.setCondition("id", photo.getId(), CHW.opr_equal);
+			chw.setCondition("user.id", photo.getUser().getId(), CHW.opr_equal);
+			chw.setCondition("user.name", photo.getUser().getName(), CHW.opr_like);
+			chw.setCondition("isDelete", photo.getIsDelete(), CHW.opr_equal);
+			chw.setCondition("isAccusation", photo.getIsAccusation(), CHW.opr_equal);
+		}else{
+			photo = new Photo();
+			photo.setIsDelete(0);
+			photo.setIsAccusation(1);
+			chw.setCondition("isDelete", photo.getIsDelete(), CHW.opr_equal);
+			chw.setCondition("isAccusation", photo.getIsAccusation(), CHW.opr_equal);
+		}
+
+		int photosCount = (Integer) service.getObjectByHql("select count(id) from Photo " + chw.getSqlWhere(),"getInteger");
+		PageController pc = new PageController(photosCount, 1,this.pageSize);
 		pc.setCurrentPage(toPage);
 
-		//List<dto.Photo> photos = service.getDtoObjectsBySql("select * from photo where is_delete=0 and is_accusation=1 order by upload_date desc", pc,new dto.Photo());
-		List<Photo> photos = service.getObjectsByHql("from Photo p where p.isDelete=0 and p.isAccusation=1 order by uploadDate desc", pc, "getUser");
+		List<Photo> photos = service.getObjectsByHql("from Photo " + chw.getSqlWhere() + " order by " + (orderBy!=null?orderBy:"uploadDate") + " " + (desc!=null?desc:""), pc, "getUser");
+		
 		request.setAttribute("objs", photos);
 		request.setAttribute("pc", pc);
+		request.setAttribute("pageSize", this.pageSize);
+		request.setAttribute("params", this.photo);
 		
 		return "report_getPhotos";
 	}
+
+	public Photo getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(Photo photo) {
+		this.photo = photo;
+	}
+	
 }

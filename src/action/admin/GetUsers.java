@@ -30,7 +30,7 @@ public class GetUsers extends AdminAction{
 		}
 		
 		Integer replysCount = (Integer) service.getObjectByHql("select count(user.id) from User user "+chw.getSqlWhere(), "getInteger");
-		PageController pc = new PageController(replysCount, 1,20);
+		PageController pc = new PageController(replysCount, 1,pageSize);
 		pc.setCurrentPage(toPage);
 
 		List<User> users = service.getObjectsByHql("from User user "+chw.getSqlWhere() + " order by " + (orderBy!=null?orderBy:"user.signupDate") + " " + (desc!=null?desc:""), pc,"getHeadPhoto","getProfession","getSchoolYear");
@@ -42,6 +42,7 @@ public class GetUsers extends AdminAction{
 		request.setAttribute("params", user);
 		request.setAttribute("professions", professions);
 		request.setAttribute("schoolYears", schoolYears);
+		request.setAttribute("pageSize", pageSize);
 		
 		return "report_getUsers";
 	}

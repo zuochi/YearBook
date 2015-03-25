@@ -25,6 +25,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
 	@Autowired
 	protected Service service;
 	protected int toPage;
+	protected int pageSize = 10;
 	protected String orderBy;
 	protected String desc;
 	protected HttpServletRequest request = ServletActionContext.getRequest();
@@ -46,7 +47,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
 		}else{
 			this.orderBy = null;
 		}
-		request.setAttribute("orderBy", orderBy);
+		request.setAttribute("orderBy", this.orderBy);
 	}
 
 	public void setDesc(String desc) {
@@ -55,9 +56,15 @@ public class AdminAction extends ActionSupport implements SessionAware {
 		}else{
 			this.desc = "";
 		}
-		request.setAttribute("desc", desc);
+		request.setAttribute("desc", this.desc);
 	}
 
+	public void setPageSize(int pageSize) {
+		if(pageSize>0){
+			this.pageSize = pageSize;
+		}
+	}
+	
 	//判断是否登录了
 	protected boolean isLogin(User user){
 		if(user==null){
