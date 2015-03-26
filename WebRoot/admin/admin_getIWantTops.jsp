@@ -75,13 +75,14 @@ function resetSearch(){
 <!-- 图片管理模块 -->
 
 <table border="1" align="center" >
-<thead>
+
+<c:forEach var="obj" items="${objs}">
+	<thead>
 	<tr>
 		<th>上传图片预览</th>
 		<th><a href="javascript:orderBy('id')">简介</a></th>
 	</tr>
-</thead>
-<c:forEach var="obj" items="${objs}">
+	</thead>
 	<tr>
 		<td><a target="_blank" href="ShowBigPic.jsp?url=${obj.photo.url}&name=${obj.user.name}" title="点击放大"><img src="${obj.photo.urlThumb}" title="点击放大" /></a></td>
 		<td>申请编号:${obj.id}<br><br>
