@@ -44,7 +44,7 @@ public class GetPhotos extends AdminAction{
 		request.setAttribute("pageSize", this.pageSize);
 		request.setAttribute("params", this.photo);
 		
-		return "report_getPhotos";
+		return "admin_getPhotos";
 	}
 
 	public Photo getPhoto() {

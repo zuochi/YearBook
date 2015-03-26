@@ -13,10 +13,10 @@ h2{float:right;font-size:12px;font-weight:normal;text-align:right;height:15px;wi
 h2:hover{float:right;font-size:12px;font-weight:normal;text-align:right;height:15px;width:35px;margin:0px;color:#3ab6ae;}
 
 .top{text-decoration: none;
-	outline: none;float:left;width:20%;height:40px;color:#3ab6ae;font-size:27px;background:#fff;text-align:center;}
+	outline: none;float:left;width:14%;height:40px;color:#3ab6ae;font-size:27px;background:#fff;text-align:center;}
 .top:hover{text-decoration: none;
-	outline: none;float:left;width:20%;height:40px;color:#fff;font-size:27px;background:#3ab6ae;text-align:center;}
-.top2{float:left;width:20%;height:40px;color:#fff;font-size:27px;background:#3ab6ae;text-align:center;}
+	outline: none;float:left;width:14%;height:40px;color:#fff;font-size:27px;background:#3ab6ae;text-align:center;}
+.top2{float:left;width:14%;height:40px;color:#fff;font-size:27px;background:#3ab6ae;text-align:center;}
 
 .main{height:90%;width:100%;}
 

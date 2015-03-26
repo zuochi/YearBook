@@ -44,7 +44,7 @@ public class GetUsers extends AdminAction{
 		request.setAttribute("schoolYears", schoolYears);
 		request.setAttribute("pageSize", pageSize);
 		
-		return "report_getUsers";
+		return "admin_getUsers";
 	}
 
 	public User getUser() {

@@ -22,7 +22,7 @@ public class GetUserDetail extends AdminAction{
 		request.setAttribute("professions", professions);
 		request.setAttribute("schoolYears", schoolYears);
 		
-		return "report_getUserDetail";
+		return "admin_getUserDetail";
 	}
 
 	public void setUser(User user) {

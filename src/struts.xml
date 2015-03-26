@@ -32,7 +32,7 @@
 	</package>
 	<package name="admin" extends="json-default" namespace="/admin">
 		<action name="*_*" class="{1}" method="{2}">
-			<result name="report_{1}">/admin/report_{1}.jsp</result>
+			<result name="admin_{1}">/admin/admin_{1}.jsp</result>
 			<result name="ajax" type="json"></result>
 		</action>
 	</package>

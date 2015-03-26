@@ -36,7 +36,7 @@ public class GetIWantTops extends AdminAction{
 		request.setAttribute("params", iwant);
 		request.setAttribute("pageSize", pageSize);
 		
-		return "report_getIWantTops";
+		return "admin_getIWantTops";
 	}
 
 	public IWantTop getIwant() {

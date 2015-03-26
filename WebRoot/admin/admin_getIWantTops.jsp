@@ -44,6 +44,22 @@ function resetSearch(){
 </script>
 </div>
 <br>
+<div>
+<table border="0" align="center">
+<thead>
+	<tr>
+		<th>排序：</th>
+		<th><a href="javascript:orderBy('id')">申请编号</a></th>
+		<th><a href="javascript:orderBy('user.id')">上传人id</a></th>
+		<th><a href="javascript:orderBy('user.name')">上传人昵称</a></th>
+		<th><a href="javascript:orderBy('signupDate')">申请时间</a></th>
+		<th><a href="javascript:orderBy('status')">状态</a></th>
+		<!-- <th>编辑/查看</th> -->
+	</tr>
+</thead>
+</table>
+</div>
+<br>
 <%--高级搜索 --%>
 
 <%--导入排序 --%>
@@ -57,46 +73,32 @@ function resetSearch(){
 <!-- class=main里面的内容为局部刷新内容，即每一个模块的布局都要写在main里面 -->
 <div class="main">
 <!-- 图片管理模块 -->
-<table border="1" align="center">
+
+<table border="1" align="center" >
 <thead>
 	<tr>
 		<th>上传图片预览</th>
-		<th><a href="javascript:orderBy('id')">申请编号</a></th>
-		<th><a href="javascript:orderBy('user.id')">上传人id</a></th>
-		<th><a href="javascript:orderBy('user.name')">上传人昵称</a></th>
-		<th><a href="javascript:orderBy('signupDate')">申请时间</a></th>
-		<th><a href="javascript:orderBy('status')">状态</a></th>
-		<th>通过</th>
-		<th>未通过</th>
-		<!-- <th>编辑/查看</th> -->
+		<th><a href="javascript:orderBy('id')">简介</a></th>
 	</tr>
 </thead>
 <c:forEach var="obj" items="${objs}">
 	<tr>
 		<td><a target="_blank" href="ShowBigPic.jsp?url=${obj.photo.url}&name=${obj.user.name}" title="点击放大"><img src="${obj.photo.urlThumb}" title="点击放大" /></a></td>
-		<td>${obj.id}</td>
-		<td><a target="_blank" href="admin/getUserDetail_execute?user.id=${obj.user.id}" title="查看更多">${obj.user.id}</a></td>
-		<td><a target="_blank" href="admin/getUserDetail_execute?user.id=${obj.user.id}" title="查看更多">${obj.user.name}</a></td>
-		<td>${obj.signupDate}</td>
-		<td>
-			<c:if test="${obj.status==0}"><span style="color:red">未审核</span></c:if>
-			<c:if test="${obj.status==1}"><span style="color:green">通过</span></c:if>
-			<c:if test="${obj.status==2}"><span style="color:orange">未通过</span></c:if>
-			<c:if test="${obj.status==3}"><span style="color:black">下架</span></c:if>
+		<td>申请编号:${obj.id}<br><br>
+			上传人id:${obj.user.id}<br><br>
+			上传人昵称:${obj.user.name}<br><br>
+			申请时间:${obj.signupDate}<br><br>
+			状态:<c:if test="${obj.status==0}"><span style="color:red">未审核</span></c:if>
+				<c:if test="${obj.status==1}"><span style="color:green">通过</span></c:if>
+				<c:if test="${obj.status==2}"><span style="color:orange">未通过</span></c:if>
+				<c:if test="${obj.status==3}"><span style="color:black">下架</span></c:if>
+			<br><br>
+			操作：
+				<c:if test="${obj.status==0}"><input type="button" value="通过" onclick="reviewIWantTop(${obj.id},1)"></c:if>
+				<c:if test="${obj.status==2}"><input type="button" value="通过" onclick="reviewIWantTop(${obj.id},1)"></c:if>
+				<c:if test="${obj.status==0}"><input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)"></c:if>
+				<c:if test="${obj.status==1}"><input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)"></c:if>
 		</td>
-		<td>
-			<c:if test="${obj.status==0}"><span><a href="javascript:reviewIWantTop(${obj.id},1)">通过</a></span></c:if>
-			<c:if test="${obj.status==1}"><span>通过</span></c:if>
-			<c:if test="${obj.status==2}"><span><a href="javascript:reviewIWantTop(${obj.id},1)">通过</a></span></c:if>
-			<c:if test="${obj.status==3}"><span>通过</span></c:if>
-		</td>
-		<td>
-			<c:if test="${obj.status==0}"><span><a href="javascript:reviewIWantTop(${obj.id},2)">不通过</a></span></c:if>
-			<c:if test="${obj.status==1}"><span><a href="javascript:reviewIWantTop(${obj.id},2)">不通过</a></span></c:if>
-			<c:if test="${obj.status==2}"><span>不通过</span></c:if>
-			<c:if test="${obj.status==3}"><span>不通过</span></c:if>
-		</td>
-		<%-- <td><a href="javascript:editUser(${obj.id})">编辑/查看</a></td> --%>
 	</tr>
 </c:forEach>
 </table>
