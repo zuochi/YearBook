@@ -15,7 +15,7 @@
                 <comment>反馈用户id</comment>
             </column>
         </many-to-one>
-         <many-to-one name="userDeal" class="bean.User" fetch="select" update="false">
+         <many-to-one name="userDeal" class="bean.User" fetch="select" update="true">
             <column name="user_deal_id" not-null="false">
                 <comment>处理用户id</comment>
             </column>
