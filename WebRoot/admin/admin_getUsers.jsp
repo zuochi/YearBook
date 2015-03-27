@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--高级搜索 --%>
 <br>
 <div align="center">
+编号:<input type="text" name="user.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
 账号:<input type="text" name="user.userName" value="${params.userName}">
 昵称:<input type="text" name="user.name" value="${params.name}">
 状态:<select name="user.isDelete">
@@ -76,7 +77,7 @@ function resetSearch(){
 <thead>
 	<tr>
 		<th>头像</th>
-		<th><a href="javascript:orderBy('user.id')">id</a></th>
+		<th><a href="javascript:orderBy('user.id')">编号</a></th>
 		<th><a href="javascript:orderBy('user.schoolYear.year')">学年</a></th>
 		<th><a href="javascript:orderBy('user.profession.name')">专业</a></th>
 		<th><a href="javascript:orderBy('user.userName')">账号</a></th>

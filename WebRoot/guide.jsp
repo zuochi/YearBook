@@ -14,9 +14,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(7)">Message</a></p>
 <img style="float:left;margin:0 0 0 5px;" src="images/logo.png" alt="" width="120"	height="80"  />
-
 <p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
-<p><a href="javascript:void(0)" >Feedback</a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(12)">Feedback</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(8)">Exit</a></p>
 </div>
 </div>

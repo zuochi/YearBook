@@ -19,9 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="styles/feedback.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 <jsp:include page="guide.jsp" />
-
-
-
 </head>
 <body>
 
@@ -42,23 +39,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <br/>
  <div align="center">
 
-<textarea rows="15" cols="60"></textarea>
+<textarea rows="15" cols="60" id="fe_se"></textarea>
 <br/>
-<input type="button" value="Send" onclick="updateCheck()"
-				style="font-size:18px;margin:0 0 50px 0;">
+<input type="button" value="Send" onclick="addFeedBack()" style="font-size:18px;margin:0 0 50px 0;">
 				
 <h3>In case you need any assistance using our website,get in touch with us by sending an email to</h3><h4> Yearbook@xxx.com</h4>				
 				 
 </div>
-
-
-
 </div></div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/goUrl.js" ></script>
-<script type="text/javascript" src="js/at.js" ></script>
 <script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
-
-
+<script type="text/javascript" src="js/user/feed_back.js" ></script>
 </body>
 </html>

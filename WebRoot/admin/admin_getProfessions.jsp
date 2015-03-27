@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--高级搜索 --%>
 <br>
 <div align="center">
-编号:<input type="text" name="profession.id" value="${params.id}">
+编号:<input type="text" name="profession.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
 专业名称:<input type="text" name="profession.name" value="${params.name}">
 专业简介:<input type="text" name="profession.context" value="${params.context}">
 状态:<select name="profession.isDelete">
@@ -88,7 +88,7 @@ function resetSearch(){
 <table border="1" align="center">
 <thead>
 	<tr>
-		<th><a href="javascript:orderBy('id')">id</a></th>
+		<th><a href="javascript:orderBy('id')">编号</a></th>
 		<th><a href="javascript:orderBy('name')">专业名称</a></th>
 		<th><a href="javascript:orderBy('context')">专业简介</a></th>
 		<th><a href="javascript:orderBy('isDelete')">状态</a></th>

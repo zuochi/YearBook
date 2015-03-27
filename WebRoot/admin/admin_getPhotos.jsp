@@ -25,8 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--高级搜索 --%>
 <br>
 <div align="center">
-图片编号:<input type="text" name="photo.id" value="${params.id}">
-上传人id:<input type="text" name="photo.user.id" value="${params.user.id}">
+图片编号:<input type="text" name="photo.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+上传人编号:<input type="text" name="photo.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
 上传人昵称:<input type="text" name="photo.user.name" value="${params.user.name}">
 删除状态:<select name="photo.isDelete">
 			<option value="">全部</option>
@@ -65,7 +65,7 @@ function resetSearch(){
 	<tr>
 		<th>上传图片预览</th>
 		<th><a href="javascript:orderBy('id')">图片编号</a></th>
-		<th><a href="javascript:orderBy('user.id')">上传人id</a></th>
+		<th><a href="javascript:orderBy('user.id')">上传人编号</a></th>
 		<th><a href="javascript:orderBy('user.name')">上传人昵称</a></th>
 		<th><a href="javascript:orderBy('uploadDate')">上传时间</a></th>
 		<th><a href="javascript:orderBy('isAccusation')">状态</a></th>

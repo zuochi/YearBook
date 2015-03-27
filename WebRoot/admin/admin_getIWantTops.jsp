@@ -25,8 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--高级搜索 --%>
 <br>
 <div align="center">
-申请编号:<input type="text" name="iwant.id" value="${params.id}">
-上传人id:<input type="text" name="iwant.user.id" value="${params.user.id}">
+申请编号:<input type="text" name="iwant.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+上传人编号:<input type="text" name="iwant.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
 上传人昵称:<input type="text" name="iwant.user.name" value="${params.user.name}">
 状态:<select name="iwant.status">
 		<option value="">全部</option>
@@ -50,7 +50,7 @@ function resetSearch(){
 	<tr>
 		<th>排序：</th>
 		<th><a href="javascript:orderBy('id')">申请编号</a></th>
-		<th><a href="javascript:orderBy('user.id')">上传人id</a></th>
+		<th><a href="javascript:orderBy('user.id')">上传人编号</a></th>
 		<th><a href="javascript:orderBy('user.name')">上传人昵称</a></th>
 		<th><a href="javascript:orderBy('signupDate')">申请时间</a></th>
 		<th><a href="javascript:orderBy('status')">状态</a></th>

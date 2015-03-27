@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--高级搜索 --%>
 <br>
 <div align="center">
-评论人id:<input type="text" name="reply.userByUserId.id" value="${params.userByUserId.id}">
+评论人编号:<input type="text" name="reply.userByUserId.id" value="${params.userByUserId.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
 评论人昵称:<input type="text" name="reply.userByUserId.name" value="${params.userByUserId.name}">
 删除状态:<select name="reply.isDelete">
 			<option value="">全部</option>
@@ -63,7 +63,8 @@ function resetSearch(){
 <thead>
 	<tr>
 		<!-- <th>头像</th> -->
-		<th><a href="javascript:orderBy('userByUserId.id')">评论人id</a></th>
+		<th><a href="javascript:orderBy('userByUserId.id')">编号</a></th>
+		<th><a href="javascript:orderBy('userByUserId.id')">评论人编号</a></th>
 		<th><a href="javascript:orderBy('userByUserId.name')">评论人昵称</a></th>
 		<th><a href="javascript:orderBy('context')">评论类容</a></th>
 		<th><a href="javascript:orderBy('signupDate')">评论时间</a></th>
@@ -74,6 +75,7 @@ function resetSearch(){
 </thead>
 <c:forEach var="obj" items="${objs}">
 	<tr>
+		<td>${obj.id}</td>
 		<td><a target="_blank" href="admin/getUserDetail_execute?user.id=${obj.userByUserId.id}" title="查看更多">${obj.userByUserId.id}</a></td>
 		<td><a target="_blank" href="admin/getUserDetail_execute?user.id=${obj.userByUserId.id}" title="查看更多">${obj.userByUserId.name}</a></td>
 		<td>${obj.context}</td>

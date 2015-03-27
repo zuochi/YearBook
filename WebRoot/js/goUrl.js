@@ -26,6 +26,8 @@ function goUrl(type){
 		window.location.href="index.jsp?type=signup";
 	}else if(type==11){
 		window.location.href="friend.jsp?type=followers";
+	}else if(type==12){
+		window.location.href="feedback.jsp";
 	}
 };
 

@@ -44,6 +44,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 				<value>bean/User.hbm.xml</value>
 				<value>bean/SchoolYear.hbm.xml</value>
 				<value>bean/IWantTop.hbm.xml</value>
+				<value>bean/FeedBack.hbm.xml</value>
 			</list>
 		</property>
 		<!--其他的Hibernate常用配置-->
