@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 	<h1 class="h1h">Administrator</h1>
-	<form name="form" action="#">
+	<form name="form" >
 		<div class="form">
 			<div class="form-item">
 				<input type="text" name="text" required="required" placeholder="Name" autocomplete="off">

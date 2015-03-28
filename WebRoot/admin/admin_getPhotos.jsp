@@ -25,9 +25,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--高级搜索 --%>
 <br>
 <div align="center">
-图片编号:<input type="text" name="photo.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
-上传人编号:<input type="text" name="photo.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
-上传人昵称:<input type="text" name="photo.user.name" value="${params.user.name}">
+图片编号:<input type="text" size=8 name="photo.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+上传人编号:<input type="text" size=8 name="photo.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+上传人昵称:<input type="text" size=14 name="photo.user.name" value="${params.user.name}">
 删除状态:<select name="photo.isDelete">
 			<option value="">全部</option>
 			<option <c:if test="${params.isDelete==0}">selected="selected"</c:if> value="0">未删除</option>

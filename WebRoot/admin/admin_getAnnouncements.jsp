@@ -24,12 +24,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <form id="form" action="admin/getAnnouncements_execute" method="post">
 <%--高级搜索 --%>
 <br>
-<div align="center">
-编号:<input type="text" name="announcement.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
-标题:<input type="text" name="announcement.title" value="${params.title}">
-内容:<input type="text" name="announcement.context" value="${params.context}">
-发起人编号:<input type="text" name="announcement.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
-发起人昵称:<input type="text" name="announcement.user.name" value="${params.user.name}">
+<div align="center" style="font-size:14px;">
+
+编号:<input type="text" size=4 name="announcement.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+标题:<input type="text" size=8 name="announcement.title" value="${params.title}">
+内容:<input type="text" size=14 name="announcement.context" value="${params.context}">
+发起人编号:<input type="text" size=4 name="announcement.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+发起人昵称:<input type="text" size=8 name="announcement.user.name" value="${params.user.name}">
 <%-- 置顶编号:<input type="text" name="announcement.topId" value="${params.topId}" onkeyup="this.value=this.value.replace(/\D/g,'')" style="width:30px" maxlength="3"> --%>
 是否置顶:<select name="announcement.top">
 			<option value="">全部</option>

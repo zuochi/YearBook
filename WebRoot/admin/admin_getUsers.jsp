@@ -24,10 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <form id="form" action="admin/getUsers_execute" method="post">
 <%--高级搜索 --%>
 <br>
-<div align="center">
-编号:<input type="text" name="user.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
-账号:<input type="text" name="user.userName" value="${params.userName}">
-昵称:<input type="text" name="user.name" value="${params.name}">
+<div align="center" >
+编号:<input type="text" size=12 name="user.id" value="${params.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+账号:<input type="text" size=12 name="user.userName" value="${params.userName}">
+昵称:<input type="text" size=12 name="user.name" value="${params.name}">
 状态:<select name="user.isDelete">
 		<option value="">--全部--</option>
 		<option <c:if test="${params.isDelete==0}">selected="selected"</c:if> value="0">--正常--</option>
