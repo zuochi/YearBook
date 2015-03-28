@@ -31,9 +31,10 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 		<!--映射文件路径-->
 		<property name="mappingResources">
 			<list>
-				<value>bean/Advice.hbm.xml</value>
+				<value>bean/Announcement.hbm.xml</value>
 				<value>bean/AtNotify.hbm.xml</value>
 				<value>bean/Bbs.hbm.xml</value>
+				<value>bean/FeedBack.hbm.xml</value>
 				<value>bean/FriendList.hbm.xml</value>
 				<value>bean/HeadPhoto.hbm.xml</value>
 				<value>bean/Photo.hbm.xml</value>
@@ -44,7 +45,6 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 				<value>bean/User.hbm.xml</value>
 				<value>bean/SchoolYear.hbm.xml</value>
 				<value>bean/IWantTop.hbm.xml</value>
-				<value>bean/FeedBack.hbm.xml</value>
 			</list>
 		</property>
 		<!--其他的Hibernate常用配置-->

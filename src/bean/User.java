@@ -31,7 +31,7 @@ public class User implements java.io.Serializable {
 	private Integer isDelete;
 	private Set privateLettersForUserBid = new HashSet(0);
 	private Set friendListsForFriendId = new HashSet(0);
-	private Set advices = new HashSet(0);
+	private Set announcements = new HashSet(0);
 	private Set repliesForUserId = new HashSet(0);
 	private Set IWantTops = new HashSet(0);
 	private Set privateLettersForUserId = new HashSet(0);
@@ -58,7 +58,7 @@ public class User implements java.io.Serializable {
 			Integer sex, String sign, Timestamp signupDate,
 			Timestamp lastLogintime, String qq, String weChat, String email,Integer isDelete,
 			Set privateLettersForUserBid, Set friendListsForFriendId,
-			Set advices, Set repliesForUserId, Set IWantTops,
+			Set announcements, Set repliesForUserId, Set IWantTops,
 			Set privateLettersForUserId, Set photoAlbums,
 			Set repliesForUserBid, Set bbses, Set friendListsForUserId,
 			Set photos) {
@@ -78,7 +78,7 @@ public class User implements java.io.Serializable {
 		this.isDelete = isDelete;
 		this.privateLettersForUserBid = privateLettersForUserBid;
 		this.friendListsForFriendId = friendListsForFriendId;
-		this.advices = advices;
+		this.announcements = announcements;
 		this.repliesForUserId = repliesForUserId;
 		this.IWantTops = IWantTops;
 		this.privateLettersForUserId = privateLettersForUserId;
@@ -243,12 +243,12 @@ public class User implements java.io.Serializable {
 		this.friendListsForFriendId = friendListsForFriendId;
 	}
 
-	public Set getAdvices() {
-		return this.advices;
+	public Set getAnnouncements() {
+		return this.announcements;
 	}
 
-	public void setAdvices(Set advices) {
-		this.advices = advices;
+	public void setAnnouncements(Set announcements) {
+		this.announcements = announcements;
 	}
 
 	public Set getRepliesForUserId() {

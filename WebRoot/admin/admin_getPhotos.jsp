@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>Year Book - 举报处理的图片</title>
+<title>Year Book - 图片管理</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
 
-<form id="form" action="admin/getPhotos_execute">
+<form id="form" action="admin/getPhotos_execute" method="post">
 <%--高级搜索 --%>
 <br>
 <div align="center">

@@ -6,41 +6,40 @@ import java.util.Date;
  * Advice entity. @author MyEclipse Persistence Tools
  */
 
-public class Advice implements java.io.Serializable {
+public class Announcement implements java.io.Serializable {
 
 	// Fields
 
 	private Integer id;
 	private User user;
+	private String title;
 	private String context;
+	private Integer top;
+	private Integer topId;
 	private Date signupDate;
 	private Integer isDelete;
 
 	// Constructors
 
 	/** default constructor */
-	public Advice() {
-	}
-
-	/** minimal constructor */
-	public Advice(User user, String context, Date signupDate) {
-		this.user = user;
-		this.context = context;
-		this.signupDate = signupDate;
-	}
+	public Announcement() {}
 
 	/** full constructor */
-	public Advice(User user, String context, Date signupDate, Integer isDelete) {
+	public Announcement(Integer id, User user, String title, String context,
+			Integer top, Integer topId, Date signupDate, Integer isDelete) {
+		this.id = id;
 		this.user = user;
+		this.title = title;
 		this.context = context;
+		this.top = top;
+		this.topId = topId;
 		this.signupDate = signupDate;
 		this.isDelete = isDelete;
 	}
 
 	// Property accessors
-
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Integer id) {
@@ -48,23 +47,47 @@ public class Advice implements java.io.Serializable {
 	}
 
 	public User getUser() {
-		return this.user;
+		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public String getContext() {
-		return this.context;
+		return context;
 	}
 
 	public void setContext(String context) {
 		this.context = context;
 	}
 
+	public Integer getTop() {
+		return top;
+	}
+
+	public void setTop(Integer top) {
+		this.top = top;
+	}
+
+	public Integer getTopId() {
+		return topId;
+	}
+
+	public void setTopId(Integer topId) {
+		this.topId = topId;
+	}
+
 	public Date getSignupDate() {
-		return this.signupDate;
+		return signupDate;
 	}
 
 	public void setSignupDate(Date signupDate) {
@@ -72,7 +95,7 @@ public class Advice implements java.io.Serializable {
 	}
 
 	public Integer getIsDelete() {
-		return this.isDelete;
+		return isDelete;
 	}
 
 	public void setIsDelete(Integer isDelete) {

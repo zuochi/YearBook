@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
 
-<form id="form" action="admin/getProfessions_execute">
+<form id="form" action="admin/getProfessions_execute" method="post">
 <%--高级搜索 --%>
 <br>
 <div align="center">

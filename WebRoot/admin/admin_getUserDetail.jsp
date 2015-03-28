@@ -21,7 +21,7 @@
 </head>
 <body>
 <jsp:include page="/admin/guidce.jsp"></jsp:include>
-<form class="border_radius" id="focus">
+<form class="border_radius" id="focus" method="post">
 	<input type="hidden" name="user.id" value="${obj.id}" />
 	<input type="hidden" id="nameOld" value="${obj.name}" />
 	<input type="hidden" name="user.password" value="${obj.password}">

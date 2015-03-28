@@ -90,13 +90,13 @@
             </key>
             <one-to-many class="bean.FriendList" />
         </set>
-        <set name="advices" inverse="true">
+        <set name="announcements" inverse="true">
             <key>
                 <column name="user_id" not-null="true">
-                    <comment>建议用户id</comment>
+                    <comment>发去公告用户id</comment>
                 </column>
             </key>
-            <one-to-many class="bean.Advice" />
+            <one-to-many class="bean.Announcement" />
         </set>
         <set name="repliesForUserId" inverse="true">
             <key>
