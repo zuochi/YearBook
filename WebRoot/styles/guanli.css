@@ -15,12 +15,12 @@ h1:hover{float:left;font-size:13px;font-weight:normal;text-align:left;height:15p
 h2{float:right;font-size:12px;font-weight:normal;text-align:right;height:15px;width:35px;margin:0px;}
 h2:hover{float:right;font-size:12px;font-weight:normal;text-align:right;height:15px;width:35px;margin:0px;color:#3ab6ae;}
 
-.top a{text-decoration: none;outline: none;line-height:40px;float:left;width:12.5%;height:40px;font-size:25px;color:#3ab6ae;background:#fff;text-align:center;}
-.top a:hover{float:left;width:12.5%;height:40px;font-size:25px;color:#fff;background:#3ab6ae;text-align:center;}
-.top2 a{line-height:40px;text-decoration: none;outline: none;float:left;width:12.5%;height:40px;color:white;font-size:25px;background:#3ab6ae;text-align:center;}
+.top a{text-decoration: none;outline: none;line-height:40px;float:left;width:12.5%;height:40px;font-size:medium;font-weight:bold;color:#3ab6ae;background:#fff;text-align:center;}
+.top a:hover{float:left;width:12.5%;height:40px;font-size:medium;color:#fff;background:#3ab6ae;text-align:center;font-weight:bold;}
+.top2 a{line-height:40px;text-decoration: none;outline: none;float:left;width:12.5%;height:40px;color:white;font-weight:bold;font-size:medium;background:#3ab6ae;text-align:center;}
 
-.main{height:90%;width:100%;}
-
+.main{width:100%;}
+.table{width:1120px;margin:0 auto;}
 
 #ctr {
 	font-size: 1em;

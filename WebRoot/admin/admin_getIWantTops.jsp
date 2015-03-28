@@ -74,15 +74,18 @@ function resetSearch(){
 <div class="main">
 <!-- 图片管理模块 -->
 
-<table border="1" align="center" >
 
-<c:forEach var="obj" items="${objs}">
+
+<c:forEach var="obj" items="${objs}" >
+<div class="table">
+<table border="1" align="center" style="float:left;">
 	<thead>
 	<tr>
 		<th>上传图片预览</th>
 		<th><a href="javascript:orderBy('id')">简介</a></th>
 	</tr>
 	</thead>
+
 	<tr>
 		<td><a target="_blank" href="ShowBigPic.jsp?url=${obj.photo.url}&name=${obj.user.name}" title="点击放大"><img src="${obj.photo.urlThumb}" title="点击放大" /></a></td>
 		<td>申请编号:${obj.id}<br><br>
@@ -100,9 +103,10 @@ function resetSearch(){
 				<c:if test="${obj.status==0}"><input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)"></c:if>
 				<c:if test="${obj.status==1}"><input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)"></c:if>
 		</td>
-	</tr>
+	</tr></table>
+	</div>
 </c:forEach>
-</table>
+
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/admin/i_want_top.js"></script>

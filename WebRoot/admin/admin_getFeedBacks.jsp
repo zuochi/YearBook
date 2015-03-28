@@ -25,11 +25,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%--高级搜索 --%>
 <br>
 <div align="center">
+<div style="width:900px;height:30px;text-align:left;">
 反馈人编号:<input type="text" name="feedBack.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
 反馈人昵称:<input type="text" name="feedBack.user.name" value="${params.user.name}">
 处理人编号:<input type="text" name="feedBack.userDeal.id" value="${params.userDeal.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
+</div>
+<div style="width:900px;height:30px;text-align:left;">
 处理人昵称:<input type="text" name="feedBack.userDeal.name" value="${params.userDeal.name}">
-反馈内容:<input type="text" name="feedBack.context" value="${params.context}">
+反 馈 内容:<input type="text" name="feedBack.context" value="${params.context}">
 删除状态:<select name="feedBack.isDelete">
 			<option value="">全部</option>
 			<option <c:if test="${params.isDelete==0}">selected="selected"</c:if> value="0">未删除</option>
@@ -41,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<option <c:if test="${params.status==1}">selected="selected"</c:if> value="1">已处理</option>
 		</select>
 <input type="submit" value="查找">
-<input type="button" onclick="resetSearch()" value="重置">
+<input type="button" onclick="resetSearch()" value="重置"></div>
 <script type="text/javascript">
 function resetSearch(){
 	window.location.href="admin/getFeedBacks_execute";

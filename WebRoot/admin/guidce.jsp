@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <div style="width:100%;height:50px;background:#3ab6ae; ">
 <input type="hidden" value="" id="url_value"/>
+
 <div id="getUsers" class="top"><a href="admin/getUsers_execute" >用户管理</a></div>
 <div id="getIWantTops" class="top"><a href="admin/getIWantTops_execute">图片审核</a></div>
 <div id="getAnnouncements" class="top"><a href="admin/getAnnouncements_execute" >首页公告</a></div>
@@ -10,6 +11,7 @@
 <div id="getSchoolYears" class="top"><a href="admin/getSchoolYears_execute">学年管理</a></div>
 <div id="getProfessions" class="top"><a href="admin/getProfessions_execute">专业管理</a></div>
 <div id="getFeedBacks" class="top" ><a href="admin/getFeedBacks_execute">反馈处理</a></div>
+
 <!-- <div class="top2">用户反馈</div> -->
 </div>
 <script type="text/javascript">
