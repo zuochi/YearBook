@@ -31,7 +31,7 @@
             </column>
         </property>
         <property name="password" type="java.lang.String">
-            <column name="password" length="30">
+            <column name="password" length="32">
                 <comment>密码</comment>
             </column>
         </property>
