@@ -1,10 +1,10 @@
 //停用 
-function deleteProfession(proId) {
-	if (confirm("Are you sure to block up this profession?")) {
+function deleteAnnouncement(announcementId) {
+	if (confirm("Are you sure to block up this announcement?")) {
 		$.ajax({
-			url : '/YearBook/admin/deleteProfessionA_execute',
+			url : '/YearBook/admin/deleteAnnouncementA_execute',
 			type : 'post',
-			data : "profession.id=" + proId,
+			data : "announcement.id=" + announcementId,
 			aPronc : false,
 			dataType : 'text',
 			success : function(msg) {
@@ -19,12 +19,12 @@ function deleteProfession(proId) {
 };
 
 // 恢复学年
-function recoveryProfession(proId) {
-	if (confirm("Are you sure to recovery this profession?")) {
+function recoveryAnnouncement(announcementId) {
+	if (confirm("Are you sure to recovery this announcement?")) {
 		$.ajax({
-			url : '/YearBook/admin/recoveryProfessionA_execute',
+			url : '/YearBook/admin/recoveryAnnouncementA_execute',
 			type : 'post',
-			data : "profession.id=" + proId,
+			data : "announcement.id=" + announcementId,
 			async : false,
 			dataType : 'text',
 			success : function(msg) {
@@ -39,60 +39,73 @@ function recoveryProfession(proId) {
 };
 
 // 添加专业
-function addPro() {
-	if (confirm("Are you sure to add this profession?")) {
-		var is_delete = document.getElementById("add_profession_isDelete").value;
-		var name = document.getElementById("add_profession_name").value;
-		var context = document.getElementById("add_profession_context").value;
+function addAnnouncement() {
+	if (confirm("Are you sure to add this announcement?")) {
+		var title = document.getElementById("add_announcement_title").value;
+		var context = document.getElementById("add_announcement_context").value;
+		var top = document.getElementById("add_announcement_top").value;
+		var is_delete = document.getElementById("add_announcement_isDelete").value;
 		
-		if($.trim(name)==""){
-			alert("专业名称不能为空");			
+		if($.trim(title)==""){
+			alert("标题不能为空");			
+			return ;
+		}
+		
+		if($.trim(context)==""){
+			alert("内容不能为空");			
 			return ;
 		}
 		
 		$.ajax({
-			url : '/YearBook/admin/addProfessionA_execute',
+			url : '/YearBook/admin/addAnnouncementA_execute',
 			type : 'post',
-			data : "profession.name=" + name + "&profession.isDelete=" + is_delete + "&profession.context=" + context,
+			data : "announcement.title=" + title + "&announcement.isDelete=" + is_delete + "&announcement.context=" + context + "&announcement.top=" + top,
 			async : false,
 			dataType : 'text',
 			success : function(msg) {
 				if (msg == "success") {
 					window.location.reload(true);
 				} else {
-					alert("失败，已经存在该专业 或 数据库出错！");
+					alert("失败, 数据库出错！");
 				}
 			}
 		});
 	}
 };
 
-//根据id读取专业
-function loadPro(proId) {
+//根据id读取公告
+function loadAnnouncement(announcementId) {
 	$.ajax({
-		url : '/YearBook/admin/getProfessionDetail_execute',
+		url : '/YearBook/admin/getAnnouncementDetail_execute',
 		type : 'post',
-		data : "profession.id="+proId,
+		data : "announcement.id="+announcementId,
 		async : false,
 		dataType : 'json',
 		success : function(json) {
 			if (json.error == undefined) {
 				//window.location.reload(true);
-				document.getElementById("profession_trid_"+json.id).innerHTML="";
-				document.getElementById("profession_trid_"+json.id).innerHTML=
+				document.getElementById("announcement_trid_"+json.id).innerHTML="";
+				document.getElementById("announcement_trid_"+json.id).innerHTML=
 					"<td>"+ json.id +"</td>"+
-					"<td><input id='profession_td_name_"+ json.id +"' type='text' value='"+ json.name +"'></td>"+
-					"<td><input id='profession_td_context_"+ json.id +"' type='text' value='"+ json.context +"'></td>"+
-					"<td>" +
-						(json.isDelete==0?"启用":"停用")+
+					"<td>Editing</td>"+
+					"<td>Editing</td>"+
+					"<td><input id='add_announcement_title_"+ json.id +"' type='text' value='"+ json.title +"'></td>"+
+					"<td><input id='add_announcement_context_"+ json.id +"' type='text' value='"+ json.context +"'></td>"+
+					"<td>Editing</td>"+
+					"<td>"+
+						"<select id='announcement_td_top_"+ json.id +"'>"+
+							"<option "+(json.top==0?"selected='selected'":"")  + " value='0'>不置顶</option>"+
+							"<option "+(json.top==1?"selected='selected'":"")  + " value='1'>-置顶-</option>"+
+						"</select>"+
 					"</td>"+
 					"<td>"+
-						"<select id='profession_td_isDelete_"+ json.id +"'>"+
+						"<select id='announcement_td_isDelete_"+ json.id +"'>"+
 							"<option "+(json.isDelete==0?"selected='selected'":"")  + " value='0'>启动</option>"+
 							"<option "+(json.isDelete==1?"selected='selected'":"")  + " value='1'>停用</option>"+
 						"</select>"+
 					"</td>"+
-					"<td><a href='javascript:void(0)' onclick='savePro("+ json.id +")'>保存</a></td>";
+					"<td>Editing</td>"+
+					"<td><a href='javascript:void(0)' onclick='saveAnnouncement("+ json.id +")'>保存</a></td>";
 			} else {
 				alert("失败，已经存在该专业 或 数据库出错！");
 			}
@@ -101,23 +114,24 @@ function loadPro(proId) {
 };
 
 //更新专业
-function savePro(proId) {
-	if (confirm("Are you sure to update this profession?")) {
-		var is_delete = document.getElementById("profession_td_isDelete_"+proId).value;
-		var name = document.getElementById("profession_td_name_"+proId).value;
-		var context = document.getElementById("profession_td_context_"+proId).value;
+function saveAnnouncement(announcementId) {
+	if (confirm("Are you sure to update this announcement?")) {
+		var title = document.getElementById("add_announcement_title_"+announcementId).value;
+		var context = document.getElementById("add_announcement_context_"+announcementId).value;
+		var top = document.getElementById("announcement_td_top_"+announcementId).value;
+		var is_delete = document.getElementById("announcement_td_isDelete_"+announcementId).value;
 		
 		$.ajax({
-			url : '/YearBook/admin/editProfession_execute',
+			url : '/YearBook/admin/editAnnouncement_execute',
 			type : 'post',
-			data : "&profession.id=" + proId + "&profession.name=" + name + "&profession.isDelete=" + is_delete + "&profession.context=" + context,
+			data : "announcement.id=" + announcementId + "&announcement.title=" + title + "&announcement.isDelete=" + is_delete + "&announcement.context=" + context + "&announcement.top=" + top,
 			async : false,
 			dataType : 'text',
 			success : function(msg) {
 				if (msg == "success") {
 					window.location.reload(true);
 				} else {
-					alert("失败，已经存在该专业 或 数据库出错！");
+					alert("失败，数据库出错！");
 				}
 			}
 		});
