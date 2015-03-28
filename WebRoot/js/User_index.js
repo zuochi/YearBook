@@ -102,9 +102,9 @@ function getPhotosByPerPage(isNew){
 							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 							"<div align='left' style='margin:3px 0 0 7px;'>" +
-							"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a style='font-size:small;padding:0 50px 0 250px' href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
+							"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a style='font-size:small;padding:0 50px 0 120px' href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
 								"<span id='pageShow"+json[i].id+"' style='display:none;font-size:small;'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
-								"<span id='commentPageTurningButton"+json[i].id+"' style='display:none'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
+								"<span id='commentPageTurningButton"+json[i].id+"' style='display:none;font-size:small;'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								
 							"</div>"+
