@@ -78,7 +78,7 @@ function resetSearch(){
 
 <c:forEach var="obj" items="${objs}" >
 <div class="table">
-<table border="1" align="center" style="float:left;height:320px;">
+<table border="1" align="center" style="float:left;height:320px;width:560px;">
 	<thead>
 	<tr>
 		<th>上传图片预览</th>
