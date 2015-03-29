@@ -53,14 +53,14 @@
                 <img src="img/test5.jpg">
             </div> -->
 
-      <!-- 
+  
                 <div class="container">
                 <div class="tagline">
                     <h3>Welcome:</h3>
                     <p>Show your Pic here <br> Click the top nearby your photos.</p>
                 </div>
                 
-            </div> -->
+            </div> 
            
            
         </div>

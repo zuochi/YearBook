@@ -101,23 +101,23 @@ a:hover {
     opacity:0.8;
     }
     .hero .tagline p {
-      font-size: 4rem;
-      line-height: 4rem;
+      font-size: 2.6rem;
+      line-height: 2.6rem;
       margin-top: 10px; }
       @media (max-width: 1450px) {
         .hero .tagline p {
-          font-size: 2.8rem;
-          line-height: 2.8rem;
+          font-size: 1.6rem;
+          line-height: 1.6rem;
           letter-spacing: -2px; } }
       @media (max-width: 600px) {
         .hero .tagline p {
-          font-size: 2rem; } }
+          font-size: 1.4rem; } }
     .hero .tagline h3 {
     
       font-weight: bold;
-      font-size: 7rem;
-      letter-spacing: -0.25rem;
-      line-height: 7rem; }
+      font-size: 4rem;
+      letter-spacing: -0.15rem;
+      line-height: 6.5rem; }
       @media (max-width: 1450px) {
         .hero .tagline h3 {
           font-size: 60px;
