@@ -65,12 +65,12 @@ margin-bottom:0px;
 	border-bottom-color: #000000;
 	background-color: transparent;
     margin-top:7px;
-	margin-left: 55px;
+	margin-left: 60px;
 }
 
 #password {
 	margin-top:5px;
-	margin-left: 50px;
+	margin-left: 55px;
 }
 
 
@@ -137,19 +137,19 @@ margin-bottom:0px;
 	border-bottom-color: #384B4A;
 	background-color: transparent;
 	padding-top: 13px;
-	padding-left:55px;
+	padding-left:60px;
 }
 
 #password1 {
 	
-	margin-top: 22px;
-	margin-left: 50px;
+	margin-top: 20px;
+	margin-left: 55px;
 }
 
 #password2 {
 	
-	margin-top: 20px;
-	margin-left: 50px;
+	margin-top: 22px;
+	margin-left: 55px;
 }
 
 #register  div input#fnregister {
@@ -318,7 +318,7 @@ span{position:absolute;float:left;line-height:20px;cursor:text; color:#fff}
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	width: 128px;
+	width: 111px;
 	height: 25px;
 	background-color: transparent;
     outline:none;

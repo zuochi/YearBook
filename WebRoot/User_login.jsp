@@ -41,7 +41,7 @@
 			<!--Password文本框提示-->
 			<div id="focus">
 				<div id="password">
-					<label><span>Password</span><input type="password" class="input_txt" name="password" id="ps" onkeydown="loginEnter()"/>
+					<label><span>Password</span><input  type="password" class="input_txt" name="password" id="ps" onkeydown="loginEnter()"/>
 					</label>
 				</div>
 			</div>
