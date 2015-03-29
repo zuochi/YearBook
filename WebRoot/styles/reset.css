@@ -22,12 +22,6 @@ div, span, p {
 
 
 /* links */
-a, a:visited {text-decoration:none; font-weight:normal; color:#dc6a4d }
-a:hover{
-	text-decoration: underline;
-	font-size: 15px;
-}
-
 .name:visited {text-decoration:none; font-weight:normal; /*color:white;*/ }
 .name:hover{
 	/*text-decoration: underline;*/
@@ -153,6 +147,7 @@ button:hover{text-decoration:none; color:#dc6a4d; cursor:pointer}
 	width:100%;
 	height:15px;
 }
+
 .xi{
 	width:100%;
 	height:90px;
@@ -176,16 +171,41 @@ margin-top:17px;
 	width:30px;	
 }
 .likes_icon{
-    margin:0 auto;
+    float:left;
     height:40px;
 	width:40px;
 	background-image:url(../images/likes_icon.png);			
 }
 .likes_icon:hover{
-margin:0 auto;
-height:40px;
+    float:left;
+    height:40px;
 	width:40px;
 	background-image:url(../images/likes_icon-hover.png);
 }
+.like_user{
+	float:right;
+	height:40px;
+	width:100px;
+	border-radius:50%;
 
+}
 
+.like_user_head{
+	float:left;
+	margin:7px 0 0 0;
+	height:32px;
+	width:32px;
+	border-radius:50%;
+	display:block;	
+	background-color:#123456;
+}
+.like_user_name{
+	float:left;
+	text-align:right;
+	height:40px;
+	width:60px;
+	color:#000;
+	font-size:12px;
+	margin:13px 5px 0 0 ;
+	padding:0;
+}

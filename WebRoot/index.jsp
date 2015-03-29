@@ -40,8 +40,18 @@
 
             <div id="random">
                
-                <div style="background-image: url(images/slide1.jpg)"></div>
-                <div style="background-image: url(images/slide2.jpg)"></div> 
+                <div style="background-image: url(images/slide1.jpg)">
+                 <div class="tagline">
+                 <h3>Welcome1:</h3>
+                 <p>Show your Pic here <br> Click the top nearby your photos.</p>
+                 </div></div>
+                
+                 <div style="background-image: url(images/slide2.jpg)"> 
+                 <div class="tagline">
+                 <h3>Welcome2:</h3>
+                 <p>Show your Pic here <br> Click the top nearby your photos.</p>
+                </div></div> 
+                
                 <div style="background-image: url(images/slide3.jpg)"></div>                   
                 <div style="background-image: url(images/slide4.jpg)"></div>
             </div>
@@ -55,10 +65,7 @@
 
   
                 <div class="container">
-                <div class="tagline">
-                    <h3>Welcome:</h3>
-                    <p>Show your Pic here <br> Click the top nearby your photos.</p>
-                </div>
+               
                 
             </div> 
            
@@ -74,27 +81,24 @@
 <div class="xi">
 	<!--各系-->
 <div class="f"></div>
-<div class="shake"><a href="mainPage_xinke.jsp" target="main"><img src="images/xinke.jpg" alt="" width="90" height="90" /> </a></div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_xiyu.jsp" target="main"><img src="images/xiyu.jpg" alt="" width="90" height="90" /> </a>     </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_jingji.jsp" target="main"><img src="images/jingji.jpg" alt="" width="90" height="90" /> </a>   </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_yingyu.jsp" target="main"><img src="images/yingyu.jpg" alt="" width="90" height="90" /> </a>   </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_guanli.jsp" target="main"><img src="images/guanli.jpg" alt="" width="90" height="90" /> </a>   </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_dongyu.jsp" target="main"><img src="images/dongyu.jpg" alt="" width="90" height="90" /> </a>   </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_zhongwen.jsp" target="main"><img src="images/zhongwen.jpg" alt="" width="90" height="90" /> </a> </div>&nbsp;&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
+<div class="shake" style="margin:0"><a href="mainPage_xinke.jsp" target="main"><div class="professions">信科</div> </a></div>
+<div class="shake"><a href="mainPage_xiyu.jsp" target="main"><div class="professions">西语</div> </a>     </div>
+<div class="shake"><a href="mainPage_jingji.jsp" target="main"><div class="professions">经济</div> </a>   </div>
+<div class="shake"><a href="mainPage_yingyu.jsp" target="main"><div class="professions">英语</div> </a>   </div>
+<div class="shake"><a href="mainPage_guanli.jsp" target="main"><div class="professions">管理</div> </a>   </div>
+<div class="shake"><a href="mainPage_dongyu.jsp" target="main"><div class="professions">东语</div> </a>   </div>
+<div class="shake"><a href="mainPage_zhongwen.jsp" target="main"><div class="professions">中文</div> </a> </div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
 </div>
 
 
@@ -106,8 +110,10 @@
 	<div id="ctr">
 		<div class="box photo col3">
 			<img src="images/1.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
+		    <div class="like_user"><div class="like_user_name">Kass</div><div class="like_user_head"></div></div> 
+			<div class="likes_icon"><div class="like_number">(9999+)</div>
+		 
+		   </div></div>
 		<div class="box photo col3">
 			<img src="images/2.jpg" alt="Like" />
 			<div class="likes_icon"><div class="like_number">(9999+)</div></div>

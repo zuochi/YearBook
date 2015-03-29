@@ -9,10 +9,11 @@
 <link rel="stylesheet" href="styles/profession.css" />
 <link href="styles/csshake.css" rel="stylesheet" type="text/css"/>
 <script src="js/modernizr.js" type="text/javascript"></script>
-<link href="styles/reset.css" rel="stylesheet"  type="text/css">
-<link rel="stylesheet" href="styles/styles.css" type="text/css">
-<link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css">
-<link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
+<link href="styles/reset.css" rel="stylesheet"  type="text/css"/>
+<link rel="stylesheet" href="styles/styles.css" type="text/css"/>
+<link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css"/>
+
+
         
 <jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />
@@ -69,28 +70,24 @@
 	<div class="xi">
 	<!--各系-->
 <div class="f"></div>
-<img src="images/xinke.png" alt="" width="90" height="90" /> &nbsp;&nbsp;
-<div class="shake"><a href="mainPage_xiyu.jsp" target="main"><img src="images/xiyu.jpg" alt="" width="90" height="90" /> </a>     </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_jingji.jsp" target="main"><img src="images/jingji.jpg" alt="" width="90" height="90" /> </a>     </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_yingyu.jsp" target="main"><img src="images/yingyu.jpg" alt="" width="90" height="90" /> </a>   </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_guanli.jsp" target="main"><img src="images/guanli.jpg" alt="" width="90" height="90" /> </a>   </div>&nbsp;&nbsp;
-<div class="shake"><a href="mainPage_dongyu.jsp" target="main"><img src="images/dongyu.jpg" alt="" width="90" height="90" /> </a>   </div> &nbsp;&nbsp;
-<div class="shake"><a href="mainPage_zhongwen.jsp" target="main"><img src="images/zhongwen.jpg" alt="" width="90" height="90" /> </a> </div>&nbsp;&nbsp;
-
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
-<img src="images/kong.jpg" alt="" width="90" height="90" />&nbsp;
+<div class="shake" style="margin:0"><a href="mainPage_xinke.jsp" target="main"><div class="professions2">信科</div> </a></div>
+<div class="shake"><a href="mainPage_xiyu.jsp" target="main"><div class="professions">西语</div> </a>     </div>
+<div class="shake"><a href="mainPage_jingji.jsp" target="main"><div class="professions">经济</div> </a>   </div>
+<div class="shake"><a href="mainPage_yingyu.jsp" target="main"><div class="professions">英语</div> </a>   </div>
+<div class="shake"><a href="mainPage_guanli.jsp" target="main"><div class="professions">管理</div> </a>   </div>
+<div class="shake"><a href="mainPage_dongyu.jsp" target="main"><div class="professions">东语</div> </a>   </div>
+<div class="shake"><a href="mainPage_zhongwen.jsp" target="main"><div class="professions">中文</div> </a> </div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
+<div class="kong"></div>
 </div>
 
 
