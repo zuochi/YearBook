@@ -15,6 +15,10 @@
 	<package name="user" extends="json-default" namespace="/user">
 		<action name="*_*" class="{1}" method="{2}">
 			<result>/index.jsp</result>
+			<result name="login" type="redirect">
+				<param name="location">/index.jsp</param>
+				<param name="type">login</param>
+			</result>  
 			<result name="autoLogin">/auto_loginRedict.jsp</result>
 			<result name="logout">/index.jsp</result>
 			<result name="profile">/profile.jsp</result>
@@ -23,17 +27,33 @@
 			<result name="social">/Social_index.jsp</result>
 			<result name="message">/message.jsp</result>
 			<result name="photo" type="redirect">/photo.jsp</result>
-			<result name="login" type="redirect">
-				<param name="location">/index.jsp</param>
-				<param name="type">login</param>
-			</result>
 			<result name="ajax" type="json"></result>
 		</action>
 	</package>
 	<package name="admin" extends="json-default" namespace="/admin">
+		 <!-- 定义一个拦截器 -->  
+        <interceptors>  
+            <interceptor name="loginInterceptor" class="interceptor.admin.LoginInterceptor"></interceptor>
+            <!-- 拦截器栈 -->
+           <interceptor-stack name="mydefault">
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="loginInterceptor" />
+                <interceptor-ref name="params" /> 
+            </interceptor-stack>
+        </interceptors>
+        
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/admin/admin_login.jsp</result>
+            <result name="loginSuccess" type="redirectAction">getUsers_execute</result>
+        </global-results>
+        
 		<action name="*_*" class="{1}" method="{2}">
 			<result name="admin_{1}">/admin/admin_{1}.jsp</result>
 			<result name="ajax" type="json"></result>
+			<!-- 使用此拦截器 -->  
+            <interceptor-ref name="mydefault" />
 		</action>
 	</package>
 </struts>

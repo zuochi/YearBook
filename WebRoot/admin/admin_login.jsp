@@ -1,6 +1,6 @@
 <%@ page import="bean.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -27,37 +27,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	
 	<h1 class="h1h">Administrator</h1>
-	<form name="form" >
+	<h3><span style="color:red">${result}</span></h3>
+	<form action="admin/loginA_execute" method="post">
 		<div class="form">
 			<div class="form-item">
-				<input type="text" name="text" required="required" placeholder="Name" autocomplete="off">
+				<input type="text" name="user.userName" required="required" placeholder="Name" autocomplete="off"/>
 			</div>
 			<div class="form-item">
-			<input type="password" name="password" required="required" placeholder="Password" autocomplete="off">
-</div>
+				<input type="password" name="user.password" required="required" placeholder="Password" autocomplete="off"/>
+			</div>
 			<div class="button-panel">
-			<input type="submit" class="button" title="Sign In" value="Login">
+				<input type="submit" class="button" title="Sign In" value="Login">
 				<ul>
-			<li class="lil">
-					<p class="view">
-						<a href="http://localhost:8080/YearBook/" class="ref">View on YearBook</a>
-					</p>
-			
-
-		</li>
-		
-		
-
-			</li>
+					<li class="lil">
+						<p class="view">
+							<a href="index.jsp" class="ref">View on User Side</a>
+					</li>
 				</ul>
-		
-
-	</div>
+			</div>
 		</div>
 	</form>
 </div>
-<script>solid()
-
-</script>
 </body>
 </html>

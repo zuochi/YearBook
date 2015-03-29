@@ -17,7 +17,6 @@ public class EditUser extends AdminAction {
 			out = response.getWriter();
 			if (service.updateUser(user)) {
 				out.print("success");
-				session.put("user", user);
 			} else {
 				out.print("fail");
 			}
