@@ -61,7 +61,7 @@ function getPhotosByPerPage(isNew){
 			showPhotoLoading+=1;
 		}
 		$.ajax({
-			url:'/YearBook/user/getPhotosByPerPage_execute',  
+			url:'user/getPhotosByPerPage_execute',  
 			type:'post', 
 			data:"user.id="+$("#userId").val()+"&toPage="+toPageP,
 			async:false,
@@ -144,7 +144,7 @@ function comment(userBid,photoBid,photoOwnerId){
 		this.disabled = true;
 	});
 	$.ajax({
-		url:'/YearBook/user/doReply_execute',
+		url:'user/doReply_execute',
 		type:'post',
         data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply+"&photo.user.id="+photoOwnerId,
         async:false,
@@ -220,7 +220,7 @@ function updateDes(photoId){
 	if($("#desContext"+photoId).html() != $("#desTextArea"+photoId).val()){
 		//更新图片描述
 		$.ajax({
-			url:'/YearBook/user/updatePhoto_updateDescription',  
+			url:'user/updatePhoto_updateDescription',  
 			type:'post', 
 	        data:"photo.id="+photoId+"&photo.name="+$("#desTextArea"+photoId).val(),
 	        async:false,
@@ -248,7 +248,7 @@ function updateSign(){
 	if($("#signContext").html() != $("#signTextArea").val()){
 		//更新签名
 		$.ajax({
-			url:'/YearBook/user/updateUser_updateSign',  
+			url:'user/updateUser_updateSign',  
 			type:'post', 
 	        data:"user.id="+$("#userId").val()+"&user.sign="+$("#signTextArea").val(),
 	        async:false,
@@ -304,7 +304,7 @@ function deletePhoto(photoId){
 	}
 	if(confirm("Are you sure to delete this photo?")) { 
 		  $.ajax({
-			url:'/YearBook/user/deletePhoto_execute',  
+			url:'user/deletePhoto_execute',  
 			type:'post', 
 			data:"photo.id="+photoId,
 			async:false,
@@ -330,7 +330,7 @@ function deletePhoto(photoId){
 function iWantTop(photoId,userId){
 	if(confirm("Are you sure to submit this photo to admin?")) { 
 		$.ajax({
-			url:'/YearBook/user/iwantTop_execute',  
+			url:'user/iwantTop_execute',  
 			type:'post', 
 		    data:"photo.id="+photoId+"&user.id="+userId,
 			async:false,

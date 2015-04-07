@@ -2,7 +2,7 @@
 function accusationPhoto(photoId){
 	if(confirm("Are you sure to report this photo to adminstartor?")) { 
 		  $.ajax({
-			url:'/YearBook/user/accusationPhoto_execute',  
+			url:'user/accusationPhoto_execute',  
 			type:'post', 
 			data:"photo.id="+photoId,
 			async:false,

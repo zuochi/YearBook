@@ -2,7 +2,7 @@
 function deleteReply(replyId){
 	if(confirm("Are you sure to delete this reply?")) { 
 		  $.ajax({
-			url:'/YearBook/admin/deleteReplyA_execute',  
+			url:'admin/deleteReplyA_execute',  
 			type:'post', 
 			data:"reply.id="+replyId,
 			async:false,
@@ -22,7 +22,7 @@ function deleteReply(replyId){
 function recoveryReply(replyId){
 	if(confirm("Are you sure to recovery this reply?")) { 
 		  $.ajax({
-			url:'/YearBook/admin/recoveryReplyA_execute',  
+			url:'admin/recoveryReplyA_execute',  
 			type:'post', 
 			data:"reply.id="+replyId,
 			async:false,
@@ -42,7 +42,7 @@ function recoveryReply(replyId){
 function missReply(replyId){
 	if(confirm("Are you sure to miss this reply?")) { 
 		  $.ajax({
-			url:'/YearBook/admin/missAccusationReply_execute',  
+			url:'admin/missAccusationReply_execute',  
 			type:'post', 
 			data:"reply.id="+replyId,
 			async:false,

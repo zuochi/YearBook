@@ -21,7 +21,7 @@ var canUpdate = 1;
 function isDuplicationOfName(value) {
 	if( $("#nameOld").val() != value){
 		 $.ajax({
-	         url:'/YearBook/user/isDuplicationOfName_execute',  
+	         url:'user/isDuplicationOfName_execute',  
 	         type:'post', 
 	         data:"name="+value,
 	         async:false,
@@ -131,7 +131,7 @@ function updateCheck(){
 	
 	if(canUpdate == 1){
 		$.ajax({
-	         url:'/YearBook/admin/editUser_execute',  
+	         url:'admin/editUser_execute',  
 	         data:$('#focus').serialize(),
 	         async:false,
 	         dataType:'text', 

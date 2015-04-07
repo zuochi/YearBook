@@ -38,7 +38,7 @@ function showComments(photoBid,toPageC){
 		//获取总条数
 		getReplyCount(photoBid);
 		$.ajax({
-			url:'/YearBook/user/getReply_execute',  
+			url:'user/getReply_execute',  
 			type:'post', 
 	        data:"photo.id="+photoBid+"&toPage="+toPageC+"&replyCountN="+$("#commentCount"+photoBid).val()+"&pageSizeN="+pageSizeN+"&user.id="+$("#userId").val(),
 	        async:false,
@@ -83,7 +83,7 @@ function replyAutoComplete(nickName,photoBid){
 function deleteReply(replyId){
 	if(confirm("Are you sure to delete this reply?")) { 
 		  $.ajax({
-			url:'/YearBook/user/deleteReply_execute',  
+			url:'user/deleteReply_execute',  
 			type:'post', 
 			data:"reply.id="+replyId,
 			async:false,
@@ -103,7 +103,7 @@ function deleteReply(replyId){
 function accusationReply(replyId){
 	if(confirm("Are you sure to report this reply to adminstartor?")) { 
 		  $.ajax({
-			url:'/YearBook/user/accusationReply_execute',  
+			url:'user/accusationReply_execute',  
 			type:'post', 
 			data:"reply.id="+replyId,
 			async:false,
@@ -124,7 +124,7 @@ function accusationReply(replyId){
 //获取评论的条数
 function getReplyCount(photoBid){
 	$.ajax({
-		url:'/YearBook/user/getReply_getReplyCount',  
+		url:'user/getReply_getReplyCount',  
 		type:'post', 
         data:"photo.id="+photoBid,
         async:false,

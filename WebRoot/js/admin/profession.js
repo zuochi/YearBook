@@ -2,7 +2,7 @@
 function deleteProfession(proId) {
 	if (confirm("Are you sure to block up this profession?")) {
 		$.ajax({
-			url : '/YearBook/admin/deleteProfessionA_execute',
+			url : 'admin/deleteProfessionA_execute',
 			type : 'post',
 			data : "profession.id=" + proId,
 			aPronc : false,
@@ -22,7 +22,7 @@ function deleteProfession(proId) {
 function recoveryProfession(proId) {
 	if (confirm("Are you sure to recovery this profession?")) {
 		$.ajax({
-			url : '/YearBook/admin/recoveryProfessionA_execute',
+			url : 'admin/recoveryProfessionA_execute',
 			type : 'post',
 			data : "profession.id=" + proId,
 			async : false,
@@ -51,7 +51,7 @@ function addPro() {
 		}
 		
 		$.ajax({
-			url : '/YearBook/admin/addProfessionA_execute',
+			url : 'admin/addProfessionA_execute',
 			type : 'post',
 			data : "profession.name=" + name + "&profession.isDelete=" + is_delete + "&profession.context=" + context,
 			async : false,
@@ -70,7 +70,7 @@ function addPro() {
 //根据id读取专业
 function loadPro(proId) {
 	$.ajax({
-		url : '/YearBook/admin/getProfessionDetail_execute',
+		url : 'admin/getProfessionDetail_execute',
 		type : 'post',
 		data : "profession.id="+proId,
 		async : false,
@@ -108,7 +108,7 @@ function savePro(proId) {
 		var context = document.getElementById("profession_td_context_"+proId).value;
 		
 		$.ajax({
-			url : '/YearBook/admin/editProfession_execute',
+			url : 'admin/editProfession_execute',
 			type : 'post',
 			data : "&profession.id=" + proId + "&profession.name=" + name + "&profession.isDelete=" + is_delete + "&profession.context=" + context,
 			async : false,

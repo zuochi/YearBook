@@ -15,7 +15,7 @@ function getFollowingByPerPage(){
 	toPageFollowing+=1;
 	if(hasFollowing==1){
 		$.ajax({
-			url:'/YearBook/user/getSocial_getFollowingByPerPage',  
+			url:'user/getSocial_getFollowingByPerPage',  
 			type:'post', 
 			data:"user.id="+$("#userId").val()+"&toPage="+toPageFollowing,
 			async:false,
@@ -62,7 +62,7 @@ function getFollowersByPerPage(){
 	//自动返向下一页
 	if(hasFollowers==1){
 		$.ajax({
-			url:'/YearBook/user/getSocial_getFollowersByPerPage',  
+			url:'user/getSocial_getFollowersByPerPage',  
 			type:'post', 
 			data:"user.id="+$("#userId").val()+"&toPage="+toPageFollowers,
 			async:false,

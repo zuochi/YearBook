@@ -85,7 +85,7 @@
 					atFriendName = $.trim($("#reply"+photoId).val().substring(atIndex,getCursorPos("reply"+photoId)));
 					
 					$.ajax({
-						url:'/YearBook/user/getSearchInfomation_execute',  
+						url:'user/getSearchInfomation_execute',  
 						type:'post', 
 				        data:"type=searchFriendName&friendList.userByFriendId.name="+atFriendName,
 				        async:false,

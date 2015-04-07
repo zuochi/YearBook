@@ -2,7 +2,7 @@
 function deleteAnnouncement(announcementId) {
 	if (confirm("Are you sure to block up this announcement?")) {
 		$.ajax({
-			url : '/YearBook/admin/deleteAnnouncementA_execute',
+			url : 'admin/deleteAnnouncementA_execute',
 			type : 'post',
 			data : "announcement.id=" + announcementId,
 			aPronc : false,
@@ -22,7 +22,7 @@ function deleteAnnouncement(announcementId) {
 function recoveryAnnouncement(announcementId) {
 	if (confirm("Are you sure to recovery this announcement?")) {
 		$.ajax({
-			url : '/YearBook/admin/recoveryAnnouncementA_execute',
+			url : 'admin/recoveryAnnouncementA_execute',
 			type : 'post',
 			data : "announcement.id=" + announcementId,
 			async : false,
@@ -57,7 +57,7 @@ function addAnnouncement() {
 		}
 		
 		$.ajax({
-			url : '/YearBook/admin/addAnnouncementA_execute',
+			url : 'admin/addAnnouncementA_execute',
 			type : 'post',
 			data : "announcement.title=" + title + "&announcement.isDelete=" + is_delete + "&announcement.context=" + context + "&announcement.top=" + top,
 			async : false,
@@ -76,7 +76,7 @@ function addAnnouncement() {
 //根据id读取公告
 function loadAnnouncement(announcementId) {
 	$.ajax({
-		url : '/YearBook/admin/getAnnouncementDetail_execute',
+		url : 'admin/getAnnouncementDetail_execute',
 		type : 'post',
 		data : "announcement.id="+announcementId,
 		async : false,
@@ -122,7 +122,7 @@ function saveAnnouncement(announcementId) {
 		var is_delete = document.getElementById("announcement_td_isDelete_"+announcementId).value;
 		
 		$.ajax({
-			url : '/YearBook/admin/editAnnouncement_execute',
+			url : 'admin/editAnnouncement_execute',
 			type : 'post',
 			data : "announcement.id=" + announcementId + "&announcement.title=" + title + "&announcement.isDelete=" + is_delete + "&announcement.context=" + context + "&announcement.top=" + top,
 			async : false,

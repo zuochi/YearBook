@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <%
 	if (session.getAttribute("user") == null) {
-		response.sendRedirect("/YearBook/user/autoLogin_execute");
+		response.sendRedirect("user/autoLogin_execute");
 	}
 %>
 <input type="hidden" id="isMine" value="1"/>
@@ -76,7 +76,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="attfan">
 						<s:if test="#request.photosCount!=0">
 							<a href="javascript:void(0)" title="click to show my Post." onclick="myPostShow()" target="main"><div class="posts">Posts<div id="picCountDiv" class="a1"><s:property value="#request.photosCount"/></div></div></a><div class="l"></div>
-							<%-- <div class="posts">Posts<a href="/YearBook/user/getMyPost_execute?userId=<s:property value="#session.user.id"/>" target="main"><div class="a1"><s:property value="#request.photosCount"/></div></a></div> <div class="l"></div> --%>
 						</s:if>
 						<s:else>
 							<div title="no Post here,plz click upload." class="posts">Posts<div class="a1">0</div></div> <div class="l"></div>

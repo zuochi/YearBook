@@ -32,7 +32,7 @@ function getPhotosByPerPage(isNew){
 			showPhotoLoading+=1;
 		}
 		$.ajax({
-			url:'/YearBook/user/getPhotosByPerPage_execute',  
+			url:'user/getPhotosByPerPage_execute',  
 			type:'post', 
 			data:"user.id="+$("#userId").val()+"&toPage="+toPageP,
 			async:false,
@@ -105,7 +105,7 @@ function comment(userBid,photoBid,photoOwnerId){
 		this.disabled = true;
 	});
 	$.ajax({
-		url:'/YearBook/user/doReply_execute',  
+		url:'user/doReply_execute',  
 		type:'post', 
         data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply+"&photo.user.id="+photoOwnerId,
         async:false,
@@ -153,7 +153,7 @@ function scrollToTop(){
 
 function follow(socialUserId){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=follow",
          async:false,
@@ -170,7 +170,7 @@ function follow(socialUserId){
 
 function cancleFollow(socialUserId){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=cancelFollow",
          async:false,
@@ -187,7 +187,7 @@ function cancleFollow(socialUserId){
 
 function followFriend(socialUserId){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=follow",
          async:false,
@@ -204,7 +204,7 @@ function followFriend(socialUserId){
 
 function cancleFollowFriend(socialUserId){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=cancelFollow",
          async:false,
@@ -228,7 +228,7 @@ var toPageFollowing=1;
 function getFollowingByPerPage(){
 	if(hasFollowing==1){
 		$.ajax({
-			url:'/YearBook/user/getSocial_getFollowingByPerPage',  
+			url:'user/getSocial_getFollowingByPerPage',  
 			type:'post', 
 			data:"user.id="+$("#userId").val()+"&isMine="+false+"&toPage="+toPageFollowing,
 			async:false,
@@ -271,7 +271,7 @@ var toPageFollowers=1;
 function getFollowersByPerPage(){
 	if(hasFollowers==1){
 		$.ajax({
-			url:'/YearBook/user/getSocial_getFollowersByPerPage',  
+			url:'user/getSocial_getFollowersByPerPage',  
 			type:'post', 
 			data:"user.id="+$("#userId").val()+"&isMine="+false+"&toPage="+toPageFollowers,
 			async:false,

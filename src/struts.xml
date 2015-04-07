@@ -20,7 +20,7 @@
 				<param name="type">login</param>
 			</result>  
 			<result name="autoLogin">/auto_loginRedict.jsp</result>
-			<result name="logout">/index.jsp</result>
+			<result name="logout" type="redirect">/index.jsp</result>
 			<result name="profile">/profile.jsp</result>
 			<result name="mypost">/User_index.jsp</result>
 <!-- 			<result name="getFriend">/friend.jsp</result> -->

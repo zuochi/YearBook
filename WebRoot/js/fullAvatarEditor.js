@@ -91,7 +91,7 @@
 swfobject.addDomLoadEvent(function () {
     var swf = new fullAvatarEditor("swfContainer", {
     	 id: 'swf',
-			upload_url:'/YearBook/user/photoUpload_execute',
+			upload_url:'user/photoUpload_execute',
 			src_upload:0,
 			avatar_sizes:'150*150|50*50|32*32',
 			avatar_sizes_desc:'150×150|50×50|32×32'

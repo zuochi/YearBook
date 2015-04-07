@@ -2,7 +2,7 @@
 function deletePhoto(photoId){
 	if(confirm("Are you sure to delete this photo?")) { 
 		  $.ajax({
-			url:'/YearBook/admin/deletePhotoA_execute',  
+			url:'admin/deletePhotoA_execute',  
 			type:'post', 
 			data:"photo.id="+photoId,
 			async:false,
@@ -22,7 +22,7 @@ function deletePhoto(photoId){
 function recoveryPhoto(photoId){
 	if(confirm("Are you sure to recovery this photo?")) { 
 		  $.ajax({
-			url:'/YearBook/admin/recoveryPhotoA_execute',  
+			url:'admin/recoveryPhotoA_execute',  
 			type:'post', 
 			data:"photo.id="+photoId,
 			async:false,
@@ -42,7 +42,7 @@ function recoveryPhoto(photoId){
 function missPhoto(photoId){
 	if(confirm("Are you sure to miss this photo?")) { 
 		  $.ajax({
-			url:'/YearBook/admin/missAccusationPhoto_execute',  
+			url:'admin/missAccusationPhoto_execute',  
 			type:'post', 
 			data:"photo.id="+photoId,
 			async:false,

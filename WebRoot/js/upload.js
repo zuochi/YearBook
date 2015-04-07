@@ -149,7 +149,7 @@
 			swf : 'swf/Uploader.swf',
 			chunked : false,
 			chunkSize : 512 * 1024,
-			server : '/YearBook/user/photoUpload_execute',
+			server : 'user/photoUpload_execute',
 			accept : {
 				title : 'images',
 				extensions : 'gif,jpg,jpeg,bmp,png',

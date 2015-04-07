@@ -2,7 +2,7 @@
 function deleteSY(syId) {
 	if (confirm("Are you sure to block up this school year?")) {
 		$.ajax({
-			url : '/YearBook/admin/deleteSchoolYearA_execute',
+			url : 'admin/deleteSchoolYearA_execute',
 			type : 'post',
 			data : "schoolYear.id=" + syId,
 			async : false,
@@ -22,7 +22,7 @@ function deleteSY(syId) {
 function recoverySY(syId) {
 	if (confirm("Are you sure to recovery this school year?")) {
 		$.ajax({
-			url : '/YearBook/admin/recoverySchoolYearA_execute',
+			url : 'admin/recoverySchoolYearA_execute',
 			type : 'post',
 			data : "schoolYear.id=" + syId,
 			async : false,
@@ -50,7 +50,7 @@ function addSY() {
 		}
 		
 		$.ajax({
-			url : '/YearBook/admin/addSchoolYearA_execute',
+			url : 'admin/addSchoolYearA_execute',
 			type : 'post',
 			data : "schoolYear.year=" + year + "&schoolYear.isDelete=" + is_delete,
 			async : false,

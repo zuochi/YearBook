@@ -2,26 +2,26 @@ function goUrl(type){
 	if(type==1){
 		window.location.href="User_headPhotoUpload.jsp";
 	}else if(type==2){
-		window.location.href="/YearBook/user/getProfiles_execute";
+		window.location.href="user/getProfiles_execute";
 	}else if(type==3){
 		window.location.href="index.jsp";
 	}
 	/* if(type==4){
-		//window.parent.main.location.href="/YearBook/user/getSocial_getFriendByPerPage?user.id=<s:property value='#session.user.id'/>";
+		//window.parent.main.location.href="user/getSocial_getFriendByPerPage?user.id=<s:property value='#session.user.id'/>";
 		window.parent.main.location.href="friend.jsp";
 	} */
 	else if(type==4){
 		window.location.href="friend.jsp?type=following";
 	}else if(type==5){
-		window.location.href="/YearBook/user/getMyPost_execute";
+		window.location.href="user/getMyPost_execute";
 	}else if(type==6){
 		window.location.href="bbs.jsp";
 	}else if(type==7){
-		window.location.href="/YearBook/user/getMessage_execute?type=photo";
+		window.location.href="user/getMessage_execute?type=photo";
 	}else if(type==8){
-		window.location.href="/YearBook/user/logout_execute";
+		window.location.href="user/logout_execute";
 	}else if(type==9){
-		window.location.href="/YearBook/user/autoLogin_execute";
+		window.location.href="user/autoLogin_execute";
 	}else if(type==10){
 		window.location.href="index.jsp?type=signup";
 	}else if(type==11){

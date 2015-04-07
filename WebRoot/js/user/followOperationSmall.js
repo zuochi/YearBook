@@ -1,6 +1,6 @@
 function followSmall(elementId,socialUserId){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=follow",
          async:false,
@@ -17,7 +17,7 @@ function followSmall(elementId,socialUserId){
 
 function cancleFollowSmall(elementId,socialUserId){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=cancelFollow",
          async:false,
@@ -34,7 +34,7 @@ function cancleFollowSmall(elementId,socialUserId){
 
 function followFriendSmall(elementId,socialUserId,fname){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=follow",
          async:false,
@@ -52,7 +52,7 @@ function followFriendSmall(elementId,socialUserId,fname){
 
 function cancleFollowFriendSmall(elementId,socialUserId,fname){
 	$.ajax({
-         url:'/YearBook/user/follow_execute',  
+         url:'user/follow_execute',  
          type:'post', 
          data:"userId="+socialUserId+"&type=cancelFollow",
          async:false,

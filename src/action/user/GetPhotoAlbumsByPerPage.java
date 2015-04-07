@@ -24,10 +24,10 @@ public class GetPhotoAlbumsByPerPage extends UserAction{
 		List<PhotoAlbum> photoAlbums = service.getObjectsByPrepageAndProperties(pro, pc, new PhotoAlbum(),true);
 		List<PhotoAlbum> photoAlbumsAll = service.getObjectsByProperties(pro,new PhotoAlbum(), true);
 		if(photoAlbums.size()!=0 && photoAlbumsAll.size()!=0){
-			session.put("photoAlbums", photoAlbums);
-			session.put("photoAlbumsAll", photoAlbumsAll);
-			session.put("photoAlbumPc", pc);
-			session.put("photoAlbumscount", photoAlbumscount);
+			request.setAttribute("photoAlbums", photoAlbums);
+			request.setAttribute("photoAlbumsAll", photoAlbumsAll);
+			request.setAttribute("photoAlbumPc", pc);
+			request.setAttribute("photoAlbumscount", photoAlbumscount);
 		}
 		/*if("ajax".equals(request.getParameter("ajax"))){
 			List<dto.PhotoAlbum> modelPhotoAlbums = new ArrayList<dto.PhotoAlbum>();

@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
   	/* window.parent.left.location.reload(); */
   	//window.location.reload(true);
-  	window.location.href="/YearBook/index.jsp";
+  	window.location.href="index.jsp";
   	//window.location.reload();
   	</script>
   </head>

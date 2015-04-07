@@ -9,7 +9,7 @@ function addFeedBack() {
 		}
 		
 		$.ajax({
-			url : '/YearBook/user/addFeedBack_execute',
+			url : 'user/addFeedBack_execute',
 			type : 'post',
 			data : "feedBack.context=" + context,
 			async : false,

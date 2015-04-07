@@ -18,36 +18,15 @@ public class Logout extends UserAction {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
 			session.removeAttribute("user");
-			session.removeAttribute("professions");
 			session.removeAttribute("headPhoto");
-			session.removeAttribute("schoolYears");
-			session.removeAttribute("photoAlbumscount");
-			session.removeAttribute("photoAlbums");
-			session.removeAttribute("photoAlbumsAll");
-			session.removeAttribute("photos");
-			session.removeAttribute("photosPc");
-			session.removeAttribute("photoAlbumPc");
 		}
 		this.session.remove("user");
-		this.session.remove("professions");
 		this.session.remove("headPhoto");
-		this.session.remove("schoolYears");
-		this.session.remove("photoAlbumscount");
-		this.session.remove("photoAlbums");
-		this.session.remove("photoAlbumsAll");
-		this.session.remove("photos");
-		this.session.remove("photosPc");
-		this.session.remove("photoAlbumPc");
 		CookieUtils cookieUtils = new CookieUtils();
 		Cookie cookie = cookieUtils.delCookie(request);
 		if (cookie != null) {
 			cookie.setMaxAge(0);
 			response.addCookie(cookie);
-		}
-		try {
-			response.sendRedirect("/YearBook/index.jsp");// 自动转跳到主页
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 		return "logout";
 	}

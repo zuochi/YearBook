@@ -2,6 +2,10 @@
 <%@ page contentType="text/html; charset=utf-8" language="java"
 	import="java.sql.*" errorPage=""%>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!-- Home 首页 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,8 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="styles/csshake.css" rel="stylesheet" type="text/css"/>
 <link href="styles/reset.css" rel="stylesheet"  type="text/css"/>
-<link rel="stylesheet" href="styles/styles.css" type="text/css"/>
-<link rel="stylesheet" href="styles/jquery.skippr.css" type="text/css"/>
+<link href="styles/styles.css" rel="stylesheet" type="text/css"/>
+<link href="styles/jquery.skippr.css" rel="stylesheet" type="text/css"/>
         
 <jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />
@@ -55,54 +59,9 @@
                 <div style="background-image: url(images/slide3.jpg)"></div>                   
                 <div style="background-image: url(images/slide4.jpg)"></div>
             </div>
-
-            <!-- <div id="random">
-                <img src="img/test3.jpg">
-                <img src="img/test4.jpg">
-                <img src="img/test1.jpg">
-                <img src="img/test5.jpg">
-            </div> -->
-
-  
-                <div class="container">
-               
-                
-            </div> 
-           
-           
         </div>
 
-
-<div id="kong1"></div>
-	<!-- end #slider-container -->
-
-	<!-- end #header -->
-
-<div class="xi">
-	<!--各系-->
-<div class="f"></div>
-<div class="shake" style="margin:0"><a href="mainPage_xinke.jsp" target="main"><div class="professions">信科</div> </a></div>
-<div class="shake"><a href="mainPage_xiyu.jsp" target="main"><div class="professions">西语</div> </a>     </div>
-<div class="shake"><a href="mainPage_jingji.jsp" target="main"><div class="professions">经济</div> </a>   </div>
-<div class="shake"><a href="mainPage_yingyu.jsp" target="main"><div class="professions">英语</div> </a>   </div>
-<div class="shake"><a href="mainPage_guanli.jsp" target="main"><div class="professions">管理</div> </a>   </div>
-<div class="shake"><a href="mainPage_dongyu.jsp" target="main"><div class="professions">东语</div> </a>   </div>
-<div class="shake"><a href="mainPage_zhongwen.jsp" target="main"><div class="professions">中文</div> </a> </div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-<div class="kong"></div>
-</div>
-
-
-
+<jsp:include page="template/user/loadProfession.jsp"></jsp:include>
 	
     
     <!--流布局-->

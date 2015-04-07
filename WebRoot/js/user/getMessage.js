@@ -18,7 +18,7 @@ function comment(userBid,replyId,photoBid,nickName,photoOwnerId){
 		this.disabled = true;
 	});
 	$.ajax({
-		url:'/YearBook/user/doReply_execute',
+		url:'user/doReply_execute',
 		type:'post',
         data:"reply.userByUserBid.id="+userBid+"&reply.photo.id="+photoBid+"&reply.context="+reply+"&photo.user.id="+photoOwnerId,
         async:false,
@@ -62,7 +62,7 @@ function showPhotoReplys(toPageM,countM){
 		//toPageM+=1;
 		$("#photoReplyDiv").html("");
 		$.ajax({
-			url:'/YearBook/user/getMessage_getPhotoReplysByPerPage',  
+			url:'user/getMessage_getPhotoReplysByPerPage',  
 			type:'post', 
 	        data:"toPage="+toPageM+"&count="+countM+"&type=photo",
 	        async:false,
@@ -105,7 +105,7 @@ function showMentionMe(toPageM,countM){
 		//toPageM+=1;
 		$("#photoReplyDiv").html("");
 		$.ajax({
-			url:'/YearBook/user/getMessage_getMentionMeByPerPage',  
+			url:'user/getMessage_getMentionMeByPerPage',  
 			type:'post', 
 	        data:"toPage="+toPageM+"&count="+countM+"&type=photo",
 	        async:false,
@@ -146,7 +146,7 @@ function showMentionMe(toPageM,countM){
 function deleteMessage(replyId){
 	if(confirm("Are you sure to delete this reply?")) {
 		$.ajax({
-			url:'/YearBook/user/deleteReply_execute',
+			url:'user/deleteReply_execute',
 			type:'post',
 			data:"reply.id="+replyId,
 			async:false,
@@ -165,12 +165,12 @@ function deleteMessage(replyId){
 
 //翻页
 function messageTurnPage(toPageM,countM,type){
-	window.location.href="/YearBook/user/getMessage_execute?toPage="+toPageM+"&count="+countM+"&type="+type;
+	window.location.href="user/getMessage_execute?toPage="+toPageM+"&count="+countM+"&type="+type;
 };
 
 //选择模式
 function changeType(type){
-	window.location.href="/YearBook/user/getMessage_execute?type="+type;
+	window.location.href="user/getMessage_execute?type="+type;
 };
 
 //先加载一次 

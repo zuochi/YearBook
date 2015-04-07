@@ -25,7 +25,7 @@ function changeAlbum(){
 			return;
 		}
 		$.ajax({
-			url:'/YearBook/user/photoUpload_execute',
+			url:'user/photoUpload_execute',
 			type:'post', 
 	        data:"newPhotoAlbum="+newPhotoAlbum+"&isNew="+(document.getElementsByName("isNew")[0].checked==true?"no":"yes"),
 	        async:false,
@@ -33,7 +33,7 @@ function changeAlbum(){
 			success:function (msg) {
 				if(msg=="success"){
 					//创建完成后重新获取信息
-					window.location.href="/YearBook/user/getPhotoAlbumsByPerPage_execute?userId="+$("#userId").val();
+					window.location.href="user/getPhotoAlbumsByPerPage_execute?userId="+$("#userId").val();
 					alert("create success!");
 				}else{
 					alert("fail " + newAlbumId);
@@ -49,14 +49,14 @@ function changeAlbum(){
 
 //换页
 function toPage(toPage){
-	window.location.href="/YearBook/user/getPhotoAlbumsByPerPage_execute?userId="+document.getElementById("userId").value+"&toPage=" + toPage;
+	window.location.href="user/getPhotoAlbumsByPerPage_execute?userId="+document.getElementById("userId").value+"&toPage=" + toPage;
 };
 
 //我要上首页
 function iWantTop(photoId,userId){
 	if(confirm("Are you sure to submit this photo to admin?")) { 
 		$.ajax({
-			url:'/YearBook/user/iwantTop_execute',  
+			url:'user/iwantTop_execute',  
 			type:'post', 
 	        data:"photo.id="+photoId+"&user.id="+userId,
 	        async:false,
@@ -83,7 +83,7 @@ function updateAlbum(photoAlbumId) {
 		var photoAlbumPermission = $("#photoAlbumPermission" + photoAlbumId).val();
 		var photoAlbumCode = $("#photoAlbumCode" + photoAlbumId).val();
 		$.ajax({
-			url : '/YearBook/user/updatePhotoAlbum_execute',
+			url : 'user/updatePhotoAlbum_execute',
 			type : 'post',
 			data : "photoAlbum.id=" + photoAlbumId + "&photoAlbum.name="
 					+ photoAlbumName + "&photoAlbum.permission="
@@ -109,7 +109,7 @@ function deletePhotoAlbum(photoAlbumId){
 	var photoAlbumName = $("#photoAlbumName"+photoAlbumId).val();
 	if(confirm("Are you sure to delete '" + photoAlbumName +"' photo album?")) { 
 		$.ajax({
-			url:'/YearBook/user/deletePhotoAlbum_execute',  
+			url:'user/deletePhotoAlbum_execute',  
 			type:'post', 
 	        data:"photoAlbum.id="+photoAlbumId+"&photoAlbum.name="+photoAlbumName,
 	        async:false,
@@ -131,7 +131,7 @@ function deletePhotoAlbum(photoAlbumId){
 function deletePhoto(photoId){
 	if(confirm("Are you sure to delete this photo?")) { 
 		$.ajax({
-			url:'/YearBook/user/deletePhoto_execute',  
+			url:'user/deletePhoto_execute',  
 			type:'post', 
 	        data:"photo.id="+photoId,
 	        async:false,
@@ -162,7 +162,7 @@ function showtree(str)
 //局部获取相册--暂时用不上
 function getPhotoAlbumsByPerPage(userId,toPage){
 	$.ajax({
-		url:'/YearBook/user/getPhotoAlbumsByPerPage_execute',  
+		url:'user/getPhotoAlbumsByPerPage_execute',  
 		type:'post', 
         data:"userId="+userId+"&ajax=ajax&toPage="+toPage,
         async:false,

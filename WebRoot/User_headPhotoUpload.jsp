@@ -39,7 +39,7 @@ body{
 <div style="height:100px; width:100%"></div>
 	<%
 		if (session.getAttribute("user") == null) {
-			response.sendRedirect("/YearBook/user/User_autoLogin");
+			response.sendRedirect("user/User_autoLogin");
 		}
 	%>
 	<div style="width:630px;margin: 0 auto;">

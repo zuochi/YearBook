@@ -82,7 +82,7 @@ var canReg=1;
 //判断是否重名
 function isDuplicationOfName(value) {
 	 $.ajax({
-         url:'/YearBook/user/isDuplicationOfUserName_execute',  
+         url:'user/isDuplicationOfUserName_execute',  
          type:'post', 
          data:"userName="+value,
          async:false,
@@ -177,7 +177,7 @@ function registerCheck() {
 	
 	if(canReg==1){
 		 $.ajax({
-	         url:'/YearBook/user/register_execute',  
+	         url:'user/register_execute',  
 	         type:'post', 
 	         data:$('#regForm').serialize(),
 	         async:false,
@@ -243,7 +243,7 @@ function loginCheck() {
    	 	$("#Loginwarn").html("&nbsp;");
 	}
 	$.ajax({
-         url:'/YearBook/user/login_execute',  
+         url:'user/login_execute',  
          type:'post', 
          data:$('#logForm').serialize(),
          async:false,
