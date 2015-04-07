@@ -1,8 +1,6 @@
 package bean;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Photo entity. @author MyEclipse Persistence Tools

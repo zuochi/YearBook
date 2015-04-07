@@ -1,8 +1,5 @@
 package bean;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * Profession entity. @author MyEclipse Persistence Tools
  */
@@ -15,7 +12,6 @@ public class Profession implements java.io.Serializable {
 	private String name;
 	private String context;
 	private Integer isDelete;
-	private Set users = new HashSet(0);
 
 	// Constructors
 
@@ -31,12 +27,11 @@ public class Profession implements java.io.Serializable {
 
 	/** full constructor */
 	public Profession(Integer id, String name, String context,
-			Integer isDelete, Set users) {
+			Integer isDelete) {
 		this.id = id;
 		this.name = name;
 		this.context = context;
 		this.isDelete = isDelete;
-		this.users = users;
 	}
 
 	// Property accessors
@@ -71,14 +66,6 @@ public class Profession implements java.io.Serializable {
 
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
-	}
-
-	public Set getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(Set users) {
-		this.users = users;
 	}
 
 }

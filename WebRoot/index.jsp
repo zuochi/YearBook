@@ -62,10 +62,11 @@
         </div>
 
 <jsp:include page="template/user/loadProfession.jsp"></jsp:include>
+<jsp:include page="template/user/loadPhoto.jsp"></jsp:include>
 	
     
     <!--流布局-->
-     <div id="pic">
+    <!--  <div id="pic">
 	<div id="ctr">
 		<div class="box photo col3">
 			<img src="images/1.jpg" alt="Like" />
@@ -116,7 +117,7 @@
 			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
 		</div>
 		<div style="clear:both; height: 40px"></div>
-	</div></div>
+	</div></div> -->
 	<!-- END container -->
 	
 	
@@ -147,6 +148,9 @@
 		autoPlay: true,
 		autoPlayDuration: 2000
 		});
+		//异步读取内容
+		loadProfessions();
+		loadPhotos();
 	});
 	</script>
 </body>

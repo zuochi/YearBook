@@ -1,8 +1,5 @@
 package bean;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * SchoolYear entity. @author MyEclipse Persistence Tools
  */
@@ -14,7 +11,6 @@ public class SchoolYear implements java.io.Serializable {
 	private Integer id;
 	private String year;
 	private Integer isDelete;
-	private Set users = new HashSet(0);
 
 	// Constructors
 
@@ -22,17 +18,10 @@ public class SchoolYear implements java.io.Serializable {
 	public SchoolYear() {
 	}
 
-	/** minimal constructor */
+	/** full constructor */
 	public SchoolYear(String year,Integer isDelete) {
 		this.year = year;
 		this.isDelete = isDelete;
-	}
-
-	/** full constructor */
-	public SchoolYear(String year,Integer isDelete,Set users) {
-		this.year = year;
-		this.isDelete = isDelete;
-		this.users = users;
 	}
 
 	// Property accessors
@@ -51,14 +40,6 @@ public class SchoolYear implements java.io.Serializable {
 
 	public void setYear(String year) {
 		this.year = year;
-	}
-
-	public Set getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(Set users) {
-		this.users = users;
 	}
 
 	public Integer getIsDelete() {

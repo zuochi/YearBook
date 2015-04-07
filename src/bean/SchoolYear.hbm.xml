@@ -20,13 +20,5 @@
                 <comment>0:未删除 1:已删除</comment>
             </column>
         </property>
-        <set name="users" inverse="true">
-            <key>
-                <column name="school_year_id">
-                    <comment>届</comment>
-                </column>
-            </key>
-            <one-to-many class="bean.User" />
-        </set>
     </class>
 </hibernate-mapping>

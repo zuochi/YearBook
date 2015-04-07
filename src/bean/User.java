@@ -1,8 +1,6 @@
 package bean;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * User entity. @author MyEclipse Persistence Tools
@@ -29,17 +27,6 @@ public class User implements java.io.Serializable {
 	private String weChat;
 	private String email;
 	private Integer isDelete;
-	private Set privateLettersForUserBid = new HashSet(0);
-	private Set friendListsForFriendId = new HashSet(0);
-	private Set announcements = new HashSet(0);
-	private Set repliesForUserId = new HashSet(0);
-	private Set IWantTops = new HashSet(0);
-	private Set privateLettersForUserId = new HashSet(0);
-	private Set photoAlbums = new HashSet(0);
-	private Set repliesForUserBid = new HashSet(0);
-	private Set bbses = new HashSet(0);
-	private Set friendListsForUserId = new HashSet(0);
-	private Set photos = new HashSet(0);
 
 	// Constructors
 
@@ -53,15 +40,12 @@ public class User implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public User(Profession profession, SchoolYear schoolYear,
+	public User(Integer id, Profession profession, SchoolYear schoolYear,
 			HeadPhoto headPhoto, String userName, String password, String name,
 			Integer sex, String sign, Timestamp signupDate,
-			Timestamp lastLogintime, String qq, String weChat, String email,Integer isDelete,
-			Set privateLettersForUserBid, Set friendListsForFriendId,
-			Set announcements, Set repliesForUserId, Set IWantTops,
-			Set privateLettersForUserId, Set photoAlbums,
-			Set repliesForUserBid, Set bbses, Set friendListsForUserId,
-			Set photos) {
+			Timestamp lastLogintime, String telePhone, String homeTown,
+			String qq, String weChat, String email, Integer isDelete) {
+		this.id = id;
 		this.profession = profession;
 		this.schoolYear = schoolYear;
 		this.headPhoto = headPhoto;
@@ -72,21 +56,12 @@ public class User implements java.io.Serializable {
 		this.sign = sign;
 		this.signupDate = signupDate;
 		this.lastLogintime = lastLogintime;
+		this.telePhone = telePhone;
+		this.homeTown = homeTown;
 		this.qq = qq;
 		this.weChat = weChat;
 		this.email = email;
 		this.isDelete = isDelete;
-		this.privateLettersForUserBid = privateLettersForUserBid;
-		this.friendListsForFriendId = friendListsForFriendId;
-		this.announcements = announcements;
-		this.repliesForUserId = repliesForUserId;
-		this.IWantTops = IWantTops;
-		this.privateLettersForUserId = privateLettersForUserId;
-		this.photoAlbums = photoAlbums;
-		this.repliesForUserBid = repliesForUserBid;
-		this.bbses = bbses;
-		this.friendListsForUserId = friendListsForUserId;
-		this.photos = photos;
 	}
 
 	// Property accessors
@@ -225,94 +200,6 @@ public class User implements java.io.Serializable {
 
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
-	}
-
-	public Set getPrivateLettersForUserBid() {
-		return this.privateLettersForUserBid;
-	}
-
-	public void setPrivateLettersForUserBid(Set privateLettersForUserBid) {
-		this.privateLettersForUserBid = privateLettersForUserBid;
-	}
-
-	public Set getFriendListsForFriendId() {
-		return this.friendListsForFriendId;
-	}
-
-	public void setFriendListsForFriendId(Set friendListsForFriendId) {
-		this.friendListsForFriendId = friendListsForFriendId;
-	}
-
-	public Set getAnnouncements() {
-		return this.announcements;
-	}
-
-	public void setAnnouncements(Set announcements) {
-		this.announcements = announcements;
-	}
-
-	public Set getRepliesForUserId() {
-		return this.repliesForUserId;
-	}
-
-	public void setRepliesForUserId(Set repliesForUserId) {
-		this.repliesForUserId = repliesForUserId;
-	}
-
-	public Set getIWantTops() {
-		return this.IWantTops;
-	}
-
-	public void setIWantTops(Set IWantTops) {
-		this.IWantTops = IWantTops;
-	}
-
-	public Set getPrivateLettersForUserId() {
-		return this.privateLettersForUserId;
-	}
-
-	public void setPrivateLettersForUserId(Set privateLettersForUserId) {
-		this.privateLettersForUserId = privateLettersForUserId;
-	}
-
-	public Set getPhotoAlbums() {
-		return this.photoAlbums;
-	}
-
-	public void setPhotoAlbums(Set photoAlbums) {
-		this.photoAlbums = photoAlbums;
-	}
-
-	public Set getRepliesForUserBid() {
-		return this.repliesForUserBid;
-	}
-
-	public void setRepliesForUserBid(Set repliesForUserBid) {
-		this.repliesForUserBid = repliesForUserBid;
-	}
-
-	public Set getBbses() {
-		return this.bbses;
-	}
-
-	public void setBbses(Set bbses) {
-		this.bbses = bbses;
-	}
-
-	public Set getFriendListsForUserId() {
-		return this.friendListsForUserId;
-	}
-
-	public void setFriendListsForUserId(Set friendListsForUserId) {
-		this.friendListsForUserId = friendListsForUserId;
-	}
-
-	public Set getPhotos() {
-		return this.photos;
-	}
-
-	public void setPhotos(Set photos) {
-		this.photos = photos;
 	}
 
 }

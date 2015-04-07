@@ -41,6 +41,7 @@ http://www.springframework.org/schema/task http://www.springframework.org/schema
 				<value>bean/HeadPhoto.hbm.xml</value>
 				<value>bean/Photo.hbm.xml</value>
 				<value>bean/PhotoAlbum.hbm.xml</value>
+				<value>bean/Praise.hbm.xml</value>
 				<value>bean/PrivateLetter.hbm.xml</value>
 				<value>bean/Profession.hbm.xml</value>
 				<value>bean/Reply.hbm.xml</value>

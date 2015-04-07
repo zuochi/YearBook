@@ -1,8 +1,5 @@
 package bean;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * HeadPhoto entity. @author MyEclipse Persistence Tools
  */
@@ -17,7 +14,6 @@ public class HeadPhoto implements java.io.Serializable {
 	private String urlL;
 	private String urlO;
 	private Integer isDelete;
-	private Set users = new HashSet(0);
 
 	// Constructors
 
@@ -32,14 +28,13 @@ public class HeadPhoto implements java.io.Serializable {
 
 	/** full constructor */
 	public HeadPhoto(String id, String urlS, String urlM, String urlL,
-			String urlO, Integer isDelete, Set users) {
+			String urlO, Integer isDelete) {
 		this.id = id;
 		this.urlS = urlS;
 		this.urlM = urlM;
 		this.urlL = urlL;
 		this.urlO = urlO;
 		this.isDelete = isDelete;
-		this.users = users;
 	}
 
 	// Property accessors
@@ -91,13 +86,4 @@ public class HeadPhoto implements java.io.Serializable {
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
 	}
-
-	public Set getUsers() {
-		return this.users;
-	}
-
-	public void setUsers(Set users) {
-		this.users = users;
-	}
-
 }

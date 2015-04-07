@@ -25,11 +25,5 @@
                 <comment>0:未删除 1:已删除</comment>
             </column>
         </property>
-        <set name="users" inverse="true">
-            <key>
-                <column name="profession_id" />
-            </key>
-            <one-to-many class="bean.User" />
-        </set>
     </class>
 </hibernate-mapping>

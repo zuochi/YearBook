@@ -21,8 +21,6 @@ public class Photo implements java.io.Serializable {
 	private Timestamp uploadDate;
 	private Integer isAccusation;
 	private Integer isDelete;
-	private Set replies = new HashSet(0);
-	private Set IWantTops = new HashSet(0);
 
 	// Constructors
 
@@ -42,7 +40,7 @@ public class Photo implements java.io.Serializable {
 	/** full constructor */
 	public Photo(Integer id, User user, PhotoAlbum photoAlbum, String name,
 			String url, String urlThumb, Timestamp uploadDate,
-			Integer isAccusation, Integer isDelete, Set replies, Set iWantTops) {
+			Integer isAccusation, Integer isDelete) {
 		this.id = id;
 		this.user = user;
 		this.photoAlbum = photoAlbum;
@@ -52,8 +50,6 @@ public class Photo implements java.io.Serializable {
 		this.uploadDate = uploadDate;
 		this.isAccusation = isAccusation;
 		this.isDelete = isDelete;
-		this.replies = replies;
-		IWantTops = iWantTops;
 	}
 
 	// Property accessors
@@ -120,22 +116,6 @@ public class Photo implements java.io.Serializable {
 
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
-	}
-
-	public Set getReplies() {
-		return this.replies;
-	}
-
-	public void setReplies(Set replies) {
-		this.replies = replies;
-	}
-
-	public Set getIWantTops() {
-		return this.IWantTops;
-	}
-
-	public void setIWantTops(Set IWantTops) {
-		this.IWantTops = IWantTops;
 	}
 
 	public Integer getIsAccusation() {

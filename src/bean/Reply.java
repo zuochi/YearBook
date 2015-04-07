@@ -1,7 +1,6 @@
 package bean;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * Reply entity. @author MyEclipse Persistence Tools

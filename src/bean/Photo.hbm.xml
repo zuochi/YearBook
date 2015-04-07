@@ -50,21 +50,5 @@
                 <comment>0:未删除 1:已删除</comment>
             </column>
         </property>
-        <set name="replies" inverse="true">
-            <key>
-                <column name="photo_bid">
-                    <comment>照片id</comment>
-                </column>
-            </key>
-            <one-to-many class="bean.Reply" />
-        </set>
-        <set name="IWantTops" inverse="true">
-            <key>
-                <column name="photo_id" not-null="true">
-                    <comment>申请图片id</comment>
-                </column>
-            </key>
-            <one-to-many class="bean.IWantTop" />
-        </set>
     </class>
 </hibernate-mapping>
