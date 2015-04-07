@@ -81,12 +81,12 @@ function showPhotoReplys(toPageM,countM){
 								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
 								"<div class='message' id='commentEmo"+json[i].id+"'>"+json[i].context+"</div>"+
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
-								"<a href='javascript:void(0)' onclick='deleteMessage("+json[i].id+")'><div class='operate' title='delete this reply'>delete</div></a>"+
+								"<a href='javascript:void(0)' onclick='deleteMessage(\""+json[i].id+"\")'><div class='operate' title='delete this reply'>delete</div></a>"+
 								"<a href='javascript:void(0)' onclick='showReplyFrame(\"Freply"+json[i].id+"\",\""+json[i].name+"\")'><div class='operate' title='reply "+json[i].name+"' style='float:right'>reply</div></a>"+
 								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
 								"<div id='Freply"+json[i].id+"' style='display:none'>"+
-										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'/>"+
-										"<input type='button' value='reply' onclick='comment("+json[i].user_id+","+json[i].id+","+json[i].photo_bid+",\""+json[i].name+"\","+json[i].photoOwnerId+")'/>"+
+										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal(\""+json[i].id+"\")' onkeyup='getAtName(this.value,\""+json[i].id+"\")'/>"+
+										"<input type='button' value='reply' onclick='comment("+json[i].user_id+",\""+json[i].id+"\","+json[i].photo_bid+",\""+json[i].name+"\","+json[i].photoOwnerId+")'/>"+
 								"</div>"+
 						"</div>"
 						);

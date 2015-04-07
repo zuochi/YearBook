@@ -98,7 +98,7 @@
 								selectIndex = 0;
 								selectLength = json.length;
 								for(var i=0; i<json.length; i++){
-									$("#friendTips"+photoId).append("<a style='font-size:14px;font-family:Microsoft Yahei;'onmouseover='mouserOver("+photoId+","+i+")' onmouseout='mouserOut("+photoId+","+i+")' id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete("+photoId+",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32;margin-top:3px;' src='"+((json[i].surl==null || json[i].surl=='')?"images/bg.png":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
+									$("#friendTips"+photoId).append("<a style='font-size:14px;font-family:Microsoft Yahei;'onmouseover='mouserOver(\""+photoId+"\","+i+")' onmouseout='mouserOut(\""+photoId+"\","+i+")' id='ft"+photoId+i+"' href='javascript:void(0)' onclick='autoComplete(\""+photoId+"\",\""+json[i].fname+"\")'><div><img style='width:32;heigh:32;margin-top:3px;' src='"+((json[i].surl==null || json[i].surl=='')?"images/bg.png":json[i].surl)+"'/>"+json[i].fname+"</div></a>");
 								}
 								$("#ft"+photoId+selectIndex).css("color","#DE4C1C");
 							}
@@ -125,7 +125,7 @@
 					return;
 				}
 				document.getElementById("ft"+photoId+selectIndex).click();
-				setTimeout('removeEnter('+ photoId +')', 0);
+				setTimeout('removeEnter(\"'+ photoId +'\")', 0);
 				return;
 			}
 		};
