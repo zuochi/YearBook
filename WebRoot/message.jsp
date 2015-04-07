@@ -139,10 +139,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/goUrl.js" ></script>
-<script type="text/javascript" src="js/at.js" ></script>
+<script type="text/javascript" src="js/user/at.js" ></script>
 <script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
-<script type="text/javascript" src="js/calculateDistanceTime.js" ></script>
-<script type="text/javascript" src="js/getMessage.js" ></script>
+<script type="text/javascript" src="js/user/calculateDistanceTime.js" ></script>
+<script type="text/javascript" src="js/user/getMessage.js" ></script>
 
 </body>
 </html>

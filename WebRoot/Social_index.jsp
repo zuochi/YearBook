@@ -130,20 +130,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div id="hasFollowing"></div>
 		<div id="hasFollowers"></div>
-		<script type="text/javascript" src="js/accussationPhoto.js"></script>
+		<script type="text/javascript" src="js/user/accussationPhoto.js"></script>
 		<script type="text/javascript" src="js/goUrl.js"></script>
-		<script type="text/javascript" src="js/calculateDistanceTime.js"></script>
+		<script type="text/javascript" src="js/user/calculateDistanceTime.js"></script>
 		<script type="text/javascript" src="js/jquery.showLoading.js"></script>
-		<script type="text/javascript" src="js/at.js"></script>
-		<script type="text/javascript" src="js/followOperationSmall.js"></script>
+		<script type="text/javascript" src="js/user/at.js"></script>
+		<script type="text/javascript" src="js/user/followOperationSmall.js"></script>
 		<script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
 		<script type="text/javascript" src="js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
 		<script type="text/javascript" src="js/classie.js"></script>
 		<script type="text/javascript" src="js/cbpGridGallery.js"></script>
-		<script type="text/javascript" src="js/getReply.js"></script>
-		<script type="text/javascript" src="js/Social_index.js"></script>
+		<script type="text/javascript" src="js/user/getReply.js"></script>
+		<script type="text/javascript" src="js/user/Social_index.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 			

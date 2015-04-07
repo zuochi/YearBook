@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="js/jquery.cssemoticons.js" type="text/javascript"></script>
 <script src="js/goUrl.js" type="text/javascript"></script>
 <script src="js/modernizr.js" type="text/javascript"></script>
-<script src="js/followOperationSmall.js" type="text/javascript"></script>
-<script src="js/friend.js" type="text/javascript"></script>
+<script src="js/user/followOperationSmall.js" type="text/javascript"></script>
+<script src="js/user/friend.js" type="text/javascript"></script>
 </body>
 </html>

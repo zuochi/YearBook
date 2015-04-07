@@ -32,7 +32,7 @@
 		<!--警告提示-->
 	</div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/my.js"></script>
+<script type="text/javascript" src="js/user/my.js"></script>
 
 </body>
 </html>

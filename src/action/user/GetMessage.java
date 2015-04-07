@@ -64,7 +64,7 @@ public class GetMessage extends UserAction{
 		try {
 			//status=0 ,且评论者不为自己的未读的条数
 			//count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
-			
+			//TODO
 			PageController pc = new PageController(count,1,2);
 			pc.setCurrentPage(toPage);
 			

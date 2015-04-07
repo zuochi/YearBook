@@ -28,7 +28,7 @@ public class Register extends UserAction {
 			this.password = user.getPassword();
 			Properties pro = new Properties();
 			pro.setProperty("userName", userName);
-			if (service.isDuplicationOfProperties(pro, new User()) == false) {// 双重验证用户名是否有重复
+			if (service.isDuplicationOfProperties(pro, new User()) == false) {// 验证用户名是否有重复
 				// 初始化头像
 				HeadPhoto headPhoto = new HeadPhoto();
 				headPhoto.setId(uuid);

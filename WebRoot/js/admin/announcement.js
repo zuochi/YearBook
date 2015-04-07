@@ -18,7 +18,7 @@ function deleteAnnouncement(announcementId) {
 	}
 };
 
-// 恢复学年
+// 恢复
 function recoveryAnnouncement(announcementId) {
 	if (confirm("Are you sure to recovery this announcement?")) {
 		$.ajax({
@@ -38,7 +38,7 @@ function recoveryAnnouncement(announcementId) {
 	}
 };
 
-// 添加专业
+// 添加
 function addAnnouncement() {
 	if (confirm("Are you sure to add this announcement?")) {
 		var title = document.getElementById("add_announcement_title").value;

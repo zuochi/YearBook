@@ -67,8 +67,8 @@
 	</div>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
-<script type="text/javascript" src="js/my.js"></script>
-<script type="text/javascript" src="js/photo.js"></script>
+<script type="text/javascript" src="js/user/my.js"></script>
+<script type="text/javascript" src="js/user/photo.js"></script>
 
 </body>
 </html>
