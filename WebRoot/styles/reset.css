@@ -171,41 +171,44 @@ margin-top:17px;
 	width:30px;	
 }
 .likes_icon{
-    float:left;
+    margin:0 auto;
     height:40px;
 	width:40px;
 	background-image:url(../images/likes_icon.png);			
 }
 .likes_icon:hover{
-    float:left;
+    margin:0 auto;
     height:40px;
 	width:40px;
 	background-image:url(../images/likes_icon-hover.png);
 }
-.like_user{
-	float:right;
-	height:40px;
-	width:100px;
-	border-radius:50%;
 
-}
-
-.like_user_head{
-	float:left;
-	margin:7px 0 0 0;
-	height:32px;
-	width:32px;
-	border-radius:50%;
-	display:block;	
-	background-color:#123456;
-}
 .like_user_name{
 	float:left;
-	text-align:right;
-	height:40px;
+	text-align:left;
+	text-decoration: none;
+	font-weight:normal;
+	height:20px;
 	width:60px;
 	color:#000;
-	font-size:12px;
-	margin:13px 5px 0 0 ;
+	font-size:14px;
+	margin:0px 0 5px 5px ;
 	padding:0;
+}
+
+.like_user_name:hover{
+	color:#DE4C1C;
+	font-size:14px;
+	
+}
+.top_time{
+	text-decoration: none;
+	font-weight:normal;
+	text-align:right;
+	float:right;
+	height:20px;
+	width:100px;
+	font-size:9px;
+	color:#464646;
+	margin:2px 0px 0 0;
 }

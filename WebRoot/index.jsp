@@ -68,55 +68,7 @@
     <!--流布局-->
     <!--  <div id="pic">
 	<div id="ctr">
-		<div class="box photo col3">
-			<img src="images/1.jpg" alt="Like" />
-		    <div class="like_user"><div class="like_user_name">Kass</div><div class="like_user_head"></div></div> 
-			<div class="likes_icon"><div class="like_number">(9999+)</div>
-		 
-		   </div></div>
-		<div class="box photo col3">
-			<img src="images/2.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-
-		<div class="box photo col3">
-			<img src="images/3.jpg" alt="Like" />
-		<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/4.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/5.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/6.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/7.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/8.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/9.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div class="box photo col3">
-			<img src="images/10.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-
-		<div class="box photo col3">
-			<img src="images/11.jpg" alt="Like" />
-			<div class="likes_icon"><div class="like_number">(9999+)</div></div>
-		</div>
-		<div style="clear:both; height: 40px"></div>
+		
 	</div></div> -->
 	<!-- END container -->
 	
