@@ -27,7 +27,7 @@
         </property>
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete" length="1" not-null="true">
-                <comment>0:点赞 1:取消点赞</comment>
+                <comment>1:点赞 0:取消点赞</comment>
             </column>
         </property>
     </class>

@@ -13,11 +13,13 @@ public class IWantTop implements java.io.Serializable {
 	private String url;
 	private String url_thumb;
 	private Timestamp signup_date;
+	private Timestamp review_date;
 	private Integer status;
 	private Integer is_delete;
 	private Integer user_id;
 	private String name;
 	private String url_m;
+	private Integer is_praise;
 	private BigInteger praise_count;
 	
 	public Integer getId() {
@@ -86,4 +88,17 @@ public class IWantTop implements java.io.Serializable {
 	public void setUrl_thumb(String url_thumb) {
 		this.url_thumb = url_thumb;
 	}
+	public Timestamp getReview_date() {
+		return review_date;
+	}
+	public void setReview_date(Timestamp review_date) {
+		this.review_date = review_date;
+	}
+	public Integer getIs_praise() {
+		return is_praise;
+	}
+	public void setIs_praise(Integer is_praise) {
+		this.is_praise = is_praise;
+	}
+	
 }

@@ -18,29 +18,29 @@ public class DoPraise extends UserAction{
 	public String execute() {
 		user = (User) session.get("user");
 		
+		try {
+			out=response.getWriter();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
 		if(user==null){
-			return "login";
+			out.print("please login.");
 		}else{
-			praise = (Praise) service.getObjectByHql("from Praise where user.id="+user.getId() + " and photo.id=" + praise.getPhoto().getId());
-			
-			try {
-				out=response.getWriter();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			Praise praise_from_DB = (Praise) service.getObjectByHql("from Praise where user.id="+user.getId() + " and photo.id=" + praise.getPhoto().getId());
 			
 			//1.如果已经点赞，但是点赞是激活的，就取消点赞
-			if(praise!=null && praise.getIsDelete()==0){
-				praise.setIsDelete(1);
-				if(service.updateObject(praise)){
+			if(praise_from_DB!=null && praise_from_DB.getIsDelete()==0){
+				praise_from_DB.setIsDelete(1);
+				if(service.updateObject(praise_from_DB)){
 					out.print("success");
 				}else{
 					out.print("fail");
 				}
 			//2.如果已经点赞，但是点赞是取消的，就激活点赞
-			}else if(praise!=null && praise.getIsDelete()==1){
-				praise.setIsDelete(0);
-				if(service.updateObject(praise)){
+			}else if(praise_from_DB!=null && praise_from_DB.getIsDelete()==1){
+				praise_from_DB.setIsDelete(0);
+				if(service.updateObject(praise_from_DB)){
 					out.print("success");
 				}else{
 					out.print("fail");
@@ -49,16 +49,17 @@ public class DoPraise extends UserAction{
 			}else{
 				praise.setUser(user);
 				praise.setSignupDate(new Timestamp(System.currentTimeMillis()));
+				praise.setIsDelete(1);
 				if(service.saveObject(praise)){
 					out.print("success");
 				}else{
 					out.print("fail");
 				}
 			}
-			
-			out.flush();
-			out.close();
 		}
+		
+		out.flush();
+		out.close();
 		
 		return null;
 	}

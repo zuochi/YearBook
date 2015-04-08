@@ -89,7 +89,6 @@ function getPhotosByPerPage(isNew){
 							"<div id='photoOPE"+json[i].id+"'>"+"<div class='operate'>"+
 							"<a href='javascript:void(0)' onclick='deletePhoto("+json[i].id+")'><div class='de' title='delete this Post.'>删除</div>"+
 								"<a href='javascript:void(0)' onclick='iWantTop("+json[i].id+","+$("#userId").val()+")'><div class='up' title='apply to post on Home Page.'>上首页</div>" +
-							
 							"</div>"+"</div>"
 						);
 								
@@ -106,7 +105,6 @@ function getPhotosByPerPage(isNew){
 								"<span id='pageShow"+json[i].id+"' style='display:none;font-size:small;'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<span id='commentPageTurningButton"+json[i].id+"' style='display:none;font-size:small;'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
-								
 							"</div>"+
 							"<span id='commentBody"+json[i].id+"'><span>"+
 							"</div>"+

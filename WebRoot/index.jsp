@@ -82,7 +82,7 @@
 	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
 	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 	<script type="text/javascript">
-	    $(function(){
+	   $(function(){
 	    var $ctr = $('#ctr');
 	    $ctr.imagesLoaded( function(){
 	      $ctr.masonry({

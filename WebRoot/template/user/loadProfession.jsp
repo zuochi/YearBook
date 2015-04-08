@@ -3,7 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <br>
 <div id="professionsDIV" class="xi">
- <div class="shake"><a href="mainPage_xiyu.jsp" target="main"><div class="professions">西语</div></a></div>
+<!--  <div class="shake"><a href="mainPage_xiyu.jsp" target="main"><div class="professions">西语</div></a></div>
 	<div class="shake"><a href="mainPage_xinke.jsp" target="main"><div class="professions">信科</div></a></div>
 	<div class="shake"><a href="mainPage_xiyu.jsp" target="main"><div class="professions">西语</div></a></div>
 	<div class="shake"><a href="mainPage_jingji.jsp" target="main"><div class="professions">经济</div></a></div>
@@ -21,19 +21,32 @@
     <div class="kong"></div>
     <div class="kong"></div>
     <div class="kong"></div>
-    <div class="kong"></div>
-
+    <div class="kong"></div> -->
 </div>
-
- 
-
-
-
-
-
-
+<input id="choosedProfessionId" type="hidden"/>
 <script type="text/javascript">
-//读取类型
+//选择专业
+function selectProfession(professionId,professionName){
+	//更变状态
+	document.getElementById("professionDIV"+document.getElementById("choosedProfessionId").value).className="professions";
+	document.getElementById("professionDIV"+professionId).className="professions2";
+	//更新专业id
+	document.getElementById("choosedProfessionId").value = professionId;
+	//加载图片
+	loadPhotos();
+	//向上滚动
+	mScroll("professionsDIV");
+	//隐藏菜单
+	document.getElementById("menu").style.display="none";
+};
+
+//把专业滚动到顶部
+function mScroll(id){
+	$("html,body").stop(true);
+	$("html,body").animate({scrollTop: $("#"+id).offset().top}, 1000);
+};
+
+//读取专业
 function loadProfessions(){
 	$.ajax({
 		type: "POST",
@@ -42,8 +55,24 @@ function loadProfessions(){
 		dataType: "json",
 		success: function(json){
 			if(json.error == undefined){
+				var random = Math.floor(Math.random()*json.length);
 				for(var i=0 ; i<json.length ; i++){
-					$("#professionsDIV").append("<div class='shake'><a href='javascript:void(0)' title='"+json[i].context+"'><div class='professions'>"+json[i].name+"</div></a></div>");
+					if(i==random){
+						document.getElementById("choosedProfessionId").value = json[i].id;
+						$("#professionsDIV").append(
+								"<div class='shake'>"+
+									"<a href='javascript:void(0)' onclick='selectProfession("+json[i].id+",\""+json[i].name+"\")' title='"+json[i].context+"'>"+
+										"<div id='professionDIV"+json[i].id+"' class='professions2'>"+json[i].name+"</div>"+
+									"</a>"+
+								"</div>");
+					}else{
+						$("#professionsDIV").append(
+								"<div class='shake'>"+
+									"<a href='javascript:void(0)' onclick='selectProfession("+json[i].id+",\""+json[i].name+"\")' title='"+json[i].context+"'>"+
+										"<div id='professionDIV"+json[i].id+"' class='professions'>"+json[i].name+"</div>"+
+									"</a>"+
+								"</div>");
+					}
 				}   
 			}
 		}
