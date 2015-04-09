@@ -96,7 +96,7 @@ function getPhotosByPerPage(isNew){
 							"<li value='"+json[i].id+"'>"+
 							"<div id='comment"+json[i].id+"' class='text2'>"+
 							"<div id='friendTips"+json[i].id+"' class='friendTip'></div>"+"<div style='margin-left:10px;font-size:15px;height:15px;width:300px;margin:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber"+json[i].id+"'>80</charNumber>&nbsp;words.</div>"+
-							"<textarea style='margin-left:7px;word-break:break-all;resize: none;' rows='3' cols='68%'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'></textarea>"+
+							"<textarea style='margin-left:7px;word-break:break-all;resize: none;width:90%;' rows='3' cols='60'  id='reply"+json[i].id+"' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'></textarea>"+
 							"<input style='position:absolute; left:7px;top:75px' type='button' value='Reply' onclick='comment("+$("#userId").val()+","+json[i].id+","+$("#userId").val()+")'/><br>"+
 							"<input id='commentCount"+json[i].id+"' type='hidden'/>"+
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
