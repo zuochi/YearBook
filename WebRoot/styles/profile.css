@@ -8,7 +8,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
  font-family: verdana, tahoma, helvetica, arial, sans-serif, "宋体" }
 body{background-image:url(../images/background_main.png);background-repeat: repeat;}
-form{width:500px;height:850px;margin:0px auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:30px 50px 50px 50px;}
+form{width:500px;height:900px;margin:0px auto;border:solid 1px #E0DEDE;background-image:url(../images/probg.png);padding:30px 50px 50px 50px;}
 label{display:block;height:40px;position:relative;margin:20px;margin-left:50px; margin-top:25px;}
 span{position:absolute;float:left;line-height:40px;left:10px;color:#BCBCBC;cursor:text;}
 .input_txt{width:398px;border:solid 1px #ccc;box-shadow:0 1px 10px rgba(0,0,0,0.1) inset;height:38px;text-indent:10px;}

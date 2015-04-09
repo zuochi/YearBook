@@ -26,7 +26,13 @@ footer{margin-top:30px;background:rgba(24,42,60,0.92);color:rgba(124,142,160,0.9
     margin:0 auto;
 	text-align:center;
 }
-
+.Follow{
+	
+}
+.Follow:hover{
+	color:#fff;
+	
+}
 .one{
 	float:left;
 	max-width:120px;

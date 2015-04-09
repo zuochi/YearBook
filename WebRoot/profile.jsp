@@ -97,7 +97,7 @@
 				value="0">女</option>
 		</select>
 	</div>
-
+    
 	<!--资料填写有误提示-->
 	<h5 id="warn"></h5>
 	<div id="save">
@@ -105,6 +105,7 @@
 			style="font-size:18px">
 	</div>
 </form>
+<div style="width:100%;height:30px;"></div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/user/profile.js"></script>
 </body>

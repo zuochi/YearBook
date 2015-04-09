@@ -115,7 +115,7 @@ function loadPhotos(){
 				}
 			}else{
 				$("#ctr").html("");
-				$("#ctr").append("<h1>oops,there are no more photos.</h1>");
+				$("#ctr").append("<div style=' font-size:large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
 			}
 		}
 	}); 

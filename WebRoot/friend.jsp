@@ -34,8 +34,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="text"  style="font-size:14px; margin-left:30px;">
 <input type="button" value="S" style="font-size:18px">earch
 </div>
-<a id="followersTitleA" href="javascript:void(0)" title="click to show followers."><div>Followers </div></a>
-<a id="followingTitleA" href="javascript:void(0)" title="click to show following."><div>Following </div></a>
+<a id="followersTitleA" href="javascript:void(0)" title="click to show followers."><div class="Follow">Followers</div></a>
+<a id="followingTitleA" href="javascript:void(0)" title="click to show following."><div class="Follow">Following</div></a>
 
 <input id="type" type="hidden" value="<%=request.getParameter("type") %>"/>
 <input id="hasBeenModify" type="hidden" value="0"/>
