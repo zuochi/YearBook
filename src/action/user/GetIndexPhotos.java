@@ -9,7 +9,6 @@ import net.sf.json.JSONArray;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import dto.MyInt;
 import util.PageController;
 import bean.IWantTop;
 import bean.Praise;
