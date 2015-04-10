@@ -15,7 +15,6 @@
 <link href="styles/reset.css" rel="stylesheet"  type="text/css"/>
 <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
 <link href="styles/jquery.skippr.css" rel="stylesheet" type="text/css"/>
-        
 <jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />
 <title>Year Book </title>
@@ -102,7 +101,6 @@
 		});
 		//异步读取内容
 		loadProfessions();
-		loadPhotos();
 	});
 	</script>
 </body>

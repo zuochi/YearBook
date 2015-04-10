@@ -27,6 +27,8 @@
 <script type="text/javascript">
 //选择专业
 function selectProfession(professionId,professionName){
+	//隐藏菜单
+	document.getElementById("menu").style.display="none";
 	//更变状态
 	document.getElementById("professionDIV"+document.getElementById("choosedProfessionId").value).className="professions";
 	document.getElementById("professionDIV"+professionId).className="professions2";
@@ -36,14 +38,6 @@ function selectProfession(professionId,professionName){
 	loadPhotos();
 	//向上滚动
 	mScroll("professionsDIV");
-	//隐藏菜单
-	document.getElementById("menu").style.display="none";
-};
-
-//把专业滚动到顶部
-function mScroll(id){
-	$("html,body").stop(true);
-	$("html,body").animate({scrollTop: $("#"+id).offset().top}, 1000);
 };
 
 //读取专业
@@ -73,7 +67,8 @@ function loadProfessions(){
 									"</a>"+
 								"</div>");
 					}
-				}   
+				}
+				loadPhotos();
 			}
 		}
 	}); 

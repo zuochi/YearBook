@@ -25,7 +25,7 @@ public class GetIWantTops extends AdminAction{
 			chw.setCondition("status", iwant.getStatus(), CHW.opr_equal);
 		}
 		
-		int photosCount = (Integer) service.getObjectByHql("select count(id) from IWantTop where isDelete=0","getInteger");
+		int photosCount = (Integer) service.getObjectByHql("select count(id) from IWantTop " + chw.getSqlWhere(),"getInteger");
 		PageController pc = new PageController(photosCount, 1,pageSize);
 		pc.setCurrentPage(toPage);
 		

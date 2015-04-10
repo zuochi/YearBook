@@ -1,7 +1,9 @@
 package action.user;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import net.sf.json.JSONArray;
@@ -24,12 +26,12 @@ public class GetIndexPhotos extends UserAction{
 	@Override
 	public String execute() {
 		//如果没有选择专业，则随机帮用户选取一个
-		if(i_want_top.getUser().getProfession().getId()==null || i_want_top.getUser().getProfession().getId()==0){
+		/*if(i_want_top.getUser().getProfession().getId()==null || i_want_top.getUser().getProfession().getId()==0){
 			i_want_top.getUser().getProfession().setId(getRamdomProfessionId());
-		}
+		}*/
 		
 		int photosCount = (Integer) service.getObjectByHql("select count(id) from IWantTop where isDelete=0 and status=1 and user.profession.id="+i_want_top.getUser().getProfession().getId(),"getInteger");
-		PageController pc = new PageController(photosCount, 1,20);
+		PageController pc = new PageController(photosCount, 1,5);
 		pc.setCurrentPage(toPage);
 		
 		List<dto.IWantTop> iWantTops = service.getDtoObjectsBySql("select i.id,i.photo_id,ph.url_thumb,ph.url,i.signup_date,i.review_date,i.status,i.is_delete,i.user_id,u.name,h.url_m,(select count(id) from praise p where p.is_delete=1 and p.photo_id=i.photo_id) as praise_count from i_want_top i LEFT JOIN user u  on i.user_id=u.id LEFT JOIN head_photo h on u.head_photo_id=h.id LEFT JOIN photo ph on ph.id=i.photo_id where i.status=1 and i.is_delete=0 and u.profession_id="+i_want_top.getUser().getProfession().getId()+" ORDER BY i.review_date desc ", pc,new dto.IWantTop());
@@ -43,7 +45,11 @@ public class GetIndexPhotos extends UserAction{
 			}
 		}
 		
-		JSONArray json = JSONArray.fromObject(iWantTops);
+		Map<String, Object> datas = new HashMap<String, Object>();
+		datas.put("objs", iWantTops);
+		datas.put("pc", pc);
+		
+		JSONArray json = JSONArray.fromObject(datas);
 		
 		try {
 			out = response.getWriter();
@@ -57,7 +63,7 @@ public class GetIndexPhotos extends UserAction{
 		
 		return null;
 	}
-
+	
 	/**
 	 * 获取随机的专业id
 	 */
