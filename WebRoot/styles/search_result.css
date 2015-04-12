@@ -10,17 +10,14 @@ html, body {
 body{background-image:url(../images/background_main.png);
 
 }
-a { font-size:12px;
-   
+a { 
 	color:#DE4C1C;
 	text-decoration: none;
 	outline: none;
 }
 
 a:hover {
-	font-size:12px;
 
-	color: #000;
     text-decoration: none;
 }
 .top{float:top;
@@ -46,6 +43,7 @@ a:hover {
 	width:630px;
 	height:100px;
 	background-color:#fff;	
+	position: absolute;
 }
 
 .headphoto{
@@ -65,7 +63,8 @@ a:hover {
 .left2{
 	height:20px;
 	width:100%;
-	float:left;
+	position:absolute;
+	
 }
  h1{
     padding:0 0 0 40px;
@@ -74,36 +73,41 @@ a:hover {
 	text-align:left;
 	float:left;
 	height:20px;
-	font-size:12px;
+	font-size:13px;
 	color:#303030;
 }
+.pff{
+	position: absolute;
+	margin:0 0 0 170px;
+}
 .male{
-	padding:7px 0 0 30px;
+	padding:8px 0 0 30px;
     font-family:"Microsoft YaHei",微软雅黑;
  	font-weight:bold;
 	text-align:left;
 	float:left;
 	height:20px;
 	width:50px;
-	font-size:12px;
+	font-size:13px;
 	color:#43a2da;
 }
 .female{
-	padding:7px 0 0 30px;
+	padding:8px 0 0 30px;
     font-family:"Microsoft YaHei",微软雅黑;
  	font-weight:bold;
 	text-align:left;
 	float:left;
 	height:20px;
 	width:50px;
-	font-size:12px;
+	font-size:13px;
 	color:#ff406d;
 }
 
 .left3{
 	height:80px;
 	width:221px;
-	float:left;
+	position:absolute;
+	margin:20px 0 0 0;
 }
 h2{ 
 
@@ -111,7 +115,7 @@ h2{
 	font-family:"Microsoft YaHei",微软雅黑;
 	font-weight:normal;
 	height:8px;
-	font-size:12px;
+	font-size:13px;
 	color:#303030;
 	text-align:left;	
 }
@@ -119,7 +123,9 @@ h2{
 .sign{
 	height:80px;
 	width:290px;
+	position:absolute;
 	float:left;
+	margin:18px 0 0 210px;
 }
 h3{ 
     padding:3px 0 0 0px;
@@ -127,7 +133,7 @@ h3{
 	font-weight:bold;
 	height:8px;
 	width:200px;
-	font-size:12px;
+	font-size:13px;
 	color:#303030;	
 	float:left;
 }
