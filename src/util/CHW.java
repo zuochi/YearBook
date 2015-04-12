@@ -41,10 +41,32 @@ public class CHW{
 		}
 	}
 	
+	public void setSearchCondition(String key,String value){
+		if(sb==null){
+			sb = new StringBuilder();
+		}
+		
+		if(!CommonUtils.isBlank(value)){
+			if("".equals(sb.toString())){
+				sb.append(" where ");
+			}
+			sb.append(" " + key + " " + opr_like +" '%" + value + "%'" + " or ");
+		}
+	}
+	
 	public String getSqlWhere(){
 		if(sb != null){
 			System.out.println("【SqlWhere】:"+sb.toString());
 			return sb.toString();
+		}
+		return "";
+	}
+	
+	public String getSearchSqlWhere(){
+		if(sb != null){
+			String result = sb.substring(0, sb.lastIndexOf("or"));
+			System.out.println("【SearchSqlWhere】:"+result);
+			return result;
 		}
 		return "";
 	}

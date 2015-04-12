@@ -30,10 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 %>
 <div style="height:100px; width:100%"></div>
-<div class="top"> 
-<input type="text"  style="font-size:14px; margin-left:30px;">
-<input type="button" value="S" style="font-size:18px">earch
-</div>
+<jsp:include page="template/user/searchWithForm.jsp" />
 <a id="followersTitleA" href="javascript:void(0)" title="click to show followers."><div class="Follow">Followers</div></a>
 <a id="followingTitleA" href="javascript:void(0)" title="click to show following."><div class="Follow">Following</div></a>
 

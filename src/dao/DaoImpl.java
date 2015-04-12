@@ -590,7 +590,7 @@ public class DaoImpl<E> implements Dao {
 			session = sessionFactory.getCurrentSession();
 			if(pc!=null){
 				SQLQuery sqlQuery = session.createSQLQuery(sql);
-				if(object instanceof dto.Message){
+				if(object instanceof dto.Message || object instanceof dto.SearchUserInfo){
 					for(Field field:object.getClass().getDeclaredFields()){
 						sqlQuery.addScalar(field.getName());
 					}

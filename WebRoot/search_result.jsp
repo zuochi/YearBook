@@ -1,6 +1,6 @@
 <%@page import="bean.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>The search results </title>
+<title>Year Book - Search '${keyword}'</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -25,39 +25,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="guide.jsp" />
 <%
-	if (session.getAttribute("user") == null) {
+	/* if (session.getAttribute("user") == null) {
 		response.sendRedirect("user/autoLogin_execute");
-	}
+	} */
 %>
 <div style="height:100px; width:100%"></div>
-<div class="top"> 
-<input type="text"  style="font-size:14px; margin-left:30px;">
-<input type="button" value="S" style="font-size:18px">earch
-</div>
+<form action="user/search_execute" method="post" id="form">
 
-<div class="result">
+<jsp:include page="template/user/search.jsp"></jsp:include>
 
-<div class="user">
-<div class="headphoto"></div>
-<div class="information">
-<div class="left2">
-<h1>Username</h1><div class="male">male</div><h1 >Posts:12</h1><h1>Followings:7</h1><h1>Followers:11</h1>
+<div id="result" class="result">
+<c:forEach var="obj" items="${objs}">
+	<div class="user">
+	<div class="headphoto"><a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})"><img alt="show more" src="${obj.url_m}"></a></div>
+	<div class="information">
+		<div class="left2">
+			<h1><a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show more">${obj.name}</a></h1>
+			<c:if test="${obj.sex==1}">
+				<div class="male">male</div>
+			</c:if>
+			<c:if test="${obj.sex==0}">
+				<div class="female">female</div>
+			</c:if>
+			<h1>Posts:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.post}</a></h1>
+			<h1>Followings:<a href="javascript:void(0)" onclick="goSocialFollowing(${obj.id})" title="show">${obj.following}</a></h1>
+			<h1>Followers:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.follower}</a></h1>
+		</div>
+		<div class="left3">
+			<h2>Hometown:${obj.home_town}</h2>
+			<h2>School year:${obj.year}</h2>
+			<h2>Profession:${obj.professionName}</h2>
+		</div>
+		<div class="sign">
+			<h3>Sign:${obj.sign}</h3>
+		</div>
+	</div>
+	<div class="left4"></div>
+	</div>
+</c:forEach>
 </div>
-
-<div class="left3"><h2>Hometown:Foshan</h2><h2>School year:2015</h2><h2>Profession:IT</h2>
-</div>
-<div class="sign"><h3>Sign:</h3></div>
-</div>
-<div class="left4"></div>
-</div>
-
-<div class="user">
+<jsp:include page="template/pageControl.jsp"></jsp:include>
+</form>
+<!-- <div class="user">
 <div class="headphoto"></div>
 <div class="information">
 <div class="left2">
 <h1>Username</h1><div class="female">female</div><h1 >Posts:12</h1><h1>Followings:7</h1><h1>Followers:11</h1>
 </div>
-
 <div class="left3"><h2>Hometown:Foshan</h2><h2>School year:2015</h2><h2>Profession:国际经济与金融学院</h2>
 </div>
 <div class="sign"><h3>Sign:</h3></div>
@@ -65,22 +79,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="left4"></div>
 </div>
 
-
 <div class="user">
 <div class="headphoto"></div>
 <div class="information">
 <div class="left2">
 <h1>Username</h1><div class="male">male</div><h1 >Posts:12</h1><h1>Followings:7</h1><h1>Followers:11</h1>
 </div>
-
 <div class="left3"><h2>Hometown:Foshan</h2><h2>School year:2015</h2><h2>Profession:IT</h2>
 </div>
 <div class="sign"><h3>Sign:</h3></div>
 </div>
 <div class="left4"></div>
-</div>
-
-
-</div>
+</div> -->
 </body>
 </html>

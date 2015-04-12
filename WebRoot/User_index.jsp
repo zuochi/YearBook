@@ -1,3 +1,4 @@
+
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%
@@ -37,11 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input type="hidden" id="photoCountHidden" value="<s:property value="#request.photosCount"/>"/>
 <input type="hidden" id="basePath" value="<%=basePath%>"/>
 <div style="height:100px; width:100%"></div>
-<div class="top"> 
-<input type="text"  style="font-size:14px; margin-left:30px;">
-<input type="button" value="S" style="font-size:18px">earch
-</div>
-
+<jsp:include page="template/user/searchWithForm.jsp" />
 		<div class="container">
 			<header class="clearfix">
 				<div class="prooo">
