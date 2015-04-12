@@ -37,7 +37,7 @@
 	<h2>Profile</h2>
 	<h3>please complete your information</h3>
 	<h4>*必填</h4>
-	<label><span>nickName</span><input type="text" class="input_txt border_radius" onblur="isDuplicationOfName(this.value)" id="user.name" name="user.name" value="<s:property value="#session.user.name"/>" /> </label>
+	<label><span>nickName</span><input type="text" class="input_txt border_radius" onblur="isDuplicationOfName(this.value)" id="user.name" name="user.name" value="<s:if test="#session.user.name.length()<=10"><s:property value="#session.user.name"/></s:if>" /> </label>
 	<label><span>Old Password</span><input type="password" id="passwordOld" name="passwordOld" class="input_txt border_radius"> </label>
 	<label><span>New Password</span><input type="password" id="user.password" name="user.password" class="input_txt border_radius"> </label>
 	<label><span>Confirm Password</span><input type="password" id="passwordConfirm" class="input_txt border_radius"> </label> 

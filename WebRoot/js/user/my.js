@@ -187,6 +187,10 @@ function registerCheck() {
 	        		$("#Signwarn").html("signup success,now loging.");
 	        		window.location.href="index.jsp";
 	        		close_register();
+	        	}else if(msg=="profile"){
+	        		$("#Loginwarn").html("plz complete profile.");
+	        		window.location.href="user/getProfiles_execute";
+	        		close_login();
 	        	}else{
 	        		$("#Signwarn").html(msg);
 	        	}
@@ -253,7 +257,12 @@ function loginCheck() {
         		$("#Loginwarn").html("login success.");
         		window.location.href="index.jsp";
         		close_login();
-        	}else{
+        	}else if(msg=="profile"){
+        		$("#Loginwarn").html("plz complete profile.");
+        		window.location.href="user/getProfiles_execute";
+        		close_login();
+        	}
+        	else{
         		$("#Loginwarn").html("ID or PW incorrect.");
         	}
          }

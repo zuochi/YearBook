@@ -67,29 +67,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <br/></div>
  <div style=" float:top;margin:10px 0 10px 0;position:relative;border-bottom:1px dashed #8f8f8f;"></div>
 
-
-<!--评论-->
-<div id="photoReplyDiv">
-	<%-- <s:iterator var="index" id="o" value="#request.messageReply">
-		<div id="replyBody<s:property value="#o.id"/>" class="ds-post-main">
-			<div class='ds-avatar'>
-				<a title='<s:property value="#o.name"/>' href='javascript:goSocialIndex(<s:property value="#o.user_id"/>)' target='_blank'><img src='<s:property value="#o.url_m"/>'></a>
-			</div>
-			<div class='ds-comment-body'>
-				<a title='<s:property value="#o.name"/>' href='javascript:goSocialIndex(<s:property value="#o.user_id"/>)' target='_blank' class='user-name'><s:property value="#o.name"/></a>
-				<p id='commentEmo<s:property value="#o.id"/>'><s:property value="#o.context"/></p>
-				<div class='time'><p>calculateDT(json[i].signup_date)</p></div>
-				<a href='javascript:void(0)' onclick='deleteMessage(<s:property value="#o.id"/>)'><div class='shanchu' title='delete this reply'></div></a>
-				<a href='javascript:void(0)' onclick='showReplyFrame(\"replyFrame<s:property value="#o.id"/>\")'><div class='comments_icon' title='reply <s:property value="#o.name"/>' style='float:right'></div></a>
-				<div id='replyFrame<s:property value="#o.id"/>' style='display:none'>
-					<input id='replyFrame<s:property value="#o.id"/>Text' type='text' style='width:360px'/>
-					<input type='button' value='reply'/>
-				</div>
-			</div>
-		</div>
-	</s:iterator> --%>
-</div>
-
 <!-- 翻页 -->
 <s:if test="#request.messageReplyCount>0">
 <ul style=" padding:0px;margin-left:5px; font-size:16px;">
@@ -133,6 +110,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <s:else>
 <h3 align="center"><span class="css-emoticon animated-emoticon" style="font-size:1.8em;">:'(</span></h3><p><h3>You haven't received any replys yet.</h3>
 </s:else>
+
+<!--评论-->
+<div id="photoReplyDiv">
+	<%-- <s:iterator var="index" id="o" value="#request.messageReply">
+		<div id="replyBody<s:property value="#o.id"/>" class="ds-post-main">
+			<div class='ds-avatar'>
+				<a title='<s:property value="#o.name"/>' href='javascript:goSocialIndex(<s:property value="#o.user_id"/>)' target='_blank'><img src='<s:property value="#o.url_m"/>'></a>
+			</div>
+			<div class='ds-comment-body'>
+				<a title='<s:property value="#o.name"/>' href='javascript:goSocialIndex(<s:property value="#o.user_id"/>)' target='_blank' class='user-name'><s:property value="#o.name"/></a>
+				<p id='commentEmo<s:property value="#o.id"/>'><s:property value="#o.context"/></p>
+				<div class='time'><p>calculateDT(json[i].signup_date)</p></div>
+				<a href='javascript:void(0)' onclick='deleteMessage(<s:property value="#o.id"/>)'><div class='shanchu' title='delete this reply'></div></a>
+				<a href='javascript:void(0)' onclick='showReplyFrame(\"replyFrame<s:property value="#o.id"/>\")'><div class='comments_icon' title='reply <s:property value="#o.name"/>' style='float:right'></div></a>
+				<div id='replyFrame<s:property value="#o.id"/>' style='display:none'>
+					<input id='replyFrame<s:property value="#o.id"/>Text' type='text' style='width:360px'/>
+					<input type='button' value='reply'/>
+				</div>
+			</div>
+		</div>
+	</s:iterator> --%>
+</div>
+
 <div id="replySuccessTip"></div>
 
 </div>

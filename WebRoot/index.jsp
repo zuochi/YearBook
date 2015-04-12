@@ -36,7 +36,7 @@
 %>
 
 <!-- top -->
-
+ <div style="position:fixed; top:0px; left:10px; width:100px; height:100px; border:solid 2px blue;">ssssssssssssssssssssss</div>
 	<!--滚动图-->
 
 	  <div class="hero">
@@ -44,16 +44,18 @@
             <div id="random">
                
                 <div style="background-image: url(images/slide1.jpg)">
-                 <div class="tagline">
-                 <h3>Welcome1:</h3>
-                 <p>Show your Pic here <br> Click the top nearby your photos.</p>
-                 </div></div>
+	                <div class="tagline">
+		                <h3>Welcome1:</h3>
+		                <p>Show your Pic here <br> Click the top nearby your photos.</p>
+	                </div>
+                </div>
                 
-                 <div style="background-image: url(images/slide2.jpg)"> 
-                 <div class="tagline">
-                 <h3>Welcome2:</h3>
-                 <p>Show your Pic here <br> Click the top nearby your photos.</p>
-                </div></div> 
+                <div style="background-image: url(images/slide2.jpg)"> 
+	                <div class="tagline">
+		                <h3>Welcome2:</h3>
+		                <p>Show your Pic here <br> Click the top nearby your photos.</p>
+	                </div>
+                </div> 
                 
                 <div style="background-image: url(images/slide3.jpg)"></div>                   
                 <div style="background-image: url(images/slide4.jpg)"></div>

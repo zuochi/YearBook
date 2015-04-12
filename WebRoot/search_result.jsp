@@ -1,6 +1,7 @@
 <%@page import="bean.User"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"  prefix="fn"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -33,14 +34,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <form action="user/search_execute" method="post" id="form">
 
 <jsp:include page="template/user/search.jsp"></jsp:include>
-
+<jsp:include page="template/pageControl.jsp"></jsp:include>
 <div id="result" class="result">
 <c:forEach var="obj" items="${objs}">
 	<div class="user">
 	<div class="headphoto"><a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})"><img alt="show more" src="${obj.url_m}"></a></div>
 	<div class="information">
 		<div class="left2">
-			<h1><a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show more">${obj.name}</a></h1>
+			<h1>
+				<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show more">
+					<c:if test="${fn:length(obj.name)<=10}">${obj.name}</c:if>
+					<c:if test="${fn:length(obj.name)>10}">No name</c:if>
+				</a>
+			</h1>
 			<c:if test="${obj.sex==1}">
 				<div class="male">male</div>
 			</c:if>
@@ -64,8 +70,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </c:forEach>
 </div>
-<jsp:include page="template/pageControl.jsp"></jsp:include>
 </form>
+<script type="text/javascript" src="js/jquery.cssemoticons.js"></script>
 <!-- <div class="user">
 <div class="headphoto"></div>
 <div class="information">
@@ -91,5 +97,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <div class="left4"></div>
 </div> -->
+<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery.cssemoticons.js"></script>
+<script type="text/javascript">
+	$('.sign').emoticonize();
+</script>
 </body>
 </html>

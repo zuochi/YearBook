@@ -30,6 +30,11 @@ public class GetSocial extends UserAction{
 		
 		//获取当前user
 		user = (User) request.getSession().getAttribute("user");
+		
+		if(!isLogin(user)){
+			return "login";
+		}
+		
 		//屏蔽相关属性
 		socialUser.setUserName("");
 		socialUser.setPassword("");

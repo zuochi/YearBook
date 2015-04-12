@@ -16,21 +16,23 @@ public class Login extends UserAction{
 		try {
 			out = response.getWriter();
 			user = (User) service.getObjectByHql("from User where isDelete=0 and userName='"+userName+"'", "getHeadPhoto");
-			if (user != null) {
-				if (password.equals(user.getPassword())) {
-					if ("on".equals(auto_login)) {
-						CookieUtils cookieUtils = new CookieUtils();
-						Cookie cookie = (Cookie) cookieUtils.addCookie(user);
-						response.addCookie(cookie);
-					}
-					// 放置数据
-					session.put("user", user);
-					session.put("headPhoto", user.getHeadPhoto());
-					// 更新登陆时间
-					service.updateUserLoginTime(user);
+			if (user != null && password.equals(user.getPassword())) {
+				if ("on".equals(auto_login)) {
+					CookieUtils cookieUtils = new CookieUtils();
+					Cookie cookie = (Cookie) cookieUtils.addCookie(user);
+					response.addCookie(cookie);
+				}
+				// 放置数据
+				session.put("user", user);
+				session.put("headPhoto", user.getHeadPhoto());
+				// 更新登陆时间
+				service.updateUserLoginTime(user);
+				
+				//如果用户名大于10，说明用户还没有修改资料
+				if(user.getName().length()>10){
+					out.print("profile");
+				}else{
 					out.print("success");
-				} else {
-					out.print("fail");
 				}
 			} else {
 				out.print("fail");

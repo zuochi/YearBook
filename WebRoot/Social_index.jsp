@@ -65,7 +65,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</s:else>
 		</div>
 		<br></br>
-		<h3>Hi,I'm <s:property value="#request.socialUser.name"/></h3>
+		<h3>Hi,I'm 
+			<s:if test="#request.socialUser.name.length()<=10"><s:property value="#request.socialUser.name"/></s:if>
+			<s:else> too lazy to modify my name</s:else>.
+		</h3>
 		<s:if test="#request.socialUser.sign!=null && #request.socialUser.sign!=''">
 			<h3 id="signContext">Sign: <s:property value="#request.socialUser.sign"/></h3>
 		</s:if>	
