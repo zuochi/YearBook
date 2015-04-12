@@ -124,7 +124,7 @@ function showMentionMe(toPageM,countM){
 								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+
 								"<div class='message' id='commentEmo"+json[i].id+"'>"+json[i].context+"</div>"+
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
-								"<a href='javascript:void(0)' onclick='deleteMessage("+json[i].id+")'><div class='operate' title='delete this reply'>delete</div></a>"+
+								"<a href='javascript:void(0)' onclick='deleteAtNotify("+json[i].id+")'><div class='operate' title='delete this reply'>delete</div></a>"+
 								"<a href='javascript:void(0)' onclick='showReplyFrame(\"Freply"+json[i].id+"\",\""+json[i].name+"\")'><div class='operate' title='reply "+json[i].name+"' style='float:right'>reply</div></a>"+
 								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
 								"<div id='Freply"+json[i].id+"' style='display:none'>"+
@@ -160,6 +160,27 @@ function deleteMessage(replyId){
 			}
 		});
 		$("#replyBody"+replyId).remove();
+	}
+};
+
+//删除消息
+function deleteAtNotify(atNotifyId){
+	if(confirm("Are you sure to delete this message?")) {
+		$.ajax({
+			url:'user/deleteAtNotify_execute',
+			type:'post',
+			data:"atNotify.id="+atNotifyId,
+			async:false,
+			dataType:'text',
+			success:function (msg) {
+				if(msg=="success"){
+					$("#replyBody"+atNotifyId).remove();
+				}else{
+					alert("delete " + msg);
+				}
+			}
+		});
+		$("#replyBody"+atNotifyId).remove();
 	}
 };
 

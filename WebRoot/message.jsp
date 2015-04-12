@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>Message</title>
+<title>Year Book - Message</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -21,12 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 <jsp:include page="guide.jsp" />
-
-
-
 </head>
 <body>
-
 <%
 	if (session.getAttribute("user") == null) {
 		response.sendRedirect("user/autoLogin_execute");

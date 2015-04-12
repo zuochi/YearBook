@@ -122,7 +122,6 @@ public class DoReply extends UserAction{
 					}
 				}
 			}catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -131,7 +130,7 @@ public class DoReply extends UserAction{
 	
 	//at提醒
 	private boolean atNoifyFriend(User currentUser,User friend){
-		return service.saveObject(new AtNotify(null,currentUser,null,reply,friend,null,null,new Timestamp(System.currentTimeMillis()),0,0));
+		return service.saveObject(new AtNotify(null,currentUser,null,reply,friend,reply.getPhoto(),null,new Timestamp(System.currentTimeMillis()),0,0));
 	}
 	
 	private User getUserByName(String name,Service service){

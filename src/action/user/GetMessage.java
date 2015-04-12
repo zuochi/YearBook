@@ -18,6 +18,7 @@ import bean.User;
 @Scope("prototype")
 public class GetMessage extends UserAction{
 	private int count;
+	private int pageSize=10;
 	private String type;
 	
 	@Override
@@ -36,7 +37,7 @@ public class GetMessage extends UserAction{
 			}
 			
 			
-			PageController pc = new PageController(count,1,2);
+			PageController pc = new PageController(count,1,pageSize);
 			pc.setCurrentPage(toPage);
 
 			//消息的类型type，消息的页码以及消息的总数
@@ -65,14 +66,21 @@ public class GetMessage extends UserAction{
 			//status=0 ,且评论者不为自己的未读的条数
 			//count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
 			//TODO
-			PageController pc = new PageController(count,1,2);
+			PageController pc = new PageController(count,1,pageSize);
 			pc.setCurrentPage(toPage);
 			
 			if(toPage>pc.getTotalPages()){
 				out.print("fail");
 			}else{
 				//使用数据转换类
-				List<dto.Message> messages = service.getDtoObjectsBySql("select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status from user u,photo ph,reply r LEFT JOIN head_photo p on p.is_delete=0 and p.id=(select u.head_photo_id from user u where u.is_delete=0 and u.id = r.user_id) where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"") +" and r.user_id!="+user.getId()+" and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) order by r.signup_date desc", pc,new dto.Message());
+				List<dto.Message> messages = service.getDtoObjectsBySql(
+					"select a.id,a.at_date as signup_date,a.user_id,a.user_bid,a.photo_bid,u.name,a.status,r.context,a.status as is_accusation,"+
+						"(select ph.user_id from photo ph where ph.id=a.photo_bid) as photoOwnerId, "+
+						"(select h.url_m from user u LEFT JOIN head_photo h on u.head_photo_id=h.id where u.id=a.user_id) as url_m "+
+					"from at_notify a "+
+						"LEFT JOIN user u on u.id=a.user_id "+
+						"LEFT JOIN reply r on r.id=a.reply_bid "+
+						"where a.user_bid="+user.getId() + " order by a.at_date desc ", pc,new dto.Message());
 				JSONArray json = JSONArray.fromObject(messages);
 				out = response.getWriter();
 				out.print(json);
@@ -96,7 +104,7 @@ public class GetMessage extends UserAction{
 			//status=0 ,且评论者不为自己的未读的条数
 			//count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
 			
-			PageController pc = new PageController(count,1,2);
+			PageController pc = new PageController(count,1,pageSize);
 			pc.setCurrentPage(toPage);
 			
 			if(toPage>pc.getTotalPages()){
