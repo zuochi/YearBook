@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="headphoto"><a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})"><img style="border-radius:50%;" alt="show more" src="${obj.url_l}"height="70" width="70" ></a></div>
 	<div class="information">
 		<div class="left2">
-			<h1>
+			<h1 style=" padding:0 0 0 20px;">
 				<a  href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show more">
 					<c:if test="${fn:length(obj.name)<=10}">${obj.name}</c:if>
 					<c:if test="${fn:length(obj.name)>10}">No name</c:if>
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</c:if>
 			</div>
 			<div class="pff">
-			<h1>Posts:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.post}</a></h1>
+			<h1 style=" padding:0 0 0 60px;">Posts:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.post}</a></h1>
 			<h1>Followings:<a href="javascript:void(0)" onclick="goSocialFollowing(${obj.id})" title="show">${obj.following}</a></h1>
 			<h1>Followers:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.follower}</a></h1>
 		</div>

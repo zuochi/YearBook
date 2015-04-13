@@ -61,13 +61,12 @@ a:hover {
 	float:left;
 }
 .left2{
-	height:20px;
-	width:100%;
+	height:40px;
 	position:absolute;
 	
 }
  h1{
-    padding:0 0 0 40px;
+    padding:0 0 0 35px;
     font-family:"Microsoft YaHei",微软雅黑;
  	font-weight:bold;
 	text-align:left;
@@ -111,7 +110,7 @@ a:hover {
 }
 h2{ 
 
-    padding:3px 0 0 39px;
+    padding:3px 0 0 19px;
 	font-family:"Microsoft YaHei",微软雅黑;
 	font-weight:normal;
 	height:8px;
@@ -122,10 +121,10 @@ h2{
 
 .sign{
 	height:80px;
-	width:290px;
+	width:310px;
 	position:absolute;
 	float:left;
-	margin:18px 0 0 210px;
+	margin:18px 0 0 230px;
 }
 h3{ 
     padding:3px 0 0 0px;
