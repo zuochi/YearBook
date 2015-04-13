@@ -43,7 +43,7 @@ a:hover {
 	width:630px;
 	height:100px;
 	background-color:#fff;	
-	position: absolute;
+
 }
 
 .headphoto{
@@ -66,7 +66,7 @@ a:hover {
 	
 }
  h1{
-    padding:0 0 0 35px;
+    position:absolute;
     font-family:"Microsoft YaHei",微软雅黑;
  	font-weight:bold;
 	text-align:left;
@@ -80,7 +80,7 @@ a:hover {
 	margin:0 0 0 170px;
 }
 .male{
-	padding:8px 0 0 30px;
+	padding:8px 0 0 120px;
     font-family:"Microsoft YaHei",微软雅黑;
  	font-weight:bold;
 	text-align:left;
@@ -89,9 +89,10 @@ a:hover {
 	width:50px;
 	font-size:13px;
 	color:#43a2da;
+	position:absolute;
 }
 .female{
-	padding:8px 0 0 30px;
+	padding:8px 0 0 120px;
     font-family:"Microsoft YaHei",微软雅黑;
  	font-weight:bold;
 	text-align:left;
@@ -100,6 +101,7 @@ a:hover {
 	width:50px;
 	font-size:13px;
 	color:#ff406d;
+	position:absolute;
 }
 
 .left3{
@@ -124,17 +126,19 @@ h2{
 	width:310px;
 	position:absolute;
 	float:left;
-	margin:18px 0 0 230px;
+	margin:18px 0 0 210px;
+
 }
 h3{ 
     padding:3px 0 0 0px;
 	font-family:"Microsoft YaHei",微软雅黑;
 	font-weight:bold;
 	height:8px;
-	width:200px;
+	width:310px;
 	font-size:13px;
 	color:#303030;	
 	float:left;
+	word-wrap:break-word;word-break:break-all;
 }
 
 a img {border:0;}

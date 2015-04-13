@@ -87,7 +87,7 @@ function resetSearch(){
 	</thead>
 
 	<tr>
-		<td><a target="_blank" href="ShowBigPic.jsp?url=${obj.photo.url}&name=${obj.user.name}" title="点击放大"><img src="${obj.photo.urlThumb}" title="点击放大" /></a></td>
+		<td><a target="_blank" href="ShowBigPic.jsp?url=${obj.photo.url}&name=${obj.user.name}" title="点击放大"><img style="max-height:280px;max-width:250px;overflow:hidden" src="${obj.photo.urlThumb}" title="点击放大" /></a></td>
 		<td>申请编号:${obj.id}<br><br>
 			上传人id:${obj.user.id}<br><br>
 			上传人昵称:${obj.user.name}<br><br>

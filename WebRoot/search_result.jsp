@@ -55,9 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</c:if>
 			</div>
 			<div class="pff">
-			<h1 style=" padding:0 0 0 60px;">Posts:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.post}</a></h1>
-			<h1>Followings:<a href="javascript:void(0)" onclick="goSocialFollowing(${obj.id})" title="show">${obj.following}</a></h1>
-			<h1>Followers:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.follower}</a></h1>
+			<h1 style=" padding:0 0 0 40px;">Posts:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.post}</a></h1>
+			<h1 style=" padding:0 0 0 130px;">Followings:<a href="javascript:void(0)" onclick="goSocialFollowing(${obj.id})" title="show">${obj.following}</a></h1>
+			<h1 style=" padding:0 0 0 250px;">Followers:<a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})" title="show">${obj.follower}</a></h1>
 		</div>
 		<div class="left3">
 			<h2>Hometown:${obj.home_town}</h2>
