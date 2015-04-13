@@ -37,6 +37,7 @@ a:hover {
 	margin:0 auto;
 }
 .user{
+	
 	padding:0 0 0 0;
 	margin:0 0 10px 10px;
 	float:left;
@@ -66,6 +67,7 @@ a:hover {
 	
 }
  h1{
+    z-index:3;
     position:absolute;
     font-family:"Microsoft YaHei",微软雅黑;
  	font-weight:bold;
@@ -75,9 +77,9 @@ a:hover {
 	font-size:13px;
 	color:#303030;
 }
-.pff{
+.pff{ 
 	position: absolute;
-	margin:0 0 0 170px;
+	margin:10px 0 0 170px;
 }
 .male{
 	padding:8px 0 0 120px;
@@ -105,7 +107,8 @@ a:hover {
 }
 
 .left3{
-	height:80px;
+	
+	height:70px;
 	width:221px;
 	position:absolute;
 	margin:20px 0 0 0;
