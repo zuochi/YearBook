@@ -1,7 +1,5 @@
 package util;
 
-import java.util.Collection;
-
 /*需要知道的条件：
  1)总记录数	totalRows
  2)每一页显示的记录数	pageSize

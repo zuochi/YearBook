@@ -1,9 +1,6 @@
 package util;
 
-import java.util.Properties;
-
 import service.Service;
-import sun.print.resources.serviceui;
 
 import bean.User;
 

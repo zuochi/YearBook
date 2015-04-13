@@ -45,11 +45,7 @@ body{background-image:url(images/background_main.png);background-repeat: repeat;
 
 </head>
 <body>
-<div class="top"> 
-<input type="text"  style="font-size:14px; margin-left:30px;">
-<input type="button" value="S" style="font-size:18px">earch
-</div>
+<jsp:include page="template/user/searchWithForm.jsp" />
 <div class="pic" align="center" ><img style="max-width:100%" src="<%=url %>"/></div>
-
 </body>
 </html>
