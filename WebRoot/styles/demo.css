@@ -11,6 +11,7 @@ body {background-image:url(../images/background_main.png);background-repeat: rep
     color: #234;
     height:110%;
 }
+
 .clearfix{
 
 	float:left;
@@ -271,9 +272,7 @@ margin-top:8px;
 }
 .attfan{
 	
-	position:relative;
-	margin-top:10px;
-
+    height:100px;
 	width:200px;
 	
 }
@@ -382,6 +381,7 @@ margin-top:8px;
 	font-size:12px;
 	text-align:center;	
 }
+
 .rad{
 	margin:0 auto;
 	positon:relative;
@@ -390,6 +390,7 @@ margin-top:8px;
 	overflow: hidden;	
 	border-radius:50%;
 }
+
 .prooo{
 
 	word-wrap:break-word;
@@ -426,9 +427,33 @@ margin-top:8px;
     color:#DE4C1C;
 }
 
+.ticket{
+	font-weight: bold;
+	font-size: medium;
+	color:#DE4C1C;
+	margin:30px 0 10px 0;
+}
+@-webkit-keyframes redPulse{from{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}
+                             50%{background-color:#e33100;-webkit-box-shadow:0 0 18px #e33100;}
+                             to{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}}
 
+.red.button{
+	-webkit-animation-name:redPulse;-webkit-animation-duration:1.5s;
+	-webkit-animation-iteration-count: infinite;
+	text-align:center;
+	width:170px;
+	height:30px;
+	font-size:medium;
+	line-height:25px;
+	color:#fff;
+	margin:15px 0 0 7px;
+	z-index:10;
+	border-radius:7px;
+}   
 
 h3{font-size:medium;word-break:break-all;font-weight:normal;color:#234;}
+
+
 .user-name {  font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;color:#DE4C1C; }
 .user-name:hover{color:#000; font-family:"Microsoft Yahei";font-size:14px; font-weight:normal;text-decoration: none;}
 h1 {font-size:18px;line-height:30px;text-align:center;margin:100px 0;}

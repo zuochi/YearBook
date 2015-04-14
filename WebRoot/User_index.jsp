@@ -146,9 +146,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!-- 留言板and可能认识的人 -->
 		<div class="friendframe">
 		<div class="bbs">
-		<div class="tips1">You can aslo input 180 words</div>
-		 <div class="red button">Send</div>
-		<textarea style="margin-left:7px;word-break:break-all;resize: none;width:90%;" rows="5"></textarea>
 
 
 		<div class="ds">

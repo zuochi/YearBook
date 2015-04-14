@@ -501,10 +501,6 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 /*bbs*/
 
 
-@-webkit-keyframes redPulse{from{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}
-                             50%{background-color:#e33100;-webkit-box-shadow:0 0 18px #e33100;}
-                             to{background-color:#bc330d;-webkit-box-shadow:0 0 9px #333;}}
-
 .friendframe{
 	
 	color:#3ab6ae;
@@ -516,30 +512,30 @@ h2{ font-size:9px; margin:5px 5px 0px 3px; color:#234;font-weight: normal;font-s
 	width:680px;
 }
 .ds{
+	padding:5px 5px 5px 5px;
 	float:left;
 	width:670px;
-	margin:70px 0 0 8px;
+	margin:0;
 }
 .tips1{
 	margin:0 0 5px 8px;
 	color:#2d2d2d;
 	font-size:16px;
 }
-.red.button{
-	-webkit-animation-name:redPulse;-webkit-animation-duration:1.5s;
-	-webkit-animation-iteration-count: infinite;
+.button2{
 	text-align:center;
 	width:80px;
 	height:30px;
-	z-index:10;
 	font-size:17px;
 	line-height:25px;
 	color:#fff;
 	position:absolute;
 	margin:85px 0 0 7px;
+	z-index:10;
 	border-radius:7px;
 }
 .circle{
+	margin:15px 0 0 0;
 	float:right;
 	width:300px;
 	height:100%;
