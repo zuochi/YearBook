@@ -143,55 +143,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="loadingPhoto" class="loadPic"></div>
 		
 		<div id="socialDiv" style="display: none">
-			<!-- 好友图片刷新 -->
-				<div class="friendframepic">
-				<div class="friendframe">
-				<div class="frienduser"><img src="images/alex.jpg" width="80" height="80">
-				<div class="friendname">用户名</div>	</div>
-				<div class="l"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="mor">More...</div>
-				<div class="time2">2014-10-20</div>
-				</div>
-				
-				<div class="friendframe">
-				<div class="frienduser"><img src="images/alex.jpg" width="80" height="80">
-				<div class="friendname">用户名</div>	</div>
-				<div class="l"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="mor">More...</div>
-				</div>
-				
-				<div class="friendframe">
-				<div class="frienduser"><img src="images/alex.jpg" width="80" height="80">
-				<div class="friendname">用户名</div>	</div>
-				<div class="l"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="mor">More...</div>
-				</div>
-				
-				<div class="friendframe">
-				<div class="frienduser"><img src="images/alex.jpg" width="80" height="80">
-				<div class="friendname">用户名</div>	</div>
-				<div class="l"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="friendpic"><img src="images/alex.jpg" width="80" height="80"></div>
-				<div class="mor">More...</div>
-				</div>		
-				
-				</div>
+			<!-- 留言板and可能认识的人 -->
+		<div class="friendframe">
+		<div class="bbs">
+		<div class="tips1">You can aslo input 180 words</div>
+		 <div class="red button">Send</div>
+		<textarea style="margin-left:7px;word-break:break-all;resize: none;width:90%;" rows="5"></textarea>
+
+
+		<div class="ds">
+		
+		<div class="ds-post-main" >
+		<div class="ds-avatar">
+		<a ><img src=""></a>
 		</div>
+		<div class="ds-comment-body">
+		<a title="bbs"  class="user-name">bbs</a>
+		<p style="font-size:12px;">"hello,world"。</p>
+		</div>
+		</div>
+
+		<div class="ds-post-main" >
+		<div class="ds-avatar">
+		<a ><img src=""></a>
+		</div>
+		<div class="ds-comment-body">
+		<a title="bbs"  class="user-name">bbs</a>
+		<p style="font-size:12px;">"hello,world"。</p>
+		</div>
+		</div>
+		
+
+</div>
+
+</div>
+				<div class="circle">
+				<div class="tips2">people you may know</div>
+				
+				
+				<div class="user-inf">
+				<div class="usersphoto">    </div>
+				<div class="usersname">     Kasstiel</div>
+				</div>
+				
+				
+				<div class="user-inf">
+				<div class="usersphoto">    </div>
+				<div class="usersname">     Kasstiel</div>
+				</div>
+				
+						
+				<div class="user-inf">
+				<div class="usersphoto">    </div>
+				<div class="usersname">     Kasstiel</div>
+				</div>
+				
+				
+				<div class="user-inf">
+				<div class="usersphoto">    </div>
+				<div class="usersname">     Kasstiel</div>
+				</div>
+				
+				</div>
+				
+				</div>
+			
+				
+				</div>
+		
 	</body>
 </html>
    
