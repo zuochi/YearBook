@@ -76,7 +76,7 @@ function doPraise(elementId,photoId){
 	  $.ajax({
 		url:'user/doPraise_execute',  
 		type:'post', 
-		data:"praise.photo.id="+photoId,
+		data:"praise.photo.id="+photoId+"&i_want_top.id="+elementId,
 		async:false,
 		dataType:'text', 
 		success:function (msg) {

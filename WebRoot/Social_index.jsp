@@ -10,7 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <head>
 <base href="<%=basePath%>">
-<title><s:property value="#request.socialUser.name"/> - Year Book</title>
+<title><s:if test="#request.socialUser.name.length()<=10"><s:property value="#request.socialUser.name"/></s:if>
+			<s:else>No name</s:else> - Year Book</title>
 <link rel="stylesheet" type="text/css" href="styles/demo.css" />
 <link rel="stylesheet" type="text/css" href="styles/component_social.css" />
 <link rel="stylesheet" href="styles/sass-compiled.css" />

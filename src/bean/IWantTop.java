@@ -17,33 +17,44 @@ public class IWantTop implements java.io.Serializable {
 	private Integer status;
 	private Integer isDelete;
 	private Timestamp reviewDate;
+	private Timestamp praiseDate;
 	
 	// Constructors
 
 	/** default constructor */
-	public IWantTop() {
-	}
-
-	/** minimal constructor */
-	public IWantTop(User user, Photo photo, Timestamp signupDate, Integer status) {
+	public IWantTop() {}
+	
+	public IWantTop(User user, Photo photo, Timestamp signupDate,Integer status,Integer isDelete) {
 		this.user = user;
 		this.photo = photo;
 		this.signupDate = signupDate;
 		this.status = status;
+		this.isDelete = isDelete;
 	}
-
+	
 	/** full constructor */
-	public IWantTop(User user, Photo photo, Timestamp signupDate,
-			Integer status, Integer isDelete, Timestamp reviewDate) {
+	public IWantTop(Integer id, User user, Photo photo, Timestamp signupDate,
+			Integer status, Integer isDelete, Timestamp reviewDate,
+			Timestamp praiseDate) {
+		this.id = id;
 		this.user = user;
 		this.photo = photo;
 		this.signupDate = signupDate;
 		this.status = status;
 		this.isDelete = isDelete;
 		this.reviewDate = reviewDate;
+		this.praiseDate = praiseDate;
 	}
 
 	// Property accessors
+
+	public Timestamp getPraiseDate() {
+		return praiseDate;
+	}
+
+	public void setPraiseDate(Timestamp praiseDate) {
+		this.praiseDate = praiseDate;
+	}
 
 	public Integer getId() {
 		return this.id;

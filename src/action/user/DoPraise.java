@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import bean.IWantTop;
 import bean.Praise;
 import bean.User;
 
@@ -13,9 +14,11 @@ import bean.User;
 @Scope("prototype")
 public class DoPraise extends UserAction{
 	private Praise praise;
+	private IWantTop i_want_top;
 
 	@Override
 	public String execute() {
+		
 		user = (User) session.get("user");
 		
 		try {
@@ -50,10 +53,18 @@ public class DoPraise extends UserAction{
 				praise.setUser(user);
 				praise.setSignupDate(new Timestamp(System.currentTimeMillis()));
 				praise.setIsDelete(1);
-				if(service.saveObject(praise)){
-					out.print("success");
-				}else{
-					out.print("fail");
+				//并更新该首页图片的首页点赞时间
+				i_want_top = (IWantTop) service.getObjectByHql("from IWantTop where id="+i_want_top.getId());
+				if(i_want_top!=null){
+					i_want_top.setPraiseDate(new Timestamp(System.currentTimeMillis()));
+					if(service.updateObject(i_want_top)){
+						//最后保存点赞记录
+						if(service.saveObject(praise)){
+							out.print("success");
+						}else{
+							out.print("fail");
+						}
+					}
 				}
 			}
 		}
@@ -71,5 +82,12 @@ public class DoPraise extends UserAction{
 	public void setPraise(Praise praise) {
 		this.praise = praise;
 	}
-	
+
+	public IWantTop getI_want_top() {
+		return i_want_top;
+	}
+
+	public void setI_want_top(IWantTop i_want_top) {
+		this.i_want_top = i_want_top;
+	}
 }

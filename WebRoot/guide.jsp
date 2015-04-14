@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="center">
 <p><a href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(7)">Message</a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(7)">Message<span id="getCountSpan"></span></a></p>
 <img style="float:left;margin:0 0 0 5px;" src="images/logo.png" alt="" width="120"	height="80"  />
 <p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(12)">Feedback</a></p>
@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 </div>
 </div>
+<input id="getCount" type="hidden" value='<s:property value="#session.user.name"/>'/>
 <script type="text/javascript" src="js/goUrl.js"></script>
 <script type="text/javascript">
 	var scrollFunc = function (e) {
@@ -45,5 +46,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         document.addEventListener('DOMMouseScroll', scrollFunc, false);
     }
     //滚动滑轮触发scrollFunc方法  //ie 谷歌
-    window.onmousewheel = document.onmousewheel = scrollFunc; 
+    window.onmousewheel = document.onmousewheel = scrollFunc;
+    
+    //获取未读条数
+    setInterval("getNewMessageCount()", "8888");//每个5秒刷新一次
+    function getNewMessageCount(){
+    	var getCount = document.getElementById("getCount").value;
+    	if(getCount!='' && getCount!=null){
+	    	$.ajax({
+				url:'user/getMessage_getNewMessageCount',  
+				type:'post', 
+		        data:"",
+		        async:false,
+				dataType:'text', 
+				success:function (count) {
+					if(parseInt(count)>0){
+						document.getElementById("getCountSpan").innerHTML="("+count+")";
+					}else{
+						document.getElementById("getCountSpan").innerHTML="";
+					}
+				}
+			});
+    	}
+    };
+    
+    //初始化
+    window.onload=function(){
+    	getNewMessageCount();
+    };
 </script>

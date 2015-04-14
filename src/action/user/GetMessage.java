@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import util.PageController;
-
 import bean.User;
 
 
@@ -100,6 +99,11 @@ public class GetMessage extends UserAction{
 	 */
 	public String getPhotoReplysByPerPage(){
 		user = (User) request.getSession().getAttribute("user");
+		
+		if(user==null){
+			return null;
+		}
+		
 		try {
 			//status=0 ,且评论者不为自己的未读的条数
 			//count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
@@ -125,13 +129,49 @@ public class GetMessage extends UserAction{
 		return null;
 	}
 	
+	//获取未读总条数
+	public void getNewMessageCount(){
+		try {
+			user = (User) request.getSession().getAttribute("user");
+			
+			if(user==null){
+				return;
+			}
+			
+			out = response.getWriter();
+			
+			//status=0 ,且评论者不为自己的未读的条数
+			Integer newMessageCount = doGetUnReadCount() + doGetUnReadMentionMeCount();
+			
+			out.print(newMessageCount);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			out.flush();
+			out.close();
+		}
+	}
+	
 	//获取Photo's replys未读总条数
 	private int doGetUnReadCount(){
 		try {
 			user = (User) request.getSession().getAttribute("user");
 			
+			if(user==null){
+				return 0;
+			}
+			
 			//status=0 ,且评论者不为自己的未读的条数
-			return (Integer) service.getObjectByHql("select count(r.id) from Reply r where r.status=0 and r.isDelete=0 and r.photo.id is not null and (r.userByUserBid.id="+user.getId()+" or r.photo.id in (select p.id from Photo p where p.user.id="+user.getId()+")) and r.userByUserId.id!="+user.getId(), "getInteger");
+			return (Integer) service.getObjectByHql(
+					"select count(r.id) "
+					+ "from Reply r "
+					+ "where r.status=0 and "
+					+ "r.isDelete=0 and "
+					+ "r.photo.id is not null and "
+					+ "(r.userByUserBid.id="+user.getId()+" or "
+							+ "r.photo.id in (select p.id from Photo p where p.user.id="+user.getId()+")) and "
+									+ "r.userByUserId.id!="+user.getId(), "getInteger");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -144,8 +184,17 @@ public class GetMessage extends UserAction{
 		try {
 			user = (User) request.getSession().getAttribute("user");
 			
+			if(user==null){
+				return 0;
+			}
+			
 			//status=0 is_delete=0,且被艾特到的user为自己的未读的条数
-			return (Integer) service.getObjectByHql("select count(a.id) from AtNotify a where a.isDelete=0 and a.status=0 and a.userByUserBid.id="+user.getId(), "getInteger");
+			return (Integer) service.getObjectByHql(
+					"select count(a.id) "
+					+ "from AtNotify a "
+					+ "where a.isDelete=0 and "
+					+ "a.status=0 and "
+					+ "a.userByUserBid.id="+user.getId(), "getInteger");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -170,6 +219,4 @@ public class GetMessage extends UserAction{
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
 }
