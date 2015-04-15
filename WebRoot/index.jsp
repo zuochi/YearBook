@@ -63,9 +63,10 @@
         </div>
 
 <jsp:include page="template/user/loadProfession.jsp"></jsp:include>
+
 <jsp:include page="template/user/loadPhoto.jsp"></jsp:include>
 	
-    
+
     <!--流布局-->
     <!--  <div id="pic">
 	<div id="ctr">
@@ -76,7 +77,7 @@
 	
 	<jsp:include page="User_login.jsp" />
 	<jsp:include page="User_register.jsp" />
-	
+
  	<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="js/jquery.skippr.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>

@@ -15,6 +15,7 @@ ul>li {
 }
 </style>
 <br>
+<div style="width:100%;height:100%;z-index:-999;position:absolute;">  </div>
 <div id="pic">
 	<div id="ctr">
 		<!-- <div class="box photo col3">
@@ -163,7 +164,7 @@ function loadPhotos(){
 				}
 			}else{
 				$("#ctr").html("");
-				$("#ctr").append("<div style=' font-size:large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
+				$("#ctr").append("<div style=' font-size:x-large;text-align:center;color:#8f8f8f;padding:10px 0 70px 0;'>oops,there are no more photos.</div>");
 			}
 			//document.getElementById('loadingSpace').style.display = 'none';
 		}
