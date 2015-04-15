@@ -15,6 +15,7 @@ ul>li {
 }
 </style>
 <br>
+<div style="width:100%;height:100%;z-index:-999;position:absolute;">  </div>
 <div id="pic">
 	<div id="ctr">
 		<!-- <div class="box photo col3">
