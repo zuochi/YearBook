@@ -83,7 +83,7 @@
 	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
 	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 	<script type="text/javascript">
-	   $(function(){
+	   /* $(function(){
 	    var $ctr = $('#ctr');
 	    $ctr.imagesLoaded( function(){
 	      $ctr.masonry({
@@ -92,14 +92,14 @@
 			isAnimated: true
 	      });
 	    });
-	  
-	  });
+	  }); */
+	   
 	  $(document).ready(function() {
 		$("#random").skippr();
 		$("#random2").skippr({
-		navType: 'bubble',
-		autoPlay: true,
-		autoPlayDuration: 2000
+			navType: 'bubble',
+			autoPlay: true,
+			autoPlayDuration: 2000
 		});
 		//异步读取内容
 		loadProfessions();

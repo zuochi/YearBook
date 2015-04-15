@@ -24,6 +24,8 @@ public class ReviewIWantTops extends AdminAction{
 				iWantTopOld.setStatus(i_want_top.getStatus());
 				//添加审核时间
 				iWantTopOld.setReviewDate(new Timestamp(System.currentTimeMillis()));
+				//添加点赞时间，让图片顶置
+				iWantTopOld.setPraiseDate(new Timestamp(System.currentTimeMillis()));
 				if (service.updateObject(iWantTopOld)) {
 					out.print("success");
 				}else {

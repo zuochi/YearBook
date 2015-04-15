@@ -40,13 +40,5 @@
                 <comment>0:未删除 1:已删除</comment>
             </column>
         </property>
-        <set name="replies" inverse="true">
-            <key>
-                <column name="private_letter_bid">
-                    <comment>私信id</comment>
-                </column>
-            </key>
-            <one-to-many class="bean.Reply" />
-        </set>
     </class>
 </hibernate-mapping>

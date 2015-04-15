@@ -31,7 +31,7 @@ public class GetIndexPhotos extends UserAction{
 		}*/
 		
 		int photosCount = (Integer) service.getObjectByHql("select count(id) from IWantTop where isDelete=0 and status=1 and user.profession.id="+i_want_top.getUser().getProfession().getId(),"getInteger");
-		PageController pc = new PageController(photosCount, 1,5);
+		PageController pc = new PageController(photosCount, 1,10);
 		pc.setCurrentPage(toPage);
 		
 		List<dto.IWantTop> iWantTops = service.getDtoObjectsBySql("select i.id,i.photo_id,ph.url_thumb,ph.url,i.signup_date,i.review_date,i.status,i.is_delete,i.user_id,u.name,h.url_m,(select count(id) from praise p where p.is_delete=1 and p.photo_id=i.photo_id) as praise_count from i_want_top i LEFT JOIN user u  on i.user_id=u.id LEFT JOIN head_photo h on u.head_photo_id=h.id LEFT JOIN photo ph on ph.id=i.photo_id where i.status=1 and i.is_delete=0 and u.profession_id="+i_want_top.getUser().getProfession().getId()+" ORDER BY i.praise_date desc ", pc,new dto.IWantTop());

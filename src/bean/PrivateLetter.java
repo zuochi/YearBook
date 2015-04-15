@@ -1,8 +1,6 @@
 package bean;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * PrivateLetter entity. @author MyEclipse Persistence Tools
@@ -19,7 +17,6 @@ public class PrivateLetter implements java.io.Serializable {
 	private Date signupDate;
 	private Integer status;
 	private Integer isDelete;
-	private Set replies = new HashSet(0);
 
 	// Constructors
 
@@ -39,14 +36,13 @@ public class PrivateLetter implements java.io.Serializable {
 
 	/** full constructor */
 	public PrivateLetter(User userByUserId, User userByUserBid, String context,
-			Date signupDate, Integer status, Integer isDelete, Set replies) {
+			Date signupDate, Integer status, Integer isDelete) {
 		this.userByUserId = userByUserId;
 		this.userByUserBid = userByUserBid;
 		this.context = context;
 		this.signupDate = signupDate;
 		this.status = status;
 		this.isDelete = isDelete;
-		this.replies = replies;
 	}
 
 	// Property accessors
@@ -106,13 +102,4 @@ public class PrivateLetter implements java.io.Serializable {
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
 	}
-
-	public Set getReplies() {
-		return this.replies;
-	}
-
-	public void setReplies(Set replies) {
-		this.replies = replies;
-	}
-
 }
