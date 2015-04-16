@@ -40,14 +40,14 @@ a:hover {
     text-decoration: none;
 }
 .guidance{
-	width:830px;
+	width:870px;
 	height:90px;
 	position:relative;
 	margin:0 auto;
 }
 .center{
 	position:absolute;
-	width:830px;
+	width:870px;
 	height:90px;
 	text-align: center;
 }
