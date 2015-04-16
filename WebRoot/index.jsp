@@ -82,18 +82,21 @@
 	<script type="text/javascript" src="js/jquery.skippr.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
-	<script type="text/javascript" src="js/jquery.masonry.js"></script>
+	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
 	<script type="text/javascript">
+		$(function(){ 
+			var $ctr = $('#ctr');
+			$ctr.imagesLoaded( function(){ 
+				$ctr.masonry({ 
+					itemSelector : '.box', 
+					isFitWidth: true,//// 是否可调整大小 Boolean 
+					isRTL:false, ////使用从右到左的布局 Boolean
+					isAnimated:true
+				}); 
+			});
+		});
+	
 	  $(document).ready(function() {
-	  	//流布局
-		var $ctr = $('#ctr');
-	    $ctr.imagesLoaded( function(){
-	      $ctr.masonry({
-	        itemSelector:'.box',
-			isFitWidth:true,
-			isAnimated:true
-	      });
-	    });
 		//滚动图		
 		$("#random").skippr();
 		$("#random2").skippr({

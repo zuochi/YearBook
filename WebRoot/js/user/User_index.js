@@ -106,7 +106,7 @@ function getPhotosByPerPage(isNew){
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>" +
 								"<span id='pageShow"+json[i].id+"' style='display:none;font-size:small;float:right;margin:0 40px 0 0'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 							"</div>"+"<div style='width:100%;height:20px'>"+"</div>"+
-							"<span id='commentBody"+json[i].id+"'><span>"+
+							"<span id='commentBody"+json[i].id+"'></span>"+
 							"</div>"+
 								"<figure>"+	
 								"<figcaption ><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit("+json[i].id+")'><div id='desPenButton"+json[i].id+"' class='pen'>Edit</div></a>" +
@@ -179,7 +179,7 @@ function comment(userBid,photoBid,photoOwnerId){
 //放大图片之后读取评论
 function loadBigPic(picId){
 	$("#bigPic"+picId).attr("src",$("#bigPicUrl"+picId).val());
-	//激活图片表情动画
+	//激活图片描述的表情动画
 	$('#desContext'+picId).emoticonize();
 	//读取评论
 	delayLoadCommTime(picId,$("#commentPage"+picId).val(),700);

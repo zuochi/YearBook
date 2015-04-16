@@ -78,7 +78,7 @@ function showPhotoReplys(toPageM,countM){
 								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
 							"</div>"+
 							"<div class='ds-comment-body'>"+
-								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+"<div class='reminder'>"+(json[i].status==0?"<span style='color:red' title='unread'>New</span>":"")+"</div>"+
+								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+"<div class='reminder'>"+(json[i].status==0?"<span style='color:grep' title='unread'>?</span>":"")+"</div>"+
 								"<div class='message' id='commentEmo"+json[i].id+"'>"+json[i].context+"</div>"+
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
 								"<a href='javascript:void(0)' onclick='deleteMessage(\""+json[i].id+"\")'><div class='operate' title='delete this reply'>delete</div></a>"+
@@ -121,7 +121,7 @@ function showMentionMe(toPageM,countM){
 								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
 							"</div>"+
 							"<div class='ds-comment-body'>"+
-								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+"<div class='reminder'>"+(json[i].status==0?"<span style='color:red' title='unread'>New</span>":"")+"</div>"+
+								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+"<div class='reminder'>"+(json[i].status==0?"<span style='color:grep' title='unread'>?</span>":"")+"</div>"+
 								"<div class='message' id='commentEmo"+json[i].id+"'>"+json[i].context+"</div>"+
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
 								"<a href='javascript:void(0)' onclick='deleteAtNotify("+json[i].id+")'><div class='operate' title='delete this reply'>delete</div></a>"+

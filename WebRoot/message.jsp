@@ -130,15 +130,75 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <div id="replySuccessTip"></div>
+</div>
+</div>
+<div>
+	<div id="grid-gallery" class="grid-gallery">
+		<section class="grid-wrap">
+			<ul id="photosUL" class="grid">
+				<li class="grid-sizer"></li>
+				<li onclick='loadBigPic(620)'>
+					<figure>
+						<a href="javascript:void(0)">view</a>
+					</figure>
+				</li>
+			</ul>
+		</section> <!-- // grid-wrap -->
+		<section class="slideshow">
+			<ul id="photosUL2">
+				<li value='620'>
+					<div id='comment620' class='text2'>
+						<div id='friendTips620' class='friendTip'></div>
+						<div style='margin-left:10px;font-size:15px;height:15px;width:300px;margin:5px;'>You can also input <charNumber style='font-size:18;font-family:Georgia;color:#FF7748;' id='wordsNumber620'>80</charNumber>&nbsp;words.</div>
+						<textarea style='margin-left:7px;word-break:break-all;resize: none;width:90%;' rows='3' id='reply620' onkeydown='enterDeal(620)' onkeyup='getAtName(this.value,620)'></textarea>
+						<input style='position:absolute; left:7px;top:75px' type='button' value='Reply' onclick='comment(72,620,72)'/><br>
+						<input id='commentCount620' type='hidden'/>
+						<input id='commentPage620' type='hidden' value='1'/>
+						<div align='left' style='margin:3px 0 0 7px;'>
+							<span id='commentRefreshButton620' style='display:none'><a style='font-size:small;position:absolute;margin:0 50px 0 100px' href='javascript:void(0)' onclick='reloadReply(620)'>Refresh</a></span>
+							<span id='commentPageTurningButton620' style='display:none;font-size:small;position:absolute;margin:0 30px 0 180px'><a href='javascript:void(0)' onclick='showCommentPreviousPage(620)'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;
+								<a href='javascript:void(0)' onclick='showCommentNextPage(620)'>Next</a>
+							</span>
+							<span id='pageShow620' style='display:none;font-size:small;float:right;margin:0 40px 0 0'>Page:<span id='commentCurrentPage620'>1</span>/<span id='commentTotalPage620'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+						<div style='width:100%;height:20px'></div>
+						<span id='commentBody620'></span>
+					</div>
+						<figure>
+						<figcaption ><a href='javascript:void(0)' title='edit Post's description.' onclick='showDesEdit(620)'><div id='desPenButton620' class='pen'>Edit</div></a>
+						<input type='text' id='desTextArea620' style='display:none;' maxlength='60'/>
+						<input id='updateDesButton620' style='display:none' type='button' value='Edit' onclick='updateDes(620)'/>
+						<des class='p2' id='desContext620'>ssss</des>
+					    </figcaption>
+							<div id='commentPic620' class='slideshowpic'><a href='ShowBigPic.jsp?url="+json[i].url+"&name="+$("#nickName").val()+"' target='_blank' title='Show big size in a new window.'><img id='bigPic620' /></a></div>
+							</figure>
+					</li>
+			</ul>
+			<nav>
+				<span class="icon nav-prev" style="color:#234;width:80px"></span>
+				<span class="icon nav-next" style="color:#234;width:80px"></span>
+				<span class="icon nav-close" style="color:#fff"></span>
+			</nav>
+			</section><!-- // slideshow -->
+	</div><!-- // grid-gallery -->
+</div>
 
-</div>
-</div>
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 <script type="text/javascript" src="js/goUrl.js" ></script>
 <script type="text/javascript" src="js/user/at.js" ></script>
 <script type="text/javascript" src="js/jquery.cssemoticons.js" ></script>
 <script type="text/javascript" src="js/user/calculateDistanceTime.js" ></script>
 <script type="text/javascript" src="js/user/getMessage.js" ></script>
-
+<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script type="text/javascript" src="js/cbpGridGallery.js"></script>
+<script type="text/javascript">
+	new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
+	function loadBigPic(picId){
+		
+	};
+	function getPhotosByPerPage(isNew){
+		
+	};
+</script>
 </body>
 </html>

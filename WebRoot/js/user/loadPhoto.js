@@ -92,23 +92,7 @@ function loadPhotos(){
 				$("#ctr").html("");
 				$("#ctr").append("<div style=' font-size:large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
 			}
-			//document.getElementById('loadingSpace').style.display = 'none';
+			$("#ctr").masonry('reload');
 		}
 	}); 
-	
-	//setTimeout("recall()", 50);
-	$("#ctr").masonry('reload');
-	//$('#ctr').masonry( 'appended', $('.box'));
-};
-
-function recall(){
-	console.log($(".box"));
-	var $ctr = $("#ctr");
-    $ctr.imagesLoaded( function(){
-      $ctr.masonry({
-        itemSelector : ".box",
-		isFitWidth: true,
-		isAnimated: true
-      });
-    });
 };
