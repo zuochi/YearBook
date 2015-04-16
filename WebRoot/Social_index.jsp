@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/showLoading.css" />
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+	
 <jsp:include page="guide.jsp" />
 </head>
 <body>
@@ -101,9 +102,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<a href="javascript:void(0)" onclick="showFollowing()"><div class="fans">Following : <s:property value="#request.socialFollowingCount"/></div></a>
 		<a href="javascript:void(0)" onclick="showFollowers()"><div class="atten">Followers : <span id="followersNumber" ><s:property value="#request.socialFollowersCount"/></span></div></a>
 		</div>
-		<div class="red button">Leave Message</div>
+	<a data-reveal-id="myModal" data-animation="fade" >	<div class="red button">Leave Message</div></a>
+			
 </div>
-	
+
+	<div id="myModal" class="reveal-modal">
+			<p>Whatever message you leave ,only "username" could see</p>
+			<textarea rows="3" cols="50"></textarea>
+			<a class="close-reveal-modal">&#215;</a>
+		</div>
+		
+		
 		<!-- // grid-gallery -->
 		<div id="grid-gallery" class="grid-gallery">
 			<section class="grid-wrap">
@@ -144,6 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="js/modernizr.custom.js"></script>
 		<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
 		<script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
+	    <script type="text/javascript" src="js/jquery.reveal.js"></script>
 		<script type="text/javascript" src="js/classie.js"></script>
 		<script type="text/javascript" src="js/cbpGridGallery.js"></script>
 		<script type="text/javascript" src="js/user/getReply.js"></script>

@@ -90,7 +90,7 @@ function loadPhotos(){
 				}
 			}else{
 				$("#ctr").html("");
-				$("#ctr").append("<div style=' font-size:large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
+				$("#ctr").append("<div style=' font-size:x-large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
 			}
 			$("#ctr").masonry('reload');
 		}
