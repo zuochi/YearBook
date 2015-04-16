@@ -48,6 +48,17 @@ function mScroll(id){
 
 //读取首页图片
 function loadPhotos(){
+	//每次翻页+1
+	if(document.getElementById("toPage").value==0){//等于0说明是第一次加载
+		document.getElementById("toPage").value = parseInt(document.getElementById("toPage").value) + 1;
+	}else{
+		if((parseInt(document.getElementById("toPage").value) + 1)<=document.getElementById("totalPages").value){
+			document.getElementById("toPage").value = parseInt(document.getElementById("toPage").value) + 1;
+		}else{
+			alert("oops,there are no more photos.");
+			return;
+		}
+	}
 	$.ajax({
 		type: "POST",
 		url: "user/getIndexPhotos_execute",
@@ -56,10 +67,9 @@ function loadPhotos(){
 		success: function(json){
 			//document.getElementById('loadingSpace').style.display = 'block';
 			if(json.error == undefined && json[0].objs.length>0){
-				$("#ctr").html("");
 				for(var i=0 ; i<json[0].objs.length ; i++ ){
 					//加载页码
-					if(i==0){
+					/*if(i==0){
 						$("#ctr").append(
 							"<ul>"+
 								"<li>Page: "+ json[0].pc.currentPage +"/" + json[0].pc.totalPages + "</li>"+
@@ -75,7 +85,9 @@ function loadPhotos(){
 						for(var j=1 ; j<=json[0].pc.totalPages ; j++){
 							$("#lift").append("<option "+(json[0].pc.currentPage==j?"selected='selected'":"")+" value='"+j+"'>"+j+"</option>");
 						}
-					}
+					}*/
+					//保存总页面
+					document.getElementById("totalPages").value=json[0].pc.totalPages;
 					//输出图片
 					$("#ctr").append(
 						"<div class='box photo col3'>"+
@@ -89,10 +101,18 @@ function loadPhotos(){
 					);
 				}
 			}else{
-				$("#ctr").html("");
 				$("#ctr").append("<div style=' font-size:x-large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
 			}
 			$("#ctr").masonry('reload');
 		}
-	}); 
+	});
 };
+
+//滚动条出发
+window.addEventListener( 'scroll', function() {
+	if(document.body.scrollTop+document.body.clientHeight>=(document.body.scrollHeight)){
+		if(document.getElementById("choosedProfessionId").value!=0){
+			loadPhotos();
+		}
+    }
+});

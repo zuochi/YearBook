@@ -70,5 +70,6 @@ ul>li {
 	<!-- <div id="loadingSpace" style="display:none;height:1000px"></div> -->
 </div>
 <input id="toPage" type="hidden"/>
+<input id="totalPages" type="hidden"/>
 <script type="text/javascript" src="js/user/calculateDistanceTime.js"></script>
 <script type="text/javascript" src="js/user/loadPhoto.js"></script>

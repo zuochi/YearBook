@@ -29,13 +29,36 @@ public class GetIndexPhotos extends UserAction{
 		/*if(i_want_top.getUser().getProfession().getId()==null || i_want_top.getUser().getProfession().getId()==0){
 			i_want_top.getUser().getProfession().setId(getRamdomProfessionId());
 		}*/
+		List<dto.IWantTop> iWantTops = null;
+		PageController pc = null;
+		int photosCount;
 		
-		int photosCount = (Integer) service.getObjectByHql("select count(id) from IWantTop where isDelete=0 and status=1 and user.profession.id="+i_want_top.getUser().getProfession().getId(),"getInteger");
-		PageController pc = new PageController(photosCount, 1,20);
-		pc.setCurrentPage(toPage);
-		
-		List<dto.IWantTop> iWantTops = service.getDtoObjectsBySql("select i.id,i.photo_id,ph.url_thumb,ph.url,i.signup_date,i.review_date,i.status,i.is_delete,i.user_id,u.name,h.url_m,(select count(id) from praise p where p.is_delete=1 and p.photo_id=i.photo_id) as praise_count from i_want_top i LEFT JOIN user u  on i.user_id=u.id LEFT JOIN head_photo h on u.head_photo_id=h.id LEFT JOIN photo ph on ph.id=i.photo_id where i.status=1 and i.is_delete=0 and u.profession_id="+i_want_top.getUser().getProfession().getId()+" ORDER BY i.praise_date desc ", pc,new dto.IWantTop());
-		//List<dto.IWantTop> iWantTops = service.getDtoObjectsBySql("select i.id,i.photo_id,ph.url_thumb,ph.url,i.signup_date,i.review_date,i.status,i.is_delete,i.user_id,u.name,h.url_m,(select count(id) from praise p where p.is_delete=1 and p.photo_id=i.photo_id) as praise_count from i_want_top i LEFT JOIN user u  on i.user_id=u.id LEFT JOIN head_photo h on u.head_photo_id=h.id LEFT JOIN photo ph on ph.id=i.photo_id where i.status=1 and i.is_delete=0 ORDER BY i.review_date desc ", pc,new dto.IWantTop());
+		if(i_want_top.getUser().getProfession().getId()!=0){
+			photosCount = (Integer) service.getObjectByHql(
+					"select count(id) "
+					+ "from IWantTop "
+					+ "where isDelete=0 and status=1 and user.profession.id="+i_want_top.getUser().getProfession().getId(),"getInteger");
+			pc = new PageController(photosCount, 1,20);
+			pc.setCurrentPage(toPage);
+			
+			iWantTops = service.getDtoObjectsBySql(
+					"select i.id,i.photo_id,ph.url_thumb,ph.url,i.signup_date,i.review_date,i.status,i.is_delete,i.user_id,u.name,h.url_m,"
+					+ "(select count(id) from praise p where p.is_delete=1 and p.photo_id=i.photo_id) as praise_count "
+					+ "from i_want_top i LEFT JOIN user u  on i.user_id=u.id "
+					+ "LEFT JOIN head_photo h on u.head_photo_id=h.id LEFT JOIN photo ph on ph.id=i.photo_id "
+					+ "where i.status=1 and i.is_delete=0 and u.profession_id="+i_want_top.getUser().getProfession().getId()+" "
+							+ "ORDER BY i.review_date desc ", pc,new dto.IWantTop());
+		}else{
+			pc = new PageController(20, 1,20);
+			pc.setCurrentPage(toPage);
+			iWantTops = service.getDtoObjectsBySql(
+					"select i.id,i.photo_id,ph.url_thumb,ph.url,i.signup_date,i.review_date,i.status,i.is_delete,i.user_id,u.name,h.url_m,"
+					+ "(select count(id) from praise p where p.is_delete=1 and p.photo_id=i.photo_id) as praise_count "
+					+ "from i_want_top i LEFT JOIN user u  on i.user_id=u.id "
+					+ "LEFT JOIN head_photo h on u.head_photo_id=h.id LEFT JOIN photo ph on ph.id=i.photo_id "
+					+ "where i.status=1 and i.is_delete=0 "
+							+ "ORDER BY (select count(id) from praise p where p.is_delete=1 and p.photo_id=i.photo_id) desc limit 20 ", null ,new dto.IWantTop());
+		}
 		
 		user = (User) session.get("user");
 		//如果有登陆，则会判断登陆者是否已经点赞过图片？
