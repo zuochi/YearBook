@@ -43,7 +43,7 @@ function toPage(toPage){
 //把专业滚动到顶部
 function mScroll(id){
 	$("html,body").stop(true);
-	$("html,body").animate({scrollTop: $("#"+id).offset().top}, 1000);
+	$("html,body").animate({scrollTop: $("#"+id).offset().top}, 500);
 };
 
 //读取首页图片
@@ -96,10 +96,17 @@ function loadPhotos(){
 		}
 	}); 
 	
+	//setTimeout("recall()", 50);
+	$("#ctr").masonry('reload');
+	//$('#ctr').masonry( 'appended', $('.box'));
+};
+
+function recall(){
+	console.log($(".box"));
 	var $ctr = $("#ctr");
     $ctr.imagesLoaded( function(){
       $ctr.masonry({
-        itemSelector : '.box',
+        itemSelector : ".box",
 		isFitWidth: true,
 		isAnimated: true
       });

@@ -64,7 +64,6 @@ public class GetMessage extends UserAction{
 		try {
 			//status=0 ,且评论者不为自己的未读的条数
 			//count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
-			//TODO
 			PageController pc = new PageController(count,1,pageSize);
 			pc.setCurrentPage(toPage);
 			
@@ -80,6 +79,19 @@ public class GetMessage extends UserAction{
 						"LEFT JOIN user u on u.id=a.user_id "+
 						"LEFT JOIN reply r on r.id=a.reply_bid "+
 						"where a.user_bid="+user.getId() + " order by a.at_date desc ", pc,new dto.Message());
+				
+				//将未读消息设置成已读
+				StringBuilder sb = new StringBuilder();
+				sb.append("'0'");
+				for(dto.Message message : messages){
+					if(message.getStatus()==0){
+						sb.append(",'"+message.getId().toString()+"'");
+					}
+				}
+				if(sb.toString().length()>3){
+					service.updateObjectsBySql("update at_notify set status=1 where id in (" + sb.toString() + ")");
+				}
+				
 				JSONArray json = JSONArray.fromObject(messages);
 				out = response.getWriter();
 				out.print(json);
@@ -115,7 +127,27 @@ public class GetMessage extends UserAction{
 				out.print("fail");
 			}else{
 				//使用数据转换类
-				List<dto.Message> messages = service.getDtoObjectsBySql("select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status from reply r,photo ph,user u LEFT JOIN head_photo p on p.is_delete=0 and p.id=u.head_photo_id where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"") +" and r.user_id!="+user.getId()+" and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) group by r.id order by r.signup_date desc", pc,new dto.Message());
+				List<dto.Message> messages = service.getDtoObjectsBySql(
+						"select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status "
+						+ "from reply r,photo ph,user u "
+						+ "LEFT JOIN head_photo p on p.is_delete=0 and p.id=u.head_photo_id "
+						+ "where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"")
+						+ " and r.user_id!="+user.getId()+" "
+								+ "and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) "
+								+ "group by r.id order by r.signup_date desc", pc,new dto.Message());
+				
+				//将未读消息设置成已读
+				StringBuilder sb = new StringBuilder();
+				sb.append("'0'");
+				for(dto.Message message : messages){
+					if(message.getStatus()==0){
+						sb.append(",'"+message.getId().toString()+"'");
+					}
+				}
+				if(sb.toString().length()>3){
+					service.updateObjectsBySql("update reply set status=1 where id in (" + sb.toString() + ")");
+				}
+				
 				JSONArray json = JSONArray.fromObject(messages);
 				out = response.getWriter();
 				out.print(json);

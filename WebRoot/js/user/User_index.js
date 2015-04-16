@@ -102,7 +102,6 @@ function getPhotosByPerPage(isNew){
 							"<input id='commentPage"+json[i].id+"' type='hidden' value='1'/>"+
 							"<div align='left' style='margin:3px 0 0 7px;'>" +
 							"<span id='commentRefreshButton"+json[i].id+"' style='display:none'><a style='font-size:small;position:absolute;margin:0 50px 0 100px' href='javascript:void(0)' onclick='reloadReply("+json[i].id+")'>Refresh</a></span>"+
-								
 								"<span id='commentPageTurningButton"+json[i].id+"' style='display:none;font-size:small;position:absolute;margin:0 30px 0 180px'><a href='javascript:void(0)' onclick='showCommentPreviousPage("+json[i].id+")'>Previous</a>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>" +
 								"<span id='pageShow"+json[i].id+"' style='display:none;font-size:small;float:right;margin:0 40px 0 0'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
@@ -327,6 +326,13 @@ function deletePhoto(photoId){
 
 //我要上首页
 function iWantTop(photoId,userId){
+	var professionName=document.getElementById("professionName").value;
+	if(professionName=='' || professionName==null || professionName=='null'){
+		alert("Please complete your profile.");
+		window.location.href="user/getProfiles_execute";
+		return;
+	}
+	
 	if(confirm("Are you sure to submit this photo to admin?")) { 
 		$.ajax({
 			url:'user/iwantTop_execute',  

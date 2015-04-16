@@ -36,7 +36,7 @@
 %>
 
 <!-- top -->
- <div style="position:fixed; top:0px; left:10px; width:100px; height:100px; border:solid 2px blue;">ssssssssssssssssssssss</div>
+<!--  <div style="position:fixed; top:0px; left:10px; width:100px; height:100px; border:solid 2px blue;">ssssssssssssssssssssss</div> -->
 	<!--滚动图-->
 
 	  <div class="hero">
@@ -82,20 +82,19 @@
 	<script type="text/javascript" src="js/jquery.skippr.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script type="text/javascript" src="js/jquery.animate-colors-min.js"></script>
-	<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+	<script type="text/javascript" src="js/jquery.masonry.js"></script>
 	<script type="text/javascript">
-	   /* $(function(){
-	    var $ctr = $('#ctr');
+	  $(document).ready(function() {
+	  	//流布局
+		var $ctr = $('#ctr');
 	    $ctr.imagesLoaded( function(){
 	      $ctr.masonry({
-	        itemSelector : '.box',
-			isFitWidth: true,
-			isAnimated: true
+	        itemSelector:'.box',
+			isFitWidth:true,
+			isAnimated:true
 	      });
 	    });
-	  }); */
-	   
-	  $(document).ready(function() {
+		//滚动图		
 		$("#random").skippr();
 		$("#random2").skippr({
 			navType: 'bubble',

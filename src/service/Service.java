@@ -5,7 +5,6 @@ import java.util.Properties;
 
 import bean.PhotoAlbum;
 import bean.User;
-
 import util.PageController;
 
 public interface Service<E> {
@@ -20,6 +19,7 @@ public interface Service<E> {
 	public abstract List<E> getAllObjects(Object object);
 	public abstract Object getObjectByHql(String hql, String... values);
 	public abstract Object getObjectBySql(String sql,Object object,String... values);
+	public abstract int updateObjectsBySql(String sql);
 	public abstract List<E> getDtoObjectsBySql(String sql, PageController pc, Object object);
 	public abstract List<E> getObjectsByHql(String hql,PageController pc, String... values) ;
 	public abstract List<E> getObjectsBySql(String sql,PageController pc,Object object,String... values);

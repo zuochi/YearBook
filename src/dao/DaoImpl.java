@@ -584,6 +584,12 @@ public class DaoImpl<E> implements Dao {
 	}
 	
 	@Override
+	public int updateObjectsBySql(String sql){
+		session = sessionFactory.getCurrentSession();
+		return session.createSQLQuery(sql).executeUpdate();
+	}
+	
+	@Override
 	public List<?> getDtoObjectsBySql(String sql,PageController pc,Object object) {
 		List<?> list = null;
 		try {

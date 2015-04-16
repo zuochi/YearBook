@@ -15,7 +15,7 @@ public class Login extends UserAction{
 	public String execute() throws Exception {
 		try {
 			out = response.getWriter();
-			user = (User) service.getObjectByHql("from User where isDelete=0 and userName='"+userName+"'", "getHeadPhoto");
+			user = (User) service.getObjectByHql("from User where isDelete=0 and userName='"+userName+"'", "getHeadPhoto", "getProfession");
 			if (user != null && password.equals(user.getPassword())) {
 				if ("on".equals(auto_login)) {
 					CookieUtils cookieUtils = new CookieUtils();
@@ -25,6 +25,7 @@ public class Login extends UserAction{
 				// 放置数据
 				session.put("user", user);
 				session.put("headPhoto", user.getHeadPhoto());
+				session.put("profession", user.getProfession());
 				// 更新登陆时间
 				service.updateUserLoginTime(user);
 				

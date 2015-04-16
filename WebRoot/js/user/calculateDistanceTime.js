@@ -28,6 +28,8 @@ function calculateDT(timeStamp){
 	}*/else{
 	    /*var distance = parseInt(distanceSeconds/60/60/27/7/4/12)
 	    alert(distance + ((distance==1)?" year ago":" years ago"));*/
-	    return (parseInt(timeStamp.year-100+2000)+ "-" +parseInt(timeStamp.month+1)+ "-" +parseInt(timeStamp.date)+" "+parseInt(timeStamp.hours)+":"+parseInt(timeStamp.minutes)+":"+parseInt(timeStamp.seconds));
+	    //return (parseInt(timeStamp.year-100+2000)+ "-" +parseInt(timeStamp.month+1)+ "-" +parseInt(timeStamp.date)+" "+parseInt(timeStamp.hours)+":"+parseInt(timeStamp.minutes)+":"+parseInt(timeStamp.seconds));
+		//下面是不显示秒
+		return (parseInt(timeStamp.year-100+2000)+ "-" +parseInt(timeStamp.month+1)+ "-" +parseInt(timeStamp.date)+" "+parseInt(timeStamp.hours)+":"+parseInt(timeStamp.minutes));
 	}
 };

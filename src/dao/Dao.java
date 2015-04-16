@@ -5,7 +5,6 @@ import java.util.Properties;
 
 import bean.PhotoAlbum;
 import bean.User;
-
 import util.PageController;
 
 public interface Dao<E> {
@@ -23,6 +22,7 @@ public interface Dao<E> {
 	public abstract Object getObjectBySql(String sql,Object object,String... values);
 	public abstract List<E> getObjectsByHql(String hql,PageController pc, String... values) ;
 	public abstract List<E> getObjectsBySql(String sql,PageController pc,Object object,String... values);
+	public abstract int updateObjectsBySql(String sql);
 	public abstract List<E> getDtoObjectsBySql(String sql, PageController pc, Object object);
 	public abstract List<E> getObjectsByPrepage(PageController pc,Object object);
 	public abstract List<E> getObjectsByPrepage(Properties pro, PageController pc,Object object);
@@ -32,5 +32,5 @@ public interface Dao<E> {
 	public abstract int getTotalRowsByProperties(Properties pro, Object object,boolean DESC);
 	public abstract int getTotalRowsByUserId(Properties pro, Object object,int userId);
 	public abstract int getTotalRowsLike(Properties pro, Object object,boolean DESC);
-	public abstract Object getDelObjectByProperties(Properties pro, Object object);	
+	public abstract Object getDelObjectByProperties(Properties pro, Object object);
 }

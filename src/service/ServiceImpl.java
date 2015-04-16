@@ -5,9 +5,7 @@ import java.util.Properties;
 
 import bean.PhotoAlbum;
 import bean.User;
-
 import util.PageController;
-
 import dao.Dao;
 
 public class ServiceImpl<E> implements Service{
@@ -149,6 +147,11 @@ public class ServiceImpl<E> implements Service{
 	@Override
 	public List getDtoObjectsBySql(String sql, PageController pc, Object object) {
 		return dao.getDtoObjectsBySql(sql, pc, object);
+	}
+
+	@Override
+	public int updateObjectsBySql(String sql) {
+		return dao.updateObjectsBySql(sql);
 	}
 	
 }

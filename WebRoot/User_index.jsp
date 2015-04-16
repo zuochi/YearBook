@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <base href="<%=basePath%>">
-    <title><s:property value="#session.user.name"/> - Post</title>
+    <title>YearBook - Post</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">
@@ -32,6 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 %>
 <input type="hidden" id="isMine" value="1"/>
+<input type="hidden" id="professionName" value="<s:property value="#session.user.profession.name"/>"/>
 <input type="hidden" id="userId" value="<s:property value="#session.user.id"/>"/>
 <input type="hidden" id="nickName" value="<s:property value="#session.user.name"/>"/>
 <input type="hidden" id="urlM" value="<s:property value="#session.user.headPhoto.urlM"/>"/>
@@ -53,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<img src="images/bg.png" alt="" width="120" height="120" title="修改头像"> 
 							</a>
 						</s:else>
-						<div class="na"><s:property value="#session.user.name" /></div></div>
+						<div class="na"><s:if test="#session.user.name>10"><s:property value="#session.user.name" /></s:if><s:else>No name</s:else></div></div>
 						<s:if test="#session.user.sex==1">
                             <div class="male">&nbsp;&nbsp;&nbsp;&nbsp;male</div>
                         </s:if>
