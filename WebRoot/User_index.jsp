@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</s:else>
 						<div class="na">
-							<s:if test="#session.user.name.length()<10">
+							<s:if test="#session.user.name.length()<=10">
 								<s:property value="#session.user.name" />
 							</s:if>
 							<s:else>No name</s:else>
