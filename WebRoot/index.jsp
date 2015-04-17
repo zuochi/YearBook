@@ -44,17 +44,17 @@
             <div id="random">
                
                 <div style="background-image: url(images/slide1.jpg)">
-	                <div class="tagline">
+	               <%--  <div class="tagline">
 		                <h3>Welcome1:</h3>
 		                <p>Show your Pic here <br> Click the top nearby your photos.</p>
-	                </div>
+	                </div> --%>
                 </div>
                 
                 <div style="background-image: url(images/slide2.jpg)"> 
-	                <div class="tagline">
+	               <%--  <div class="tagline">
 		                <h3>Welcome2:</h3>
 		                <p>Show your Pic here <br> Click the top nearby your photos.</p>
-	                </div>
+	                </div> --%>
                 </div> 
                 
                 <div style="background-image: url(images/slide3.jpg)"></div>                   
