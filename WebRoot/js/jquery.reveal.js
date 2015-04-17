@@ -1,4 +1,4 @@
-﻿(function($) {
+(function($) {
 	$('a[data-reveal-id]').live('click', function(e) {
 		e.preventDefault();
 		var modalLocation = $(this).attr('data-reveal-id');
@@ -20,6 +20,7 @@
 				topOffset = modal.height() + topMeasure,
           		locked = false,
 				modalBG = $('.reveal-modal-bg');
+
 
 			if(modalBG.length == 0) {
 				modalBG = $('<div class="reveal-modal-bg" />').insertAfter(modal);

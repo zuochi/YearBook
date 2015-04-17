@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/showLoading.css" />
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/jquery2.js"></script>
 	
 <jsp:include page="guide.jsp" />
 </head>
@@ -102,15 +103,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<a href="javascript:void(0)" onclick="showFollowing()"><div class="fans">Following : <s:property value="#request.socialFollowingCount"/></div></a>
 		<a href="javascript:void(0)" onclick="showFollowers()"><div class="atten">Followers : <span id="followersNumber" ><s:property value="#request.socialFollowersCount"/></span></div></a>
 		</div>
-	<a data-reveal-id="myModal" data-animation="fade" >	<div class="red button">Leave Message</div></a>
-			
+		
+		<a href="#"  class="red button"  data-reveal-id="myModal" data-animation="fade">Leave Message</a>
+		<div id="myModal" class="reveal-modal">
+			<p class="bbs">Whatever message you leave ,only "username" could see</p>
+			<textarea rows="10" cols="70"></textarea>
+			<a class="close-reveal-modal">&#215;</a>
+			<input type="button" value="Leave message"  style="width:120px;height:30px;"/>
+		</div>	
+
+
 </div>
 
-	<div id="myModal" class="reveal-modal">
-			<p>Whatever message you leave ,only "username" could see</p>
-			<textarea rows="3" cols="50"></textarea>
-			<a class="close-reveal-modal">&#215;</a>
-		</div>
+	
 		
 		
 		<!-- // grid-gallery -->
@@ -143,6 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<div id="hasFollowing"></div>
 		<div id="hasFollowers"></div>
+		 
 		<script type="text/javascript" src="js/user/accussationPhoto.js"></script>
 		<script type="text/javascript" src="js/user/calculateDistanceTime.js"></script>
 		<script type="text/javascript" src="js/jquery.showLoading.js"></script>

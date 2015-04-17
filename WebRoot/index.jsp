@@ -66,7 +66,7 @@
 
 <jsp:include page="template/user/loadPhoto.jsp"></jsp:include>
 	
-
+<div style="font-size:x-large;text-align:center;color:#8f8f8f;font-weight:normal;padding:20px 0 50px 0">oops,there are no more photos.</div>
     <!--流布局-->
     <!--  <div id="pic">
 	<div id="ctr">

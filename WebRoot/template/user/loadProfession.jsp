@@ -79,7 +79,7 @@ function loadProfessions(){
 					}
 				}
 				if((11-json.length)>0){
-					for(var i=0 ; i<(11-json.length) ; i++){
+					for(var i=0 ; i<(30-json.length) ; i++){
 						$("#professionsDIV").append("<div class='kong'></div>");
 					}
 				}

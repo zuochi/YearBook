@@ -486,10 +486,13 @@ margin-top:8px;
 	
 .reveal-modal {
 		visibility: hidden;
-		top:200px; 
-		left:50%;
-		margin-left: -300px;
-		width: 520px;
+		top:0; 
+        bottom:0; 
+        left:0; 
+        right:0; 
+        margin:auto;
+		width: 650px;
+		height:300px;
 		background: #eee  no-repeat -200px -80px;
 		position: absolute;
 		z-index: 101;
@@ -501,7 +504,12 @@ margin-top:8px;
 		-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
 		-box-shadow: 0 0 10px rgba(0,0,0,.4);
 		}
-		
+.bbs{
+	padding:0;margin:0 0 20px 0;
+	font-size:large;
+	color:#000;
+	text-align: left;
+}		
 .reveal-modal.small{width:200px; margin-left: -140px;}
 .reveal-modal.medium{width:400px; margin-left: -240px;}
 .reveal-modal.large{width:600px; margin-left: -340px;}
