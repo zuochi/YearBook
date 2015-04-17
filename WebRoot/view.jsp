@@ -14,6 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="styles/component.css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="styles/friendTips.css" />
+<link rel="stylesheet" type="text/css" href="styles/showLoading.css" />
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 </head>
 <body>
