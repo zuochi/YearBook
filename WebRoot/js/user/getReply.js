@@ -40,10 +40,11 @@ function showComments(photoBid,toPageC){
 		$.ajax({
 			url:'user/getReply_execute',  
 			type:'post', 
-	        data:"photo.id="+photoBid+"&toPage="+toPageC+"&replyCountN="+$("#commentCount"+photoBid).val()+"&pageSizeN="+pageSizeN+"&user.id="+$("#userId").val(),
+	        data:"photo.id="+photoBid+"&toPage="+toPageC+"&replyCountN="+$("#commentCount"+photoBid).val()+"&pageSizeN="+pageSizeN,
 	        async:false,
 	        dataType:'json', 
 			success:function (json) {
+				console.log(json);
 				if(json.error==undefined){
 					for(var i=0; i<json.length; i++){
 						$("#commentBody"+photoBid).append(

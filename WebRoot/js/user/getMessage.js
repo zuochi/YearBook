@@ -81,8 +81,9 @@ function showPhotoReplys(toPageM,countM){
 								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+"<div class='reminder'>"+(json[i].status==0?"<span style='color:grep' title='unread'>?</span>":"")+"</div>"+
 								"<div class='message' id='commentEmo"+json[i].id+"'>"+json[i].context+"</div>"+
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
-								"<a href='javascript:void(0)' onclick='deleteMessage(\""+json[i].id+"\")'><div class='operate' title='delete this reply'>delete</div></a>"+
+								"<a href='javascript:void(0)' onclick='deleteMessage(\""+json[i].id+"\")'><div class='operate' title='Delete this reply.'>delete</div></a>"+
 								"<a href='javascript:void(0)' onclick='showReplyFrame(\"Freply"+json[i].id+"\",\""+json[i].name+"\")'><div class='operate' title='reply "+json[i].name+"' style='float:right'>reply</div></a>"+
+								"<a href='javascript:void(0)' onclick='showView(\""+json[i].photo_bid+"\")'><div class='operate' title='In view of the source.'>view</div></a>"+
 								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
 								"<div id='Freply"+json[i].id+"' style='display:none'>"+
 										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal(\""+json[i].id+"\")' onkeyup='getAtName(this.value,\""+json[i].id+"\")'/>"+
@@ -97,6 +98,11 @@ function showPhotoReplys(toPageM,countM){
 		});
 	//}
 	//$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
+};
+
+//view
+function showView(photoId){
+	openPostWindow("user/view_execute","photo.id",photoId,"_blank");
 };
 
 //显示Mention me的消息
@@ -126,6 +132,7 @@ function showMentionMe(toPageM,countM){
 								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
 								"<a href='javascript:void(0)' onclick='deleteAtNotify("+json[i].id+")'><div class='operate' title='delete this reply'>delete</div></a>"+
 								"<a href='javascript:void(0)' onclick='showReplyFrame(\"Freply"+json[i].id+"\",\""+json[i].name+"\")'><div class='operate' title='reply "+json[i].name+"' style='float:right'>reply</div></a>"+
+								"<a href='javascript:void(0)' onclick='showView(\""+json[i].photo_bid+"\")'><div class='operate' title='In view of the source.'>view</div></a>"+
 								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
 								"<div id='Freply"+json[i].id+"' style='display:none'>"+
 										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'/>"+

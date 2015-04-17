@@ -46,6 +46,8 @@ function selectProfession(professionId){
 	loadPhotos();
 	//向上滚动
 	mScroll("professionsDIV");
+	//重置没有图片的提示
+	isNotice=0;
 };
 
 //读取专业

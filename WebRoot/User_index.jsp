@@ -118,7 +118,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div><!-- // grid-gallery -->
 		</div>
 		
-		<script type="text/javascript" src="js/goUrl.js"></script>
 		<script type="text/javascript" src="js/user/calculateDistanceTime.js"></script>
 		<script type="text/javascript" src="js/jquery.showLoading.js"></script>
 		<script type="text/javascript" src="js/user/at.js"></script>

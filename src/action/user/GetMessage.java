@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import util.PageController;
 import bean.User;
 
-
 @Controller
 @Scope("prototype")
 public class GetMessage extends UserAction{

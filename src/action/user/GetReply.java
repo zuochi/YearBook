@@ -78,6 +78,4 @@ public class GetReply extends UserAction{
 	public void setPageSizeN(int pageSizeN) {
 		this.pageSizeN = pageSizeN;
 	}
-	
-	
 }

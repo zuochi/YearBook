@@ -47,6 +47,7 @@ function mScroll(id){
 };
 
 //读取首页图片
+var isNotice = 0;
 function loadPhotos(){
 	//每次翻页+1
 	if(document.getElementById("toPage").value==0){//等于0说明是第一次加载
@@ -55,7 +56,10 @@ function loadPhotos(){
 		if((parseInt(document.getElementById("toPage").value) + 1)<=document.getElementById("totalPages").value){
 			document.getElementById("toPage").value = parseInt(document.getElementById("toPage").value) + 1;
 		}else{
-			alert("oops,there are no more photos.");
+			if(isNotice==0){
+				isNotice=1;
+				alert("oops,there are no more photos.");
+			}
 			return;
 		}
 	}

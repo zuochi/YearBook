@@ -74,7 +74,7 @@ function getPhotosByPerPage(isNew){
 									"<a href='javascript:void(0)' onclick='showCommentNextPage("+json[i].id+")'>Next</a></span>" +
 									"<span id='pageShow"+json[i].id+"' style='display:none;font-size:small;float:right;margin:0 40px 0 0'>Page:<span id='commentCurrentPage"+json[i].id+"'>1</span>/<span id='commentTotalPage"+json[i].id+"'></span></span>&nbsp;&nbsp;&nbsp;&nbsp;" +
 								"</div>"+"<div style='width:100%;height:20px'>"+"</div>"+
-								"<span id='commentBody"+json[i].id+"'><span>"+
+								"<span id='commentBody"+json[i].id+"'></span>"+
 								"</div>"+
 								"<figure>"+"<figcaption><div class='p2' id='commentDesc"+json[i].id+"'>"+json[i].name+"</div></figcaption>"+	
 									"<div id='commentPic"+json[i].id+"' class='slideshowpic'><a href='ShowBigPic.jsp?url="+json[i].url+"&name="+$("#nickName").val()+"' target='_blank' title='Show big size in a new window.'><img id='bigPic"+json[i].id+"' /></a></div>"+
