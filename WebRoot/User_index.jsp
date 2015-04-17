@@ -54,7 +54,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<img src="images/bg.png" alt="" width="120" height="120" title="修改头像"> 
 							</a>
 						</s:else>
-						<div class="na"><s:if test="#session.user.name>10"><s:property value="#session.user.name" /></s:if><s:else>No name</s:else></div></div>
+						<div class="na">
+							<s:if test="#session.user.name.length()<10">
+								<s:property value="#session.user.name" />
+							</s:if>
+							<s:else>No name</s:else>
+						</div>
+					</div>
 						<s:if test="#session.user.sex==1">
                             <div class="male">&nbsp;&nbsp;&nbsp;&nbsp;male</div>
                         </s:if>

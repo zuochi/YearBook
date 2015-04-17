@@ -17,8 +17,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
 </head>
 <body>
-<input type="hidden" id="isMine" value="1"/>
-<input type="hidden" id="userId" value="${session.user.id}"/>
+<input type="hidden" id="isMine" value="<c:if test="${session.user.id!=obj.user.id}">0</c:if>"/>
+<input type="hidden" id="currentUserId" value="${session.user.id}"/>
+<input type="hidden" id="userId" value="${obj.user.id}"/>
 <div id="grid-gallery" class="grid-gallery">
 	<section class="grid-wrap">
 		<ul class="grid">
@@ -72,8 +73,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</li>
 		</ul>
 		<nav>
-			<span class="icon nav-prev"></span>
-			<span class="icon nav-next"></span>
+			<span class="icon nav-prev" style="display:none"></span>
+			<span class="icon nav-next" style="display:none"></span>
 			<span class="icon nav-close"></span>
 		</nav>
 	</section><!-- // slideshow -->
