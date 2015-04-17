@@ -81,6 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="loadingComment" class="loadComm"></div>
 
 <script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="js/goUrl.js"></script>
 <script type="text/javascript" src="js/user/calculateDistanceTime.js"></script>
 <script type="text/javascript" src="js/jquery.showLoading.js"></script>
 <script type="text/javascript" src="js/user/at.js"></script>
@@ -94,6 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script>
 	new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 	
+	//自动加载
 	$(function(){ 
 		document.getElementById("viewDIV").click();
 	}); 

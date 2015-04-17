@@ -127,13 +127,20 @@ public class GetMessage extends UserAction{
 			}else{
 				//使用数据转换类
 				List<dto.Message> messages = service.getDtoObjectsBySql(
-						"select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status "
+						/*"select r.id,r.user_id,r.is_accusation,ph.user_id as photoOwnerId,u.name,p.url_m,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status "
 						+ "from reply r,photo ph,user u "
 						+ "LEFT JOIN head_photo p on p.is_delete=0 and p.id=u.head_photo_id "
 						+ "where r.photo_bid=ph.id and r.is_delete=0 and u.id=r.user_id and "+ ("photo".equals(type)?"r.photo_bid is not null":"")
 						+ " and r.user_id!="+user.getId()+" "
 								+ "and (r.user_bid="+user.getId()+" or r.photo_bid in (select c.id from photo c where c.user_id="+user.getId()+")) "
-								+ "group by r.id order by r.signup_date desc", pc,new dto.Message());
+								+ "group by r.id order by r.signup_date desc", pc,new dto.Message());*/
+						"select "+
+						"r.id,r.user_id,r.is_accusation,r.user_bid,r.photo_bid,r.context,r.signup_date,r.status,u.name,ph.user_id as photoOwnerId,p.url_m "+
+						"from reply r "+
+						"LEFT JOIN user u on r.user_id=u.id "+
+						"LEFT JOIN photo ph on ph.id=r.photo_bid "+
+						"LEFT JOIN head_photo p on p.id=u.head_photo_id where r.user_id!="+user.getId()+" and r.user_bid="+user.getId()+
+						" ORDER BY r.signup_date desc", pc,new dto.Message());
 				
 				//将未读消息设置成已读
 				StringBuilder sb = new StringBuilder();
