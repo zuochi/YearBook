@@ -351,7 +351,7 @@ function showFollowing(){
 	myPostDisplay=0;
 	display=0;
 };
-	
+
 function showFollowers(){
 	$("#grid-gallery").hide();
 	$("#followingContext").hide();
@@ -374,7 +374,29 @@ function showFollowers(){
 	myPostDisplay=0;
 	display=1;
 };
-	
+
+//留言
+function leaveMessage(socialId){
+	$.ajax({
+		url:'user/doPrivateLetter_execute',  
+		type:'post', 
+		data:"privateLetter.userByUserBid.id="+socialId+"&privateLetter.context="+document.getElementById("privateLetterContext").value,
+		async:false,
+		dataType:"text",
+		success:function (json) {
+			if(json.error==undefined){
+				//成功之后
+				if(json=="success"){
+					document.getElementById("privateLetterContext").value="";
+					alert("The message had been sent.");
+				}else{
+					alert("Fail,the network doesn't work.");
+				}
+			}
+		}
+	});
+};
+
 //为窗口添加动作
 $(document).ready(function(){
 	window.addEventListener( 'scroll', function() {

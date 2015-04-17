@@ -149,6 +149,50 @@ function showMentionMe(toPageM,countM){
 	//$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
 };
 
+//显示Pirvate Message的消息
+function showPirvateLetter(toPageM,countM){
+	//if($("#commentBody"+photoBid).text()==''){
+		//toPageM+=1;
+		$("#photoReplyDiv").html("");
+		$.ajax({
+			url:'user/getMessage_getPirvateLetterByPerPage',  
+			type:'post', 
+	        data:"toPage="+toPageM+"&count="+countM+"&type=pl",
+	        async:false,
+	        dataType:'json', 
+			success:function (json) {
+				if(json.error==undefined){
+					console.log(json);
+					for(var i=0; i<json.length; i++){
+						$("#photoReplyDiv").append(
+							//json[i].status+
+							"<div id='replyBody"+json[i].id+"' class='ds-post-main'>"+
+							//json[i].photo_bid+
+							"<div class='ds-avatar'>"+
+								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank'><img src='"+json[i].url_m+"'></a>"+
+							"</div>"+
+							"<div class='ds-comment-body'>"+
+								"<a title='"+json[i].name+"' href='javascript:goSocialIndex("+json[i].user_id+")' target='_blank' class='user-name'>"+json[i].name+"</a>"+"<div class='reminder'>"+(json[i].status==0?"<span style='color:grep' title='unread'>?</span>":"")+"</div>"+
+								"<div class='message' id='commentEmo"+json[i].id+"'>"+json[i].context+"</div>"+
+								"<div class='time'><p>"+calculateDT(json[i].signup_date)+"</p></div>"+
+								"<a href='javascript:void(0)' onclick='deletePrivateLetter("+json[i].id+")'><div class='operate' title='Delete this private letter'>delete</div></a>"+
+								"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].user_id+")'><div class='operate' title='Visit to the user.'>visit</div></a>"+
+								"<div id='friendTips"+json[i].id+"' class='friendTipMessage'/>"+
+								"<div id='Freply"+json[i].id+"' style='display:none'>"+
+										"<input id='reply"+json[i].id+"' type='text' style='width:360px' onkeydown='enterDeal("+json[i].id+")' onkeyup='getAtName(this.value,"+json[i].id+")'/>"+
+										"<input type='button' value='reply' onclick='comment("+json[i].user_id+","+json[i].id+","+json[i].photo_bid+",\""+json[i].name+"\","+json[i].photoOwnerId+")'/>"+
+								"</div>"+
+						"</div>"
+						);
+						$('#commentEmo'+json[i].id).emoticonize();
+					}
+				}
+			}
+		});
+	//}
+	//$("#loadingComment"+photoBid).hideLoading();//隐藏读取状态
+};
+
 //删除消息
 function deleteMessage(replyId){
 	if(confirm("Are you sure to delete this reply?")) {
@@ -191,6 +235,27 @@ function deleteAtNotify(atNotifyId){
 	}
 };
 
+//删除私信
+function deletePrivateLetter(privateLetterId){
+	if(confirm("Are you sure to delete this private letter?")) {
+		$.ajax({
+			url:'user/deletePrivateLetter_execute',
+			type:'post',
+			data:"privateLetter.id="+privateLetterId,
+			async:false,
+			dataType:'text',
+			success:function (msg) {
+				if(msg=="success"){
+					$("#replyBody"+privateLetterId).remove();
+				}else{
+					alert("delete " + msg);
+				}
+			}
+		});
+		$("#replyBody"+privateLetterId).remove();
+	}
+};
+
 //翻页
 function messageTurnPage(toPageM,countM,type){
 	window.location.href="user/getMessage_execute?toPage="+toPageM+"&count="+countM+"&type="+type;
@@ -207,5 +272,7 @@ $(document).ready(function(){
 		showPhotoReplys($("#pageM").val(),$("#countM").val());
 	}else if($("#typeM").val()=="mentionMe"){
 		showMentionMe($("#pageM").val(),$("#countM").val());
+	}else if($("#typeM").val()=="pl"){
+		showPirvateLetter($("#pageM").val(),$("#countM").val());
 	}
 });

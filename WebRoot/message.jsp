@@ -54,11 +54,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <s:else>
  	<a style="font-size:15px;color:#303030;" href="javascript:void(0)"  onclick="changeType('mentionMe')">Mention me(<s:property value="#request.mentionMeUnReadCount"/>)</a>&nbsp;&nbsp;
  </s:else>
- <s:if test="#request.type=='bbs'">
-  <span style="font-size:16px;color:#3ab6ac;font-weight:normal;" >	BBS's reply</span>&nbsp;&nbsp;
+ <s:if test="#request.type=='pl'">
+  <span style="font-size:16px;color:#3ab6ac;font-weight:normal;" >Private letter(<s:property value="#request.pirvateLetterUnReadCount"/>)</span>&nbsp;&nbsp;
  </s:if>
  <s:else>
- 	<a style="font-size:15px;color:#303030;" href="javascript:void(0)"  onclick="changeType('bbs')">BBS's reply</a>&nbsp;&nbsp;
+ 	<a style="font-size:15px;color:#303030;" href="javascript:void(0)"  onclick="changeType('pl')">Private letter(<s:property value="#request.pirvateLetterUnReadCount"/>)</a>&nbsp;&nbsp;
  </s:else>
  <br/></div>
  <div style=" float:top;margin:10px 0 10px 0;position:relative;border-bottom:1px dashed #8f8f8f;"></div>

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import util.PageController;
+import bean.PrivateLetter;
 import bean.User;
 
 @Controller
@@ -32,6 +33,8 @@ public class GetMessage extends UserAction{
 				count = (Integer) service.getObjectByHql("select count(r.id) from Reply r where r.isDelete=0 and r.photo.id is not null and (r.userByUserBid.id="+user.getId()+" or r.photo.id in (select p.id from Photo p where p.user.id="+user.getId()+")) and r.userByUserId.id!="+user.getId(), "getInteger");
 			}else if("mentionMe".equals(type)){
 				count = (Integer) service.getObjectByHql("select count(a.id) from AtNotify a where a.isDelete=0 and a.userByUserBid.id="+user.getId(), "getInteger");
+			}else if("pl".equals(type)){
+				count = (Integer) service.getObjectByHql("select count(p.id) from PrivateLetter p where p.isDelete=0 and p.userByUserBid.id="+user.getId(), "getInteger");
 			}
 			
 			
@@ -46,6 +49,7 @@ public class GetMessage extends UserAction{
 			//获取各种消息未读总条数
 			request.setAttribute("messageReplyUnReadCount", doGetUnReadCount());
 			request.setAttribute("mentionMeUnReadCount", doGetUnReadMentionMeCount());
+			request.setAttribute("pirvateLetterUnReadCount", doGetUnReadPirvateLetterCount());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,6 +63,10 @@ public class GetMessage extends UserAction{
 	 */
 	public String getMentionMeByPerPage(){
 		user = (User) request.getSession().getAttribute("user");
+		
+		if(user==null){
+			return null;
+		}
 		
 		try {
 			//status=0 ,且评论者不为自己的未读的条数
@@ -167,6 +175,60 @@ public class GetMessage extends UserAction{
 		return null;
 	}
 	
+	/**
+	 * 获取PirvateLetter的相关信息
+	 * @return String
+	 */
+	public String getPirvateLetterByPerPage(){
+		user = (User) request.getSession().getAttribute("user");
+		
+		if(user==null){
+			return null;
+		}
+		
+		try {
+			//status=0 ,且评论者不为自己的未读的条数
+			//count = (Integer) service.getObjectByHql("select count(*) from Reply r where r.status=0 and r.isDelete=0 and r.userByUserBid.id!="+user.getId()+" and r.userByUserId.id="+user.getId(), "getInteger");
+			PageController pc = new PageController(count,1,pageSize);
+			pc.setCurrentPage(toPage);
+			
+			if(toPage>pc.getTotalPages()){
+				out.print("fail");
+			}else{
+				//使用数据转换类
+				List<dto.Message> messages = service.getDtoObjectsBySql(
+						"select "+
+							"pl.id,pl.user_id,pl.id as is_accusation,pl.user_bid,pl.id as photo_bid,pl.context,pl.signup_date,pl.status,u.name,pl.id as photoOwnerId,p.url_m "+
+						"from private_letter pl "+
+							"LEFT JOIN user u on pl.user_id=u.id "+
+							"LEFT JOIN head_photo p on p.id=u.head_photo_id where pl.user_bid="+user.getId()+
+						 " ORDER BY pl.signup_date desc", pc, new dto.Message());
+				
+				//将未读消息设置成已读
+				StringBuilder sb = new StringBuilder();
+				sb.append("'0'");
+				for(dto.Message message : messages){
+					if(message.getStatus()==0){
+						sb.append(",'"+message.getId().toString()+"'");
+					}
+				}
+				if(sb.toString().length()>3){
+					service.updateObjectsBySql("update private_letter set status=1 where id in (" + sb.toString() + ")");
+				}
+				
+				JSONArray json = JSONArray.fromObject(messages);
+				out = response.getWriter();
+				out.print(json);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally{
+			out.flush();
+			out.close();
+		}
+		return null;
+	}
+	
 	//获取未读总条数
 	public void getNewMessageCount(){
 		try {
@@ -179,7 +241,7 @@ public class GetMessage extends UserAction{
 			out = response.getWriter();
 			
 			//status=0 ,且评论者不为自己的未读的条数
-			Integer newMessageCount = doGetUnReadCount() + doGetUnReadMentionMeCount();
+			Integer newMessageCount = doGetUnReadCount() + doGetUnReadMentionMeCount() + doGetUnReadPirvateLetterCount();
 			
 			out.print(newMessageCount);
 			
@@ -233,6 +295,29 @@ public class GetMessage extends UserAction{
 					+ "where a.isDelete=0 and "
 					+ "a.status=0 and "
 					+ "a.userByUserBid.id="+user.getId(), "getInteger");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	//获取Private Letter未读总条数
+	private int doGetUnReadPirvateLetterCount(){
+		try {
+			user = (User) request.getSession().getAttribute("user");
+			
+			if(user==null){
+				return 0;
+			}
+			
+			//status=0 is_delete=0,且被艾特到的user为自己的未读的条数
+			return (Integer) service.getObjectByHql(
+					"select count(p.id) "
+					+ "from PrivateLetter p "
+					+ "where p.isDelete=0 and "
+					+ "p.status=0 and "
+					+ "p.userByUserBid.id="+user.getId(), "getInteger");
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -46,8 +46,8 @@ function mScroll(id){
 	$("html,body").animate({scrollTop: $("#"+id).offset().top}, 500);
 };
 
+var isNotice=0;
 //读取首页图片
-var isNotice = 0;
 function loadPhotos(){
 	//每次翻页+1
 	if(document.getElementById("toPage").value==0){//等于0说明是第一次加载
@@ -58,7 +58,7 @@ function loadPhotos(){
 		}else{
 			if(isNotice==0){
 				isNotice=1;
-				alert("oops,there are no more photos.");
+				document.getElementById("noMore").style.display='block';
 			}
 			return;
 		}
@@ -107,7 +107,7 @@ function loadPhotos(){
 			}else{
 				$("#ctr").append("<div style=' font-size:x-large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
 			}
-			setTimeout("recall()", 0);
+			setTimeout("recall()", 50);
 		}
 	});
 };

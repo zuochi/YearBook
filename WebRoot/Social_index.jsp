@@ -104,20 +104,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<a href="javascript:void(0)" onclick="showFollowers()"><div class="atten">Followers : <span id="followersNumber" ><s:property value="#request.socialFollowersCount"/></span></div></a>
 		</div>
 		
-		<a href="#"  class="red button"  data-reveal-id="myModal" data-animation="fade">Leave Message</a>
+		<a href="javascript:void(0)"  class="red button"  data-reveal-id="myModal" data-animation="fade">Leave Message</a>
 		<div id="myModal" class="reveal-modal">
-			<p class="bbs">Whatever message you leave ,only "username" could see</p>
-			<textarea rows="10" cols="70"></textarea>
+			<p class="bbs">Whatever message you leave ,only "
+				<s:if test="#request.socialUser.name.length()<=10"><s:property value="#request.socialUser.name"/></s:if>
+				<s:else>No name</s:else>" could see</p>
+			<textarea rows="10" cols="70" id="privateLetterContext"></textarea>
 			<a class="close-reveal-modal">&#215;</a>
-			<input type="button" value="Leave message"  style="width:120px;height:30px;"/>
+			<input type="button" value="Leave message" onclick="leaveMessage(<s:property value="#request.socialUser.id"/>)"  style="width:120px;height:30px;"/>
 		</div>	
 
 
 </div>
-
-	
-		
-		
 		<!-- // grid-gallery -->
 		<div id="grid-gallery" class="grid-gallery">
 			<section class="grid-wrap">

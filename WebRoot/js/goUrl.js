@@ -63,9 +63,3 @@ function goSocialFollowing(userId){
 	openPostWindow("user/getSocial","user.id",userId,"_blank");
 	showFollowing();
 };
-
-//去某用户的主页
-function goSocialIndex(userId){
-	//window.open("user/getSocial?user.id="+userId,'_blank');
-	openPostWindow("user/getSocial","user.id",userId,"_blank");
-};

@@ -48,6 +48,7 @@ function selectProfession(professionId){
 	mScroll("professionsDIV");
 	//重置没有图片的提示
 	isNotice=0;
+	document.getElementById("noMore").style.display='none';
 };
 
 //读取专业
