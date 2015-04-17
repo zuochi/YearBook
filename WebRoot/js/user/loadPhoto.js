@@ -107,9 +107,14 @@ function loadPhotos(){
 			}else{
 				$("#ctr").append("<div style=' font-size:x-large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
 			}
-			$("#ctr").masonry('reload');
+			setTimeout("recall()", 0);
 		}
 	});
+};
+
+//重新计算流布局
+function recall(){
+	$("#ctr").masonry('reload');
 };
 
 //滚动条出发
