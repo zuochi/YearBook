@@ -29,7 +29,8 @@ function comment(userBid,replyId,photoBid,nickName,photoOwnerId){
 					this.disabled = false;
 				});
 				$("#reply"+replyId).val("reply@"+nickName+" ");
-				$("#replySuccessTip").html("reply success!").hide(3000); 
+				//$("#replySuccessTip").html("reply success!").hide(3000); 
+				alert("reply success!");
 				focusLast(document.getElementById(("reply"+replyId)));
 				//统计剩余字数
 				//wordsNumber(photoBid);
