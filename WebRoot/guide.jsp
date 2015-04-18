@@ -10,13 +10,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign In</a>  or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p>
 <div class="guidance">
 <div class="center">
-<p><a href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
+<img style="position:absolute;margin:10px 0 0 -68px;" src="images/logo.png" alt="" width="136"	height="70"  />
+<p><a style="margin-left:30px;" href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(7)">Message<my id="getCountSpan"></my></a></p>
-<img style="float:left;margin:0 0 0 5px;" src="images/logo.png" alt="" width="120"	height="80"  />
 <p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(12)">Feedback</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(8)">Exit</a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(7)" style="position:absolute;margin:0 0 0 150px;">Message<my id="getCountSpan"></my></a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(12)" style="position:absolute;margin:0 0 0 230px;">Feedback</a></p>
+<p><a href="javascript:void(0)" onclick="goUrl(8)" style="position:absolute;margin:0 0 0 300px;">Exit</a></p>
 </div>
 </div>
 </div>

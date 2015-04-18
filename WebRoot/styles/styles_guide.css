@@ -29,14 +29,14 @@ a:hover {
     text-decoration: none;
 }
 .guidance{
-	width:870px;
+	width:860px;
 	height:90px;
 	position:relative;
 	margin:0 auto;
 }
 .center{
 	position:absolute;
-	width:870px;
+	width:860px;
 	height:90px;
 	text-align: center;
 }
