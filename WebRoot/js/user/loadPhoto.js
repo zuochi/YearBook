@@ -97,10 +97,10 @@ function loadPhotos(){
 						"<div class='box photo col3'>"+
 							"<a href='javascript:void(0)' onclick='goSocialIndex("+json[0].objs[i].user_id+")'><div class='like_user_name'>"+json[0].objs[i].name+"</div></a>"+
 							"<div class='top_time'>"+calculateDT(json[0].objs[i].review_date)+"</div>"+
-							"<a href='ShowBigPic.jsp?url="+json[0].objs[i].url+"&name="+json[0].objs[i].name+"' target='_blank' title='Show big size in a new window.'><img src='"+json[0].objs[i].url+"' alt='Like' />"+
-							"<a href='javascript:void(0)' onclick='doPraise("+json[0].objs[i].id+","+json[0].objs[i].photo_id+")'><div id='isPraiseDIV"+json[0].objs[i].id+"' class="+(json[0].objs[i].is_praise==0?'likes_icon':'unlikes_icon')+">"+
+							"<a href='ShowBigPic.jsp?url="+json[0].objs[i].url+"&name="+json[0].objs[i].name+"' target='_blank' title='Show big size in a new window.'><img src='"+json[0].objs[i].url+"' alt='Like' /></a>"+
+							"<a href='javascript:void(0)' onclick='doPraise("+json[0].objs[i].id+","+json[0].objs[i].photo_id+")'><div id='isPraiseDIV"+json[0].objs[i].id+"' class="+(json[0].objs[i].is_praise==0?'likes_icon':'unlikes_icon')+">"+"</div></a>"+
 								"<div class='like_number' id='praise_countDIV"+json[0].objs[i].id+"'>("+json[0].objs[i].praise_count+")</div>"+
-							"</div></a>"+
+							
 						"</div>"
 					);
 				}

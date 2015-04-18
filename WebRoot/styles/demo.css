@@ -9,7 +9,7 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 body {background-image:url(../images/background_main.png);background-repeat: repeat;
     font-family: Calibri,  sans-serif;
     color: #234;
-    height:110%;
+ 
 }
 
 .clearfix{
@@ -277,9 +277,7 @@ margin-top:8px;
 	
 }
 .guanzhu{
-	margin-top:0px;
 	float: top;
-	margin-left:0px;
 	background-image:url(../images/000.png);
 	height:50px;
 	width:200px;
@@ -398,7 +396,6 @@ margin-top:8px;
 	font-size:17px;
     color:#234;
 	float:left;
-	positon:relative;
 	width:200px;
 	margin:20px 0 0 30px;
 	border: 10px solid #fff;
@@ -485,16 +482,13 @@ margin-top:8px;
 		}
 	
 .reveal-modal {
+	
 		visibility: hidden;
-		top:0; 
-        bottom:0; 
-        left:0; 
-        right:0; 
-        margin:auto;
+		margin:auto;left:0; right:0; top:0; bottom:0;
 		width: 650px;
 		height:300px;
 		background: #eee  no-repeat -200px -80px;
-		position: absolute;
+		position:fixed;
 		z-index: 101;
 		padding: 30px 40px 34px;
 		-moz-border-radius: 5px;
@@ -503,6 +497,17 @@ margin-top:8px;
 		-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
 		-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
 		-box-shadow: 0 0 10px rgba(0,0,0,.4);
+		}
+.reveal-modal .close-reveal-modal {
+		font-size: 22px;
+		line-height: .5;
+		position: absolute;
+		top: 8px;
+		right: 11px;
+		color: #aaa;
+		text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+		font-weight: bold;
+		cursor: pointer;
 		}
 .bbs{
 	padding:0;margin:0 0 20px 0;

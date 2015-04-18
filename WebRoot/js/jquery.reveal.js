@@ -35,7 +35,7 @@
 					lockModal();
 					
 					if(options.animation == "fade") {
-						modal.css({'opacity' : 0, 'visibility' : 'visible', 'top': $(document).scrollTop()+topMeasure});
+						modal.css({'opacity' : 0, 'visibility' : 'visible', });
 						modalBG.fadeIn(options.animationspeed/2);
 						modal.delay(options.animationspeed/2).animate({
 							"opacity" : 1
@@ -56,7 +56,7 @@
 						modal.animate({
 							"opacity" : 0
 						}, options.animationspeed, function() {
-							modal.css({'opacity' : 1, 'visibility' : 'hidden', 'top' : topMeasure});
+							modal.css({'opacity' : 1, 'visibility' : 'hidden', });
 							unlockModal();
 						});					
 					}  	

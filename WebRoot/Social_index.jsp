@@ -104,8 +104,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<a href="javascript:void(0)" onclick="showFollowers()"><div class="atten">Followers : <span id="followersNumber" ><s:property value="#request.socialFollowersCount"/></span></div></a>
 		</div>
 		
-		<a href="javascript:void(0)"  class="red button"  data-reveal-id="myModal" data-animation="fade">Leave Message</a>
-		<div id="myModal" class="reveal-modal">
+		<a href="#"  class="red button"  data-reveal-id="myModal" data-animation="fade">Leave Message</a>
+
+</div>
+	<div id="myModal" class="reveal-modal">
 			<p class="bbs">Whatever message you leave ,only "
 				<s:if test="#request.socialUser.name.length()<=10"><s:property value="#request.socialUser.name"/></s:if>
 				<s:else>No name</s:else>" could see</p>
@@ -115,7 +117,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>	
 
 
-</div>
 		<!-- // grid-gallery -->
 		<div id="grid-gallery" class="grid-gallery">
 			<section class="grid-wrap">
