@@ -30,6 +30,11 @@
                 <comment>0:未处理;1:通过;2:未通过;3:下架</comment>
             </column>
         </property>
+        <property name="statusCover" type="java.lang.Integer">
+            <column name="status_cover" not-null="true">
+                <comment>0:下架;1:上架</comment>
+            </column>
+        </property>
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete">
                 <comment>0:未删除 1:已删除</comment>
@@ -43,6 +48,11 @@
         <property name="praiseDate" type="java.sql.Timestamp">
             <column name="praise_date" length="19" not-null="false">
                 <comment>最新点赞日期</comment>
+            </column>
+        </property>
+        <property name="topDate" type="java.sql.Timestamp">
+            <column name="top_date" length="19" not-null="false">
+                <comment>顶置日期</comment>
             </column>
         </property>
     </class>

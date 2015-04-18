@@ -19,7 +19,7 @@ public class IwantTop extends UserAction {
 			Properties pro = new Properties();
 			pro.setProperty("photo.id", photo.getId().toString());
 			if (service.isDuplicationOfProperties(pro, new IWantTop()) == false) {
-				IWantTop iWantTop = new IWantTop(user, photo, new Timestamp(System.currentTimeMillis()), 0,0);
+				IWantTop iWantTop = new IWantTop(user, photo, new Timestamp(System.currentTimeMillis()), 0,0,0);
 				if (service.saveObject(iWantTop)) {
 					out.print("success");
 				} else {

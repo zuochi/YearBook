@@ -15,41 +15,54 @@ public class IWantTop implements java.io.Serializable {
 	private Photo photo;
 	private Timestamp signupDate;
 	private Integer status;
+	private Integer statusCover;
 	private Integer isDelete;
 	private Timestamp reviewDate;
 	private Timestamp praiseDate;
+	private Timestamp topDate;
 	
 	// Constructors
 
 	/** default constructor */
 	public IWantTop() {}
 	
-	public IWantTop(User user, Photo photo, Timestamp signupDate,Integer status,Integer isDelete) {
+	public IWantTop(User user, Photo photo, Timestamp signupDate,Integer status,Integer statusCover,Integer isDelete) {
 		this.user = user;
 		this.photo = photo;
 		this.signupDate = signupDate;
+		this.statusCover = status;
 		this.status = status;
 		this.isDelete = isDelete;
 	}
 	
 	/** full constructor */
 	public IWantTop(Integer id, User user, Photo photo, Timestamp signupDate,
-			Integer status, Integer isDelete, Timestamp reviewDate,
-			Timestamp praiseDate) {
+			Integer status,Integer statusCover, Integer isDelete, Timestamp reviewDate,
+			Timestamp praiseDate,Timestamp topDate) {
 		this.id = id;
 		this.user = user;
 		this.photo = photo;
 		this.signupDate = signupDate;
 		this.status = status;
+		this.statusCover = statusCover;
 		this.isDelete = isDelete;
 		this.reviewDate = reviewDate;
 		this.praiseDate = praiseDate;
+		this.topDate = topDate;
 	}
 
 	// Property accessors
 
 	public Timestamp getPraiseDate() {
 		return praiseDate;
+	}
+
+	public Timestamp getTopDate() {
+		return topDate;
+	}
+
+	public void setTopDate(Timestamp topDate) {
+		this.topDate = topDate;
 	}
 
 	public void setPraiseDate(Timestamp praiseDate) {
@@ -110,5 +123,13 @@ public class IWantTop implements java.io.Serializable {
 
 	public void setReviewDate(Timestamp reviewDate) {
 		this.reviewDate = reviewDate;
+	}
+
+	public Integer getStatusCover() {
+		return statusCover;
+	}
+
+	public void setStatusCover(Integer statusCover) {
+		this.statusCover = statusCover;
 	}
 }

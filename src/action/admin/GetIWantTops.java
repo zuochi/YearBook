@@ -23,6 +23,7 @@ public class GetIWantTops extends AdminAction{
 			chw.setCondition("user.id", iwant.getUser().getId(), CHW.opr_equal);
 			chw.setCondition("user.name", iwant.getUser().getName(), CHW.opr_like);
 			chw.setCondition("status", iwant.getStatus(), CHW.opr_equal);
+			chw.setCondition("statusCover", iwant.getStatusCover(), CHW.opr_equal);
 		}
 		
 		int photosCount = (Integer) service.getObjectByHql("select count(id) from IWantTop " + chw.getSqlWhere(),"getInteger");

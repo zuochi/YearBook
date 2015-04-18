@@ -35,6 +35,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<option <c:if test="${params.status==2}">selected="selected"</c:if> value="2">未通过</option>
 		<option <c:if test="${params.status==3}">selected="selected"</c:if> value="3">下架</option>
 	</select>
+上首页状态:
+	<select name="iwant.statusCover">
+		<option value="">全部</option>
+		<option <c:if test="${params.statusCover==1}">selected="selected"</c:if> value="1">上架</option>
+		<option <c:if test="${params.statusCover==0}">selected="selected"</c:if> value="0">下架</option>
+	</select>
 <input type="submit" value="查找">
 <input type="button" onclick="resetSearch()" value="重置">
 <script type="text/javascript">
@@ -49,11 +55,13 @@ function resetSearch(){
 <thead>
 	<tr>
 		<th>排序：</th>
-		<th><a href="javascript:orderBy('id')">申请编号</a></th>
-		<th><a href="javascript:orderBy('user.id')">上传人编号</a></th>
-		<th><a href="javascript:orderBy('user.name')">上传人昵称</a></th>
-		<th><a href="javascript:orderBy('signupDate')">申请时间</a></th>
-		<th><a href="javascript:orderBy('status')">状态</a></th>
+		<th><a href="javascript:orderBy('id')">●申请编号</a></th>
+		<th><a href="javascript:orderBy('user.id')">●上传人编号</a></th>
+		<th><a href="javascript:orderBy('user.name')">●上传人昵称</a></th>
+		<th><a href="javascript:orderBy('signupDate')">●申请时间</a></th>
+		<th><a href="javascript:orderBy('status')">●状态</a></th>
+		<th><a href="javascript:orderBy('statusCover')">●上首页状态</a></th>
+		<th><a href="javascript:orderBy('topDate')">●上首页顺序</a></th>
 		<!-- <th>编辑/查看</th> -->
 	</tr>
 </thead>
@@ -97,11 +105,24 @@ function resetSearch(){
 				<c:if test="${obj.status==2}"><span style="color:orange">未通过</span></c:if>
 				<c:if test="${obj.status==3}"><span style="color:black">下架</span></c:if>
 			<br><br>
+			上首页状态:
+				<c:if test="${obj.statusCover==1}"><span style="color:green">上架</span></c:if>
+				<c:if test="${obj.statusCover==0}"><span style="color:red">下架</span></c:if>
+			<br><br>
 			操作：
 				<c:if test="${obj.status==0}"><input type="button" value="通过" onclick="reviewIWantTop(${obj.id},1)"></c:if>
 				<c:if test="${obj.status==2}"><input type="button" value="通过" onclick="reviewIWantTop(${obj.id},1)"></c:if>
 				<c:if test="${obj.status==0}"><input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)"></c:if>
-				<c:if test="${obj.status==1}"><input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)"></c:if>
+				<c:if test="${obj.status==1}">
+					<input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)">
+					<c:if test="${obj.statusCover==0}">
+						<input type="button" value="上首页" onclick="setIWantTopStatusCover(${obj.id},1)">
+					</c:if>
+					<c:if test="${obj.statusCover==1}">
+						<input type="button" value="落首页" onclick="setIWantTopStatusCover(${obj.id},0)">
+						<input type="button" value="顶置" onclick="overhead(${obj.id})">
+					</c:if>
+				</c:if>
 		</td>
 	</tr></table>
 	</div>
