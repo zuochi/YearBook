@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign In</a>  or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p>
 <div class="guidance">
 <div class="center">
-<img style="position:absolute;margin:10px 0 0 -68px;" src="images/logo.png" alt="" width="136"	height="70"  />
+<img style="position:absolute;margin:10px 0 0 -70px;" src="images/logo.png" alt="" width="136"	height="70"  />
 <p><a style="margin-left:30px;" href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
 <p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
