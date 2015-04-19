@@ -2,7 +2,6 @@ package action.user;
 
 import java.util.List;
 
-import jdk.nashorn.internal.scripts.JS;
 import net.sf.json.JSONArray;
 
 import org.springframework.context.annotation.Scope;
