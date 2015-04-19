@@ -35,8 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <form action="user/search_execute" method="post" id="form">
 <jsp:include page="template/user/search.jsp"></jsp:include>
 <jsp:include page="template/user/loadSocialPanel.jsp" />
+<div style="height:150px;width:100%;"></div>
 <jsp:include page="template/pageControl.jsp"></jsp:include>
-<div style="height:140px;width:100%;"></div>
 <div id="result" class="result">
 <c:forEach var="obj" items="${objs}">
 	<div class="user">
