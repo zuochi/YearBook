@@ -19,7 +19,10 @@ public class UpdateUser extends UserAction {
 			}
 			out = response.getWriter();
 			
+			User userOld = (User) session.get("user");
+			
 			user.setIsDelete(0);
+			user.setIsAdmin(userOld.getIsAdmin());
 			
 			if (service.updateUser(user)) {
 				out.print("success");
