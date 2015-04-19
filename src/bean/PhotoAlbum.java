@@ -1,8 +1,5 @@
 package bean;
 
-import java.util.HashSet;
-import java.util.Set;
-
 /**
  * PhotoAlbum entity. @author MyEclipse Persistence Tools
  */
@@ -18,7 +15,6 @@ public class PhotoAlbum implements java.io.Serializable {
 	private Integer permission;
 	private String password;
 	private Integer isDelete;
-	private Set photos = new HashSet(0);
 
 	// Constructors
 
@@ -33,14 +29,13 @@ public class PhotoAlbum implements java.io.Serializable {
 
 	/** full constructor */
 	public PhotoAlbum(User user, String name, String photoUrl,
-			Integer permission, String password, Integer isDelete, Set photos) {
+			Integer permission, String password, Integer isDelete) {
 		this.user = user;
 		this.name = name;
 		this.photoUrl = photoUrl;
 		this.permission = permission;
 		this.password = password;
 		this.isDelete = isDelete;
-		this.photos = photos;
 	}
 
 	// Property accessors
@@ -99,14 +94,6 @@ public class PhotoAlbum implements java.io.Serializable {
 
 	public void setIsDelete(Integer isDelete) {
 		this.isDelete = isDelete;
-	}
-
-	public Set getPhotos() {
-		return this.photos;
-	}
-
-	public void setPhotos(Set photos) {
-		this.photos = photos;
 	}
 
 }

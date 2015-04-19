@@ -39,28 +39,7 @@
 <!--  <div style="position:fixed; top:0px; left:10px; width:100px; height:100px; border:solid 2px blue;">ssssssssssssssssssssss</div> -->
 	<!--滚动图-->
 
-	  <div class="hero">
-
-            <div id="random">
-               
-                <div style="background-image: url(images/slide1.jpg)">
-	                 <div class="tagline">
-		                <h3>Welcome1:</h3>
-		                <p>Show your Pic here <br> Click the top nearby your photos.</p>
-	                </div> 
-                </div>
-                
-                <div style="background-image: url(images/slide2.jpg)"> 
-	                 <div class="tagline">
-		                <h3>Welcome2:</h3>
-		                <p>Show your Pic here <br> Click the top nearby your photos.</p>
-	                </div> 
-                </div> 
-                
-                <div style="background-image: url(images/slide3.jpg)"></div>                   
-                <div style="background-image: url(images/slide4.jpg)"></div>
-            </div>
-        </div>
+<jsp:include page="template/user/loadCoverAndAnnouncement.jsp"></jsp:include>	  
 
 <jsp:include page="template/user/loadProfession.jsp"></jsp:include>
 
@@ -97,15 +76,10 @@
 		});
 	
 	  $(document).ready(function() {
-		//滚动图		
-		$("#random").skippr();
-		$("#random2").skippr({
-			navType: 'bubble',
-			autoPlay: true,
-			autoPlayDuration: 2000
-		});
 		//异步读取内容
 		loadProfessions();
+		//读取封面以及公告
+		loadAnnouncementAndCover();
 	});
 	</script>
 </body>

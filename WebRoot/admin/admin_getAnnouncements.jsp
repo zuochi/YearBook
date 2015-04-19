@@ -32,11 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 发起人编号:<input type="text" size=4 name="announcement.user.id" value="${params.user.id}" onkeyup="this.value=this.value.replace(/\D/g,'')">
 发起人昵称:<input type="text" size=8 name="announcement.user.name" value="${params.user.name}">
 <%-- 置顶编号:<input type="text" name="announcement.topId" value="${params.topId}" onkeyup="this.value=this.value.replace(/\D/g,'')" style="width:30px" maxlength="3"> --%>
-是否置顶:<select name="announcement.top">
+<%-- 是否置顶:<select name="announcement.top">
 			<option value="">全部</option>
 			<option <c:if test="${params.top==1}">selected="selected"</c:if> value="1">是</option>
 			<option <c:if test="${params.top==0}">selected="selected"</c:if> value="0">否</option>
-		</select>
+		</select> --%>
 状态:<select name="announcement.isDelete">
 		<option value="">全部</option>
 		<option <c:if test="${params.isDelete==0}">selected="selected"</c:if> value="0">启用</option>
@@ -81,10 +81,10 @@ function resetSearch(){
 		<tr>
 			<td></td>
 			<td>
-				<select id="add_announcement_top">
+				<%-- <select id="add_announcement_top">
 					<option value="0">不置顶</option>
 					<option value="1">-置顶-</option>
-				</select>
+				</select>--%>
 			</td>
 		</tr>
 		<tr>
@@ -93,7 +93,7 @@ function resetSearch(){
 				<select id="add_announcement_isDelete">
 					<option value="0">启用</option>
 					<option value="1">停用</option>
-				</select>
+				</select> 
 				<input type="button" id="add_announcement_button2" onclick="addAnnouncement()" value="添加"  style="float:right"/>
 				<input type="button" onclick="hideAdd()" value="取消"/>
 			</td>
@@ -112,11 +112,11 @@ function resetSearch(){
 		<th><a href="javascript:orderBy('title')">标题</a></th>
 		<th><a href="javascript:orderBy('context')">内容</a></th>
 		<th><a href="javascript:orderBy('signupDate')">创建时间</a></th>
-		<th><a href="javascript:orderBy('top')">是否置顶</a></th>
 		<%-- <th><a href="javascript:orderBy('topId')">置顶编号</a></th> --%>
 		<th><a href="javascript:orderBy('isDelete')">状态</a></th>
 		<th>操作</th>
 		<th>编辑</th>
+		<th><a href="javascript:orderBy('topDate')">置顶顺序</a></th>
 	</tr>
 </thead>
 <c:forEach var="obj" items="${objs}">
@@ -127,10 +127,10 @@ function resetSearch(){
 		<td>${obj.title}</td>
 		<td>${obj.context}</td>
 		<td>${obj.signupDate}</td>
-		<td>
+		<%-- <td>
 			<c:if test="${obj.top==0}">否</c:if>
 			<c:if test="${obj.top==1}">是</c:if>
-		</td>
+		</td> --%>
 		<%-- <td>${obj.topId}</td> --%>
 		<td>
 			<c:if test="${obj.isDelete==0}">启用</c:if>
@@ -145,6 +145,7 @@ function resetSearch(){
 			</c:if>
 		</td>
 		<td><a href="javascript:void(0)" onclick="loadAnnouncement(${obj.id})">编辑</a></td>
+		<td align="center"><a href="javascript:void(0)" onclick="overheadAnnouncement(${obj.id})">置顶</a></td>
 	</tr>
 </c:forEach>
 </table>

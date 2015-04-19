@@ -25,9 +25,14 @@
                 <comment>公告内容</comment>
             </column>
         </property>
-        <property name="signupDate" type="java.util.Date">
+        <property name="signupDate" type="java.sql.Timestamp">
             <column name="signup_date" length="10" not-null="true">
                 <comment>公告日期</comment>
+            </column>
+        </property>
+         <property name="topDate" type="java.sql.Timestamp">
+            <column name="top_date" length="10" not-null="false">
+                <comment>顶置日期</comment>
             </column>
         </property>
         <property name="top" type="java.lang.Integer">

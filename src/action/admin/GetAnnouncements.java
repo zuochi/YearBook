@@ -26,6 +26,7 @@ public class GetAnnouncements extends AdminAction{
 			chw.setCondition("user.id", this.announcement.getUser().getId(), CHW.opr_equal);
 			chw.setCondition("user.name", this.announcement.getUser().getName(), CHW.opr_like);
 			chw.setCondition("top", this.announcement.getUser().getName(), CHW.opr_equal);
+			chw.setCondition("topDate", this.announcement.getTopDate(), CHW.opr_equal);
 			chw.setCondition("topId", this.announcement.getUser().getName(), CHW.opr_equal);
 			chw.setCondition("isDelete", this.announcement.getIsDelete(), CHW.opr_equal);
 		}else{

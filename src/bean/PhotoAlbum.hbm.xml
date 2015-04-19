@@ -40,13 +40,5 @@
                 <comment>0:未删除 1:已删除</comment>
             </column>
         </property>
-        <set name="photos" inverse="true">
-            <key>
-                <column name="album_id">
-                    <comment>相册id</comment>
-                </column>
-            </key>
-            <one-to-many class="bean.Photo" />
-        </set>
     </class>
 </hibernate-mapping>

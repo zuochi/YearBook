@@ -110,6 +110,7 @@ function resetSearch(){
 				<c:if test="${obj.statusCover==0}"><span style="color:red">下架</span></c:if>
 			<br><br>
 			操作：
+				<input type="button" value="在首页中预览" onclick="preview('${obj.photo.url}')"/>
 				<c:if test="${obj.status==0}"><input type="button" value="通过" onclick="reviewIWantTop(${obj.id},1)"></c:if>
 				<c:if test="${obj.status==2}"><input type="button" value="通过" onclick="reviewIWantTop(${obj.id},1)"></c:if>
 				<c:if test="${obj.status==0}"><input type="button" value="不通过" onclick="reviewIWantTop(${obj.id},2)"></c:if>

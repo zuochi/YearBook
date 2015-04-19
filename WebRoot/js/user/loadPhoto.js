@@ -105,7 +105,8 @@ function loadPhotos(){
 					);
 				}
 			}else{
-				$("#ctr").append("<div style=' font-size:x-large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
+				document.getElementById("noMore").style.display='block';
+				//$("#ctr").append("<div style=' font-size:x-large;text-align:center;color:#8f8f8f;'>oops,there are no more photos.</div>");
 			}
 			setTimeout("recall()", 50);
 		}

@@ -48,6 +48,41 @@ public class EditAnnouncement extends AdminAction {
 		return null;
 	}
 
+	public String overhead() {
+		try {
+			User user = (User) session.get("user");
+			
+			//TODO 过滤器
+			if(user==null){
+				return "login";
+			}
+			
+			//判断是否使用旧密码
+			out = response.getWriter();
+			
+			announcement = (Announcement) service.getObjectByHql("from Announcement where id="+announcement.getId());
+			
+			if(announcement!=null){
+				//重置顶置时间
+				announcement.setTopDate(new Timestamp(System.currentTimeMillis()));
+				if (service.updateObject(announcement)) {
+					out.print("success");
+				} else {
+					out.print("fail");
+				}
+			} else {
+				out.print("fail");
+			}
+		} catch (Exception e) {
+			out.print("fail");
+			e.printStackTrace();
+		} finally {
+			out.flush();
+			out.close();
+		}
+		return null;
+	}
+	
 	public Announcement getAnnouncement() {
 		return announcement;
 	}

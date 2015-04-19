@@ -92,12 +92,13 @@ function loadAnnouncement(announcementId) {
 					"<td><input id='add_announcement_title_"+ json.id +"' type='text' value='"+ json.title +"'></td>"+
 					"<td><input id='add_announcement_context_"+ json.id +"' type='text' value='"+ json.context +"'></td>"+
 					"<td>Editing</td>"+
-					"<td>"+
+					"<td>Editing</td>"+
+					/*"<td>"+
 						"<select id='announcement_td_top_"+ json.id +"'>"+
 							"<option "+(json.top==0?"selected='selected'":"")  + " value='0'>不置顶</option>"+
 							"<option "+(json.top==1?"selected='selected'":"")  + " value='1'>-置顶-</option>"+
 						"</select>"+
-					"</td>"+
+					"</td>"+*/
 					"<td>"+
 						"<select id='announcement_td_isDelete_"+ json.id +"'>"+
 							"<option "+(json.isDelete==0?"selected='selected'":"")  + " value='0'>启动</option>"+
@@ -113,18 +114,39 @@ function loadAnnouncement(announcementId) {
 	});
 };
 
-//更新专业
+//更新公告
 function saveAnnouncement(announcementId) {
 	if (confirm("Are you sure to update this announcement?")) {
 		var title = document.getElementById("add_announcement_title_"+announcementId).value;
 		var context = document.getElementById("add_announcement_context_"+announcementId).value;
-		var top = document.getElementById("announcement_td_top_"+announcementId).value;
+		//var top = document.getElementById("announcement_td_top_"+announcementId).value;
+		var top = 1;
 		var is_delete = document.getElementById("announcement_td_isDelete_"+announcementId).value;
 		
 		$.ajax({
 			url : 'admin/editAnnouncement_execute',
 			type : 'post',
 			data : "announcement.id=" + announcementId + "&announcement.title=" + title + "&announcement.isDelete=" + is_delete + "&announcement.context=" + context + "&announcement.top=" + top,
+			async : false,
+			dataType : 'text',
+			success : function(msg) {
+				if (msg == "success") {
+					window.location.reload(true);
+				} else {
+					alert("失败，数据库出错！");
+				}
+			}
+		});
+	}
+}
+
+//顶置公告
+function overheadAnnouncement(announcementId) {
+	if (confirm("Are you sure to overhead this announcement?")) {
+		$.ajax({
+			url : 'admin/editAnnouncement_overhead',
+			type : 'post',
+			data : "announcement.id=" + announcementId,
 			async : false,
 			dataType : 'text',
 			success : function(msg) {

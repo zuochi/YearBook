@@ -1,6 +1,6 @@
 package bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Advice entity. @author MyEclipse Persistence Tools
@@ -16,7 +16,8 @@ public class Announcement implements java.io.Serializable {
 	private String context;
 	private Integer top;
 	private Integer topId;
-	private Date signupDate;
+	private Timestamp signupDate;
+	private Timestamp topDate;
 	private Integer isDelete;
 
 	// Constructors
@@ -26,7 +27,7 @@ public class Announcement implements java.io.Serializable {
 
 	/** full constructor */
 	public Announcement(Integer id, User user, String title, String context,
-			Integer top, Integer topId, Date signupDate, Integer isDelete) {
+			Integer top, Integer topId, Timestamp signupDate,Timestamp topDate, Integer isDelete) {
 		this.id = id;
 		this.user = user;
 		this.title = title;
@@ -34,6 +35,7 @@ public class Announcement implements java.io.Serializable {
 		this.top = top;
 		this.topId = topId;
 		this.signupDate = signupDate;
+		this.topDate = topDate;
 		this.isDelete = isDelete;
 	}
 
@@ -86,12 +88,20 @@ public class Announcement implements java.io.Serializable {
 		this.topId = topId;
 	}
 
-	public Date getSignupDate() {
+	public Timestamp getSignupDate() {
 		return signupDate;
 	}
 
-	public void setSignupDate(Date signupDate) {
+	public void setSignupDate(Timestamp signupDate) {
 		this.signupDate = signupDate;
+	}
+
+	public Timestamp getTopDate() {
+		return topDate;
+	}
+
+	public void setTopDate(Timestamp topDate) {
+		this.topDate = topDate;
 	}
 
 	public Integer getIsDelete() {

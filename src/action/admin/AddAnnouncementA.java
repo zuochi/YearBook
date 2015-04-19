@@ -29,6 +29,8 @@ public class AddAnnouncementA extends AdminAction {
 			if(announcement!=null){
 				announcement.setUser(user);
 				announcement.setSignupDate(new Timestamp(System.currentTimeMillis()));
+				//设置顶置日期
+				announcement.setTopDate(new Timestamp(System.currentTimeMillis()));
 				if (service.saveObject(announcement)) {
 					out.print("success");
 				}else {

@@ -51,3 +51,8 @@ function setIWantTopStatusCover(iWantTopId,result){
 		});
 	}
 };
+
+//预览
+function preview(url){
+	window.open("admin/index_preview.jsp?url="+url);
+};
