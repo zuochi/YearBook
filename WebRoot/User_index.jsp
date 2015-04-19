@@ -73,8 +73,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								  <span style="font-size:medium" id="signContext"><s:property value="#session.user.sign"/></span>
 							</div>
 							<a href="javascript:void(0)" title="click to show my Post." onclick="myPostShow()" target="main"><div id="myPostSelectd" class="mypostSelect">Mypost</div></a>
-							<a href="javascript:void(0)" title="click to show latest social's infomation." onclick="socialShow()" target="main"><div id="socialSelectd" class="social">Social</div></a>
-							<a href="javascript:void(0)" title="click to upload." onclick="uploadPhoto()" target="main"><div class="upload">Upload</div></a>
+							<%-- <a href="javascript:void(0)" title="click to show latest social's infomation." onclick="socialShow()" target="main"><div id="socialSelectd" class="social">Social</div></a> --%>
+							<a href="javascript:void(0)" title="click to upload." onclick="uploadPhoto()" target="main"><div class="social">Upload</div></a>
 							
 
 					<div class="attfan">
@@ -148,72 +148,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="loadingComment" class="loadComm"></div>
 		<div id="loadingPhoto" class="loadPic"></div>
 		
-		<div id="socialDiv" style="display: none">
-			<!-- 留言板and可能认识的人 -->
-		<div class="friendframe">
-		<div class="bbs">
-
-
-		<div class="ds">
-		
-		<div class="ds-post-main" >
-		<div class="ds-avatar">
-		<a ><img src=""></a>
-		</div>
-		<div class="ds-comment-body">
-		<a title="bbs"  class="user-name">bbs</a>
-		<p style="font-size:12px;">"hello,world"。</p>
-		</div>
-		</div>
-
-		<div class="ds-post-main" >
-		<div class="ds-avatar">
-		<a ><img src=""></a>
-		</div>
-		<div class="ds-comment-body">
-		<a title="bbs"  class="user-name">bbs</a>
-		<p style="font-size:12px;">"hello,world"。</p>
-		</div>
-		</div>
-		
-
-</div>
-
-</div>
-				<div class="circle">
-				<div class="tips2">people you may know</div>
-				
-				
-				<div class="user-inf">
-				<div class="usersphoto">    </div>
-				<div class="usersname">     Kasstiel</div>
-				</div>
-				
-				
-				<div class="user-inf">
-				<div class="usersphoto">    </div>
-				<div class="usersname">     Kasstiel</div>
-				</div>
-				
-						
-				<div class="user-inf">
-				<div class="usersphoto">    </div>
-				<div class="usersname">     Kasstiel</div>
-				</div>
-				
-				
-				<div class="user-inf">
-				<div class="usersphoto">    </div>
-				<div class="usersname">     Kasstiel</div>
-				</div>
-				
-				</div>
-				
-				</div>
-			
-				
-				</div>
-		
+		<%-- Scoial板块 --%>
+		<%-- <jsp:include page="template/user/loadSocialPanel.jsp" /> --%>
+		<%-- Scoial板块 --%>
 	</body>
 </html>
    

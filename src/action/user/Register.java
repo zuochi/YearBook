@@ -23,6 +23,7 @@ public class Register extends UserAction {
 			user.setName(uuid);
 			user.setLastLogintime(new Timestamp(System.currentTimeMillis()));
 			user.setSignupDate(new Timestamp(System.currentTimeMillis()));
+			user.setIsAdmin(0);
 			user.setIsDelete(0);
 			this.userName = user.getUserName();
 			this.password = user.getPassword();

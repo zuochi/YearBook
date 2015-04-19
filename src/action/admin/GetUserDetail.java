@@ -1,5 +1,7 @@
 package action.admin;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -16,8 +18,8 @@ public class GetUserDetail extends AdminAction{
 	public String execute() {
 		user = (User) service.getObjectByHql("from User u where u.id="+user.getId(),"getHeadPhoto","getProfession");
 		
-		Profession professions = (Profession) service.getObjectByHql("from Profession p order by id");
-		SchoolYear schoolYears = (SchoolYear) service.getObjectByHql("from SchoolYear p order by year desc");
+		List<Profession> professions = service.getObjectsByHql("from Profession p order by id",null);
+		List<SchoolYear> schoolYears = service.getObjectsByHql("from SchoolYear p order by year desc",null);
 		request.setAttribute("obj", user);
 		request.setAttribute("professions", professions);
 		request.setAttribute("schoolYears", schoolYears);

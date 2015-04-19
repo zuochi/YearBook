@@ -48,7 +48,9 @@ function socialShow(){
 	$("#photosUL2").hide();
 	$("#hasPhotos").hide();
 	$("#myPostSelectd").removeClass().addClass("mypost"); 
-	$("#socialSelectd").removeClass().addClass("socialSelect"); 
+	$("#socialSelectd").removeClass().addClass("socialSelect");
+	//读取可能认识的人
+	loadNearBy();
 };
 
 function getPhotosByPerPage(isNew){

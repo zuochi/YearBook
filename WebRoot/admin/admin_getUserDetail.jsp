@@ -52,8 +52,7 @@
 	</s:iterator>
 	</select>
 		
-	<select style="font-size:16px;" name="user.profession.id" id="select"
-		tabindex="2">
+	<select style="font-size:16px;" name="user.profession.id" id="select">
 		<option value="">Profession&nbsp;&nbsp;</option>
 		<s:iterator value="#request.professions" id="o">
 			<option
@@ -80,25 +79,33 @@
 			</s:if>
 			value="0">女</option>
 	</select>
-	
-	<select style="font-size:16px;" name="user.isDelete" id="selectStatus">
-		<option value="">Status&nbsp;&nbsp;
-			&nbsp;</option>
-		<option
-			<s:if test="#request.obj.isDelete==0">
-						selected="selected"
-			</s:if>
-			value="0">正常
-		</option>
-		<option
-			<s:if test="#request.obj.isDelete==1">
-						selected="selected"
-			</s:if>
-			value="1">注销
-		</option>
-	</select>
 	</div>
-
+	<label>
+		账户状态:
+		<select style="font-size:16px;" name="user.isDelete" id="selectStatus">
+			<option value="">Status&nbsp;&nbsp;
+				&nbsp;</option>
+			<option
+				<s:if test="#request.obj.isDelete==0">
+							selected="selected"
+				</s:if>
+				value="0">正常
+			</option>
+			<option
+				<s:if test="#request.obj.isDelete==1">
+							selected="selected"
+				</s:if>
+				value="1">注销
+			</option>
+		</select>
+	</label>
+	<label>
+		是否管理员:
+		<select style="font-size:16px;" name="user.isAdmin" id="select4">
+			<option <c:if test="${obj.isAdmin==0}">selected="selected"</c:if> value="0">否</option>
+			<option <c:if test="${obj.isAdmin==1}">selected="selected"</c:if> value="1">是</option>
+		</select>
+	</label>
 	<!--资料填写有误提示-->
 	<h5 id="warn"></h5>
 	<div id="save">

@@ -13,10 +13,12 @@ public class LoginA extends AdminAction{
 	@Override
 	public String execute() {
 		if(user!=null){
-			user = (User) service.getObjectByHql("from User where userName='"+user.getUserName()+"' and password='" + user.getPassword() +"'");
+			user = (User) service.getObjectByHql(
+					"from User where isDelete=0 and isAdmin=1 and userName='"+user.getUserName()+"' and password='" + user.getPassword() +"'","getHeadPhoto");
 			
 			if(user!=null){
 				session.put("user", user);
+				session.put("headPhoto", user.getHeadPhoto());
 				return "loginSuccess";
 			}
 		}

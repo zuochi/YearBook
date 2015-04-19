@@ -7,16 +7,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <!-- 顶部菜单栏 -->
 <div id="menu">
-<p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign In</a>  or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p>
+
+<s:if test="#session.user==null">
+	<p>Please <a href="javascript:void(0)" onclick="goUrl(9)">Sign In</a>  or <a href="javascript:void(0)" onclick="goUrl(10)">Resgister</a></p>
+</s:if>
+
 <div class="guidance">
 <div class="center">
+
 <img style="position:absolute;margin:10px 0 0 -70px;" src="images/logo.png" alt="" width="136"	height="70"  />
+
 <p><a style="margin-left:30px;" href="javascript:void(0)" onclick="goUrl(3)">Home</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(7)" style="position:absolute;margin:0 0 0 150px;">Message<my id="getCountSpan"></my></a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(12)" style="position:absolute;margin:0 0 0 230px;">Feedback</a></p>
-<p><a href="javascript:void(0)" onclick="goUrl(8)" style="position:absolute;margin:0 0 0 300px;">Exit</a></p>
+
+<s:if test="#session.user!=null">
+	<p><a href="javascript:void(0)" onclick="goUrl(5)">Post</a></p>
+	<p><a href="javascript:void(0)" onclick="goUrl(2)">Profile</a></p>
+	<p><a href="javascript:void(0)" onclick="goUrl(7)" style="position:absolute;margin:0 0 0 150px;">Message<my id="getCountSpan"></my></a></p>
+	<p><a href="javascript:void(0)" onclick="goUrl(12)" style="position:absolute;margin:0 0 0 230px;">Feedback</a></p>
+	<p><a href="javascript:void(0)" onclick="goUrl(8)" style="position:absolute;margin:0 0 0 300px;">Exit</a></p>
+</s:if>
 </div>
 </div>
 </div>

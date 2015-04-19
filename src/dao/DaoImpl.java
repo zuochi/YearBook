@@ -387,7 +387,7 @@ public class DaoImpl<E> implements Dao {
 			session = sessionFactory.getCurrentSession();
 			Query query = session.createQuery("update User u set u.name=?,"
 					+ "u.password=?," + "u.profession.id=?," + "u.qq=?,"
-					+ "u.weChat=?," + "u.email=?," + "u.sex=?," + "u.schoolYear.id=?,u.isDelete=?,u.sign=?,u.telePhone=?,u.homeTown=? where u.id = ?");
+					+ "u.weChat=?," + "u.email=?," + "u.sex=?," + "u.schoolYear.id=?,u.isDelete=?,u.sign=?,u.telePhone=?,u.homeTown=?,u.is_admin=? where u.id = ?");
 			query.setParameter(0, user.getName());
 			query.setParameter(1, user.getPassword());
 			query.setParameter(2, user.getProfession().getId());
@@ -402,7 +402,8 @@ public class DaoImpl<E> implements Dao {
 			query.setParameter(9, user.getSign());
 			query.setParameter(10, user.getTelePhone());
 			query.setParameter(11, user.getHomeTown());
-			query.setParameter(12, user.getId());
+			query.setParameter(12, user.getIsAdmin());
+			query.setParameter(13, user.getId());
 			query.executeUpdate();
 			return true;
 		} catch (HibernateException e) {

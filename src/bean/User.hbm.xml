@@ -69,6 +69,11 @@
                 <comment>电子邮件</comment>
             </column>
         </property>
+        <property name="isAdmin" type="java.lang.Integer">
+            <column name="is_admin">
+                <comment>0:不是管理员 1:是管理员</comment>
+            </column>
+        </property>
         <property name="isDelete" type="java.lang.Integer">
             <column name="is_delete">
                 <comment>0:未删除 1:已删除</comment>

@@ -11,6 +11,8 @@
 <div id="getSchoolYears" class="top"><a href="admin/getSchoolYears_execute">学年管理</a></div>
 <div id="getProfessions" class="top"><a href="admin/getProfessions_execute">专业管理</a></div>
 <div id="getFeedBacks" class="top" ><a href="admin/getFeedBacks_execute">反馈处理</a></div>
+<div id="getFeedBacks" class="top" ><a href="index.jsp">前往用户端</a></div>
+<div id="getFeedBacks" class="top" ><a href="admin/logoutA_execute">退出</a></div>
 
 <!-- <div class="top2">用户反馈</div> -->
 </div>

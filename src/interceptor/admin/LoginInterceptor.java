@@ -1,6 +1,6 @@
 package interceptor.admin;
 
-import java.util.Map;
+import bean.User;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
@@ -11,13 +11,15 @@ public class LoginInterceptor extends AbstractInterceptor {
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		// 取得请求相关的ActionContext实例  
-        //ActionContext ctx = invocation.getInvocationContext();  
+        ActionContext ctx = invocation.getInvocationContext();  
   
-       // if (ctx.getSession().get("user") != null || "loginA_execute".equals(ctx.getName())) {  
-            return invocation.invoke();  
-        //}  
+        User user = (User) ctx.getSession().get("user");
         
-       // return "login";  
+        if ((user != null && user.getIsAdmin()==1) || "loginA_execute".equals(ctx.getName())) {  
+            return invocation.invoke();
+        }  
+        
+        return "login";  
 	}
 
 }

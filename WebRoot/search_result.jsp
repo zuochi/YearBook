@@ -22,6 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="styles/search_result.css" />
 <link rel="stylesheet" type="text/css" href="styles/jquery.cssemoticons.css" media="screen"/>
 <link rel="stylesheet" href="styles/styles_guide.css" type="text/css">
+<%-- <link rel="stylesheet" href="styles/demo2.css" type="text/css"> --%>
 </head>
 <body>
 <jsp:include page="guide.jsp" />
@@ -32,8 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <div style="height:100px; width:100%"></div>
 <form action="user/search_execute" method="post" id="form">
-
 <jsp:include page="template/user/search.jsp"></jsp:include>
+<jsp:include page="template/user/loadSocialPanel.jsp" />
 <jsp:include page="template/pageControl.jsp"></jsp:include>
 <div id="result" class="result">
 <c:forEach var="obj" items="${objs}">

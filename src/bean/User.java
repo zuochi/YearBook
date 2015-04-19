@@ -26,6 +26,7 @@ public class User implements java.io.Serializable {
 	private String qq;
 	private String weChat;
 	private String email;
+	private Integer isAdmin;
 	private Integer isDelete;
 
 	// Constructors
@@ -44,7 +45,7 @@ public class User implements java.io.Serializable {
 			HeadPhoto headPhoto, String userName, String password, String name,
 			Integer sex, String sign, Timestamp signupDate,
 			Timestamp lastLogintime, String telePhone, String homeTown,
-			String qq, String weChat, String email, Integer isDelete) {
+			String qq, String weChat, String email,Integer isAdmin, Integer isDelete) {
 		this.id = id;
 		this.profession = profession;
 		this.schoolYear = schoolYear;
@@ -61,6 +62,7 @@ public class User implements java.io.Serializable {
 		this.qq = qq;
 		this.weChat = weChat;
 		this.email = email;
+		this.isAdmin = isAdmin;
 		this.isDelete = isDelete;
 	}
 
@@ -202,4 +204,11 @@ public class User implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
+	public Integer getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Integer isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 }
