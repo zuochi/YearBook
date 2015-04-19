@@ -387,7 +387,7 @@ public class DaoImpl<E> implements Dao {
 			session = sessionFactory.getCurrentSession();
 			Query query = session.createQuery("update User u set u.name=?,"
 					+ "u.password=?," + "u.profession.id=?," + "u.qq=?,"
-					+ "u.weChat=?," + "u.email=?," + "u.sex=?," + "u.schoolYear.id=?,u.isDelete=?,u.sign=?,u.telePhone=?,u.homeTown=?,u.is_admin=? where u.id = ?");
+					+ "u.weChat=?," + "u.email=?," + "u.sex=?," + "u.schoolYear.id=?,u.isDelete=?,u.sign=?,u.telePhone=?,u.homeTown=?,u.isAdmin=? where u.id = ?");
 			query.setParameter(0, user.getName());
 			query.setParameter(1, user.getPassword());
 			query.setParameter(2, user.getProfession().getId());
