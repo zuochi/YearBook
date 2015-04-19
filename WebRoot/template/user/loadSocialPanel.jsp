@@ -28,7 +28,7 @@
 		<div class="circle">
 			<div class="tips2">people you may know</div>
 			<div id="nearBy">
-				<%-- <div class="user-inf">
+				 <div class="user-inf">
 					<div class="usersphoto">    </div>
 					<div class="usersname">     Kasstiel</div>
 				</div>
@@ -43,7 +43,7 @@
 				<div class="user-inf">
 					<div class="usersphoto">    </div>
 					<div class="usersname">     Kasstiel</div>
-				</div> --%>
+				</div> 
 			</div>
 		</div>
 	</div>
@@ -66,7 +66,7 @@ function loadNearBy(){
 				for(var i=0 ; i<json.length ; i++){
 					$("#nearBy").append(
 						"<div class='user-inf'>"+
-							"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].id+")'><div class='usersphoto'><img src='"+json[i].url_m+"'/></div></a>"+
+							"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].id+")'><div class='usersphoto'><img style='border-radius:50%;' height='65' width='65' src='"+json[i].url_m+"'/></div></a>"+
 							"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].id+")'><div class='usersname'>"+json[i].name+"</div></a>"+
 						"</div>");
 				}
