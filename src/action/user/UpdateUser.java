@@ -23,7 +23,10 @@ public class UpdateUser extends UserAction {
 			
 			if (service.updateUser(user)) {
 				out.print("success");
+				user = (User) service.getObjectByHql("from User where isDelete=0 and id="+user.getId(), "getHeadPhoto", "getProfession");
 				session.put("user", user);
+				session.put("headPhoto", user.getHeadPhoto());
+				session.put("profession", user.getProfession());
 			} else {
 				out.print("fail");
 			}

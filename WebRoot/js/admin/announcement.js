@@ -43,7 +43,8 @@ function addAnnouncement() {
 	if (confirm("Are you sure to add this announcement?")) {
 		var title = document.getElementById("add_announcement_title").value;
 		var context = document.getElementById("add_announcement_context").value;
-		var top = document.getElementById("add_announcement_top").value;
+		//var top = document.getElementById("add_announcement_top").value;
+		var top = 1;
 		var is_delete = document.getElementById("add_announcement_isDelete").value;
 		
 		if($.trim(title)==""){
