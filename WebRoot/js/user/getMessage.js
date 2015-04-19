@@ -163,7 +163,7 @@ function showPirvateLetter(toPageM,countM){
 	        dataType:'json', 
 			success:function (json) {
 				if(json.error==undefined){
-					console.log(json);
+					//console.log(json);
 					for(var i=0; i<json.length; i++){
 						$("#photoReplyDiv").append(
 							//json[i].status+

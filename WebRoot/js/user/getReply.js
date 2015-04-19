@@ -44,7 +44,7 @@ function showComments(photoBid,toPageC){
 	        async:false,
 	        dataType:'json', 
 			success:function (json) {
-				console.log(json);
+				//console.log(json);
 				if(json.error==undefined){
 					for(var i=0; i<json.length; i++){
 						$("#commentBody"+photoBid).append(

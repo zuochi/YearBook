@@ -160,7 +160,7 @@
 			disableGlobalDnd : true,
 			fileNumLimit : 300,
 			fileSizeLimit : 200 * 1024 * 1024, // 200 M
-			fileSingleSizeLimit : 10 * 1024 * 1024
+			fileSingleSizeLimit : 1 * 1024 * 1024//lzf
 		// 50 M
 		});
 
