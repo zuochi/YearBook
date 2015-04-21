@@ -2,13 +2,7 @@
     pageEncoding="UTF-8"%>
 <div class="hero">
 	<div id="random">
-	<%-- 
-		 <div style="background-image: url(images/slide1.jpg)">
-			<div class="tagline">
-		    	<h3>Welcome1:</h3>
-		    	<p>Show your Pic here <br> Click the top nearby your photos.</p>
-		    </div> 
-	    </div>
+
 	    
 	    <div style="background-image: url(images/slide2.jpg)"> 
 	    	<div class="tagline">
@@ -16,9 +10,7 @@
 	    		<p>Show your Pic here <br> Click the top nearby your photos.</p>
 			</div> 
 	    </div> 
-	    
-	    <div style="background-image: url(images/slide3.jpg)"></div>                   
-	    <div style="background-image: url(images/slide4.jpg)"></div> --%>
+	 
 	</div>
  </div>
  
