@@ -28,7 +28,7 @@
 		<div class="circle">
 			<div class="tips2">people you may know</div>
 			<div id="nearBy">
-				 <div class="user-inf">
+				 <%-- <div class="user-inf">
 					<div class="usersphoto">    </div>
 					<div class="usersname">     Kasstiel</div>
 				</div>
@@ -43,7 +43,7 @@
 				<div class="user-inf">
 					<div class="usersphoto">    </div>
 					<div class="usersname">     Kasstiel</div>
-				</div> 
+				</div>  --%>
 			</div>
 		</div>
 	</div>
@@ -69,6 +69,9 @@ function loadNearBy(){
 							"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].id+")'><div class='usersphoto'><img style='border-radius:50%;' height='65' width='65' src='"+json[i].url_m+"'/></div></a>"+
 							"<a href='javascript:void(0)' onclick='goSocialIndex("+json[i].id+")'><div class='usersname'>"+json[i].name+"</div></a>"+
 						"</div>");
+				}
+				if(json.length==0){
+					$("#nearBy").append("<div align='center'>Sorry,couldn't find any that you may konw.</div>");
 				}
 			}
 		}
