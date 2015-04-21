@@ -3,7 +3,7 @@
 <div class="hero">
 	<div id="random">
 
-	    <%--
+	   
 	    <div style="background-image: url(images/slide2.jpg)"> 
 	    	<div class="tagline">
 	    		<h3>Welcome2:</h3>
