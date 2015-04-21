@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="result" class="result">
 <c:forEach var="obj" items="${objs}">
 	<div class="user">
-	<div class="headphoto"><a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})"><img style="border-radius:50%;" alt="show more" src="${obj.url_l}"height="70" width="70" ></a></div>
+	<div class="headphoto"><a href="javascript:void(0)" onclick="goSocialIndex(${obj.id})"><img style="border-radius:50%;" src="${obj.url_l}"height="70" width="70" ></a></div>
 	<div class="information">
 		<div class="left2">
 			<h1 style=" padding:0 0 0 20px;width:90px;">
