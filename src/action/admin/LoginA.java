@@ -14,11 +14,12 @@ public class LoginA extends AdminAction{
 	public String execute() {
 		if(user!=null){
 			user = (User) service.getObjectByHql(
-					"from User where isDelete=0 and isAdmin=1 and userName='"+user.getUserName()+"' and password='" + user.getPassword() +"'","getHeadPhoto");
+					"from User where isDelete=0 and isAdmin=1 and userName='"+user.getUserName()+"' and password='" + user.getPassword() +"'","getHeadPhoto", "getProfession");
 			
 			if(user!=null){
 				session.put("user", user);
 				session.put("headPhoto", user.getHeadPhoto());
+				session.put("profession", user.getProfession());
 				return "loginSuccess";
 			}
 		}

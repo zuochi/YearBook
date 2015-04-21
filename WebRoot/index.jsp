@@ -17,7 +17,7 @@
 <link href="styles/jquery.skippr.css" rel="stylesheet" type="text/css"/>
 <jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />
-<title>Year Book </title>
+<title>Camereeye </title>
 </head>
 <%if("login".equals(request.getParameter("type"))){
 	

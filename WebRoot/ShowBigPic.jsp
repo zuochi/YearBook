@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <base href="<%=basePath%>">
 
-<title><%=name %> - YearBook</title>
+<title><%=name %> - Camereeye</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">

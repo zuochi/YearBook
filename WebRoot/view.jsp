@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>YearBook - View</title>
+<title>Camereeye - View</title>
 <base href="<%=basePath%>">
 <link rel="stylesheet" type="text/css" href="styles/demo2.css" />
 <link rel="stylesheet" type="text/css" href="styles/component.css" />

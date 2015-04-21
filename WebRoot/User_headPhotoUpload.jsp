@@ -43,7 +43,7 @@ body{
 		}
 	%>
 	<div style="width:630px;margin: 0 auto;">
-		<h1>Year Book</h1>
+		<h1>Camereeye</h1>
 		<h3>Please choose your photo.</h3>
 		<div>
 			<p id="swfContainer">

@@ -15,7 +15,7 @@
 <link href="styles/styles.css" rel="stylesheet" type="text/css"/>
 <link href="styles/jquery.skippr.css" rel="stylesheet" type="text/css"/>
 <jsp:include page="../styles/my.css" />
-<title>Year Book - preview</title>
+<title>Camereeye - preview</title>
 </head>
 <body>
 <div class="hero">
