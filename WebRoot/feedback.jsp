@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <br/>
 <input type="button" value="Send" onclick="addFeedBack()" style="font-size:18px;margin:0 0 50px 0;">
 				
-<h3>In case you need any assistance using our website,get in touch with us by sending an email to</h3><h4> Camereeye@xxx.com</h4>				
+<h3>In case you need any assistance using our website,get in touch with us by sending an email to</h3><h4> 313212272@qq.com</h4>				
 				 
 </div>
 </div></div>
