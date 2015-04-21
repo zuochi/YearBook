@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div class="hero">
 	<div id="random">
-		<%-- <div style="background-image: url(images/slide1.jpg)">
+		 <div style="background-image: url(images/slide1.jpg)">
 			<div class="tagline">
 		    	<h3>Welcome1:</h3>
 		    	<p>Show your Pic here <br> Click the top nearby your photos.</p>
@@ -20,6 +20,7 @@
 	    <div style="background-image: url(images/slide4.jpg)"></div> --%>
 	</div>
  </div>
+ 
 <script type="text/javascript">
 //读取专业
 function loadAnnouncementAndCover(){

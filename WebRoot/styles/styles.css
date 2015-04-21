@@ -99,20 +99,18 @@ a:hover {
   .hero .tagline {
     font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
     font-weight: bold;
-    height:200px;
-    width: 800px;
-    padding: 0 0 0 0;
+    padding: 0 20px 20px 10px;
+    letter-spacing:2px;
     float: left;
-    margin-top:45%;
+    margin-top:38%;
     margin-left:2%;
     color: white; 
     background-repeat: repeat;
 	background-image:url(../images/opacity-slider-text.png);
-    
     opacity:0.8;
     }
     .hero .tagline p {
-      font-size: 2rem;
+      font-size: 1.6rem;
       line-height: 2rem;
       margin-top: 10px; }
       @media (max-width: 1450px) {
@@ -126,7 +124,7 @@ a:hover {
     .hero .tagline h3 {
     
       font-weight: bold;
-      font-size: 3.5rem;
+      font-size: 3rem;
       letter-spacing: -0.15rem;
       line-height: 5.5rem; }
       @media (max-width: 1450px) {

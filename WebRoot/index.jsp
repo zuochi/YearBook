@@ -11,7 +11,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>Camereeye - Profile </title>
+<title>Camereeye</title>
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -23,7 +23,6 @@
 <link href="styles/jquery.skippr.css" rel="stylesheet" type="text/css"/>
 <jsp:include page="guide.jsp" />
 <jsp:include page="styles/my.css" />
-<title>Camereeye</title>
 </head>
 <%if("login".equals(request.getParameter("type"))){
 	
