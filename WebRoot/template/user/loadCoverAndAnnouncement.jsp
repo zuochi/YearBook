@@ -4,12 +4,12 @@
 	<div id="random">
 
 	   
-	    <div style="background-image: url(images/slide2.jpg)"> 
+	    <!-- <div style="background-image: url(images/slide2.jpg)"> 
 	    	<div class="tagline">
 	    		<h3>Welcome2:</h3>
 	    		<p>肥妹说要用中文测试.<br> 肥妹又要测试</p>
 			</div> 
-	    </div> --%>
+	    </div> -->
 	 
 	</div>
  </div>
