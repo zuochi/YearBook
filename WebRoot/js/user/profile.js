@@ -178,7 +178,7 @@ function updateCheck(){
 	         success:function (msg) {
 	        	if(msg=="success"){
 	        		$("#warn").html("revised successfully.");
-	        		window.parent.left.location.reload();
+	        		window.location.href="user/getMyPost_execute";
 	        	}else{
 	        		$("#warn").html("revised fali");
 	        	}

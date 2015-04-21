@@ -120,7 +120,7 @@ swfobject.addDomLoadEvent(function () {
 				case 5 : 
 					if(msg.type == 0)
 					{
-						window.parent.left.location.reload();
+						window.location.href="user/getMyPost_execute";
 					}
 				break;
 			}
