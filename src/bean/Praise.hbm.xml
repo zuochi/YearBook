@@ -20,7 +20,7 @@
                 <comment>点赞图片</comment>
             </column>
         </many-to-one>
-        <property name="signupDate" type="java.util.Date">
+        <property name="signupDate" type="java.sql.Timestamp">
             <column name="signup_date" length="10" not-null="true">
                 <comment>点赞日期</comment>
             </column>

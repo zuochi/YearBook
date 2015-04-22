@@ -1,6 +1,6 @@
 package bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 /**
  * Advice entity. @author MyEclipse Persistence Tools
@@ -13,7 +13,7 @@ public class Praise implements java.io.Serializable {
 	private Integer id;
 	private User user;
 	private Photo photo;
-	private Date signupDate;
+	private Timestamp signupDate;
 	private Integer isDelete;
 
 	// Constructors
@@ -22,7 +22,7 @@ public class Praise implements java.io.Serializable {
 	public Praise() {}
 
 	/** full constructor */
-	public Praise(Integer id, User user, Photo photo, Date signupDate,
+	public Praise(Integer id, User user, Photo photo, Timestamp signupDate,
 			Integer isDelete) {
 		this.id = id;
 		this.user = user;
@@ -56,14 +56,6 @@ public class Praise implements java.io.Serializable {
 		this.photo = photo;
 	}
 
-	public Date getSignupDate() {
-		return signupDate;
-	}
-
-	public void setSignupDate(Date signupDate) {
-		this.signupDate = signupDate;
-	}
-
 	public Integer getIsDelete() {
 		return isDelete;
 	}
@@ -72,4 +64,11 @@ public class Praise implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
+	public Timestamp getSignupDate() {
+		return signupDate;
+	}
+
+	public void setSignupDate(Timestamp signupDate) {
+		this.signupDate = signupDate;
+	}
 }
