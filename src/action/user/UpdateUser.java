@@ -25,7 +25,7 @@ public class UpdateUser extends UserAction {
 			user.setIsDelete(0);
 			user.setIsAdmin(userOld.getIsAdmin());
 			//临时解决乱码 TODO
-			user.setName(new String(user.getName().getBytes("iso-8859-1"),"utf-8"));
+			/*user.setName(new String(user.getName().getBytes("iso-8859-1"),"utf-8"));
 			if(!CommonUtils.isBlank(user.getSign())){
 				user.setSign(new String(user.getSign().getBytes("iso-8859-1"),"utf-8"));
 			}
@@ -34,7 +34,7 @@ public class UpdateUser extends UserAction {
 			}
 			if(!CommonUtils.isBlank(user.getWeChat())){
 				user.setWeChat(new String(user.getWeChat().getBytes("iso-8859-1"),"utf-8"));
-			}
+			}*/
 			
 			if (service.updateUser(user)) {
 				out.print("success");
