@@ -85,7 +85,7 @@ public class GetMessage extends UserAction{
 					"from at_notify a "+
 						"LEFT JOIN user u on u.id=a.user_id "+
 						"LEFT JOIN reply r on r.id=a.reply_bid "+
-						"where a.user_bid="+user.getId() + " order by a.at_date desc ", pc,new dto.Message());
+						"where a.is_delete=0 and a.user_bid="+user.getId() + " order by a.at_date desc ", pc,new dto.Message());
 				
 				//将未读消息设置成已读
 				StringBuilder sb = new StringBuilder();
@@ -147,7 +147,7 @@ public class GetMessage extends UserAction{
 						"from reply r "+
 							"LEFT JOIN user u on r.user_id=u.id "+
 							"LEFT JOIN photo ph on ph.id=r.photo_bid "+
-							"LEFT JOIN head_photo p on p.id=u.head_photo_id where r.user_id!="+user.getId()+" and r.user_bid="+user.getId()+
+							"LEFT JOIN head_photo p on p.id=u.head_photo_id where r.is_delete=0 and r.user_id!="+user.getId()+" and r.user_bid="+user.getId()+
 						" ORDER BY r.signup_date desc", pc,new dto.Message());
 				
 				//将未读消息设置成已读
@@ -201,7 +201,7 @@ public class GetMessage extends UserAction{
 							"pl.id,pl.user_id,pl.id as is_accusation,pl.user_bid,pl.id as photo_bid,pl.context,pl.signup_date,pl.status,u.name,pl.id as photoOwnerId,p.url_m "+
 						"from private_letter pl "+
 							"LEFT JOIN user u on pl.user_id=u.id "+
-							"LEFT JOIN head_photo p on p.id=u.head_photo_id where pl.user_bid="+user.getId()+
+							"LEFT JOIN head_photo p on p.id=u.head_photo_id where pl.is_delete=0 and pl.user_bid="+user.getId()+
 						 " ORDER BY pl.signup_date desc", pc, new dto.Message());
 				
 				//将未读消息设置成已读
